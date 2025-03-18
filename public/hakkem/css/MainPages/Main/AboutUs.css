@@ -1,0 +1,408 @@
+@import url("https://fonts.googleapis.com/css2?family=Halant:wght@300;400;500;600;700&display=swap");
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+/* ---------------
+Header - Footer CSS 
+ --------------- */
+.center {
+  display: flex;
+  justify-content: center;
+}
+/* Header */
+header {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  width: 100%;
+  z-index: 1000;
+  border-radius: 10px;
+  border-color: #ffffff;
+  border-width: 5px;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Logo */
+.logo-placeholder {
+  justify-items: center;
+  align-items: center;
+  color: #0b3322;
+}
+
+.logo {
+  width: 78px;
+}
+
+.brandname {
+  margin-top: -5px;
+  font-size: 12px;
+  font-weight: 300;
+  font-family: "Gravitas One", cursive;
+  width: 78px;
+  text-align: center;
+}
+
+/* Navbar */
+.nav {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.nav-cont {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.navigate {
+  cursor: pointer;
+  color: #00000080;
+  transition: color 0.2s ease-in-out;
+}
+
+.navigate:hover {
+  color: #3a5363;
+}
+
+.profile {
+  width: 50px;
+  cursor: pointer;
+}
+
+/* Footer */
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  align-items: center;
+  padding: 10px;
+}
+
+.left {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+}
+
+.Footer-link {
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 16px;
+  color: #000000;
+  font-style: italic;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.Footer-link:hover {
+  color: #3a5363;
+}
+
+.left,
+.right,
+.Mid {
+  align-items: center;
+}
+
+.Mid {
+  font-size: 16px;
+  color: #000000;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.right img {
+  cursor: pointer;
+}
+
+/* ---------------
+Section 1 CSS 
+ --------------- */
+.section-1 {
+  position: relative;
+  height: 105vh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.overlap {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+}
+
+.team-image {
+  position: absolute;
+  width: 100%;
+  height: 90vh;
+  background-size: cover;
+  background-image: url("/public/images/About-us/aboutus-section1.png");
+  top: 0;
+  left: 0;
+}
+
+.box {
+  height: 105vh;
+  top: 811px;
+  left: 307px;
+  align-content: end;
+}
+.overlap-group {
+  position: relative;
+  width: 100%; /* Makes it responsive */
+  max-width: 1000px;
+  height: auto; /* Adjusts height dynamically */
+  min-height: 230px; /* Ensures a minimum height */
+  background-color: #0b1d26;
+  border-radius: 60px;
+  border: 25px solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px; /* Adds spacing */
+  box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
+
+.text-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 851px;
+  font-family: "Halant", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  color: #ffffff;
+  font-size: 2.5vw; /* Makes font size responsive */
+  text-align: center;
+  letter-spacing: 0;
+  line-height: 1.2;
+}
+
+/* Tablet & smaller screens */
+@media (max-width: 768px) {
+  .overlap-group {
+    border-width: 15px;
+    border-radius: 30px;
+    padding: 15px;
+  }
+
+  .text-wrapper {
+    font-size: 4vw;
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 480px) {
+  .overlap-group {
+    border-width: 10px;
+    border-radius: 20px;
+    padding: 10px;
+  }
+
+  .text-wrapper {
+    font-size: 5vw;
+  }
+}
+
+/* ---------------
+Section 2 CSS 
+ --------------- */
+.section-2 {
+  position: relative;
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  width: 70%;
+  height: 60%;
+}
+
+.content {
+  width: 60%;
+  height: fit-content;
+  align-self: flex-start;
+}
+
+.title-separator {
+  width: 80%;
+  height: 1px;
+  background-color: #000000;
+  opacity: 0.5;
+}
+
+.title {
+  font-family: "Halant", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 56px;
+  margin: 0;
+}
+
+.text {
+  font-family: "Halant", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-size: 28px;
+}
+
+.section-img {
+  width: 40%;
+  flex: 1;
+  display: flex;
+  align-self: flex-end;
+}
+
+.section-img img {
+  width: 100%;
+  max-width: 400px;
+  box-shadow: 10 50px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* ---------------
+Section 5 CSS 
+ --------------- */
+.section-3 {
+  height: 80vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.values {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10%;
+  align-items: center;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 30%;
+  gap: 30px;
+}
+
+.values-box {
+  background-color: #2f3b41;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 15px;
+  padding: 60px 20px 20px; /* Extra padding at the top for icon */
+  height: 100%;
+  width: 20%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 0px 6px 8px rgba(0, 0, 0, 0.1); /* Optional shadow */
+}
+
+.icon-wrapper {
+  position: absolute;
+  top: -40px; /* Moves the icon above the card */
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: white;
+  padding: 10px;
+  border-radius: 50%; /* Circular background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-profile__image {
+  width: 80px;
+}
+
+.box-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.box-cont h3 {
+  font-size: 32px;
+  font-weight: bold;
+}
+
+.box-cont p {
+  font-size: 20px;
+  margin-top: 5px;
+  max-width: 90%;
+}
+
+/* ---------------
+Section 6 CSS 
+ --------------- */
+.section-4 {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  background-color: #0b332225;
+}
+
+.choose-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.choose-cont h2 {
+  font-family: "Halant", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 48px;
+  margin-bottom: 10%;
+}
+
+.choose-cont h3 {
+  font-family: "Halant", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-size: 45px;
+  margin: 0;
+  text-align: center;
+}
+
+.choose-row {
+  display: flex;
+  flex-direction: row;
+  gap: 3%;
+}
+
+.choose-box {
+  width: 300px;
+  padding: 15px;
+  color: #ffffff;
+  background-color: #0b3322;
+  border-radius: 15px;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.choose-box:hover {
+  background-color: #0b332290;
+}

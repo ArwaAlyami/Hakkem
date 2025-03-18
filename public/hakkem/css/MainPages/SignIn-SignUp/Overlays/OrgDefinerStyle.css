@@ -1,0 +1,185 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url("https://fonts.googleapis.com/css?family=Inria+Sans:700");
+* {
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0px;
+  height: 100%;
+}
+/* a blue color as a generic focus style */
+button:focus-visible {
+  outline: 2px solid #4a90e2 !important;
+  outline: -webkit-focus-ring-color auto 5px !important;
+}
+a {
+  text-decoration: none;
+}
+/* ---------------------------------------------  */
+.organization-definer {
+    background-color: #51655d;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  .organization-definer .div {
+    background-color: #51655d;
+    width: 941px;
+    height: 546px;
+    position: fixed;
+    border-radius: 35px;
+  }
+  
+  .organization-definer .overlap {
+    left: 69px;
+    position: absolute;
+    width: 360px;
+    height: 195px;
+    top: 176px;
+    background-color: #bab8ab;
+    border-radius: 15px;
+    border: 1px solid;
+    border-color: #000000;
+  }
+  
+  .organization-definer .text-wrapper {
+    position: absolute;
+    top: 95px;
+    left: 13px;
+    font-family: "Inria Sans", Helvetica;
+    font-weight: 700;
+    color: #000000;
+    font-size: 32px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+  }
+  
+  .organization-definer .ellipse {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 25px;
+    left: 298px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    border: 1px solid;
+    border-color: #000000;
+  }
+  
+  .organization-definer .frame {
+    width: 151px;
+    display: flex;
+    height: 52px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    position: absolute;
+    top: 89px;
+    left: 187px;
+    background-color: #0b1d26;
+    border-radius: 20px;
+  }
+  
+  .organization-definer .text-wrapper-2 {
+    position: relative;
+    width: fit-content;
+    margin-top: -4.00px;
+    margin-bottom: -2.00px;
+    margin-left: -7.00px;
+    margin-right: -7.00px;
+    font-family: "Inria Sans", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 32px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+  }
+  
+  .organization-definer .material-symbols {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 18px;
+    left: 28px;
+  }
+  
+  .organization-definer .overlap-group {
+    left: 515px;
+    position: absolute;
+    width: 360px;
+    height: 195px;
+    top: 176px;
+    background-color: #bab8ab;
+    border-radius: 15px;
+    border: 1px solid;
+    border-color: #000000;
+  }
+  
+  .organization-definer .text-wrapper-3 {
+    position: absolute;
+    top: 95px;
+    left: 18px;
+    font-family: "Inria Sans", Helvetica;
+    font-weight: 700;
+    color: #000000;
+    font-size: 32px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+  }
+  
+  .organization-definer .div-wrapper {
+    width: 165px;
+    display: flex;
+    height: 52px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px;
+    position: absolute;
+    top: 89px;
+    left: 187px;
+    background-color: #0b1d26;
+    border-radius: 20px;
+  }
+  
+  .organization-definer .text-wrapper-4 {
+    position: relative;
+    width: fit-content;
+    margin-top: -4.00px;
+    margin-bottom: -2.00px;
+    font-family: "Inria Sans", Helvetica;
+    font-weight: 700;
+    color: #ffffff;
+    font-size: 32px;
+    text-align: center;
+    letter-spacing: 0;
+    line-height: normal;
+    white-space: nowrap;
+  }
+  
+  .organization-definer .mdi-journal {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 18px;
+    left: 23px;
+  }
+  
+  .organization-definer .vector {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    top: 16px;
+    left: 19px;
+  }
