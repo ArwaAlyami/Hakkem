@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('l_name')->nullable(false);
             $table->string('email')->unique();
             
+            
             $table->unsignedBigInteger('uni_id');
          
             $table->foreign('uni_id')->references('id')->on('universities');
