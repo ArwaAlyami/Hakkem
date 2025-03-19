@@ -8,7 +8,7 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="/CSS/MainPages/HOME/AboutUs.css"
+      href={{ asset('hakkem/css/MainPages/Main/AboutUs.css') }}
     />
     <link
       href="https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap"
@@ -20,18 +20,18 @@
     <div class="center">
       <header>
         <div class="logo-placeholder">
-          <img src="/public/images/Dark-logo.png" alt="logo" />
+          <img src={{ asset('hakkem/images/Dark-logo.png') }} alt="logo" />
           <h1 class="brandname">HAKKEM</h1>
         </div>
         <div class="nav">
           <div class="nav-cont">
-            <p class="navigate">Home</p>
-            <p class="navigate">Chat</p>
-            <p class="navigate">Offers</p>
-            <p class="navigate">Journals</p>
+            <a href="#"><p class="navigate">Home</p></a>
+            <a href="#"><p class="navigate">Chat</p></a>
+            <a href="#"><p class="navigate">Offers</p></a>
+            <a href="#"><p class="navigate">Journals</p></a>
           </div>
           <img
-            src="/public/images/Header - Footer/profile_dark.png"
+            src="{{ asset('hakkem/images/Header_Footer/profile_dark.png') }}"
             class="profile"
           />
         </div>
@@ -68,7 +68,7 @@
           </p>
         </div>
         <div class="section-img">
-          <img src="/public/images/About-us/aboutus-section2.png" />
+          <img src="{{ asset('hakkem/images/About-us/aboutus-section2.png') }}"/>
         </div>
       </div>
     </div>
@@ -77,7 +77,7 @@
     <div class="section-2">
       <div class="container">
         <div class="section-img">
-          <img src="/public/images/About-us/aboutus-section3.png" />
+          <img src={{ asset('hakkem/images/About-us/aboutus-section3.png') }} />
         </div>
         <div class="content">
           <h1 class="title">Our Vision</h1>
@@ -104,7 +104,7 @@
           </p>
         </div>
         <div class="section-img">
-          <img src="/public/images/About-us/aboutus-section4.png" />
+          <img src={{ asset('hakkem/images/About-us/aboutus-section4.png') }} />
         </div>
       </div>
     </div>
@@ -118,7 +118,7 @@
           <div class="values-box">
             <div class="icon-wrapper">
               <img
-                src="/public/images/About-us/aboutus-img-1.png"
+                src={{ asset('hakkem/images/About-us/aboutus-img-1.png') }}
                 alt="Professionalism Icon"
                 class="user-profile__image"
               />
@@ -133,7 +133,7 @@
           <div class="values-box">
             <div class="icon-wrapper">
               <img
-                src="/public/images/About-us/aboutus-img-2.png"
+                src={{ asset('hakkem/images/About-us/aboutus-img-2.png') }}
                 alt="Professionalism Icon"
                 class="user-profile__image"
               />
@@ -148,7 +148,7 @@
           <div class="values-box">
             <div class="icon-wrapper">
               <img
-                src="/public/images/About-us/aboutus-img-3.png"
+                src={{ asset('hakkem/images/About-us/aboutus-img-3.png') }}
                 alt="Professionalism Icon"
                 class="user-profile__image"
               />
@@ -206,9 +206,9 @@
           <p>© 2025 Hakkem. All Rights Reserved.</p>
         </div>
         <div class="right">
-          <img src="/public/images/Header - Footer/Contact-Phone_dark.png" />
-          <img src="/public/images/Header - Footer/Contact-Email_dark.png" />
-          <img src="/public/images/Header - Footer/Contact-X_dark.png" />
+          <img src="{{ asset('hakkem/images/Header_Footer/ContactPhoneDark.png') }}"/>
+          <img src="{{ asset('hakkem/images/Header_Footer/Contact-Email_dark.png') }}"/>
+          <img src="{{ asset('hakkem/images/Header_Footer/Contact-X_dark.png') }}"/>
         </div>
       </footer>
     </div>

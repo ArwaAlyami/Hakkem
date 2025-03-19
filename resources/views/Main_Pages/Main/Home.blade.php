@@ -4,21 +4,15 @@
     <meta charset="utf-8" />
     <title>Hakkem - Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link
-      rel="stylesheet"
-      type="text/css"
-      href="/CSS/MainPages/HOME/Home.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" type="text/css" href="{{ asset('hakkem/css/MainPages/Main/Home.css')}}"/>
+    <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap" rel="stylesheet"/>
   </head>
+
   <body>
     <div class="center">
       <header>
         <div class="logo-placeholder">
-          <img src="/public/images/Dark-logo.png" alt="logo" />
+          <img src="{{ asset('hakkem/images/Dark-logo.png')}}" alt="logo" />
           <h1 class="brandname">HAKKEM</h1>
         </div>
         <div class="nav">
@@ -28,10 +22,7 @@
             <p class="navigate">Offers</p>
             <p class="navigate">Journals</p>
           </div>
-          <img
-            src="/public/images/Header - Footer/profile_dark.png"
-            class="profile"
-          />
+          <img src="{{ asset('hakkem/images/Header_Footer/profile_dark.png')}}" class="profile"/>
         </div>
       </header>
     </div>
@@ -62,9 +53,9 @@
         <h1 class="h1-body">Choose Type of Request</h1>
       </div>
       <div class="decoration">
-        <img src="/public/images/Home/Home_sec2_part3.svg" class="under" />
-        <img src="/public/images/Home/Home_sec2_part2.svg" class="middle" />
-        <img src="/public/images/Home/Home_review_request.svg" class="over" />
+        <img src="{{ asset('hakkem/images/Home/Home_sec2_part3.svg')}}" class="under" />
+        <img src="{{ asset('hakkem/images/Home/Home_sec2_part2.svg')}}" class="middle" />
+        <img src="{{ asset('hakkem/images/Home/Home_review_request.svg')}}" class="over" />
       </div>
       <div class="content">
         <h2 class="h2-body">Preliminary Review Request</h2>
@@ -94,24 +85,18 @@
         <button id="review-req" class="req-btn">Send Request</button>
       </div>
       <div class="decoration-r">
-        <img src="/public/images/Home/Home_sec2_part3.svg" class="under-r" />
-        <img src="/public/images/Home/Home_sec2_part1.svg" class="middle-r" />
-        <img
-          src="/public/images/Home/Home_publish_request.svg"
-          class="over-r"
-        />
+        <img src="{{ asset('hakkem/images/Home/Home_sec2_part3.svg')}}" class="under-r" />
+        <img src="{{ asset('hakkem/images/Home/Home_sec2_part1.svg')}}" class="middle-r" />
+        <img src="{{ asset('hakkem/images/Home/Home_publish_request.svg')}}" class="over-r"/>
       </div>
     </section>
 
     <!-- جزء طلب الترقيات -->
     <section class="section-4">
       <div class="decoration">
-        <img src="/public/images/Home/Home_sec2_part3.svg" class="under" />
-        <img src="/public/images/Home/Home_sec2_part2.svg" class="middle" />
-        <img
-          src="/public/images/Home/Home_promotion_request.svg"
-          class="over"
-        />
+        <img src="{{ asset('hakkem/images/Home/Home_sec2_part3.svg')}}" class="under" />
+        <img src="{{ asset('hakkem/images/Home/Home_sec2_part2.svg')}}" class="middle" />
+        <img src="{{ asset('hakkem/images/Home/Home_promotion_request.svg')}}" class="over"/>
       </div>
       <div class="content">
         <h2 class="h2-body">Promotion Request</h2>
@@ -143,13 +128,13 @@
           <p>© 2025 Hakkem. All Rights Reserved.</p>
         </div>
         <div class="right">
-          <img src="/public/images/Header - Footer/Contact-Phone_dark.png" />
-          <img src="/public/images/Header - Footer/Contact-Email_dark.png" />
-          <img src="/public/images/Header - Footer/Contact-X_dark.png" />
+          <img src="{{ asset('hakkem/images/Header_Footer/ContactPhoneDark.png')}}" />
+          <img src="{{ asset('hakkem/images/Header_Footer/Contact-Email_dark.png')}}" />
+          <img src="{{ asset('hakkem/images/Header_Footer/Contact-Email_dark.png')}}" />
         </div>
       </footer>
     </div>
   </body>
 
-  <script src="/JavaScripts/Overlay.js"></script>
+  <script src="{{ asset('hakkem/javascript/Overlay.js')}}"></script>
 </html>

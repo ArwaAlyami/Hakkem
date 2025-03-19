@@ -7,5 +7,7 @@ use Illuminate\Http\Request;
 
 class FMReviewerController extends Controller
 {
-    //
+    public function index(){
+        
+    }
 }

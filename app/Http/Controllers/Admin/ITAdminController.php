@@ -7,5 +7,7 @@ use Illuminate\Http\Request;
 
 class ITAdminController extends Controller
 {
-    //
+    public function index(){
+        
+    }
 }

@@ -155,7 +155,7 @@ body {
   position: relative;
   width: 105%;
   height: 50vh;
-  background-image: url("/public/images/Get-Started/GetStarted-img1.png");
+  background-image: url("../../../../hakkem/images/Get-Started/GetStarted-img1.png");
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;

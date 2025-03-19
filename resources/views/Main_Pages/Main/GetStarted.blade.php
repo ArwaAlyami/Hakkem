@@ -20,14 +20,14 @@
       href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@1,700&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="/CSS/MainPages/HOME/GetStarted.css" />
+    <link rel="stylesheet" href= {{asset('hakkem/css/MainPages/Main/GetStarted.css')}} />
   </head>
   <body>
     <!-- Header -->
     <div class="center">
       <header class="header">
         <div class="logo-placeholder">
-          <img src="/public/images/Dark-logo.png" alt="Logo" class="logo" />
+          <img src= {{ asset('hakkem/images/Dark-logo.png') }} alt="Logo" class="logo" />
           <p class="brand-name">HAKKEM</p>
         </div>
         <div class="nav-container" id="nav-container">
@@ -35,21 +35,17 @@
             <a href="#" class="nav-link">Home</a>
             <a href="#" class="nav-link">Journals</a>
           </nav>
-          <a
-            href="/HTML/MainPages/SIGNIN - SIGNUP/MainSignInForm.html"
-            class="signIn-btn"
-            >Sign In</a
-          >
+
+          <a href="#" class="signIn-btn">Sign In</a>
+          
         </div>
         <div class="menu-toggle" id="menu-toggle">☰</div>
         <div class="mobile-menu" id="mobile-menu">
           <a href="#" class="mobile-link">Home</a>
           <a href="#" class="mobile-link">Journals</a>
-          <a
-            href="/HTML/MainPages/SIGNIN - SIGNUP/MainSignInForm.html"
-            class="mobile-signup-btn"
-            >Sign In</a
-          >
+          <a href="#" class="mobile-signup-btn">
+            Sign In
+            </a>
         </div>
       </header>
     </div>
@@ -64,15 +60,8 @@
         <p class="subtitle">TO REVIEW AND PUBLISH YOUR RESEARCHES...</p>
       </div>
 
-      <a
-        href="/HTML/MainPages/SIGNIN - SIGNUP/MainSignUpForm.html"
-        class="get-started-btn"
-      >
-        <img
-          src="/public/images/Get-Started/GetStarted_Arrow.svg"
-          alt="Arrow Icon"
-          class="arrow-icon"
-        />
+      <a href="#" class="get-started-btn">
+        <img src="{{ asset('hakkem/images/Get-Started/GetStarted_Arrow.svg') }}" alt="Arrow Icon" class="arrow-icon"/>
         GET STARTED NOW!
       </a>
     </section>
@@ -93,9 +82,7 @@
         </div>
         <div class="get-started-image">
           <img
-            src="/public/images/Get-Started/GetStarted-img3.png"
-            alt="Digital Review Illustration"
-          />
+            src="{{ asset('hakkem/images/Get-Started/GetStarted-img3.png') }}" alt="Digital Review Illustration"/>
         </div>
       </div>
     </section>
@@ -105,9 +92,7 @@
       <div class="ai-review-container">
         <div class="ai-review-image">
           <img
-            src="/public/images/Get-Started/GetStarted-img4.png"
-            alt="AI Review Illustration"
-          />
+            src="{{ asset('hakkem/images/Get-Started/GetStarted-img4.png') }}" alt="AI Review Illustration"/>
         </div>
         <div class="ai-review-text">
           <h1><span class="number">02</span></h1>
@@ -141,9 +126,7 @@
         </div>
         <div class="quality-assurance-image">
           <img
-            src="/public/images/Get-Started/GetStarted-img5.png"
-            alt="Quality Assurance Illustration"
-          />
+            src="{{ asset('hakkem/images/Get-Started/GetStarted-img5.png') }}" alt="Quality Assurance Illustration"/>
         </div>
       </div>
     </section>
@@ -167,12 +150,12 @@
           <p>© 2025 Hakkem. All Rights Reserved.</p>
         </div>
         <div class="right">
-          <img src="/public/images/Header - Footer/Payment-visaCard.png" />
-          <img src="/public/images/Header - Footer/Payment-applepay.svg" />
-          <img src="/public/images/Header - Footer/Payment-paypal.svg" />
+          <img src="{{ asset('hakkem/images/Header_Footer/Payment-visaCard.png') }}" />
+          <img src="{{ asset('hakkem/images/Header_Footer/Payment-applepay.svg') }}" />
+          <img src="{{ asset('hakkem/images/Header_Footer/Payment-paypal.svg') }}"/>
         </div>
       </footer>
     </div>
-    <script src="/JavaScripts/Get.js"></script>
+    <script src={{ asset('hakkem/javascript/Get.js') }}></script>
   </body>
 </html>
