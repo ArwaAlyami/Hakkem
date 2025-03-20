@@ -1,0 +1,101 @@
+html,
+body {
+  margin: 0px;
+  padding: 0px;
+  width: fit-content;
+  height: fit-content;
+}
+
+/* إطار الكارد كامل */
+.profile-content {
+  position: relative;
+  width: 230px;
+  height: 120px;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-radius: 10px;
+  box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25),
+    0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 15px;
+  display: inline-block;
+  margin: 3px;
+}
+
+/* إطار اسم المحكم*/
+header {
+  display: inline-block;
+}
+
+/* اسم المحكم نفسه */
+.profile-name {
+  font-family: "Inter", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  color: #000000;
+  font-size: 16px;
+  letter-spacing: 0;
+  transform: rotate(-0.1deg);
+  display: inline-block;
+  margin: 0px;
+}
+
+/* إطار بيانات المحكم مع الزر*/
+.profile-details {
+  width: fit-content;
+}
+
+/* إطار بيانات المحكم بدون الزر*/
+.department-info {
+  font-family: "Inria Sans", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  color: #000000;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 1.3;
+  width: fit-content;
+  display: inline-flex;
+  flex-direction: column;
+}
+
+/* الثنتين ذي واضحه، واحد للكلية والثاني للجامعة */
+.department {
+  font-weight: 300;
+}
+
+.university {
+  font-weight: 700;
+}
+
+/* حدود الزر */
+.action-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 70px;
+  height: 25px;
+  border-radius: 20px;
+  border: 1px solid #000000;
+  background: none;
+  cursor: pointer;
+  position: absolute;
+  bottom: 13px;
+  right: 16px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* التحكم بكلمة الزر */
+.button-text {
+  font-family: "Inria Sans", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 12px;
+  text-align: center;
+}
+
+/* أشياء جمالية للزر */
+.action-button:hover,
+.action-button:focus {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+.action-button:active {
+  background-color: rgba(0, 0, 0, 0.2);
+}

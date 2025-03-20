@@ -4,10 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AI Review Request</title>
-    <link
-      rel="stylesheet"
-      href="/CSS/MainPages/Requests/AI-Review-Request.css"
-    />
+    <link rel="stylesheet" href="{{asset('hakkem/css/MainPages/Requests/AI-Review-Request.css')}}"/>
   </head>
   <body>
     <div class="overlay">
@@ -62,7 +59,7 @@
             </div>
 
             <div class="buttons">
-              <button class="cancel">Cancel</button>
+              <a href="{{route('Main_Pages.Home')}}"><button class="cancel">Cancel</button></a>
               <button class="next">Make a Preliminary Assessment</button>
             </div>
           </div>
@@ -96,13 +93,13 @@
             </div>
 
             <div class="closebtn">
-              <button class="confirm">Close</button>
+              <a href="{{route('Main_Pages.Home')}}"><button class="confirm">Close</button></a>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <script src="/JavaScripts/Review-Request.js"></script>
+    <script src="{{ asset('hakkem/javascript/Review-Request.js')}}"></script>
   </body>
 </html>

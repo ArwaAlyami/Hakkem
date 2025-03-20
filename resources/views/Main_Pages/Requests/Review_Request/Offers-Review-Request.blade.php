@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Independent Review Request (AI)</title>
+    <title>Independent Review Request (Offers)</title>
     <link
       rel="stylesheet"
-      href="/CSS/MainPages/Requests/Rev-Review-Request.css"
+      href="{{ asset('hakkem/css/MainPages/Requests/Offers-Review-Request.css')}}"
     />
   </head>
   <body>
@@ -74,8 +74,8 @@
 
             <!-- Buttons of step 1 -->
             <div class="buttons">
-              <button class="cancel">Cancel</button>
-              <button class="next">Create Review List</button>
+              <a href="{{route('Main_Pages.Home')}}"><button class="cancel">Cancel</button></a>
+              <button class="next">Next</button>
             </div>
           </div>
 
@@ -83,16 +83,26 @@
                       Step 2 
           ----------------------------->
           <div class="form-step">
-            <div class="content-list">
+            <div class="content">
+              <!-- خانة البحث -->
               <!-- 
-              حطيت آيفريمز عشان يعرض محتوى البروفايل كارد مبدئيا، مو
-              أفضل حل لكن بعد ما نشوف كيف بتكون الباك اند للكارد بنعدل عليها
+              الدالة في الاون تشينج هي المسؤولة عن البحث عن 
+              آي دي المستخدم وتجيب الكارد حقه وتعرضه هنا
               -->
-              <iframe src="usercontainer.html" frameborder="0"></iframe>
-              <iframe src="usercontainer.html" frameborder="0"></iframe>
-              <iframe src="usercontainer.html" frameborder="0"></iframe>
-              <iframe src="usercontainer.html" frameborder="0"></iframe>
-              <iframe src="usercontainer.html" frameborder="0"></iframe>
+              <div class="searchbar">
+                <input
+                  type="search"
+                  class="inp"
+                  id="userId"
+                  placeholder="Search user ID ..."
+                  size="30"
+                  onchange="profileCard()"
+                  required
+                />
+              </div>
+
+              <!-- المسؤول عن عرض محتوى الكارد -->
+              <div id="user"></div>
             </div>
 
             <!-- Buttons of Step 2 -->
@@ -203,7 +213,7 @@
                     <p>Arwa Abdullah M AlYami</p>
                     <!-- حالة الطلب -->
                     <div class="state">
-                      <img src="/public/images/Requests/timefill.svg" />
+                      <img src="{{ asset('hakkem/images/Requests/timefill.svg')}}" />
                       <span>To Be Accepted</span>
                     </div>
                     <p>20-01-2025 at 8:51 AM</p>
@@ -224,11 +234,11 @@
                   <div class="col2">
                     <p># 669948474</p>
                     <div class="state">
-                      <img src="/public/images/Requests/timefill.svg" />
+                      <img src="{{ asset('hakkem/images/Requests/timefill.svg')}}" />
                       <span>Not Yet Transferred</span>
                     </div>
                     <p>
-                      <span id="riyal" class="icon icon-home"></span>1,000.00
+                      <span id="riyal" class="icon icon-home"></span>2,100.00
                     </p>
                   </div>
                 </div>
@@ -238,13 +248,13 @@
             <!-- Buttons of Step 4 -->
             <div class="buttons">
               <button class="back">Back</button>
-              <button class="confirm">Confirm</button>
+              <a href="{{route('Main_Pages.Home')}}"><button class="confirm">Confirm</button></a>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <script src="/JavaScripts/Review-Request.js"></script>
+    <script src="{{ asset('hakkem/javascript/Review-Request.js')}}"></script>
   </body>
 </html>

@@ -2,11 +2,9 @@
 <html>
   <head>
     <title>Review By AI or Expert Feedback</title>
-    <link
-      rel="stylesheet"
-      href="/CSS/MainPages/Requests/ReviewRequestOptions.css"
-    />
+    <link rel="stylesheet" href="{{ asset('hakkem/css/MainPages/Requests/ReviewRequestOptions.css')}}"/>
   </head>
+
   <body>
     <div class="overlay">
       <div class="review-option container-r">
@@ -29,11 +27,11 @@
                     <!-- ai cont -->
                     <div>
                       <!-- col -->
-                      <img src="/public/images/Requests/AI-Robot.svg" />
+                      <img src="{{ asset('hakkem/images/Requests/AI-Robot.svg')}}" />
                       <div>
                         <!-- text cont -->
                         <h2>Through</h2>
-                        <a href="./AI-Review-Request.html"> HAKKEMGPT </a>
+                        <a href="{{route('Requests.ReviewRequest.AI_Review')}}">HAKKEMGPT </a>
                       </div>
                     </div>
                   </div>
@@ -44,11 +42,11 @@
                     <!-- ind cont -->
                     <div>
                       <!-- col -->
-                      <img src="/public/images/Requests/Reviewer User.svg" />
+                      <img src="{{ asset('hakkem/images/Requests/Reviewer User.svg')}}" />
                       <div>
                         <!-- text cont -->
                         <h2>By An</h2>
-                        <a href="./ThroughIndRevsOptions.html">
+                        <a href="{{route('Requests.ReviewRequest.Ind_Reviewer_Options')}}">
                           Independent Reviewer
                         </a>
                       </div>

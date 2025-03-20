@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <link
       rel="stylesheet"
-      href="/CSS/MainPages/Requests/ThroughIndRevsOptions.css"
+      href="{{ asset('hakkem/css/MainPages/Requests/ThroughIndRevsOptions.css')}}"
     />
   </head>
   <body>
@@ -22,11 +22,13 @@
               <h2 class="option-title">using the help of</h2>
               <img
                 class="option-icon"
-                src="/public/images/Requests/AI-Robot.svg"
+                src="{{ asset('hakkem/images/Requests/AI-Robot.svg')}}"
                 alt="Robot icon"
               />
               <button class="option-button hakkem-gpt">
+                <a href="{{route('Requests.ReviewRequest.Through_Ind_Reviewer')}}">
                 <span class="button-text">HAKKEMGPT</span>
+                </a>
               </button>
             </div>
 
@@ -35,11 +37,13 @@
               <h2 class="option-title">Agreed with a</h2>
               <img
                 class="option-icon"
-                src="/public/images/Requests/Agreed-W-Reviewer.png"
+                src="{{ asset('hakkem/images/Requests/Agreed-W-Reviewer.png')}}"
                 alt="Handshake icon"
               />
               <button class="option-button reviewer">
+                <a href="{{route('Requests.ReviewRequest.Through_Offers_Review')}}">
                 <span class="button-text">Reviewer</span>
+                </a>
               </button>
             </div>
           </div>

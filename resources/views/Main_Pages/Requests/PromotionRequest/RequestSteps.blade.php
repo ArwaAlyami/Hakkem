@@ -4,10 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Promotion Request</title>
-    <link
-      rel="stylesheet"
-      href="/CSS/MainPages/Requests/Promotion-Request.css"
-    />
+    <link rel="stylesheet" href="{{ asset('hakkem/css/MainPages/Requests/Promotion-Request.css')}}"/>
   </head>
   <body>
     <div class="overlay">
@@ -243,7 +240,7 @@
               </div>
             </div>
             <div class="buttons">
-              <button class="cancel">Cancel</button>
+              <a href="{{route('Main_Pages.Home')}}"><button class="cancel">Cancel</button></a>
               <button class="next">Next</button>
             </div>
           </div>
@@ -291,7 +288,7 @@
                     <p>Arwa Abdullah M AlYami</p>
                     <!-- حالة الطلب -->
                     <div class="state">
-                      <img src="/public/images/Requests/timefill.svg" />
+                      <img src="{{ asset('hakkem/images/Requests/timefill.svg')}}"/>
                       <span>To Be Accepted</span>
                     </div>
                     <p>20-01-2025 at 8:51 AM</p>
@@ -303,13 +300,13 @@
             <!-- Buttons of Step 2 -->
             <div class="buttons">
               <button class="back">Back</button>
-              <button class="confirm">Confirm</button>
+              <a href="{{route('Main_Pages.Home')}}"><button class="confirm">Confirm</button></a>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <script src="/JavaScripts/Review-Request.js"></script>
+    <script src="{{ asset('hakkem/javascript/Review-Request.js')}}"></script>
   </body>
 </html>

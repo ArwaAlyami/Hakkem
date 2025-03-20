@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <link rel="stylesheet" href="/css/usercontainer.css" />
+    <link rel="stylesheet" href="{{ asset('hakkem/css/usercontainer.css')}}" />
   </head>
   <body>
     <!----------------------------------------
@@ -31,5 +31,5 @@
       </footer>
     </article>
   </body>
-  <script src="/JavaScripts/Review-Request.js"></script>
+  <script src="{{ asset('hakkem/javascript/Review-Request.js')}}"></script>
 </html>
