@@ -10,10 +10,22 @@ use App\Http\Controllers\Admin\MainPagesController;
 
 Route::prefix('/')->as('Main_Pages.')->group(function () {
 
-    Route::get('Get_Started',[MainPagesController::class,'GetStarted'])->name('Get_Started');
+    Route::get('/',[MainPagesController::class,'GetStarted'])->name('Get_Started');
     Route::get('About_Hakkem',[MainPagesController::class,'AboutUs'])->name('About_Hakkem');
     Route::get('Home',[MainPagesController::class,'Home'])->name('Home');
     
+});
+
+// ************ SignIn SignUp Pages ******************* //
+
+Route::prefix('Auth')->as('Auth.')->group(function () {  
+    
+    Route::get('MainSignInForm',[AuthController::class,  'MainSignInForm'])->name('MainSignInForm');
+    Route::get('MainSignUpForm',[AuthController::class,  'MainSignUpForm'])->name('MainSignUpForm');
+    Route::get('IndividualSignUp',[AuthController::class,  'IndividualSignUp'])->name('IndividualSignUp');
+    Route::get('JournalSignUpForm',[AuthController::class,  'JournalSignUpForm'])->name('JournalSignUpForm');
+    Route::get('UniversitySignUpForm',[AuthController::class,  'UniversitySignUpForm'])->name('UniversitySignUpForm');
+
 });
 
 // ******************* Requests Routes ***********************//
@@ -34,6 +46,10 @@ Route::prefix('Requests')->as('Requests.')->group(function () {
     });
 
 });
+
+// Route::prefix('PromotionAdmin')->as('PromotionAdmin.')->group(function () {  
+//     Route::get('',[MainPagesController::class,  ''])->name('');
+// });
 
 
 

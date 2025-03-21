@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HAKKEM - Select User Type</title>
-  <link rel="stylesheet" href="/CSS/MainPages/SIGNIN - SIGNUP/MainSignUpForm.css" />
+  <link rel="stylesheet" href="{{ asset('hakkem/css/MainPages/SignIn-SignUp/MainSignUpForm.css')}}" />
   <link href="https://fonts.googleapis.com/css2?family=Candal&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap" rel="stylesheet">
 </head>
@@ -13,7 +13,7 @@
   <header>
     <div class="container">
         <div class="logo-section">
-            <img src="/public/images/Dark-logo.png" alt="Hakkem Logo" class="logo">
+            <img src="{{ asset('hakkem/images/Dark-logo.png')}}" alt="Hakkem Logo" class="logo">
             <p class="brand-name">HAKKEM</p>
         </div>
   </header>
@@ -21,10 +21,10 @@
         <p>Select the User type to start creating your account...</p>
   <!-- نوع المستخدم -->
   <div class="user-type-container">
-    <a href="/HTML/MainPages/SIGNIN - SIGNUP/UniversitySignUpForm.html" class="user-type-btn">University</a>
-    <a href="/HTML/MainPages/SIGNIN - SIGNUP/JournalSignUpForm.html" class="user-type-btn">Journal</a>
-    <a href="/HTML/MainPages/SIGNIN - SIGNUP/IndividualSignUpForm.html" class="user-type-btn">Researcher</a>
-    <a href="/HTML/MainPages/SIGNIN - SIGNUP/IndividualSignUpForm.html" class="user-type-btn">Reviewer</a>
+    <a href="{{ route('Auth.UniversitySignUpForm')}}" class="user-type-btn">University</a>
+    <a href="{{ route('Auth.JournalSignUpForm')}}" class="user-type-btn">Journal</a>
+    <a href="{{ route('Auth.IndividualSignUp')}}" class="user-type-btn">Researcher</a>
+    <a href="{{ route('Auth.IndividualSignUp')}}" class="user-type-btn">Reviewer</a>
 </div>
 </body>
 </html>

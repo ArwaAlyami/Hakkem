@@ -4,24 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Sign In to Hakkem</title>
-    <link
-      rel="stylesheet"
-      href="/CSS/MainPages/SIGNIN - SIGNUP/MainSignInForm.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Candal&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="stylesheet" href="{{ asset('hakkem/css/MainPages/SignIn-SignUp/MainSignInForm.css')}}"/>
+    <link href="https://fonts.googleapis.com/css2?family=Candal&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap" rel="stylesheet"/>
   </head>
+
   <body>
     <div class="container">
       <div class="logo-section">
         <img
-          src="/public/images/Dark-logo.png"
+          src="{{ asset('hakkem/images/Dark-logo.png')}}"
           alt="Hakkem Logo"
           class="logo"
         />
@@ -36,18 +28,16 @@
           <input class="inp" type="email" placeholder="Email" required />
           <input type="password" placeholder="Password" required />
           <h3 class="link" id="forgot-Pass">Forgot your Password?</h3>
-          <button type="submit">SIGN IN</button>
+          <a href="{{route('Main_Pages.Home')}}"><button type="submit">SIGN IN</button></a>
           <p class="signup-text">
             Don't have an account?
-            <a
-              class="link"
-              href="/HTML/MainPages/SIGNIN - SIGNUP/MainSignUpForm.html"
-              >Sign Up</a
-            >
+            <a class="link" href="{{route('Auth.MainSignUpForm')}}">
+              Sign Up
+            </a>
           </p>
         </form>
       </div>
     </div>
   </body>
-  <script src="/JavaScripts/SignIn.js"></script>
+  <script src="{{ asset('hakkem/javascript/SignIn.js')}}"></script>
 </html>

@@ -36,7 +36,7 @@
             <a href="#{{--{{route('Main_Pages.')}}--}}" class="nav-link">Journals</a>
           </nav>
 
-          <a href="#{{--{{route('Main_Pages.')}}--}}" class="signIn-btn">Sign In</a>
+          <a href="{{route('Auth.MainSignInForm')}}" class="signIn-btn">Sign In</a>
           
         </div>
         <div class="menu-toggle" id="menu-toggle">☰</div>
@@ -60,7 +60,7 @@
         <p class="subtitle">TO REVIEW AND PUBLISH YOUR RESEARCHES...</p>
       </div>
 
-      <a href="#{{--{{route('Main_Pages.')}}--}}" class="get-started-btn">
+      <a href="{{route('Auth.MainSignUpForm')}}" class="get-started-btn">
         <img src="{{ asset('hakkem/images/Get-Started/GetStarted_Arrow.svg') }}" alt="Arrow Icon" class="arrow-icon"/>
         GET STARTED NOW!
       </a>

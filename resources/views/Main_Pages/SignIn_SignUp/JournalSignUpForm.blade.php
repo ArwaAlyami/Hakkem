@@ -4,28 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Journal Sign Up</title>
-    <link
-      rel="stylesheet"
-      href="/CSS/MainPages/SIGNIN - SIGNUP/JournalSignUpForm.css"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Candal&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap"
-      rel="stylesheet"
-    />
+
+    <link rel="stylesheet" href="{{ asset('hakkem/css/MainPages/SignIn-SignUp/JournalSignUpForm.css')}}"/>
+    <link href="https://fonts.googleapis.com/css2?family=Candal&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap" rel="stylesheet"/>
   </head>
+
   <body>
     <div class="container">
       <header>
         <div class="logo-section">
-          <img
-            src="/public/images/Dark-logo.png"
-            alt="Hakkem Logo"
-            class="logo"
-          />
+          <img src="{{ asset('hakkem/images/Dark-logo.png')}}" alt="Hakkem Logo" class="logo"/>
           <p class="brand-name">HAKKEM</p>
         </div>
       </header>
@@ -77,6 +66,6 @@
       </div>
     </div>
 
-    <script src="/JavaScripts/SignIn.js"></script>
+    <script src="{{ asset('hakkem/javascript/SignIn.js')}}"></script>
   </body>
 </html>
