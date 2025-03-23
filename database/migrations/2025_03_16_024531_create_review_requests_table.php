@@ -17,10 +17,10 @@ return new class extends Migration
             $table->dateTime('start_date')->nullable(false);
             $table->dateTime('end_date')->nullable();
          
-            $table->unsignedBigInteger('res_id');
-            $table->unsignedBigInteger('rev_id');
-            $table->unsignedBigInteger('research_id');
-            $table->unsignedBigInteger('fm_res_id');
+            $table->unsignedBigInteger('res_id')->nullable();
+            $table->unsignedBigInteger('rev_id')->nullable();
+            $table->unsignedBigInteger('research_id')->nullable();
+            $table->unsignedBigInteger('fm_res_id')->nullable();
          
             $table->foreign('fm_res_id')->references('fm_res_id')->on('fm_researchers');
             $table->foreign('research_id')->references('id')->on('researches');

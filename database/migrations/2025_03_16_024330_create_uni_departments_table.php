@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('uni_departments', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('uni_id')->index();
-            $table->string('department');
+            $table->string('department')->nullable();
 
             $table->foreign('uni_id')->references('id')->on('universities');
             $table->timestamps();

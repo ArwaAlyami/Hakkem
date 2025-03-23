@@ -16,17 +16,17 @@ return new class extends Migration
             $table->integer('degree')->nullable(false);
             $table->longText('full_feed')->nullable(false);
          
-            $table->unsignedBigInteger('pro_req_id');
-            $table->unsignedBigInteger('rev_req_id');
-            $table->unsignedBigInteger('pub_req_id');
-            $table->unsignedBigInteger('research_id');
-            $table->unsignedBigInteger('editor_id');
-            $table->unsignedBigInteger('asso_ed_id');
-            $table->unsignedBigInteger('fm_rev_id');
-            $table->unsignedBigInteger('fm_res_id');
-            $table->unsignedBigInteger('prom_ad_id');
-            $table->unsignedBigInteger('res_id');
-            $table->unsignedBigInteger('rev_id');
+            $table->unsignedBigInteger('pro_req_id')->nullable();
+            $table->unsignedBigInteger('rev_req_id')->nullable();
+            $table->unsignedBigInteger('pub_req_id')->nullable();
+            $table->unsignedBigInteger('research_id')->nullable();
+            $table->unsignedBigInteger('editor_id')->nullable();
+            $table->unsignedBigInteger('asso_ed_id')->nullable();
+            $table->unsignedBigInteger('fm_rev_id')->nullable();
+            $table->unsignedBigInteger('fm_res_id')->nullable();
+            $table->unsignedBigInteger('prom_ad_id')->nullable();
+            $table->unsignedBigInteger('res_id')->nullable();
+            $table->unsignedBigInteger('rev_id')->nullable();
          
                     $table->foreign('pro_req_id')->references('id')->on('promotion_requests');
          

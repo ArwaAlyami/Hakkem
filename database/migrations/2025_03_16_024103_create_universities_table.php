@@ -14,7 +14,6 @@ return new class extends Migration
         Schema::create('universities', function (Blueprint $table) {
             $table->id();
             $table->string('name')-> nullable(false);
-            $table->binary('Logo');
             $table->string('email')->unique();
             $table->timestamps();
         });

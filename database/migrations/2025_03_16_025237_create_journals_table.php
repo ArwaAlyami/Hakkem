@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('name')->nullable(false);
             $table->string('scope')->nullable(false);
             $table->string('email')->unique();
-            $table->binary('logo'); 
             $table->string('publisher_name')->nullable(false);
             $table->string('issn')->nullable(false);
 

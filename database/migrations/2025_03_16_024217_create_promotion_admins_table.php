@@ -12,7 +12,7 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('promotion_admins', function (Blueprint $table) {
-            $table->unsignedBigInteger('prom_ad_id');
+            $table->unsignedBigInteger('prom_ad_id')->primary();
 
             $table->foreign('prom_ad_id')->references('id')->on('faculty_members');
             $table->timestamps();

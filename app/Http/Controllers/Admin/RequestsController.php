@@ -13,11 +13,6 @@ class RequestsController extends Controller
         return view("Main_Pages.Requests.PromotionRequest.RequestSteps");
     }
 
-    //  // ************* Publish Request **************//
-    // public function Publish_Request(){
-    //     return view("Main_Pages.Requests.");
-    // }
-
     // ************* Review Request **************//
 
     public function Review_Options(){
