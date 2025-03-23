@@ -66,13 +66,15 @@
             <label for="universityLogo" class="file-upload-icon">📤</label>
           </div>
 
-          <button
+          <a href="{{ route('Main_Pages.Home')}}">
+            <button
             type="submit"
             class="signup-btn"
-            onclick="redirectToNextPage()"
+            {{-- onclick="redirectToNextPage()" --}}
           >
             SIGN UP
           </button>
+        </a>
         </form>
       </div>
     </div>

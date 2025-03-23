@@ -3,8 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\MediaLibrary\IntractWithMedia;
+use Spatie\MediaLibrary\HasMedia;
 
-class Research extends Model
+class Research extends Model 
+// implements HasMedia 
 {
     protected $fillable = [
         'title',

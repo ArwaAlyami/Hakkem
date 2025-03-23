@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('feedbacks', function (Blueprint $table) {
             $table->id();
             $table->integer('degree')->nullable(false);
-            $table->json('full_feed')->nullable(false);
+            $table->longText('full_feed')->nullable(false);
          
             $table->unsignedBigInteger('pro_req_id');
             $table->unsignedBigInteger('rev_req_id');

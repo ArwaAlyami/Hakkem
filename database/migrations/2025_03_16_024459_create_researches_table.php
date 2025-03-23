@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('title')->nullable(false);
             $table->longText('abstract')->nullable(false);
             $table->mediumText('DOI')->nullable();
-            $table->binary('full_res')->nullable(false);
             $table->string('keywords')->nullable(false);
             $table->string('specialization')->nullable(false);
          

@@ -16,7 +16,6 @@ return new class extends Migration
 
             $table->foreign('prom_ad_id')->references('id')->on('faculty_members');
             $table->timestamps();
-
         });
     }
 

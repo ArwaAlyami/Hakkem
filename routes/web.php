@@ -34,7 +34,6 @@ Route::prefix('Requests')->as('Requests.')->group(function () {
 
     Route::get('Promotion_Request',[RequestsController::class,'Promotion_Request'])->name('Promotion_Request');
 
-    // Route::get('Publish_Request',[RequestsController::class,''])->name('Publish_Request');
 
     Route::prefix('ReviewRequest')->as('ReviewRequest.')->group(function () {
 
