@@ -3,9 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-
-class Journal extends Model
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+class Journal extends Model implements HasMedia 
 {
+    use InteractsWithMedia;
     protected $fillable = [
         'name',
         'scope',

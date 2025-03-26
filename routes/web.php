@@ -5,7 +5,6 @@ use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\RequestsController;
 use App\Http\Controllers\Admin\MainPagesController;
 
-
 // ******* Main Pages Routes *********** //
 
 Route::prefix('/')->as('Main_Pages.')->group(function () {
@@ -53,3 +52,6 @@ Route::prefix('Requests')->as('Requests.')->group(function () {
 
 
 
+// Route::get('/trying', function () {
+//     return view('Main_Pages.Main.Home');
+// });
