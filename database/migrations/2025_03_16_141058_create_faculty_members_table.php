@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('f_name')->nullable(false);
             $table->string('l_name')->nullable(false);
             $table->integer('phone')->nullable(false);
+            $table->string('department')->nullable();
             $table->unsignedBigInteger('IBAN')->unique();
             $table->string('bachelors')->nullable(false);
             $table->string('masters')->nullable();
@@ -24,6 +25,11 @@ return new class extends Migration
             $table->string('Academic_quali')->nullable(false);
             $table->string('email')->unique();
             $table->string('rank')->nullable(false);
+            $table->string('User_Type')->nullable(false);
+
+            $table->float('Feedback_quality')->nullable();
+            $table->float('accuracy')->nullable();
+            $table->float('response_speed')->nullable();
 
             $table->unsignedBigInteger('uni_id');
             $table->string('agent_name');

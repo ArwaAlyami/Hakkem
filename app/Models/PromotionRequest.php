@@ -13,6 +13,6 @@ class PromotionRequest extends Model
         'start_date',
         'end_date',
         'price',
-        'prom_ad_id',
+        'fm_id',
     ];
 }

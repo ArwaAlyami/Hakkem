@@ -22,7 +22,6 @@ class IndReviewer extends Model
         'feedback_quality',
         'job',
         'email',
-        'asso_ed_id',
         'agent_name',
     ];
 }

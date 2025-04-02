@@ -16,13 +16,15 @@ return new class extends Migration
             $table->string('state')->nullable(false);
             $table->dateTime('start_date')->nullable(false);
             $table->dateTime('end_date')->nullable();
+            $table->dateTime('deadline')->nullable();
+
          
             $table->unsignedBigInteger('res_id')->nullable();
             $table->unsignedBigInteger('rev_id')->nullable();
             $table->unsignedBigInteger('research_id')->nullable();
-            $table->unsignedBigInteger('fm_res_id')->nullable();
+            $table->unsignedBigInteger('fm_id')->nullable();
          
-            $table->foreign('fm_res_id')->references('fm_res_id')->on('fm_researchers');
+            $table->foreign('fm_id')->references('id')->on('faculty_members');
             $table->foreign('research_id')->references('id')->on('researches');
             $table->foreign('res_id')->references('id')->on('ind_researchers');
             $table->foreign('rev_id')->references('id')->on('ind_reviewers');
