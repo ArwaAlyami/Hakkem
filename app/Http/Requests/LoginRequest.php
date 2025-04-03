@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Requests;
+use Illuminate\Validation\Rules\Password;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -23,24 +24,14 @@ class LoginRequest extends FormRequest
     {
         return [
             'email'=>'required|email',
-            'f_name'=>'required',
-            'l_name'=>'required',
-            'password'=>'required',
-            'phone'=>'required',
-            'department'=>'required',
-            'IBAN'=>'required',
-            'bachelors'=>'required',
-            'masters'=>'required',
-            'phd'=>'required',
-            'Academic_quali'=>'required',
-            'rank'=>'required',
-            'User_Type'=>'required',
-
-            // 'Feedback_quality'=>'required',
-            // 'accuracy'=>'required',
-            // 'response_speed'=>'required',
-
-
+            'password' => [
+            'required',
+            'string',
+            Password::min(8)               // الحد الأدنى 8 حروف
+                ->mixedCase()             // لازم حروف كبيرة وصغيرة
+                ->numbers()               // لازم يحتوي على أرقام
+                ->symbols(),               // لازم يحتوي على رموز مثل @#$%
+            ],
         ];
     }
 }
