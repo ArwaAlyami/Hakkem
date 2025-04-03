@@ -28,7 +28,6 @@ return new class extends Migration
             $table->string('job')->nullable(false);
 
             $table->string('agent_name');
-
             $table->foreign('agent_name')->references('agent_name')->on('agents');
 
             $table->timestamps();

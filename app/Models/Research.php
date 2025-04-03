@@ -9,6 +9,7 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 class Research extends Model implements HasMedia 
 
 {
+    protected $table='researches';
     use InteractsWithMedia;
     protected $fillable = [
         'title',
