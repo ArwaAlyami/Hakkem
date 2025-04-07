@@ -8,6 +8,8 @@ use App\Http\Controllers\Admin\ResearchController;
 use App\Http\Controllers\Admin\FM_Researcher\MyProfileController;
 use App\Http\Controllers\Admin\FM_Researcher\MyResearchesController;
 use App\Http\Controllers\Admin\FM_Researcher\MyResearchesController2;
+use App\Http\Controllers\Admin\IT_Admin\ITAdminController;
+
 
 use App\Http\Controllers\Admin\FM_Researcher\MyRequestsController;
 
@@ -60,6 +62,20 @@ Route::prefix('Requests')->as('Requests.')->group(function () {
 
 // ************************************ IT Admin Router ******************************************* //
 Route::prefix(prefix: 'Account')->as('Account.')->group(function () {
+
+    // *********** Profile Routers ********** //
+    Route::prefix('My_Profile')->as(value: 'My_Profile.')->group(function () {
+        Route::get('Profile',[ITAdminController::class,'index'])->name('Profile');
+        Route::post('Profile-edit',[ITAdminController::class,'edit'])->name('Profile-edit');
+    });
+    
+    // *********** My Researches Routers ********** //
+    Route::prefix('manage-users')->as('manage-users.')->group(function(){
+        Route::get('index', [ITAdminController::class,'index'])->name('index');
+        Route::get('create', [ITAdminController::class,'create'])->name('create');
+        Route::post('store', [ITAdminController::class,'store'])->name('store');
+        Route::delete('/{id}', [ITAdminController::class,'delete'])->name('delete');
+    });
 
 });
 
