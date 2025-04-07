@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Api;
+namespace App\Http\Controllers\Admin\FM_Researcher;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Research;
+use Illuminate\Http\Request;
 
-
-class ResearchController extends Controller
+class MyResearchesController2 extends Controller
 {
+ 
     public function index(Request $request)
     {
-        $researches = Research::paginate(3);
+        $researches = Research::paginate(20);
         return view('University_Pages.FM_Researcher.My_Researches', compact('researches'));
     }
 
@@ -23,8 +23,7 @@ class ResearchController extends Controller
 
     public function create()
     {
-        $researches = Research::get();
-        return view('University_Pages.FM_Researcher.Add_Research',compact('researches'));
+        return view('University_Pages.FM_Researcher.Add_Research');
     }
 
     public function store(Request $request)
@@ -36,6 +35,6 @@ class ResearchController extends Controller
                 $fileAdder->toMediaCollection('research');
             });
         }
-        return redirect()->route('Account.My_Researches.Researches');
+        return redirect()->route('Account.my-researches.index');
     }
 }

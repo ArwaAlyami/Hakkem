@@ -10,65 +10,50 @@
 </head>
 <body>
     <div class="container">
-      <!-- المحتوى الرئيسي -->
       <main class="profile-content">
-        <div class="profile-box">
-    
-          <form id="profile-form" method="post" action="{{ route('')}}">
+        <div class="file-box">
+          <form id="profile-form" enctype="multipart/form-data">
 
-            <div class="form-group">
-              <label for="title">Title:</label>
-              <input type="text" name="title"/>
+            {{-- <div class="form-group3">
+              <label for="title">Title: </label>
+              <input type="text" value="{{$research->title}}"disabled/>
             </div>
 
-            <div class="form-group">
-              <label for="keywords">Keywords:</label>
-              <input type="text" name="keywords"/>
+            <div class="form-group3">
+              <label for="keywords">Keywords: </label>
+              <input type="text" value="{{$research->keywords}}" disabled/>
             </div>
+
+            <div class="form-group3">
+              <label for="field">Field: </label>
+              <input type="text" value="{{$research->field}}" disabled/>
+            </div>
+
+            <div class="">
+              <label for="abstract">Abstract: </label>
+              <textarea class="sub-box fixed-textarea" disabled>{{$research->abstract}}</textarea>
+            </div>
+
+            <div class="">
+              <label for="DOI">DOI: </label>
+              <textarea class="sub-box DOI-textarea" disabled>{{$research->DOI}}</textarea>
+            </div> --}}
+
+
+{{-- 
+            @foreach($research->media as $media)
+              <div class="">
+                <label for="file">Full Research: </label>
+                  <iframe src={{$media->file}} width="100%" height="600px"></iframe>
+                </div>
+            @endforeach --}}
             
-            <div class="form-group">
-              <label for="DOI">DOI:</label>
-              <input type="text" name="DOI"/>
-            </div>
-
-            <div class="form-group">
-              <label for="Field">Research Field:</label>
-              <select name="field" class="form-group">
-                <option value="">Select...</option>
-                <option value="Computer Science">Computer Science</option>
-                <option value="Information System">Information System </option>
-                <option value="Artificial Intelligence">Artificial Intelligence</option>
-                <option value="Data Science">Data Science</option>
-                <option value="Machine Learning">Machine Learning</option>
-                <option value="Deep Learning">Deep Learning</option>
-                <option value="Software Engineering">Software Engineering</option>
-                <option value="Computer Science">Computer Science</option>
-                <option value="Information System">Information System </option>
-                <option value="Artificial Intelligence">Artificial Intelligence</option>
-                <option value="Data Science">Data Science</option>
-                <option value="Machine Learning">Machine Learning</option>
-                <option value="Deep Learning">Deep Learning</option>
-                <option value="Software Engineering">Software Engineering</option>
-              </select>
-            </div>
-
-            <div class="form-group">
-              <label for="abstract">Abstract:</label>
-              <textarea type="text" name="abstract" class="fixed-textarea"></textarea>
-            </div>
-
-            <br>
-            <div class="form-group">
-              <label for="research_file">Upload Research:</label>
-              <input type="file" name=""/>
-            </div>
+            <section style="padding: 20px;">
+              <label for="file">Full Research: </label>
+                <iframe src="{{ asset('storage/4/Lecture-4_Complete.pdf') }}" width="1300px" height="1000px" style="display: block; margin: auto; border: none;"></iframe>
+              </section>
 
 
-            <a href="{{-- route('')--}}">
-              <button class="add-research">
-                  <img src="{{ asset('hakkem/images/University/Add icon.png') }}" alt="Add"> Add New Research
-              </button>
-              <a>
 
           </form>
         </div>

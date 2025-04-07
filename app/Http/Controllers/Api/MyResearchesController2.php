@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Http\Controllers\Admin\FM_Researcher;
+namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Models\Research;
 use Illuminate\Http\Request;
+use App\Models\Research;
 
-class MyResearchesController extends Controller
+
+class MyResearchesController2 extends Controller
 {
-
     public function index()
     {
-        $researches = Research::get();
+        $researches = Research::with('media')->get();
         return response()->json([
             'status'=>true,
             'msg'=>'good job gritta<3',
@@ -28,6 +28,13 @@ class MyResearchesController extends Controller
         'field'=>$request->field,
         'DOI'=>$request->DOI,
     ]);
+
+    if($request->hasFile('file')){
+        $research->addMultipleMediaFromRequest(['file'])->each(function($fileAdder){
+            $fileAdder->toMediaCollection('research');
+        });    
+    }
+
     return response()->json([
         'status'=>true,
         'msg'=>'good job gritta<3',

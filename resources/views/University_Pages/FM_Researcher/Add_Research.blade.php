@@ -14,56 +14,41 @@
       <main class="profile-content">
         <div class="profile-box">
     
-          <form id="profile-form" method="post" action="{{ route('Researches.store')}}">
+          <form id="profile-form" method="post" action="{{ route('Account.my-researches.store')}}" enctype="multipart/form-data">
 
             {{ csrf_field() }}
             {{ method_field('post') }}
             
-            <div class="form-group">
-              <label for="title">Title:</label>
+
+          <div class="form-group3">
+              <label for="title">Title: </label>
               <input type="text" name="title"/>
             </div>
 
-            <div class="form-group">
-              <label for="keywords">Keywords:</label>
-              <input type="text" name="keywords"/>
-            </div>
-            
-            <div class="form-group">
-              <label for="DOI">DOI:</label>
-              <input type="text" name="DOI"/>
+            <div class="form-group3">
+              <label for="keywords">Keywords: </label>
+              <input type="text" name="keywords" />
             </div>
 
-            <div class="form-group">
-              <label for="Field">Research Field:</label>
-              <select name="field" class="form-group">
-                <option value="">Select...</option>
-                <option value="Computer Science">Computer Science</option>
-                <option value="Information System">Information System </option>
-                <option value="Artificial Intelligence">Artificial Intelligence</option>
-                <option value="Data Science">Data Science</option>
-                <option value="Machine Learning">Machine Learning</option>
-                <option value="Deep Learning">Deep Learning</option>
-                <option value="Software Engineering">Software Engineering</option>
-                <option value="Computer Science">Computer Science</option>
-                <option value="Information System">Information System </option>
-                <option value="Artificial Intelligence">Artificial Intelligence</option>
-                <option value="Data Science">Data Science</option>
-                <option value="Machine Learning">Machine Learning</option>
-                <option value="Deep Learning">Deep Learning</option>
-                <option value="Software Engineering">Software Engineering</option>
-              </select>
+            <div class="form-group3">
+              <label for="field">Field: </label>
+              <input type="text" name="field" />
             </div>
 
-            <div class="form-group">
-              <label for="abstract">Abstract:</label>
-              <textarea type="text" name="abstract" class="fixed-textarea"></textarea>
+            <div class="">
+              <label for="abstract">Abstract: </label>
+              <textarea class="sub-box fixed-textarea" name="abstract" ></textarea>
             </div>
 
-            <br>
+            <div class="">
+              <label for="DOI">DOI: </label>
+              <textarea class="sub-box DOI-textarea" name="DOI"></textarea>
+            </div>
+
+
             <div class="form-group">
               <label for="research_file">Upload Research:</label>
-              <input type="file" name=""/>
+              <input type="file" name="file"/>
             </div>
 
 

@@ -15,6 +15,7 @@ class Research extends Model implements HasMedia
         'title',
         'abstract',
         'DOI',
+        'field',
         'keywords',
         'specialization',
         'pro_req_id',

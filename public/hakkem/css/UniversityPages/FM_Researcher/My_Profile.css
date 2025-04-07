@@ -1,8 +1,4 @@
-.fixed-textarea {
-  resize: none;
-  width: 370px;
-  height: 100px;
-}
+
 
 body {
   font-family: Arial, sans-serif;
@@ -140,6 +136,17 @@ body {
   margin: 0 auto;
 }
 
+.file-box {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 1400px; /* منع التمدد الزائد */
+  position: relative;
+  margin: 0 auto;
+}
+
+
 /* ✅ زر التعديل */
 .edit-button {
   position: absolute;
@@ -191,6 +198,17 @@ form {
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15); /* ظل خفيف للحقول */
 }
 
+.form-group3 input,
+.form-group3 select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    background: #f8f8f8;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15); /* ظل خفيف للحقول */
+}
 
 
 /* ✅ ضبط عرض الحقول بحيث يكون كل اثنين بجانب بعض */
@@ -198,6 +216,14 @@ form {
   width: calc(50% - 20px); /* يجعل كل حقلين في صف واحد مع فراغ */
   display: flex;
   flex-direction: column;
+}
+
+.form-group3 {
+  width: calc(100% - 20px); /* يخلي كل ثلاث حقول في صف واحد */
+  display: flex;
+  flex-direction: column;
+  /* margin-right: 10px;
+  margin-left: 10px; */
 }
 
 /* ✅ تنسيق الحقول */

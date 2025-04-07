@@ -1,3 +1,23 @@
+.fixed-textarea {
+  width: 730px;     /* العرض  */
+  height: 80px;    /* الارتفاع */
+  resize: none;     /* يمنع التصغير أو التكبير */
+  font-family: inherit;
+  border: 1px solid #ccc;
+  background: #f8f8f8;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15); /* ظل خفيف للحقول */
+}
+.DOI-textarea {
+  width: 730px;     /* العرض  */
+  height: 30px;    /* الارتفاع */
+  resize: none;     /* يمنع التصغير أو التكبير */
+  font-family: inherit;
+  border: 1px solid #ccc;
+  background: #f8f8f8;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15); /* ظل خفيف للحقول */
+}
 body {
   font-family: Arial, sans-serif;
   margin: 0;

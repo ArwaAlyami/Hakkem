@@ -21,10 +21,10 @@
         <p>Select the User type to start creating your account...</p>
   <!-- نوع المستخدم -->
   <div class="user-type-container">
-    <a href="{{ route('Auth.UniversitySignUpForm')}}" class="user-type-btn">University</a>
-    <a href="{{ route('Auth.JournalSignUpForm')}}" class="user-type-btn">Journal</a>
-    <a href="{{ route('Auth.IndividualSignUp')}}" class="user-type-btn">Researcher</a>
-    <a href="{{ route('Auth.IndividualSignUp')}}" class="user-type-btn">Reviewer</a>
+    <a href="{{-- route('Auth.UniversitySignUpForm')--}}" class="user-type-btn">University</a>
+    <a href="{{-- route('Auth.JournalSignUpForm')--}}" class="user-type-btn">Journal</a>
+    <a href="{{-- route('Auth.IndividualSignUp')--}}" class="user-type-btn">Researcher</a>
+    <a href="{{-- route('Auth.IndividualSignUp')--}}" class="user-type-btn">Reviewer</a>
 </div>
 </body>
 </html>

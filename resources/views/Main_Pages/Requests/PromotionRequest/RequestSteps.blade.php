@@ -10,6 +10,12 @@
     <div class="overlay">
       <div class="review-option container-r">
         <div class="container">
+
+          <form id="" method="post" action="{{ route('Requests.Promotion_Request.store')}}">
+
+            {{ csrf_field() }}
+            {{ method_field('post') }}
+
           <div class="progress-bar">
             <div class="step preactive">Step 1</div>
             <div class="step">Step 2</div>
@@ -23,224 +29,25 @@
               <h2>Please choose the researches:</h2>
               <div class="research-list">
                 <!-- Research 1 -->
+               
+               @foreach($researches as $research)
                 <label class="Res-name">
                   <div class="col">
                     <input type="checkbox" class="Res-checkbox" />
                   </div>
-                  <div class="col">
-                    <div class="Res-text" id="research-name">
-                      Digital Forensic
-                    </div>
-                  </div>
-                </label>
 
-                <!-- Research 2 -->
-                <label class="Res-name">
-                  <div class="col">
-                    <input type="checkbox" class="Res-checkbox" />
-                  </div>
                   <div class="col">
                     <div class="Res-text" id="research-name">
-                      Bioinformatics
+                      {{$research->title}}
                     </div>
                   </div>
                 </label>
+                @endforeach
 
-                <!-- Research 3 -->
-                <label class="Res-name">
-                  <div class="col">
-                    <input type="checkbox" class="Res-checkbox" />
-                  </div>
-                  <div class="col">
-                    <div class="Res-text" id="research-name">
-                      Artificial Intellegence
-                    </div>
-                  </div>
-                </label>
-
-                <!-- Research 4 -->
-                <label class="Res-name">
-                  <div class="col">
-                    <input type="checkbox" class="Res-checkbox" />
-                  </div>
-                  <div class="col">
-                    <div class="Res-text" id="research-name">
-                      AI and Healthcare
-                    </div>
-                  </div>
-                </label>
-
-                <!-- Research 5 -->
-                <label class="Res-name">
-                  <div class="col">
-                    <input type="checkbox" class="Res-checkbox" />
-                  </div>
-                  <div class="col">
-                    <div class="Res-text" id="research-name">
-                      Digital Forensic
-                    </div>
-                  </div>
-                </label>
-
-                <!-- Research 6 -->
-                <label class="Res-name">
-                  <div class="col">
-                    <input type="checkbox" class="Res-checkbox" />
-                  </div>
-                  <div class="col">
-                    <div class="Res-text" id="research-name">
-                      Bioinformatics
-                    </div>
-                  </div>
-                </label>
-
-                <!-- Research 7 -->
-                <label class="Res-name">
-                  <div class="col">
-                    <input type="checkbox" class="Res-checkbox" />
-                  </div>
-                  <div class="col">
-                    <div class="Res-text" id="research-name">
-                      Artificial Intellegence
-                    </div>
-                  </div>
-                </label>
-
-                <!-- Research 8 -->
-                <label class="Res-name">
-                  <div class="col">
-                    <input type="checkbox" class="Res-checkbox" />
-                  </div>
-                  <div class="col">
-                    <div class="Res-text" id="research-name">
-                      Bioinformatics
-                    </div>
-                  </div>
-                </label>
-
-                <!-- Research 9 -->
-                <label class="Res-name">
-                  <div class="col">
-                    <input type="checkbox" class="Res-checkbox" />
-                  </div>
-                  <div class="col">
-                    <div class="Res-text" id="research-name">
-                      Digital Forensic
-                    </div>
-                  </div>
-                </label>
-
-                <!-- Research 10 -->
-                <label class="Res-name">
-                  <div class="col">
-                    <input type="checkbox" class="Res-checkbox" />
-                  </div>
-                  <div class="col">
-                    <div class="Res-text" id="research-name">
-                      Bioinformatics
-                    </div>
-                  </div>
-                </label>
-
-                <!-- Research 11 -->
-                <label class="Res-name">
-                  <div class="col">
-                    <input type="checkbox" class="Res-checkbox" />
-                  </div>
-                  <div class="col">
-                    <div class="Res-text" id="research-name">
-                      Digital Forensic
-                    </div>
-                  </div>
-                </label>
-
-                <!-- Research 12 -->
-                <label class="Res-name">
-                  <div class="col">
-                    <input type="checkbox" class="Res-checkbox" />
-                  </div>
-                  <div class="col">
-                    <div class="Res-text" id="research-name">
-                      AI and Healthcare
-                    </div>
-                  </div>
-                </label>
-
-                <!-- Research 13 -->
-                <label class="Res-name">
-                  <div class="col">
-                    <input type="checkbox" class="Res-checkbox" />
-                  </div>
-                  <div class="col">
-                    <div class="Res-text" id="research-name">
-                      Bioinformatics
-                    </div>
-                  </div>
-                </label>
-
-                <!-- Research 14 -->
-                <label class="Res-name">
-                  <div class="col">
-                    <input type="checkbox" class="Res-checkbox" />
-                  </div>
-                  <div class="col">
-                    <div class="Res-text" id="research-name">
-                      Digital Forensic
-                    </div>
-                  </div>
-                </label>
-
-                <!-- Research 15 -->
-                <label class="Res-name">
-                  <div class="col">
-                    <input type="checkbox" class="Res-checkbox" />
-                  </div>
-                  <div class="col">
-                    <div class="Res-text" id="research-name">
-                      AI and Healthcare
-                    </div>
-                  </div>
-                </label>
-
-                <!-- Research 16 -->
-                <label class="Res-name">
-                  <div class="col">
-                    <input type="checkbox" class="Res-checkbox" />
-                  </div>
-                  <div class="col">
-                    <div class="Res-text" id="research-name">
-                      Digital Forensic
-                    </div>
-                  </div>
-                </label>
-
-                <!-- Research 17 -->
-                <label class="Res-name">
-                  <div class="col">
-                    <input type="checkbox" class="Res-checkbox" />
-                  </div>
-                  <div class="col">
-                    <div class="Res-text" id="research-name">
-                      Bioinformatics
-                    </div>
-                  </div>
-                </label>
-
-                <!-- Research 18 -->
-                <label class="Res-name">
-                  <div class="col">
-                    <input type="checkbox" class="Res-checkbox" />
-                  </div>
-                  <div class="col">
-                    <div class="Res-text" id="research-name">
-                      Artificial Intellegence
-                    </div>
-                  </div>
-                </label>
               </div>
             </div>
             <div class="buttons">
-              <a href="{{route('Main_Pages.Home')}}"><button class="cancel">Cancel</button></a>
+              <a href="{{route('Auth.Home')}}"><button class="cancel">Cancel</button></a>
               <button class="next">Next</button>
             </div>
           </div>
@@ -263,9 +70,8 @@
                   </div>
                   <!-- هذا لمحتواها المتغير -->
                   <div class="col2">
-                    <p>Jomanh Saeed M Alqahtani</p>
-                    <p>jsalqhatani@nu.edu.sa</p>
-                    <p>050 636 4092</p>
+                    <p>aa>
+                    <p>aa</p>
                   </div>
                 </div>
 
@@ -283,9 +89,9 @@
 
                   <!-- المحتوى المتغير -->
                   <div class="col2">
-                    <p>#669948473</p>
-                    <p>Promotion Request</p>
-                    <p>Arwa Abdullah M AlYami</p>
+                    <p>aa</p>
+                    <p>aa</p>
+                    <p>aa</p>
                     <!-- حالة الطلب -->
                     <div class="state">
                       <img src="{{ asset('hakkem/images/Requests/timefill.svg')}}"/>
@@ -300,9 +106,10 @@
             <!-- Buttons of Step 2 -->
             <div class="buttons">
               <button class="back">Back</button>
-              <a href="{{route('Main_Pages.Home')}}"><button class="confirm">Confirm</button></a>
+              <a href="{{route('Auth.Home')}}"><button class="confirm">Confirm</button></a>
             </div>
           </div>
+        </form>
         </div>
       </div>
     </div>

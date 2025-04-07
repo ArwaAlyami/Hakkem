@@ -25,7 +25,7 @@
         </div>
         <div class="nav">
           <div class="nav-cont">
-            <a href="{{route('Main_Pages.Home')}}"><p class="navigate">Home</p></a>
+            <a href="{{route('Auth.Home')}}"><p class="navigate">Home</p></a>
             <a href="#{{--{{route('Main_Pages.')}}--}}"><p class="navigate">Chat</p></a>
             <a href="#{{--{{route('Main_Pages.')}}--}}"><p class="navigate">Offers</p></a>
             <a href="#{{--{{route('Main_Pages.')}}--}}"><p class="navigate">Journals</p></a>
@@ -197,7 +197,7 @@
         <div class="left">
           <a href="#{{--{{route('Main_Pages.')}}--}}"><p class="Footer-link">Pivacy Policy</p></a>
           <p>|</p>
-          <a href="{{route('Main_Pages.About_Hakkem')}}"><p class="Footer-link">About Hakkem</p></a>
+          <a href="{{route('About_Hakkem')}}"><p class="Footer-link">About Hakkem</p></a>
         </div>
         <div class="Mid">
           <p>© 2025 Hakkem. All Rights Reserved.</p>
