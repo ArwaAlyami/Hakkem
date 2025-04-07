@@ -40,6 +40,11 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+      'api' => [
+            'driver' => 'jwt',
+            'provider' => 'faculty_members',
+        ],
+
     ],
 
     /*
@@ -64,7 +69,10 @@ return [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
         ],
-
+         'faculty_members' => [
+            'driver' => 'eloquent',
+            'model' =>  App\Models\User::class,
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
