@@ -17,12 +17,12 @@
         </div>
         <div class="nav">
           <div class="nav-cont">
-            <p class="navigate">Home</p>
-            <p class="navigate">Chat</p>
-            <p class="navigate">Offers</p>
-            <p class="navigate">Journals</p>
+            <a href="{{route('Auth.Home')}}"><p class="navigate">Home</p></a>
+            <a href="#{{--{{route('Auth.Chat')}}--}}"><p class="navigate">Chat</p></a>
+            <a href="#{{--{{route('Auth.Offers')}}--}}"><p class="navigate">Offers</p></a>
+            <a href="#{{--{{route('Auth.Journals')}}--}}"><p class="navigate">Journals</p></a>
           </div>
-          <img src="{{ asset('hakkem/images/Header_Footer/profile_dark.png')}}" class="profile"/>
+          <a href="#{{--{{route('Auth.My_Profile.Profile')}}--}}"><img src="{{ asset('hakkem/images/Header_Footer/profile_dark.png')}}" class="profile"/></a>
         </div>
       </header>
     </div>
@@ -67,7 +67,7 @@
           research, ensuring it's ready to be shared with the scientific
           community.
         </p>
-        <button id="review-req" class="req-btn">Send Request</button>
+        <a href="{{route('Requests.ReviewRequest.Review_Options')}}"><button id="review-req" class="req-btn">Send Request</button></a>
       </div>
     </section>
 
@@ -82,7 +82,7 @@
           ensure your work is prepared according to the journal's <br />
           specific guidelines for a seamless submission process.
         </p>
-        <button id="review-req" class="req-btn">Send Request</button>
+        <a href="{{-- route('Requests.Promotion_Request.create') --}}"><button id="review-req" class="req-btn">Send Request</button></a>
       </div>
       <div class="decoration-r">
         <img src="{{ asset('hakkem/images/Home/Home_sec2_part3.svg')}}" class="under-r" />
@@ -108,30 +108,30 @@
           council <br />
           and achieve your next academic rank with confidence.
         </p>
-        <button id="review-req" class="req-btn">Send Request</button>
+        <a href="{{route('Requests.Promotion_Request.create')}}"><button id="review-req" class="req-btn">Send Request</button></a>
       </div>
     </section>
 
     <!-- FOOTER -->
     <div class="center">
       <footer>
+
         <div class="left">
-          <p class="Footer-link">Help</p>
+          <a href="#{{--{{route('Main_Pages.')}}--}}"><p class="Footer-link">Pivacy Policy</p></a>
           <p>|</p>
-          <p class="Footer-link">FAQ</p>
-          <p>|</p>
-          <p class="Footer-link">Pivacy Policy</p>
-          <p>|</p>
-          <p class="Footer-link">About Hakkem</p>
+          <a href="{{route('About_Hakkem')}}"><p class="Footer-link">About Hakkem</p></a>
         </div>
+
         <div class="Mid">
           <p>© 2025 Hakkem. All Rights Reserved.</p>
         </div>
+
         <div class="right">
-          <img src="{{ asset('hakkem/images/Header_Footer/ContactPhoneDark.png')}}" />
-          <img src="{{ asset('hakkem/images/Header_Footer/Contact-Email_dark.png')}}" />
-          <img src="{{ asset('hakkem/images/Header_Footer/Contact-Email_dark.png')}}" />
+          <a href="#"><img src="{{ asset('hakkem/images/Header_Footer/ContactPhoneDark.png')}}" /></a>
+          <a href="#"><img src="{{ asset('hakkem/images/Header_Footer/Contact-Email_dark.png')}}" /></a>
+          <a href="#"><img src="{{ asset('hakkem/images/Header_Footer/Contact-X_dark.png')}}" /></a>
         </div>
+
       </footer>
     </div>
   </body>

@@ -25,15 +25,12 @@
         </div>
         <div class="nav">
           <div class="nav-cont">
-            <a href="#"><p class="navigate">Home</p></a>
-            <a href="#"><p class="navigate">Chat</p></a>
-            <a href="#"><p class="navigate">Offers</p></a>
-            <a href="#"><p class="navigate">Journals</p></a>
+            <a href="{{route('Auth.Home')}}"><p class="navigate">Home</p></a>
+            <a href="#{{--{{route('Main_Pages.')}}--}}"><p class="navigate">Chat</p></a>
+            <a href="#{{--{{route('Main_Pages.')}}--}}"><p class="navigate">Offers</p></a>
+            <a href="#{{--{{route('Main_Pages.')}}--}}"><p class="navigate">Journals</p></a>
           </div>
-          <img
-            src="{{ asset('hakkem/images/Header_Footer/profile_dark.png') }}"
-            class="profile"
-          />
+          <a href="#{{--{{route('Main_Pages.')}}--}}"><img src="{{ asset('hakkem/images/Header_Footer/profile_dark.png') }}" class="profile"/></a>
         </div>
       </header>
     </div>
@@ -198,17 +195,17 @@
     <div class="center">
       <footer>
         <div class="left">
-          <p class="Footer-link">Pivacy Policy</p>
+          <a href="#{{--{{route('Main_Pages.')}}--}}"><p class="Footer-link">Pivacy Policy</p></a>
           <p>|</p>
-          <p class="Footer-link">About Hakkem</p>
+          <a href="{{route('About_Hakkem')}}"><p class="Footer-link">About Hakkem</p></a>
         </div>
         <div class="Mid">
           <p>© 2025 Hakkem. All Rights Reserved.</p>
         </div>
         <div class="right">
-          <img src="{{ asset('hakkem/images/Header_Footer/ContactPhoneDark.png') }}"/>
-          <img src="{{ asset('hakkem/images/Header_Footer/Contact-Email_dark.png') }}"/>
-          <img src="{{ asset('hakkem/images/Header_Footer/Contact-X_dark.png') }}"/>
+          <a href="#"><img src="{{ asset('hakkem/images/Header_Footer/ContactPhoneDark.png') }}"/></a>
+          <a href="#"><img src="{{ asset('hakkem/images/Header_Footer/Contact-Email_dark.png') }}"/></a>
+          <a href="#"><img src="{{ asset('hakkem/images/Header_Footer/Contact-X_dark.png') }}"/></a>
         </div>
       </footer>
     </div>

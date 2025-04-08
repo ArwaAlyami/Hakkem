@@ -30,10 +30,7 @@ return new class extends Migration
             $table->string('job')->nullable(false);
             $table->string('email')->unique();
 
-            $table->unsignedBigInteger('asso_ed_id');
-            $table->string('agent_name');
-         
-            $table->foreign('asso_ed_id')->references('id')->on('associated_editors');
+            $table->string('agent_name');         
             $table->foreign('agent_name')->references('agent_name')->on('agents');
  
             $table->timestamps();

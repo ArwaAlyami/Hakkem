@@ -20,8 +20,8 @@ return new class extends Migration
             $table->dateTime('end_date')->nullable();
             $table->float('price')->nullable(false);
 
-            $table->unsignedBigInteger('prom_ad_id');
-            $table->foreign('prom_ad_id')->references('prom_ad_id')->on('promotion_admins');
+            $table->unsignedBigInteger('fm_id');
+            $table->foreign('fm_id')->references('id')->on('faculty_members');
 
             $table->timestamps();
         });

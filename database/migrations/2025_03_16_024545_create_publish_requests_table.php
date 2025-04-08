@@ -17,21 +17,15 @@ return new class extends Migration
             $table->dateTime('start_date')->nullable(false);
             $table->dateTime('end_date')->nullable();
 
-            $table->unsignedBigInteger('res_id');
-            $table->unsignedBigInteger('jour_id');
-            $table->unsignedBigInteger('prom_ad_id');
-            $table->unsignedBigInteger('research_id');
-            $table->unsignedBigInteger('fm_res_id');
+            $table->unsignedBigInteger('res_id')->nullable();
+            $table->unsignedBigInteger('jour_id')->nullable();
+            $table->unsignedBigInteger('research_id')->nullable();
+            $table->unsignedBigInteger('fm_id')->nullable();
 
-           $table->foreign('fm_res_id')->references('fm_res_id')->on('fm_researchers');
-
-           $table->foreign('research_id')->references('id')->on('researches');
-
-           $table->foreign('prom_ad_id')->references('prom_ad_id')->on('promotion_admins');
-
-           $table->foreign('res_id')->references('id')->on('ind_researchers');
-
-           $table->foreign('jour_id')->references('id')->on('journals');
+            $table->foreign('fm_id')->references('id')->on('faculty_members');
+            $table->foreign('research_id')->references('id')->on('researches');
+            $table->foreign('res_id')->references('id')->on('ind_researchers');
+            $table->foreign('jour_id')->references('id')->on('journals');
 
             $table->timestamps();
         });
