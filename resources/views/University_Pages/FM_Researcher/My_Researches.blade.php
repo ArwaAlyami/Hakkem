@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Researchers - Hakkem</title>
+    <title>My Researchers</title>
     <script>
-        window.eyeOpen = "{{ asset('images/University/eye-open.png') }}";
-        window.eyeClosed = "{{ asset('images/University/eye-closed.png') }}";
+        window.eyeOpen = "{{ asset('hakkem/images/University/eye-open.png') }}";
+        window.eyeClosed = "{{ asset('hakkem/images/University/eye-closed.png') }}";
     </script>
 <!-- ✅ CSS -->
 <link rel="stylesheet" href="{{ asset('hakkem/css/UniversityPages/FM_Researcher/My_Researches.css') }}">
@@ -16,6 +16,7 @@
 <body>
 
     <div class="container">
+        @include('include.sidebar')
         <!-- المحتوى الرئيسي -->
         <main class="content">
             <table>
@@ -42,24 +43,19 @@
                                     See More <span class="arrow">&#9660;</span>
                                 </button>
 
-                                {{-- <a href="AI-Healthcare.pdf" class="pdf-link" target="_blank">
+                                <a href="{{route('researcher-account.my-researches.show',['id'=>$research->id]) }}" class="pdf-link">
                                     <button class="download">
-                                        <img src="{{ asset('HAKKEM/images/University/pdf icon.png') }}" alt="PDF">
+                                        <img src="{{ asset('hakkem/images/University/pdf icon.png') }}" alt="PDF">
                                     </button>
-                                </a> --}}
+                                </a>
 
                                 <button class="pdf-toggle" onclick="togglePDF(this)" data-visible="true">
                                     <img src="{{ asset('hakkem/images/University/eye-open.png') }}" alt="Toggle PDF">
                                 </button>
 
-                                <button type="submit" class="see-more">
-                                    <a href="{{route('Account.my-researches.show',['id'=>$research->id]) }}">Show</a>
-                                </button>
-
-                                <form action="{{route('Account.my-researches.delete',$research->id)}}" method="post">
+                                <form action="{{route('researcher-account.my-researches.delete',$research->id)}}" method="post">
                                     {{ csrf_field() }}
                                     {{ method_field('delete') }}
-                                    
                                 <button type="submit" class="see-more"></i>Delete</button>
                                 </form>
                             </div>
@@ -85,7 +81,7 @@
  
 
             <!-- زر إضافة بحث جديد -->
-           <a href="{{ route('Account.my-researches.create') }}">
+           <a href="{{ route('researcher-account.my-researches.create') }}">
             <button class="add-research">
                 <img src="{{ asset('hakkem/images/University/Add icon.png') }}" alt="Add"> Add New Research</button>
             </a>

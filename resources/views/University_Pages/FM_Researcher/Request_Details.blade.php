@@ -25,7 +25,7 @@
 
     <!-- ✅ المحتوى الرئيسي -->
     <main class="content">
-        <!-- ✅ الجدول -->
+        <!-- ✅الجدول -->
         <table>
             <thead>
                 <tr>
@@ -69,6 +69,5 @@
             </tbody>
         </table>
     </main>
-
 </body>
 </html>
