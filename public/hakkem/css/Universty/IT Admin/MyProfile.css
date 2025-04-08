@@ -1,0 +1,452 @@
+@import url("https://fonts.googleapis.com/css2?family=Gravitas+One&family=Halant:wght@300;400;500;600;700&display=swap");
+
+/* Body */
+body,
+html {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+/* Header */
+header {
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0b3322;
+    width: 100%;
+}
+
+/* Logo */
+.logo-placeholder {
+    justify-items: center;
+    align-items: center;
+    color: white;
+    margin: 5px;
+}
+
+.logo {
+    width: 5px;
+}
+
+.brandname {
+    margin-top: -5px;
+    font-size: 12px;
+    font-weight: 300;
+    font-family: "Gravitas One", cursive;
+    width: 78px;
+    text-align: center;
+}
+
+/* Navbar */
+.nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    /* جعل العناصر في أقصى اليمين */
+    gap: 10px;
+    margin: 5px;
+    width: 100%;
+    /* تأكد أن الناف بار تمتد على العرض بالكامل */
+}
+
+/* الحاوية الداخلية للعناصر */
+.nav-cont {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-left: auto;
+    /* دفع العناصر إلى أقصى اليمين */
+}
+
+/* تنسيق روابط التنقل */
+.navigate {
+    cursor: pointer;
+    color: #ffffff90;
+    transition: color 0.2s ease-in-out;
+}
+
+.navigate:hover {
+    color: #ffffff;
+}
+
+/* تنسيق أيقونة البروفايل */
+.profile {
+    width: 40px;
+    cursor: pointer;
+}
+
+.profile-link {
+    margin-left: 10px;
+}
+
+/* تنسيق عام */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+.container {
+    display: flex;
+    margin: 10px;
+}
+
+/* القائمة الجانبية */
+.sidebar {
+    width: 210px;
+    background: white;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    position: absolute;
+    margin-top: 90px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: background 0.3s, border-left 0.3s;
+}
+
+.sidebar ul li img {
+    width: 20px;
+    height: 20px;
+    transition: filter 0.3s;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    flex-grow: 1;
+    font-weight: bold;
+}
+
+
+.sidebar ul li.active {
+    border-left: 5px solid #0d2b1f;
+    background-color: #d5d5d5;
+    border-radius: 5px;
+}
+
+.sidebar ul li.active img {
+    filter: grayscale(100%) brightness(50%);
+}
+
+.sidebar ul li.active a {
+    color: #555;
+}
+
+
+.filter {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(8, 6, 6, 0.1);
+}
+
+.filter button {
+    border: none;
+    padding: 10px 20px;
+    background: #ddd;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.filter button.active {
+    background: #0d2b1f;
+    color: white;
+}
+
+.sidebar_content {
+    height: 250px;
+}
+
+/* تنسيق عام */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+.container {
+    display: flex;
+    margin: 20px;
+}
+
+/* ✅ ضبط تصميم البوكس الأبيض في الـ Sidebar */
+.sidebar {
+    position: fixed;
+    width: 230px;
+    /* نفس عرض Sidebar في صفحة My Requests */
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    /* جعل الحواف أكثر نعومة */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* إضافة ظل مطابق */
+    min-height: 300px;
+    /* ضمان أن يكون الطول مناسبًا */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+}
+
+.sidebar ul li {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: background 0.3s, border-left 0.3s;
+}
+
+.sidebar ul li img {
+    width: 20px;
+    height: 20px;
+    transition: filter 0.3s;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #333;
+    display: block;
+    flex-grow: 1;
+    font-weight: bold;
+}
+
+
+.sidebar ul li.active {
+    border-left: 5px solid #0d2b1f;
+    background-color: #d5d5d5;
+    border-radius: 5px;
+}
+
+.sidebar ul li.active img {
+    filter: grayscale(100%) brightness(50%);
+}
+
+.sidebar ul li.active a {
+    color: #555;
+}
+
+
+.filter {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+    background: #f0f0f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(8, 6, 6, 0.1);
+}
+
+.filter button {
+    border: none;
+    padding: 10px 20px;
+    background: #ddd;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.filter button.active {
+    background: #0d2b1f;
+    color: white;
+}
+
+.sidebar_content {
+    height: 250px;
+}
+
+/*  إضافة تأثير عند تمرير الماوس */
+.sidebar ul li:hover {
+    background-color: #f0f0f0;
+
+}
+
+.content {
+    flex-grow: 1;
+    background: white;
+    padding: 20px;
+    margin-left: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* تنسيق كونتينر الحقول */
+.fields-container {
+    background-color: #f1f1f1;
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    padding: 20px;
+    border-radius: 8px;
+    width: 600px;
+    height: 300px;
+    margin-left: 300px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    position: absolute;
+    margin-top: 90px;
+
+}
+
+.Edit-button {
+    width: 14%;
+    background-color: #0b3322;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: center;
+    gap: 30px;
+    margin-left: 500px;
+}
+
+/* تنسيق الحقول داخل صفين */
+.input-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 1px;
+    margin-bottom: 18px;
+}
+
+/* ضبط عرض كل حقل داخل الصف */
+.input-row div {
+    flex: 90;
+    display: flex;
+    flex-direction: column;
+}
+
+/* تنسيق الحقول */
+.fields-container label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.fields-container input {
+    width: 270px;
+    height: 15px;
+    padding: 8px;
+    border: 1px solid rgba(0, 0, 0, 0.18);
+    border-radius: 7px;
+    background-color: rgba(241, 241, 241, 0.4);
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+
+}
+
+/* الأزرار */
+.fields-container button {
+    background-color: #0b3322;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    padding: 10px 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    align-items: center;
+    font-weight: bold;
+    box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.3);
+    color: white;
+}
+
+/* تأثير عند تمرير الماوس */
+.fields-container button:hover {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.warning-text {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+    font-weight: bold;
+}
+
+/* Footer */
+footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    position: fixed;
+    bottom: 0;
+    background-color: #0b3322;
+}
+
+footer p {
+    color: #ffffff90;
+}
+
+.left {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.Footer-link {
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+    color: #ffffff90;
+    font-style: italic;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.Footer-link:hover {
+    color: #ffffff;
+}
+
+.left,
+.right,
+.Mid {
+    align-items: center;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.Mid {
+    font-size: 16px;
+    color: #ffffff90;
+    font-style: italic;
+    font-weight: 500;
+}
+
+.right img {
+    cursor: pointer;
+    width: 35px;
+}
