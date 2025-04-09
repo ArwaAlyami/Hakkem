@@ -11,7 +11,7 @@ class MyResearchesController2 extends Controller
  
     public function index(Request $request)
     {
-        $researches = Research::paginate(20);
+        $researches = Research::paginate(perPage: 4);
         return view('University_Pages.FM_Researcher.My_Researches', compact('researches'));
     }
 

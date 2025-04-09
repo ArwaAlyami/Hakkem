@@ -17,14 +17,16 @@
             <p class="brand-name">HAKKEM</p>
         </div>
   </header>
-        <h1>Welcome To HAKKEM...</h1>
-        <p>Select the User type to start creating your account...</p>
+        <h1>Welcome To HAKKEM ...</h1>
+        <p>Select the User type to start creating your account ...</p>
   <!-- نوع المستخدم -->
-  <div class="user-type-container">
-    <a href="{{-- route('Auth.UniversitySignUpForm')--}}" class="user-type-btn">University</a>
-    <a href="{{-- route('Auth.JournalSignUpForm')--}}" class="user-type-btn">Journal</a>
-    <a href="{{-- route('Auth.IndividualSignUp')--}}" class="user-type-btn">Researcher</a>
-    <a href="{{-- route('Auth.IndividualSignUp')--}}" class="user-type-btn">Reviewer</a>
+<div class="user-type-container">
+
+    <a href="{{ route('SignUp','Uni-IT')}}" class="user-type-btn">University</a>
+    <a href="{{ route('SignUp','Jour-IT')}}" class="user-type-btn">Journal</a>
+    <a href="{{ route('SignUp','Ind-Researcher')}}" class="user-type-btn">Researcher</a>
+    <a href="{{ route('SignUp','Ind-Reviewer')}}" class="user-type-btn">Reviewer</a>
+
 </div>
 </body>
 </html>

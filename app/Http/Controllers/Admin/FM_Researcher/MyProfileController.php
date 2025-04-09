@@ -58,8 +58,9 @@ class MyProfileController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function SignOut(string $id)
     {
-        //
+        // Auth::logout();
+        // return redirect()->route('Get_Started');
     }
 }

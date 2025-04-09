@@ -16,7 +16,9 @@
 <body>
 
     <div class="container">
+
         @include('include.sidebar')
+        
         <!-- المحتوى الرئيسي -->
         <main class="content">
             <table>
@@ -78,12 +80,13 @@
 
                 </tbody>
             </table>
+            {{ $researches->appends(request()->query())->links() }}
  
 
             <!-- زر إضافة بحث جديد -->
            <a href="{{ route('researcher-account.my-researches.create') }}">
             <button class="add-research">
-                <img src="{{ asset('hakkem/images/University/Add icon.png') }}" alt="Add"> Add New Research</button>
+                <img src="{{ asset('hakkem/images/University/Add icon.png') }}" alt="Add">Add New Research</button>
             </a>
 
             </main>

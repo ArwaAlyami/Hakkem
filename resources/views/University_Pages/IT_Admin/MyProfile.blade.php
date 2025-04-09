@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MyProfile</title>
+    <title>My Profile</title>
     <link rel="stylesheet" href="{{ asset('hakkem/css/Universty/IT Admin/MyProfile.css') }}" />
 
 </head>
@@ -19,42 +19,46 @@
             </div>
             <div class="nav">
                 <div class="nav-cont">
-                    <a href="{{ asset('') }}" class="navigate">Home</a>
-                    <a href="chat.html" class="navigate">Chat</a>
-                    <a href="offers.html" class="navigate">Offers</a>
-                    <a href="journals.html" class="navigate">Journals</a>
+                    <a href="{{-- route('') --}}" class="navigate">Home</a>
+                    <a href="{{-- route('') --}}" class="navigate">Chat</a>
+                    <a href="{{-- route('') --}}" class="navigate">Offers</a>
+                    <a href="{{-- route('') --}}" class="navigate">Journals</a>
                 </div>
             </div>
-            <a href="#" class="profile-link">
+            <a href="{{-- route('') --}}" class="profile-link">
                 <img src="{{ asset('hakkem/images/Header_Footer/profile_light.png') }}" class="profile" alt="Profile" />
             </a>
+            </div>
+       </header>
     </div>
-    </header>
-    </div>
+    
     <!--السايد بار-->
     <aside class="sidebar">
         <ul>
             <li class="sidebar-item active">
-                <a href="#">
+                <a href="{{ route('ITAdminAccount.My_Profile.Profile') }}">
                     <img src="{{ asset('hakkem/images/University/My-profile icon.png')}}" alt="Profile">
                     My Profile
                 </a>
             </li>
             <li class="sidebar-item">
-                <a href="#">
+                <a href="{{ route('ITAdminAccount.manage-users.index') }}">
                     <img src="{{ asset('hakkem/images/University/Manage-users icon.png') }}" alt="Manage">
                     Manage Users
                 </a>
             </li>
 
             <li class="sidebar-item">
-                <a href="#">
+                <a href="{{ route('Get_Started') }}">
                     <img src="{{ asset('hakkem/images/University/Sign-out icon.png') }}" alt="Sign Out">
                     Sign Out
                 </a>
             </li>
         </ul>
     </aside>
+
+
+    
     <!-- الكونتير للحقول-->
     <div id="dynamic-" class="fields-container">
         <button class="Edit-button" id="editBtn">
@@ -94,13 +98,20 @@
         </div>
     </div>
 
+
+
+
     <!-- FOOTER -->
     <div class="center">
         <footer>
             <div class="left">
+            <a href="{{-- route('')--}}">
                 <p class="Footer-link">Pivacy Policy</p>
+            </a>
                 <p>|</p>
+            <a href="{{ route('About_Hakkem')}}">
                 <p class="Footer-link">About Hakkem</p>
+            </a>
             </div>
             <div class="Mid">
                 <p>© 2025 Hakkem. All Rights Reserved.</p>
@@ -108,7 +119,7 @@
             <div class="right">
                 <img src="{{ asset('hakkem/images/Header_Footer/Contact-Phone_light.png') }} " />
                 <img src="{{ asset('hakkem/images/Header_Footer/Contact-Email_light.png') }}" />
-                <img src=".{{ asset('hakkem/images/Header_Footer/Contact-X_light.png') }}" />
+                <img src="{{ asset('hakkem/images/Header_Footer/Contact-X_light.png') }}" />
             </div>
         </footer>
     </div>

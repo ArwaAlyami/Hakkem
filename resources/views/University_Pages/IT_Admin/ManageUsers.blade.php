@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ManageUsers</title>
+    <title>Manage Users</title>
     <link rel="stylesheet" href="{{ asset('hakkem/css/Universty/IT Admin/ManageUsers.css')}}" />
 </head>
 
@@ -18,10 +18,10 @@
             </div>
             <div class="nav">
                 <div class="nav-cont">
-                    <a href="#" class="navigate">Home</a>
-                    <a href="chat.html" class="navigate">Chat</a>
-                    <a href="offers.html" class="navigate">Offers</a>
-                    <a href="journals.html" class="navigate">Journals</a>
+                  <a href="{{ route('Auth.Home') }}" class="navigate">Home</a>
+                  <a href="{{-- route('') --}}" class="navigate">Chat</a>
+                  <a href="{{-- route('') --}}" class="navigate">Offers</a>
+                  <a href="{{-- route('') --}}" class="navigate">Journals</a>
                 </div>
             </div>
             <a href="#" class="profile-link">
@@ -33,21 +33,21 @@
      <!--السايد بار-->
      <aside class="sidebar">
         <ul>
-            <li class="sidebar-item active">
-                <a href="#">
+            <li class="sidebar-item">
+              <a href="{{ route('ITAdminAccount.My_Profile.Profile') }}">
                     <img src="{{ asset('hakkem/images/University/My-profile icon.png')}}" alt="Profile">
                     My Profile
                 </a>
             </li>
-            <li class="sidebar-item">
-                <a href="#">
+            <li class="sidebar-item active">
+              <a href="{{ route('ITAdminAccount.manage-users.index') }}">
                     <img src="{{ asset('hakkem/images/University/Manage-users icon.png') }}" alt="Manage">
                     Manage Users
                 </a>
             </li>
 
             <li class="sidebar-item">
-                <a href="#">
+              <a href="{{ route('Get_Started') }}">
                     <img src="{{ asset('hakkem/images/University/Sign-out icon.png') }}" alt="Sign Out">
                     Sign Out
                 </a>
@@ -59,39 +59,50 @@
     <table class="member-table">
       <thead>
         <tr>
-          <th>Full Name</th>
+          <th>No.</th>
+          <th>First Name</th>
+          <th>Last Name</th>
           <th>Email</th>
           <th>Department</th>
+          <th>Academic Rank</th>
+          <th>Action</th>
+
+
 
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td style="color: grey;">Ahmad Alshammari</td>
-          <td style="color: grey;">ahmad@example.com</td>
-          <td style="color: grey;">Computer Science</td>
-          <td>
-            <button class="action-btn">Delete</button>
-            <a href="#" class="action-btn">Grant Permission</a>
 
-          </td>
-        </tr>
         <tr>
-          <td style="color: grey;">Fatimah Alsaleh</td>
-          <td style="color: grey;">fatimah@example.com</td>
-          <td style="color: grey;">IT</td>
+          <td style="color: grey;">A</td>
+          <td style="color: grey;">A</td>
+          <td style="color: grey;">A</td>
+          <td style="color: grey;">A</td>
+          <td style="color: grey;">A</td>
+          <td style="color: grey;">A</td>
+ 
+         
+         
           <td>
-            <button class="action-btn">Delete</button>
-            <a href="#" class="action-btn">Grant Permission</a>
+          <form action="{{-- route('ITAdminAccount.manage-users.delete')--}}" method="post" >
+              {{ csrf_field() }}
+              {{ method_field('delete') }}
+              <button class="action-btn">Delete</button>
+          </form>
+
+          <button class="action-btn">
+          <a href="{{ route('ITAdminAccount.manage-users.edit')}}">Edit</a>
+          </button>
           </td>
         </tr>
+
       </tbody>
     </table>
   </div>
 
   <!-- زر الإضافة -->
   <div class="add-member-container">
-    <a href="#">
+    <a href="{{ route('ITAdminAccount.manage-users.create') }}">
       <button class="add-member-btn">+ Add Member</button>
     </a>
   </div>
@@ -109,7 +120,7 @@
             <div class="right">
                 <img src="{{ asset('hakkem/images/Header_Footer/Contact-Phone_light.png') }} " />
                 <img src="{{ asset('hakkem/images/Header_Footer/Contact-Email_light.png') }}" />
-                <img src=".{{ asset('hakkem/images/Header_Footer/Contact-X_light.png') }}" />
+                <img src="{{ asset('hakkem/images/Header_Footer/Contact-X_light.png') }}" />
             </div>
         </footer>
     </div>

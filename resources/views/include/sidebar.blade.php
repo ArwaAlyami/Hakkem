@@ -1,17 +1,21 @@
 <aside class="sidebar">
     <ul>
+ 
         <li class="active">
             <img src="{{ asset('hakkem/images/image-profile-icon.png') }}" alt="Profile">
             <a href="{{ route("researcher-account.my-profile.index")}}">My Profile</a>
         </li>
+
         <li>
             <img src="{{ asset('hakkem/images/image-research-icon.png') }}" alt="Research">
             <a href="{{ route('researcher-account.my-researches.index')}}">My Researches</a>
         </li>
+
         <li>
             <img src="{{ asset('hakkem/images/image-requests-icon.png') }}" alt="Requests">
             <a href="{{ route('researcher-account.My_Requests.Requests')}}">My Requests</a>
         </li>
+        
         <li>
             <img src="{{ asset('hakkem/images/image-password-icon.png') }}" alt="Change Password">
             <a href="#">Change Password</a>
@@ -21,5 +25,6 @@
             <img src="{{ asset('hakkem/images/image-signout-icon.png') }}" alt="Sign Out">
             <a href="{{ route('Get_Started')}}">Sign Out</a>
         </li>
+
     </ul>
 </aside>

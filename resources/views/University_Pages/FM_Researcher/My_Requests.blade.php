@@ -22,7 +22,7 @@
         <table>
           <thead>
             <tr>
-              <th>Request ID</th>
+              <th>Request Number</th>
               <th>Price</th>
               <th>Request Type</th>
               <th>Start Date</th>

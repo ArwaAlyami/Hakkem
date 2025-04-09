@@ -1,6 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Gravitas+One&family=Halant:wght@300;400;500;600;700&display=swap");
 
 /* Body */
+a{
+    text-decoration: none;
+}
 body,
 html {
     margin: 0;

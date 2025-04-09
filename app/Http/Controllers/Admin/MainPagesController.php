@@ -15,7 +15,11 @@ class MainPagesController extends Controller
         return view("Main_Pages.Main.AboutUs");
     }
 
-    public function Home(){
-        return view("Main_Pages.Main.Home");
+    public function SignUp(){
+        return view("Main_Pages.SignIn_SignUp.SignUp");
     }
+
+    public function UserType(){
+        return view('Main_Pages.SignIn_SignUp.UserType') ;
+     }
 }

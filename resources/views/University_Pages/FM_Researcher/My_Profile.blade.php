@@ -8,8 +8,11 @@
     <script src="{{ asset('hakkem/javascript/University/FM_Researcher/My_Profile.js') }}" defer></script>
 </head>
 <body>
+  
     <div class="container">
+
       @include('include.sidebar')
+
       <!-- المحتوى الرئيسي -->
       <main class="profile-content">
         <div class="profile-box">

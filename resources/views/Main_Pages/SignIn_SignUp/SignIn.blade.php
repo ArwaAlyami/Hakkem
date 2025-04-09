@@ -12,11 +12,7 @@
   <body>
     <div class="container">
       <div class="logo-section">
-        <img
-          src="{{ asset('hakkem/images/Dark-logo.png')}}"
-          alt="Hakkem Logo"
-          class="logo"
-        />
+        <img src="{{ asset('hakkem/images/Dark-logo.png')}}" alt="Hakkem Logo" class="logo"/>
         <p class="brand-name">HAKKEM</p>
       </div>
     </div>
@@ -24,17 +20,17 @@
     <div class="form-container">
       <div class="form-background">
         <h2 class="form-title">Sign In to your account</h2>
-        <form action="#" method="POST">
-          <input class="inp" type="email" placeholder="Email" required />
-          <input type="password" placeholder="Password" required />
+        <form action="{{-- route('')--}}" method="POST" enctype="multipart/form-data">
+
+          <input class="inp" type="email" placeholder="Email" id="" required />
+
+          <input type="password" placeholder="Password" id="" required />
+
           <h3 class="link" id="forgot-Pass">Forgot your Password?</h3>
+
           <a href="{{route('Main_Pages.Home')}}"><button type="submit">SIGN IN</button></a>
-          <p class="signup-text">
-            Don't have an account?
-            <a class="link" href="{{route('Auth.MainSignUpForm')}}">
-              Sign Up
-            </a>
-          </p>
+
+          <p class="signup-text">Don't have an account?<a class="link" href="{{route('Auth.MainSignUpForm')}}">Sign Up</a></p>
         </form>
       </div>
     </div>
