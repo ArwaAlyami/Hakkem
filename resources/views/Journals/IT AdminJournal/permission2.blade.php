@@ -29,30 +29,8 @@
     </header>
     </div>
 
-    <!--السايد بار-->
-    <aside class="sidebar">
-        <ul>
-            <li class="sidebar-item active">
-                <a href="#">
-                    <img src="{{ asset('hakkem/images/University/My-profile icon.png')}}" alt="Profile">
-                    My Profile
-                </a>
-            </li>
-            <li class="sidebar-item">
-                <a href="#">
-                    <img src="{{ asset('hakkem/images/University/Manage-users icon.png') }}" alt="Manage">
-                    Manage Users
-                </a>
-            </li>
-
-            <li class="sidebar-item">
-                <a href="#">
-                    <img src="{{ asset('hakkem/images/University/Sign-out icon.png') }}" alt="Sign Out">
-                    Sign Out
-                </a>
-            </li>
-        </ul>
-    </aside>
+   <!--السايد بار-->
+   @include('include.ITAdminSidebar')
 
 <div class="grant-container">
     <h2 class="grant-title">Grant Permission</h2>

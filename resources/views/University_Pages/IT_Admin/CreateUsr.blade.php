@@ -27,34 +27,12 @@
         </header>
     </div>
 <!--السايد بار-->
-<aside class="sidebar">
-        <ul>
-            <li class="sidebar-item ">
-                <a href="{{ route('ITAdminAccount.My_Profile.Profile') }}">
-                    <img src="{{ asset('hakkem/images/University/My-profile icon.png')}}" alt="Profile">
-                    My Profile
-                </a>
-            </li>
-            <li class="sidebar-item">
-                <a href="{{ route('ITAdminAccount.manage-users.index') }}">
-                    <img src="{{ asset('hakkem/images/University/Manage-users icon.png') }}" alt="Manage">
-                    Manage Users
-                </a>
-            </li>
-
-            <li class="sidebar-item">
-                <a href="{{ route('Get_Started') }}">
-                    <img src="{{ asset('hakkem/images/University/Sign-out icon.png') }}" alt="Sign Out">
-                    Sign Out
-                </a>
-            </li>
-        </ul>
-    </aside>
+@include('include.ITAdminSidebar')
     <!-- المحتوى -->
 <div class="page-content">
     <h2 style="text-align: center;">Create User Account</h2>
 
-    
+
         <form method="POST" action="" enctype="multipart/form-data" class="form-container">
             {{ csrf_field() }}
             {{ method_field('post') }}
@@ -111,7 +89,7 @@
 
         <p id="success-message" class="success-message">User account created successfully!</p>
     </form>
-   
+
 </div>
 
         <!-- FOOTER -->

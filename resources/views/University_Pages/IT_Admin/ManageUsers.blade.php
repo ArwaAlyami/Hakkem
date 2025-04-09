@@ -31,28 +31,7 @@
     </header>
     </div>
      <!--السايد بار-->
-     <aside class="sidebar">
-        <ul>
-            <li class="sidebar-item">
-              <a href="{{ route('ITAdminAccount.My_Profile.Profile') }}">
-                    <img src="{{ asset('hakkem/images/University/My-profile icon.png')}}" alt="Profile">
-                    My Profile
-                </a>
-            </li>
-            <li class="sidebar-item active">
-              <a href="{{ route('ITAdminAccount.manage-users.index') }}">
-                    <img src="{{ asset('hakkem/images/University/Manage-users icon.png') }}" alt="Manage">
-                    Manage Users
-                </a>
-            </li>
-
-            <li class="sidebar-item">
-              <a href="{{ route('Get_Started') }}">
-                    <img src="{{ asset('hakkem/images/University/Sign-out icon.png') }}" alt="Sign Out">
-                    Sign Out
-                </a>
-            </li>
-        </ul>
+   @include('include.ITAdminSidebar')
     </aside>
   <!-- Table الأعضاء -->
 <div class="container">
@@ -80,9 +59,9 @@
           <td style="color: grey;">A</td>
           <td style="color: grey;">A</td>
           <td style="color: grey;">A</td>
- 
-         
-         
+
+
+
           <td>
           <form action="{{-- route('ITAdminAccount.manage-users.delete')--}}" method="post" >
               {{ csrf_field() }}
