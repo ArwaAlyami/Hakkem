@@ -3,13 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>My Requests - Hakkem</title>
+    <title>My Requests</title>
     <link rel="stylesheet" href="{{ asset('hakkem/css/UniversityPages/FM_Researcher/My_Requests.css') }}" />
     <script src="{{ asset('hakkem/javascript/University/FM_Researcher/My_Requests.js') }}"></script>
   </head>
   <body>
     <div class="container">
-  
+      @include('include.sidebar')
 
       <main class="content">
         <div class="filter">
@@ -40,7 +40,9 @@
               <td>111</td>
               <td>
                 <div class="action-buttons">
+                  <a href="{{ route('researcher-account.My_Requests.Request_Details')}}">
                   <button class="details">Details</button>
+                  </a>
                   <button class="status completed">Completed</button>
                 </div>
               </td>

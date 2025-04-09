@@ -12,7 +12,7 @@ class MyRequestsController extends Controller
      */
     public function index()
     {
-        //
+        return view ('University_Pages.FM_Researcher.My_Requests');
     }
 
     /**
@@ -34,32 +34,24 @@ class MyRequestsController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show()
     {
-        //
+        return view('University_Pages.FM_Researcher.Request_Details');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+
     public function edit(string $id)
     {
-        //
+        
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(Request $request, string $id)
     {
-        //
+        
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
-        //
+        
     }
 }

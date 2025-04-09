@@ -1,12 +1,13 @@
 /* ✅ تنسيق عام للصفحة */
 body {
     font-family: Arial, sans-serif;
-    margin: 0;
+    margin: auto;
     padding: 0;
     background-color: #f8f8f8;
 }
 
 /* ✅ ضبط حاوية العناصر */
+
 .container {
     display: flex;
     flex-direction: column;

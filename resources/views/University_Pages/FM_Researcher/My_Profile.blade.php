@@ -3,12 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Researcher Profile</title>
+    <title>My Profile</title>
     <link rel="stylesheet" href="{{ asset('hakkem/css/UniversityPages/FM_Researcher/My_Profile.css') }}" />
     <script src="{{ asset('hakkem/javascript/University/FM_Researcher/My_Profile.js') }}" defer></script>
 </head>
 <body>
     <div class="container">
+      @include('include.sidebar')
       <!-- المحتوى الرئيسي -->
       <main class="profile-content">
         <div class="profile-box">
@@ -50,13 +51,10 @@
 
             <div class="form-group">
               <label for="qualification">Academic Qualification:</label>
-              <select id="qualification" disabled value="">
-                <option value="">Select...</option>
-                <option value="bachelor">Bachelor's</option>
-                <option value="master">Master's</option>
-                <option value="phd">PhD</option>
-              </select>
+              <input type="text" id="qualification" disabled value=""/>
             </div>
+
+        
 
             <div class="form-group">
               <label for="bachelor-specialization">Bachelor's Specialization:</label>
@@ -76,6 +74,11 @@
             <div class="form-group">
               <label for="specialization">Specialization:</label>
               <input type="text" id="specialization" disabled value=""/>
+            </div>
+
+            <div class="form-group">
+              <label for="IBAN">IBAN:</label>
+              <input type="text" id="IBAN" disabled value=""/>
             </div>
 
             <div class="form-actions">

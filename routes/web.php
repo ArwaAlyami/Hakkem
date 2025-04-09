@@ -101,11 +101,11 @@ Route::get('/Digital-Wallet', function () {
 });
 
 // ************************************ FM_Researcher Router ******************************************* //
-Route::prefix('Account')->as('Account.')->group(function () {
+Route::prefix('ResearcherAccount')->as('researcher-account.')->group(function () {
 
     // *********** Profile Routers ********** //
-    Route::prefix('My_Profile')->as(value: 'My_Profile.')->group(function () {
-        Route::get('Profile',[MyProfileController::class,'index'])->name('Profile');
+    Route::prefix('My_Profile')->as('my-profile.')->group(function () {
+        Route::get('Profile',[MyProfileController::class,'index'])->name('index');
         Route::post('Profile-edit',[MyProfileController::class,'edit'])->name('Profile-edit');
     });
 

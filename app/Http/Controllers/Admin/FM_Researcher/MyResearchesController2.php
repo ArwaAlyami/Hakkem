@@ -35,6 +35,13 @@ class MyResearchesController2 extends Controller
                 $fileAdder->toMediaCollection('research');
             });
         }
-        return redirect()->route('Account.my-researches.index');
+        return redirect()->route(route: 'researcher-account.my-researches.index');
     }
+    public function delete($id)
+    {
+        $research = Research::where('id',$id)->first();
+        $research->delete();
+        return redirect()->route(route: 'researcher-account.my-researches.index');
+
+        }
 }

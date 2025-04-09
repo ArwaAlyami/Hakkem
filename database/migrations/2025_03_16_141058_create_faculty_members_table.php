@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('l_name')->nullable(false);
             $table->integer('phone')->nullable(false);
             $table->string('department')->nullable();
-            $table->unsignedBigInteger('IBAN')->unique();
+            $table->unsignedBigInteger('IBAN')->unique()->nullable();
             $table->string('bachelors')->nullable(false);
             $table->string('masters')->nullable();
             $table->string('phd')->nullable();

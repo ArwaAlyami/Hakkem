@@ -40,7 +40,7 @@ a{
   padding: 15px;
   border-radius: 10px; /* جعل الحواف أكثر نعومة */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* إضافة ظل مطابق */
-  min-height: 400px; /* ضمان أن يكون الطول مناسبًا */
+  height: 280px; /* ضمان أن يكون الطول مناسبًا */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
