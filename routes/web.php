@@ -79,7 +79,26 @@ Route::prefix(prefix: 'Account')->as('Account.')->group(function () {
 
 });
 
+// ************************************ Promotion Admin Router ******************************************* //
+// *********** Profile Routers ********** //
+Route::get('/PromotionProfile', function () {
+    return view('Universty.PromotionAdmin.MyProfile'); 
+});
 
+// *********** Promotion Requests Routers ********** //
+Route::get('/Promotion-Requests', function () {
+    return view('Universty.Promotion Admin.Promotion_Requests'); 
+});
+
+// *********** Reviewer's Lists Routers ********** //
+Route::get('/Reviewers-Lists', function () {
+    return view('Universty.Promotion Admin.Reviewers_Lists'); 
+});
+
+// *********** Digital Wallet Routers ********** //
+Route::get('/Digital-Wallet', function () {
+    return view('Universty.Promotion Admin.Digital_Wallet'); 
+});
 
 // ************************************ FM_Researcher Router ******************************************* //
 Route::prefix('Account')->as('Account.')->group(function () {
