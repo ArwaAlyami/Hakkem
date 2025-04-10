@@ -13,6 +13,7 @@ use App\Http\Controllers\Admin\RoleController;
 
 // ******* Main Pages Routes *********** //
 
+
     Route::get('/',[MainPagesController::class,'GetStarted'])->name('Get_Started');
     Route::get('About_Hakkem',[MainPagesController::class,'AboutUs'])->name('About_Hakkem');
     Route::get('User_Type',[MainPagesController::class,  'UserType'])->name('User_Type');
@@ -34,7 +35,6 @@ Route::prefix('Auth')->as('Auth.')->group(function () {
     
     Route::get('SignIn',[AuthController::class,'SignIn'])->name('SignIn');
     Route::get('Home',action: [MainPagesController::class,'Home'])->name('Home');
-});
 
 
 
@@ -43,8 +43,8 @@ Route::prefix('Auth')->as('Auth.')->group(function () {
 Route::prefix('Requests')->as('Requests.')->group(function () {
 
     Route::prefix('Promotion_Request')->as('Promotion_Request.')->group(function () {
-        Route::get('promotion-create',action: [RequestsController::class,'promotionCreate'])->name('create');
-        Route::post('promotion-store',action: [RequestsController::class,'promotionStore'])->name('store');
+        Route::get('promotion-create', action: [RequestsController::class, 'promotionCreate'])->name('create');
+        Route::post('promotion-store', action: [RequestsController::class, 'promotionStore'])->name('store');
     });
 
     Route::prefix('ReviewRequest')->as('ReviewRequest.')->group(function () {
@@ -53,8 +53,9 @@ Route::prefix('Requests')->as('Requests.')->group(function () {
         Route::get('AI_Review',[RequestsController::class,'AI_Review'])->name('AI_Review');
         Route::get('Through_Offers_Review',[RequestsController::class,'Through_Offers_Review'])->name('Through_Offers_Review');
         Route::get('Through_Ind_Reviewer',[RequestsController::class,'Through_Ind_Reviewer'])->name('Through_Ind_Reviewer');
-    });
 
+
+    });
 });
 
 
@@ -62,6 +63,7 @@ Route::prefix('Requests')->as('Requests.')->group(function () {
 Route::prefix('ITAdminAccount')->as('ITAdminAccount.')->group(function () {
 
     // *********** Profile Routers ********** //
+
     Route::prefix('My_Profile')->as('My_Profile.')->group(function () {
         Route::get('Profile',[ITAdminController::class,'index'])->name('Profile');
         Route::post('Profile-edit',[ITAdminController::class,'edit'])->name('Profile-edit');
@@ -78,9 +80,39 @@ Route::prefix('ITAdminAccount')->as('ITAdminAccount.')->group(function () {
 
     // *********** SignOut Routers ********** //
     Route::get('SignOut',[ITAdminController::class,'SignOut'])->name('SignOut');
+
 });
 
+// ************************************ Promotion Admin Router ******************************************* //
+// *********** Profile Routers ********** //
+Route::get('/PromotionProfile', function () {
+    return view('Universty.PromotionAdmin.MyProfile');
+});
 
+// *********** Promotion Requests Routers ********** //
+Route::get('/Promotion-Requests', function () {
+    return view('Universty.PromotionAdmin.Promotion_Requests');
+});
+
+// *********** Reviewer's Lists Routers ********** //
+Route::get('/Reviewers-Lists', function () {
+    return view('Universty.PromotionAdmin.Reviewers_Lists');
+});
+
+// *********** Accept or Reject Promotion Request Routers ********** //
+Route::get('/ِAccept-Reject-Request', function () {
+    return view('Universty.PromotionAdmin.ِAccept-Reject-Request');
+});
+
+// *********** Accepted Promotion Request Routers ********** //
+Route::get('/ِAccepted-Request', function () {
+    return view('Universty.PromotionAdmin.ِAccepted-Request');
+});
+
+// *********** List Of Reviewers Routers ********** //
+Route::get('/ِList-Of-Reviewers', function () {
+    return view('Universty.PromotionAdmin.List-Of-Reviewers');
+});
 
 
 // ************************************ FM_Researcher Router ******************************************* //
@@ -88,27 +120,40 @@ Route::prefix('ResearcherAccount')->as('researcher-account.')->group(function ()
 
     // *********** Profile Routers ********** //
     Route::prefix('My_Profile')->as('my-profile.')->group(function () {
-        Route::get('Profile',[MyProfileController::class,'index'])->name('index');
-        Route::post('Profile-edit',[MyProfileController::class,'edit'])->name('Profile-edit');
+        Route::get('Profile', [MyProfileController::class, 'index'])->name('index');
+        Route::post('Profile-edit', [MyProfileController::class, 'edit'])->name('Profile-edit');
     });
 
     // *********** My Researches Routers ********** //
-    Route::prefix('my-researches')->as('my-researches.')->group(function(){
-        Route::get('index', [MyResearchesController2::class,'index'])->name('index');
-        Route::get('show/{id}', [MyResearchesController2::class,'show'])->name('show');
-        Route::get('create', [MyResearchesController2::class,'create'])->name('create');
-        Route::post('store', [MyResearchesController2::class,'store'])->name('store');
-        Route::delete('/{id}', [MyResearchesController2::class,'delete'])->name('delete');
+    Route::prefix('my-researches')->as('my-researches.')->group(function () {
+        Route::get('index', [MyResearchesController2::class, 'index'])->name('index');
+        Route::get('show/{id}', [MyResearchesController2::class, 'show'])->name('show');
+        Route::get('create', [MyResearchesController2::class, 'create'])->name('create');
+        Route::post('store', [MyResearchesController2::class, 'store'])->name('store');
+        Route::delete('/{id}', [MyResearchesController2::class, 'delete'])->name('delete');
     });
 
     // *********** My Requests Routers ********** //
     Route::prefix('My_Requests')->as('My_Requests.')->group(function () {
-        Route::get('Requests',[MyRequestsController::class,'index'])->name('Requests');
-    
-    // ***********  Request Details Routers ********** //
-        Route::get('Request_Details',[MyRequestsController::class,'show'])->name('Request_Details');
+        Route::get('Requests', [MyRequestsController::class, 'index'])->name('Requests');
+
+        // ***********  Request Details Routers ********** //
+        Route::get('Request_Details', [MyRequestsController::class, 'show'])->name('Request_Details');
     });
+
 
     // *********** SignOut Routers ********** //
     Route::get('SignOut',[MyProfileController::class,'SignOut'])->name('SignOut');
 });
+
+
+    // *********** Change Password Routers ********** //
+    Route::get('Change_Pass', [MyProfileController::class, 'index'])->name('Change_Pass');
+    Route::post('Change_Pass-post', [MyProfileController::class, 'create'])->name('Change_Pass-post');
+
+
+    // *********** SignOut Routers ********** //
+    Route::get('SignOut', [MyProfileController::class, 'index'])->name('SignOut');
+    Route::post('SignOut-post', [MyProfileController::class, 'create'])->name('SignOut-post');
+});
+

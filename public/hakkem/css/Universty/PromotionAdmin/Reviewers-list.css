@@ -1,0 +1,56 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin-top: 90px;
+    margin-left: 300px;
+}
+
+.specialization-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1.5px solid #e2e2e2;
+    border-radius: 8px;
+    background-color: white;
+    padding: 15px 20px;
+    margin-bottom: 15px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.05);
+}
+
+.specialization-card .info {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.specialization-card img {
+    width: 40px;
+    height: 40px;
+}
+
+.specialization-card span {
+    font-size: 16px;
+}
+
+.specialization-card strong {
+    color: #1b6e54; /* الأخضر المستخدم لكلمة Specialization */
+}
+
+.specialization-card button {
+    background-color: #083b2d;
+    color: white;
+    border: none;
+    padding: 6px 18px;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.specialization-card button:hover {
+    background-color: #0a4f3c;
+}
