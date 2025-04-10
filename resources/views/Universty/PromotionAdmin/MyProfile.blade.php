@@ -5,90 +5,95 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Promotion Admin Profile</title>
-    <link rel="stylesheet" href="{{ asset('\hakkem\css\UniversityPages\FM_Researcher\My_Profile.css') }}" />
-    <script src="{{ asset('\hakkem\javascript\University\FM_Researcher\My_Profile.js') }}"></script>
+    <link rel="stylesheet" href="{{ asset('hakkem/css/Universty/PromotionAdmin/MyProfile.css') }}" />
+    <link rel="stylesheet" href="{{ asset('hakkem/css/Header-Footer.css') }}" />
+    <link rel="stylesheet" href="{{ asset('hakkem/css/Sidebar.css') }}" />
+    <script src="{{ asset('hakkem/javascript/University/FM_Researcher/My_Profile.js') }}" defer></script>
 </head>
 
 <body>
-    <div class="container">
-        <!-- المحتوى الرئيسي -->
-        <main class="profile-content">
-            <div class="profile-box">
-                <button id="edit-btn" class="edit-button">
-                    <img src="{{ asset('hakkem/images/University/Edit icon.png') }}" alt="Edit" /> Edit
-                </button>
+    @include('include.Header')
+    @include('include.Promotion-Sidebar')
+    <!-- الكونتير للحقول-->
+    <div id="dynamic-" class="fields-container">
+        <button class="Edit-button" id="editBtn">Edit</button>
 
-                <form id="profile-form">
-
-                    <div class="form-group">
-                        <label for="first-name">First Name:</label>
-                        <input type="text" id="first-name" disabled value="" />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="last-name">Last Name:</label>
-                        <input type="text" id="last-name" disabled value="" />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" disabled value="" />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="phone">Phone:</label>
-                        <input type="text" id="phone" disabled value="" />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="university">University:</label>
-                        <input type="text" id="university" disabled value="" />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="academic-rank">Academic Rank:</label>
-                        <input type="text" id="academic-rank" disabled value="" />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="qualification">Academic Qualification:</label>
-                        <select id="qualification" disabled value="">
-                            <option value="">Select...</option>
-                            <option value="bachelor">Bachelor's</option>
-                            <option value="master">Master's</option>
-                            <option value="phd">PhD</option>
-                        </select>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="bachelor-specialization">Bachelor's Specialization:</label>
-                        <input type="text" id="bachelor-specialization" disabled value="" />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="master-specialization">Master's Specialization:</label>
-                        <input type="text" id="master-specialization" disabled value="" />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="doctorate-specialization">Doctorate's Specialization:</label>
-                        <input type="text" id="doctorate-specialization" disabled value="" />
-                    </div>
-
-                    <div class="form-group">
-                        <label for="specialization">Specialization:</label>
-                        <input type="text" id="specialization" disabled value="" />
-                    </div>
-
-                    <div class="form-actions">
-                        <button type="submit" id="save-btn" class="save-button" disabled>Save changes</button>
-                        <button type="button" id="cancel-btn" class="cancel-button" disabled>Cancel</button>
-                    </div>
-
-                </form>
+        <!-- حقلين الاسماء-->
+        <div class="input-row">
+            <div>
+                <label>First Name:</label>
+                <input type="text" id="firstName" placeholder="Enter your first name" disabled
+                    oninput="validateText(this)" />
             </div>
-        </main>
+            <div>
+                <label>Last Name:</label>
+                <input type="text" id="lastName" placeholder="Enter your last name" disabled
+                    oninput="validateText(this)" />
+            </div>
+        </div>
+
+        <!-- حقلين البريد ورقم الجوال -->
+        <div class="input-row">
+            <div>
+                <label>Email:</label>
+                <input type="email" id="email" placeholder="example@email.com" disabled oninput="validateEmail(this)" />
+            </div>
+            <div>
+                <label>Phone:</label>
+                <input type="text" id="university" placeholder="Enter your phone number" disabled
+                    oninput="validateText(this)" />
+            </div>
+        </div>
+
+        <!-- حقلين الاسماء-->
+        <div class="input-row">
+            <div>
+                <label>University:</label>
+                <input type="text" id="firstName" placeholder="Enter your university name" disabled
+                    oninput="validateText(this)" />
+            </div>
+            <div>
+                <label>Academic Rank:</label>
+                <input type="text" id="lastName" placeholder="Enter your academic rank" disabled
+                    oninput="validateText(this)" />
+            </div>
+        </div>
+
+        <!-- حقلين الاسماء-->
+        <div class="input-row">
+            <div>
+                <label>Academic Qualification:</label>
+                <input type="text" id="firstName" placeholder="Enter your academic qualification" disabled
+                    oninput="validateText(this)" />
+            </div>
+            <div>
+                <label>Bachelor's Specialization:</label>
+                <input type="text" id="lastName" placeholder="Enter your bachelor's specialization" disabled
+                    oninput="validateText(this)" />
+            </div>
+        </div>
+
+        <!-- حقلين الاسماء-->
+        <div class="input-row">
+            <div>
+                <label>Master's Specialization:</label>
+                <input type="text" id="firstName" placeholder="Enter your master's specialization" disabled
+                    oninput="validateText(this)" />
+            </div>
+            <div>
+                <label>Doctorate's Specialization:</label>
+                <input type="text" id="lastName" placeholder="Enter your doctorate's specialization" disabled
+                    oninput="validateText(this)" />
+            </div>
+        </div>
+
+        <!-- الأزرار -->
+        <div class="buttons">
+            <button id="saveBtn" disabled>Save changes</button>
+            <button id="cancelBtn" disabled>Cancel</button>
+        </div>
     </div>
+    @include('include.Footer')
 </body>
 
 </html>
