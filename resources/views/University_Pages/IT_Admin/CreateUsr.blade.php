@@ -43,6 +43,13 @@
             </li>
 
             <li class="sidebar-item">
+                <a href="{{ route('roles.index') }}">
+                    <img src="{{ asset('hakkem/images/University/Manage-users icon.png') }}" alt="Sign Out">
+                    Manage Roles
+                </a>
+            </li>
+
+            <li class="sidebar-item">
                 <a href="{{ route('Get_Started') }}">
                     <img src="{{ asset('hakkem/images/University/Sign-out icon.png') }}" alt="Sign Out">
                     Sign Out

@@ -24,6 +24,7 @@ use App\Http\Controllers\Admin\RoleController;
         Route::get('Roles',[RoleController::class,'index'])->name('index');
         Route::get('Role-Permission',action: [RoleController::class,'create'])->name('create');
         Route::post('Assign-Permission',action: [RoleController::class,'store'])->name('store');
+        Route::get('show/{id}',action: [RoleController::class,'show'])->name('show');
 
     });
 

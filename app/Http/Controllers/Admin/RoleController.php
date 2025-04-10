@@ -33,4 +33,8 @@ class RoleController extends Controller
         
         return redirect()->route('roles.index');
     }
+
+    public function show($id){
+       return Role::with('permissions')->where('id',$id)->first();
+    }
 }
