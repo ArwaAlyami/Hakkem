@@ -1,0 +1,212 @@
+/* ✅ تنسيق عام للصفحة */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f8f8;
+}
+
+/* ✅ ضبط حاوية العناصر */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* توسيط جميع العناصر */
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ✅ إعادة تنسيق البوكس العلوي (Request Details) */
+.page-header {
+    background: white;
+    padding: 15px 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 1100px;
+    text-align: left;
+    font-size: 14px;
+    font-weight: normal;
+    margin-bottom: 20px;
+}
+
+/* ✅ ضبط "Request Details" بخط أخضر */
+.page-header h2 {
+    font-size: 20px;
+    color: green;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+/* ✅ تنسيق معلومات الطلب بنفس الشكل السابق */
+.request-info {
+    font-size: 14px;
+    color: #333;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px; /* زيادة المسافة بين العناصر */
+    align-items: center;
+}
+.request-info img {
+    width: 50px;
+    height: 50px;
+    object-fit: contain; /* يمنع تشويه الصورة */
+}
+
+
+/* ✅ جعل العناوين مثل (عدد الأبحاث، التخصص، وقت التسليم) بولد */
+.request-info span {
+    font-size: 12px;
+    font-weight: bold;
+    color: rgb(13, 118, 21); /* جعل النص العادي أسود */
+
+}
+
+
+/* ✅ جعل العناوين الأساسية بلون أخضر وبخط بولد */
+.request-info span strong {
+    color: rgb(0, 0, 0); /* جعل العنوان الرئيسي أخضر */
+    font-size: 11px;
+}
+
+
+/* ✅ ضبط الجدول بحيث يتناسق مع البوكس العلوي */
+.content {
+    width: 100%;
+    max-width: 1100px;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ تصميم الجدول */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    background: white;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ ضبط محاذاة النصوص داخل الجدول */
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: center; /* توسيط المحتوى */
+    font-size: 14px;
+}
+
+/* ✅ ضبط خلفية رأس الجدول */
+th {
+    background: #f5f5f5;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/* ✅ ضبط أزرار PDF و "See More" */
+.actions {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.see-more {
+    border-radius: 20px;
+    padding: 5px 10px;
+    font-size: 9px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+
+.see-more {
+    background: #e6f4ea;
+    border: 1px solid #196415;
+    width: 80px;
+}
+.see-more .arrow {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.see-more.open .arrow {
+    transform: rotate(180deg);
+}
+
+/* ✅ تحسين تفاصيل البحث داخل "See More" */
+.research-details {
+    display: none;
+    background: #f9f9f9;
+    border-top: 2px solid #ddd;
+    padding: 10px;
+}
+
+/* ✅ تحسين مظهر صناديق تفاصيل البحث */
+.details-box {
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 4px solid #0d2b1f;
+    background: #ffffff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ تنسيق كل جزء من التفاصيل */
+.sub-box {
+    background: #fafafa;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    font-size: 13px;
+    margin-bottom: 5px;
+    text-align: left; /* محاذاة النص لليسار */
+
+}
+
+/* ✅ تحسين العناوين داخل تفاصيل البحث */
+.sub-box strong {
+    font-size: 14px;
+    color: #0d2b1f;
+}
+.buttons-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px; /* المسافة بين الأزرار */
+    margin-top: 30px; /* مسافة من الأعلى */
+}
+
+.reject-btn, .accept-btn {
+    padding: 1px 24px;
+    font-size: 11px;
+    font-weight: bold;
+    border-radius: 20px; /* جعل الحواف دائرية أكثر */
+    border: none;
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+    width: 160px; /* نفس حجم الأزرار في الصورة */
+    height: 30px;
+}
+
+.reject-btn {
+    background-color: white;
+    color: black;
+    border: 1px solid #ccc; /* حدود خفيفة مثل الصورة */
+}
+
+.reject-btn:hover {
+    background-color: #f0f0f0; /* تغيير اللون عند التحويم */
+}
+
+.accept-btn {
+    background-color: #007B5E; 
+    color: white;
+}
+
+.accept-btn:hover {
+    background-color: #005F46;
+}

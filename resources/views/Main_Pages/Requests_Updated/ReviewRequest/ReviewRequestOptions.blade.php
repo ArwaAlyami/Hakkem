@@ -3,7 +3,7 @@
 
 <head>
     <title>Review By AI or Expert Feedback</title>
-    <link rel="stylesheet" href="{{ asset('css\MainPages\Requests\ReviewRequestOptions.css') }}" />
+    <link rel="stylesheet" href="{{ asset('hakkem/css/MainPages/Requests_Updated/ReviewRequestOptions.css') }}" />
 </head>
 
 <body>
@@ -29,11 +29,11 @@
                                     <div class="cont">
                                         <div class="div-m">
                                             <!-- col -->
-                                            <img src="{{ asset(('images/Requests/AI-Robot.svg')) }}" />
+                                            <img src="{{ asset('hakkem/images/Requests/AI-Robot.svg')}}" />
                                             <div class="btn-cont">
                                                 <!-- text cont -->
                                                 <h2>Through</h2>
-                                                <a href="#" class="btn"> HAKKEMGPT </a>
+                                                <a href="{{ route('Requests.ReviewRequest.AIReview')}}" class="btn"> HAKKEMGPT </a>
                                             </div>
                                         </div>
                                     </div>
@@ -46,11 +46,11 @@
                                     <div class="cont">
                                         <div class="div-m">
                                             <!-- col -->
-                                            <img src="{{ asset(('images/Requests/Reviewer User.svg')) }}" />
+                                            <img src="{{ asset('hakkem/images/Requests/Reviewer User.svg')}}" />
                                             <div class="btn-cont">
                                                 <!-- text cont -->
                                                 <h2>By An</h2>
-                                                <a href="#" class="btn">
+                                                <a href="{{ route('Requests.ReviewRequest.IndReviewerOptions')}}" class="btn">
                                                     Independent Reviewer
                                                 </a>
                                             </div>

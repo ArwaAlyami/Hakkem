@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AI Review Request</title>
-    <link rel="stylesheet" href="{{ asset('css\MainPages\Requests\AI-Review-Request.css')}}" />
+    <link rel="stylesheet" href="{{ asset('hakkem/css/MainPages/Requests_Updated/AI-Review-Request.css')}}" />
 </head>
 
 <body>
@@ -23,29 +23,9 @@
                 <input type="text" id="researchTitle" />
 
                 <label>Research Field:</label>
-                <div class="dropdownlist">
-                    <select id="researchField">
-                        <option value="">Select Field</option>
-                        <option value="Artificial Intellegence">
-                            Artificial Intellegence
-                        </option>
-                        <option value="Bioinformatics">
-                            Bioinformatics
-                        </option>
-                        <option value="Cyber Security">
-                            Cyber Security
-                        </option>
-                        <option value="Digital Forensic">
-                            Digital Forensic
-                        </option>
-                        <option value="Embedded Systems">
-                            Embedded Systems
-                        </option>
-                    </select>
-                    <div style="margin-right: 10px; margin-top: 5px">
-                        <div style="margin-left: 20px" id="chevron-arrow-up" class="chevron"></div>
-                    </div>
-                </div>
+                <input type="text" id="researchTitle" />
+
+
 
                 <label>Research Abstract:</label>
                 <textarea id="researchAbstract"></textarea>
@@ -58,7 +38,10 @@
                 </div>
 
                 <div class="buttons">
+                    <a href="{{ route('Requests.ReviewRequest.ReviewOptions')}}">
                     <button class="cancel">Cancel</button>
+                    </a>
+
                     <button class="next">
                         Make a Preliminary Assessment
                     </button>
@@ -97,13 +80,16 @@
                 </div>
 
                 <div class="closebtn">
+                    <a href="{{ route('Auth.Home')}}">
                     <button class="confirm">Close</button>
+                    </a>
                 </div>
+
             </div>
         </div>
     </div>
 
-    <script src="{{ asset(path: 'js\JavaScripts\MainPages\Review-Request.js')}}"></script>
+    <script src="{{ asset(path: 'hakkem/javascript/Review-Request.js')}}"></script>
 </body>
 
 </html>

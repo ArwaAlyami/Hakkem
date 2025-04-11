@@ -10,14 +10,18 @@
     </script>
 <!-- ✅ CSS -->
 <link rel="stylesheet" href="{{ asset('hakkem/css/UniversityPages/FM_Researcher/My_Researches.css') }}">
+<link rel="stylesheet" href="{{ asset('hakkem/css/Header-Footer.css') }}" />
+<link rel="stylesheet" href="{{ asset('hakkem/css/Sidebar.css') }}" />
+
 <!-- ✅ JavaScript -->
 <script src="{{ asset('hakkem/javascript/University/FM_Researcher/My_Researches.js') }}"></script>
 </head>
 <body>
+    @include('include.header')
 
     <div class="container">
 
-        @include('include.sidebar')
+        @include('include.res-sidebar')
         
         <!-- المحتوى الرئيسي -->
         <main class="content">
@@ -106,6 +110,7 @@
                     }
                 }
             </script>
-
-</body>
+        </div>
+        @include('include.footer')
+    </body>
 </html>

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HAKKEM - Select User Type</title>
+  <title>User Type</title>
   <link rel="stylesheet" href="{{ asset('hakkem/css/MainPages/SignIn-SignUp/MainSignUpForm.css')}}" />
   <link href="https://fonts.googleapis.com/css2?family=Candal&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap" rel="stylesheet">
@@ -22,10 +22,10 @@
   <!-- نوع المستخدم -->
 <div class="user-type-container">
 
-    <a href="{{ route('SignUp','Uni-IT')}}" class="user-type-btn">University</a>
-    <a href="{{ route('SignUp','Jour-IT')}}" class="user-type-btn">Journal</a>
-    <a href="{{ route('SignUp','Ind-Researcher')}}" class="user-type-btn">Researcher</a>
-    <a href="{{ route('SignUp','Ind-Reviewer')}}" class="user-type-btn">Reviewer</a>
+    <a href="{{ route('ITAdminAccount.My_Profile.Profile')}}" class="user-type-btn" target="_blank">IT Admin</a>
+    <a href="{{ route('PromotionAccount.Profile')}}" class="user-type-btn" target="_blank">Promotion Admin</a>
+    <a href="{{ route('researcher-account.my-profile.index')}}" class="user-type-btn" target="_blank">Researcher</a>
+    <a href="{{ route('RevResAccount.Profile')}}" class="user-type-btn" target="_blank">Reviewer</a>
 
 </div>
 </body>

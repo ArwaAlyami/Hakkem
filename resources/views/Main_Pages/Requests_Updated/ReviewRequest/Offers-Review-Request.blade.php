@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Independent Review Request (Offers)</title>
-    <link rel="stylesheet" href="{{ asset('css\MainPages\Requests\Offers-Review-Request.css') }}" />
+    <link rel="stylesheet" href="{{ asset('hakkem/css/MainPages/Requests_Updated/Offers-Review-Request.css') }}" />
 </head>
 
 <body>
@@ -62,7 +62,11 @@
 
                 <!-- Buttons of step 1 -->
                 <div class="buttons">
-                    <button class="cancel">Cancel</button>
+
+                        <a href="{{ route('Requests.ReviewRequest.IndReviewerOptions')}}">
+                        <button class="cancel">Cancel</button>
+                        </a>
+    
                     <button class="next">Next</button>
                 </div>
             </div>
@@ -221,13 +225,17 @@
                 <!-- Buttons of Step 4 -->
                 <div class="buttons">
                     <button class="back">Back</button>
-                    <button class="confirm">Confirm</button>
+
+                    <a href="{{ route('Auth.Home')}}">
+                        <button class="confirm">Confirm</button>
+                    </a>
+
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="{{ asset(path: 'js\JavaScripts\MainPages\Review-Request.js')}}"></script>
+    <script src="{{ asset(path: 'hakkem/javascript/Review-Request.js')}}"></script>
 </body>
 
 </html>

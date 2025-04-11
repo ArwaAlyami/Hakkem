@@ -12,14 +12,18 @@
 
 <body>
     @include('include.Header')
+
+    <div class="container">
     @include('include.Promotion-Sidebar')
 
-    <div class="tabs">
+    <div class="page-content">
+    
+        <div class="tabs">
         <button class="active">All</button>
         <button>Active Requests</button>
         <button>Completed Requests</button>
         <button>Rejected Requests</button>
-    </div>
+         </div>
 
     <!-- الطلبات الحالية -->
     <div class="request yellow">
@@ -32,7 +36,12 @@
             <!-- section -->
             <div class="col">
                 <div class="buttons">
+
+                    <a href="{{ route('PromotionAccount.AcceptOrReject')}}">
                     <button class="view">View Request</button>
+                    </a>
+
+                    
                     <button class="track">Track</button>
                     <button class="pay">Pay</button>
                 </div>
@@ -54,7 +63,11 @@
 
             <div class="col">
                 <div class="buttons">
-                    <button class="view">View Request</button>
+
+                    <a href="{{ route('PromotionAccount.AcceptedRequest')}}">
+                        <button class="view">View Request</button>
+                    </a>
+
                     <button class="track">View Feedbacks</button>
                     <button class="pay" disabled>Pay</button>
                 </div>
@@ -86,6 +99,8 @@
             </div>
         </div>
     </div>
+  </div>
+</div>
 
     @include('include.Footer')
 </body>

@@ -4,17 +4,21 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Add New Research</title>
+    <link rel="stylesheet" href="{{ asset('hakkem/css/Header-Footer.css') }}" />
     <link rel="stylesheet" href="{{ asset('hakkem/css/UniversityPages/FM_Researcher/My_Profile.css') }}" />
     <link rel="stylesheet" href="{{ asset('hakkem/css/UniversityPages/FM_Researcher/My_Researches.css') }}">
+    <link rel="stylesheet" href="{{ asset('hakkem/css/Sidebar.css') }}" />
+
      <script src="{{ asset('hakkem/javascript/University/FM_Researcher/My_Profile.js') }}" defer></script> 
 </head>
 <body>
+  @include('include.header')
     <div class="container">
-      @include('include.sidebar')
+      @include('include.res-sidebar')
       <!-- المحتوى الرئيسي -->
       <main class="profile-content">
         <div class="profile-box">
-    
+
           <form id="profile-form" method="post" action="{{ route('researcher-account.my-researches.store')}}" enctype="multipart/form-data">
 
             {{ csrf_field() }}
@@ -63,5 +67,6 @@
         </div>
       </main>
     </div>
+    @include('include.footer')
   </body>
 </html>

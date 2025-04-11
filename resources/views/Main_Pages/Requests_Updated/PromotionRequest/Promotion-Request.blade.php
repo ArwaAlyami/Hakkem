@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Promotion Request</title>
-    <link rel="stylesheet" href="{{ asset('css\MainPages\Requests\Promotion-Request.css') }}" />
+    <link rel="stylesheet" href="{{ asset('hakkem/css/MainPages/Requests_Updated/Promotion-Request.css') }}" />
 </head>
 
 <body>
@@ -30,14 +30,18 @@
                             </div>
                             <div class="col">
                                 <div class="Res-text" id="research-name">
-                                    Digital Forensic
+                                    Data Science
                                 </div>
                             </div>
                         </label>
                     </div>
                 </div>
                 <div class="buttons">
+
+                    <a href="{{ route('Auth.Home')}}">
                     <button class="cancel">Cancel</button>
+                    </a>
+
                     <button class="next">Next</button>
                 </div>
             </div>
@@ -85,7 +89,7 @@
                                 <p>Arwa Abdullah M AlYami</p>
                                 <!-- حالة الطلب -->
                                 <div class="state">
-                                    <img src="{{ asset('images\Requests\timefill.svg')}}" />
+                                    <img src="{{ asset('hakkem/images/Requests/timefill.svg')}}" />
                                     <span>To Be Accepted</span>
                                 </div>
                                 <p>20-01-2025 at 8:51 AM</p>
@@ -97,13 +101,17 @@
                 <!-- Buttons of Step 2 -->
                 <div class="buttons">
                     <button class="back">Back</button>
+
+                    <a href="{{ route('Auth.Home')}}">
                     <button class="confirm">Confirm</button>
+                    </a>
+                    
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="{{ asset(path: 'js\JavaScripts\MainPages\Review-Request.js')}}">
+    <script src="{{ asset(path: 'hakkem/javascript/Review-Request.js')}}">
     </script>
 </body>
 

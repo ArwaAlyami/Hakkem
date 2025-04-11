@@ -1,0 +1,237 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+}
+
+.container {
+  display: flex;
+  margin-top: 10px;
+  margin-right: 20px;
+  margin-left: 20px;
+
+}
+
+.form-group3 input,
+.form-group3 select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    background: #f8f8f8;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15); /* ظل خفيف للحقول */
+}
+
+
+.form-group3 {
+  width: calc(100% - 20px); 
+  display: flex;
+  flex-direction: column;
+  /* margin-right: 10px;
+  margin-left: 10px; */
+}
+
+.content {
+  flex-grow: 1;
+  background: white;
+  padding: 20px;
+  margin-left: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* ✅ المحتوى الرئيسي */
+.profile-content {
+  flex-grow: 1;
+  display: flex;
+  position: absolute;
+  margin-top: 75px;
+  margin-left: 300px;
+  justify-content: space-between;
+  align-items: flex-start;
+  font-weight: bold;
+  padding: 20px;
+  gap: 20px; /* ✅ ضبط المسافة بين البروفايل وبوكس التقييم */
+
+}
+
+
+/* ✅ مربع معلومات البروفايل */
+.profile-box {
+  background: white;
+  padding: 25px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 750px; /* منع التمدد الزائد */
+  position: relative;
+  margin: 0 auto;
+}
+
+/* ✅ زر التعديل */
+.edit-button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: #C6E2DB; /* لون أخضر */
+  border: none;
+  padding: 4px 6px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 13px;
+  color: rgb(66, 64, 64);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border: 1px solid #676666;
+  transition: background 0.3s ease;
+}
+
+/* أيقونة زر "Edit" */
+.edit-button img {
+  width: 14px;
+  height: 14px;
+}
+
+/* تأثير عند تمرير الماوس */
+.edit-button:hover {
+  background: #b7b9b7;
+}
+
+/* ✅ تحسين تنسيق النموذج */
+form {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 15px; /* زيادة المسافة بين الحقول */
+}
+
+/* ✅ إضافة ظل خفيف للحقول */
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    font-size: 14px;
+    background: #f8f8f8;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15); /* ظل خفيف للحقول */
+}
+
+
+
+/* ✅ ضبط عرض الحقول بحيث يكون كل اثنين بجانب بعض */
+.form-group {
+  width: calc(50% - 20px); /* يجعل كل حقلين في صف واحد مع فراغ */
+  display: flex;
+  flex-direction: column;
+}
+
+/* ✅ تنسيق الحقول */
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 8px; /* تقليل ارتفاع الحقول */
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  background: #f8f8f8;
+  transition: border-color 0.3s ease;
+}
+
+/* ✅ تحسين تأثير التركيز */
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #0d2b1f;
+  outline: none;
+}
+
+/* ✅ تنسيق الأزرار */
+.form-actions {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 15px;
+}
+
+.save-button,
+.cancel-button {
+  padding: 6px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  cursor: pointer;
+  border: 1px solid #7a7878;
+  font-weight: bold;
+}
+
+/* زر الحفظ */
+.save-button {
+  background: #C6E2DB;
+}
+
+/* زر الإلغاء */
+.cancel-button {
+  background: #C6E2DB;
+}
+
+/* ✅ تحسين تنسيق صورة البطاقة */
+.profile-card img {
+  width: 200px;
+  border-radius: 10px;
+  margin-left: 20px;
+}
+/* ✅ جعل أزرار "Save" و "Cancel" بنفس الحجم */
+.save-button,
+.cancel-button {
+    width: 120px; /* تحديد عرض ثابت لكلا الزرين */
+    padding: 10px 10px; /* ضبط التباعد الداخلي */
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    cursor: pointer;
+    border: 1px solid #ccc;
+}
+/* ✅ تحسين محاذاة وتنسيق بطاقة التقييم */
+.reviewer-rate {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 250px;
+  text-align: left;
+  align-self: flex-start; /* ✅ محاذاته مع البروفايل */
+}
+
+/* ✅ جعل العناوين داخل التقييم بخط عريض */
+.reviewer-rate .rate-item span {
+  font-weight: bold;
+}
+
+/* ✅ تنسيق عناصر التقييم */
+.rate-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  font-size: 14px;
+  font-weight: bold;
+  gap: 10px; /* ✅ إضافة مسافة بين النجوم والنص */
+
+}
+
+/* ✅ تصميم النجوم */
+.stars {
+  font-size: 16px;
+  color: #f4b400;
+}
+.sidebar,
+.profile-box,
+.reviewer-rate {
+    padding-top: 10; /* إزالة أي Padding غير ضروري */
+    margin-top: 0; /* منع أي تحرك غير متوقع */
+}

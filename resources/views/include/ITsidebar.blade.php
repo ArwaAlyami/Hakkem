@@ -1,24 +1,19 @@
 <aside class="sidebar">
     <ul>
  
-        <li class="active">
+        <li class="">
             <img src="{{ asset('hakkem/images/image-profile-icon.png') }}" alt="Profile">
-            <a href="{{ route("researcher-account.my-profile.index")}}">My Profile</a>
+            <a href="{{ route('ITAdminAccount.My_Profile.Profile')}}">My Profile</a>
         </li>
 
         <li>
-            <img src="{{ asset('hakkem/images/image-research-icon.png') }}" alt="Research">
-            <a href="{{ route('researcher-account.my-researches.index')}}">My Researches</a>
+            <img src="{{ asset('hakkem/images/University/Manage-users icon.png') }}" alt="Research">
+            <a href="{{ route('ITAdminAccount.manage-users.index') }}">Manage Users</a>
         </li>
 
         <li>
-            <img src="{{ asset('hakkem/images/image-requests-icon.png') }}" alt="Requests">
-            <a href="{{ route('researcher-account.My_Requests.Requests')}}">My Requests</a>
-        </li>
-        
-        <li>
-            <img src="{{ asset('hakkem/images/image-password-icon.png') }}" alt="Change Password">
-            <a href="#">Change Password</a>
+            <img src="{{ asset('hakkem/images//University/Manage-users icon.png') }}" alt="Requests">
+            <a href="{{ route('roles.index') }}">Manage Roles</a>
         </li>
 
         <li>
@@ -28,3 +23,4 @@
 
     </ul>
 </aside>
+

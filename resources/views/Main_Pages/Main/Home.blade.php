@@ -22,7 +22,7 @@
             <a href="#{{--{{route('Auth.Offers')}}--}}"><p class="navigate">Offers</p></a>
             <a href="#{{--{{route('Auth.Journals')}}--}}"><p class="navigate">Journals</p></a>
           </div>
-          <a href="#{{--{{route('Auth.My_Profile.Profile')}}--}}"><img src="{{ asset('hakkem/images/Header_Footer/profile_dark.png')}}" class="profile"/></a>
+          <a href="#{{--{{route('')}}--}}"><img src="{{ asset('hakkem/images/Header_Footer/profile_dark.png')}}" class="profile"/></a>
         </div>
       </header>
     </div>
@@ -67,7 +67,7 @@
           research, ensuring it's ready to be shared with the scientific
           community.
         </p>
-        <a href="{{route('Requests.ReviewRequest.Review_Options')}}"><button id="review-req" class="req-btn">Send Request</button></a>
+        <a href="{{route('Requests.ReviewRequest.ReviewOptions')}}"><button id="review-req" class="req-btn">Send Request</button></a>
       </div>
     </section>
 
@@ -82,7 +82,7 @@
           ensure your work is prepared according to the journal's <br />
           specific guidelines for a seamless submission process.
         </p>
-        <a href="{{-- route('Requests.Promotion_Request.create') --}}"><button id="review-req" class="req-btn">Send Request</button></a>
+        <a href="{{ route('Requests.PublishRequest.index') }}"><button id="review-req" class="req-btn">Send Request</button></a>
       </div>
       <div class="decoration-r">
         <img src="{{ asset('hakkem/images/Home/Home_sec2_part3.svg')}}" class="under-r" />
@@ -108,7 +108,7 @@
           council <br />
           and achieve your next academic rank with confidence.
         </p>
-        <a href="{{route('Requests.Promotion_Request.create')}}"><button id="review-req" class="req-btn">Send Request</button></a>
+        <a href="{{route('Requests.PromotionRequest.index')}}"><button id="review-req" class="req-btn">Send Request</button></a>
       </div>
     </section>
 

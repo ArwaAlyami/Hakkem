@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>List Of Reviewers</title>
-    <link rel="stylesheet" href="hakkem\css\Universty\PromotionAdmin\List-Of-Reviewers.css">
+    <link rel="stylesheet" href="{{ asset('hakkem/css/Universty/PromotionAdmin/List-Of-Reviewers.css')}}">
 </head>
 
 <body>

@@ -5,11 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>My Requests</title>
     <link rel="stylesheet" href="{{ asset('hakkem/css/UniversityPages/FM_Researcher/My_Requests.css') }}" />
+    <link rel="stylesheet" href="{{ asset('hakkem/css/Header-Footer.css') }}" />
+    <link rel="stylesheet" href="{{ asset('hakkem/css/Sidebar.css') }}" />
+
+
     <script src="{{ asset('hakkem/javascript/University/FM_Researcher/My_Requests.js') }}"></script>
   </head>
   <body>
+    @include('include.header')
     <div class="container">
-      @include('include.sidebar')
+      @include('include.res-sidebar')
 
       <main class="content">
         <div class="filter">
@@ -51,5 +56,6 @@
         </table>
       </main>
     </div>
+    @include('include.footer')
   </body>
 </html>

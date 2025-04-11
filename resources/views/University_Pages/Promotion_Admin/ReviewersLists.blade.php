@@ -11,6 +11,8 @@
 
 <body>
     @include('include.Header')
+
+    <div class="container2">
     @include('include.Promotion-Sidebar')
 
     <div class="container">
@@ -19,7 +21,7 @@
                 <img src="{{ asset('hakkem\images\University\AI Reviewer List.png') }}" alt="icon">
                 <span><strong>Specialization:</strong> Information System</span>
             </div>
-            <button>Open</button>
+            <a href="{{ route('PromotionAccount.ReviewersListContent')}}"><button>Open</button></a>
         </div>
 
         <div class="specialization-card">
@@ -70,6 +72,7 @@
             <button>Open</button>
         </div>
     </div>
+</div>
 
     @include('include.Footer')
 </body>

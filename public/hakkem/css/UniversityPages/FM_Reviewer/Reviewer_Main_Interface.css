@@ -1,0 +1,261 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+}
+
+.container {
+  display: flex;
+  margin: 20px;
+}
+.sidebar-box {
+  background: #ffffff; /* لون خلفية فاتح */
+  border-radius: 5px; /* حواف ناعمة */
+  padding: 20px;
+  width: 280px; /* ضبط العرض */
+  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1); /* ظل خفيف */
+  text-align: center;
+  font-family: Arial, sans-serif;
+
+}
+
+.profile-section {
+  margin-bottom: 20px;
+}
+
+.reviewer-name {
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.reviewer-title {
+  font-size: 14px;
+  color: #666;
+  margin-top: 5px;
+}
+
+.university-info {
+  display: flex; /* يجعل الصورة والنص بجانب بعض */
+  align-items: center; /* يضمن المحاذاة الرأسية */
+  gap: 10px; /* مسافة بين الصورة والنص */
+}
+
+.university-logo {
+  width: 50px; /* تحديد عرض الصورة */
+  height: auto; /* الحفاظ على تناسب الأبعاد */
+}
+
+.university-name {
+  font-size: 12px; /* حجم النص */
+  font-weight: bold; /* جعل الخط عريض */
+  color: #000000; /* لون النص */
+}
+
+.rating-section {
+  background: white;
+  padding: 15px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.rating-title {
+  font-size: 16px;
+  font-weight: bold;
+  color: #046821;
+  margin-bottom: 10px;
+}
+
+.rate-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0;
+  font-size: 14px;
+  font-weight: bold;
+  color: #333;
+}
+
+.stars {
+  font-size: 18px;
+  color: #ffc107; /* لون النجوم أصفر */
+  margin-left: 20px; /* إضافة مسافة بين النص والنجوم */
+
+}
+
+
+.filter {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 10px;
+  background: #f0f0f0; 
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(8, 6, 6, 0.1); 
+}
+
+.filter button {
+  border: none;
+  padding: 10px 20px;
+  background: #ddd;
+  border-radius: 20px; 
+  cursor: pointer;
+  font-weight: bold; 
+}
+
+.filter button.active {
+  background: #0d2b1f;
+  color: white;
+}
+
+.sidebar_content {
+  height:250px ;
+}
+
+/* ✅ إضافة تأثير عند تمرير الماوس */
+.sidebar ul li:hover {
+  background-color: #f0f0f0;
+
+}
+
+.content {
+  flex-grow: 1;
+  background: white;
+  padding: 20px;
+  margin-left: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #f0f0f0; 
+    border: 1px solid #656464; 
+    border-radius: 10px;
+    overflow: hidden; 
+    border: 1px solid #ccc; /* إضافة إطار للجدول */
+}
+  
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd; /* خط فاصل بين الصفوف */
+    font-size: 12px; /* تصغير حجم الخط داخل الجدول */
+}
+
+th {
+   
+    font-size: 13px; /* تصغير حجم الخط في عناوين الأعمدة */
+    font-weight: bold; /* الحفاظ على العناوين بارزة */
+    white-space: nowrap;
+}
+th:last-child, td:last-child {
+    border-right: none; /* إزالة الخط من آخر عمود */
+}
+
+tr:last-child td {
+    border-bottom: none; /* إزالة الخط السفلي من آخر صف */
+}
+
+/* تحسين تصميم التفاصيل داخل الجدول */
+.research-details {
+    display: none;
+    background: #f9f9f9;
+    padding: 10px;
+    border-left: 3px solid #0d2b1f;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+/* ضبط موقع الأزرار على اليمين */
+.action-buttons {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: flex-end; /* محاذاة الأزرار لليمين */
+}
+
+/* تنسيق كل زر ليكون بيضاويًا، صغيرًا، بلون أخضر فاتح، مع إطار دقيق */
+.action-buttons button {
+    background: #e6f4ea; /* لون أخضر فاتح */
+    border: 1px solid #b5d7b3; /* إطار دقيق جدًا */
+    border-radius: 20px; /* جعل الأزرار بيضاوية */
+    padding: 3px 10px; /* تصغير الأزرار */
+    height: 30px;
+    font-size: 12px; /* تصغير حجم النص داخل الأزرار */
+    color: #0d2b1f; /* لون النص متناسق مع الأخضر */
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+/* تأثير عند تمرير الماوس على الأزرار */
+.action-buttons button:hover {
+    background: #d4e9d6;
+    border-color: #9fc59f;
+}
+
+/* تنسيق أيقونات الأزرار */
+.action-buttons img {
+    width: 12px; /* تصغير حجم الأيقونات */
+    height: 12px;
+}
+
+/* تنسيق زر "See More" ليكون بخط أصغر */
+.action-buttons .see-more {
+    font-size: 8px; /* تصغير حجم الخط */
+    padding: 4px 10px; /* تصغير الأزرار لتكون متناسقة */
+}
+
+
+/* تصميم بوكس التفاصيل */
+.research-details {
+    display: none;
+}
+
+/* تنسيق الصندوق الرئيسي لتفاصيل البحث */
+.details-box {
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #dddddd; /* إطار خفيف حول التفاصيل */
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* المسافة بين الصناديق الداخلية */
+}
+
+/* تنسيق كل جزء داخل التفاصيل */
+.sub-box {
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc; /* إطار دقيق */
+    font-size: 12px; /* تصغير الخط */
+}
+
+/* تنسيق العناوين داخل التفاصيل */
+.sub-box strong {
+    font-size: 13px;
+    color: #0d2b1f;
+}
+
+
+/* عند إخفاء ملف PDF */
+.pdf-hidden {
+    color: gray;
+    font-style: italic;
+}
+
+/* تصميم المثلث في زر See More */
+.see-more .arrow {
+    transition: transform 0.3s;
+}
+
+.see-more.open .arrow {
+    transform: rotate(180deg);
+}

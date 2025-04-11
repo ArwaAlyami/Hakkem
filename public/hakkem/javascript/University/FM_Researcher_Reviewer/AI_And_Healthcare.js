@@ -88,7 +88,7 @@ scoreBox.addEventListener('paste', (e) => {
       pdf.addImage(imgData, 'JPEG', 0, 0, imgWidth, imgHeight);
     }
 
-    pdf.save('AI_Healthcare_Review.pdf');
+    pdf.save('Review_Form.pdf');
 
    
   });

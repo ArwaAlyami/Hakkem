@@ -22,4 +22,8 @@ class MainPagesController extends Controller
     public function UserType(){
         return view('Main_Pages.SignIn_SignUp.UserType') ;
      }
+
+     public function Home(){
+        return view('Main_Pages.Main.Home') ;
+     }
 }

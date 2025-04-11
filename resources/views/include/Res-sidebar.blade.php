@@ -15,11 +15,6 @@
             <img src="{{ asset('hakkem/images/image-requests-icon.png') }}" alt="Requests">
             <a href="{{ route('researcher-account.My_Requests.Requests')}}">My Requests</a>
         </li>
-        
-        <li>
-            <img src="{{ asset('hakkem/images/image-password-icon.png') }}" alt="Change Password">
-            <a href="#">Change Password</a>
-        </li>
 
         <li>
             <img src="{{ asset('hakkem/images/image-signout-icon.png') }}" alt="Sign Out">

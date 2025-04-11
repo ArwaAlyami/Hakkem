@@ -1,15 +1,19 @@
 <?php
+use App\Http\Controllers\Admin\FM_Reviewer_Researcher\RevResController;
+use App\Http\Controllers\Admin\PromotionAdmin\PromotionAdminController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\RequestsController;
 use App\Http\Controllers\Admin\MainPagesController;
-use App\Http\Controllers\Admin\ResearchController;
 use App\Http\Controllers\Admin\FM_Researcher\MyProfileController;
-use App\Http\Controllers\Admin\FM_Researcher\MyResearchesController;
 use App\Http\Controllers\Admin\FM_Researcher\MyResearchesController2;
 use App\Http\Controllers\Admin\IT_Admin\ITAdminController;
 use App\Http\Controllers\Admin\FM_Researcher\MyRequestsController;
 use App\Http\Controllers\Admin\RoleController;
+
+
+
+
 
 // ******* Main Pages Routes *********** //
 
@@ -29,6 +33,9 @@ use App\Http\Controllers\Admin\RoleController;
 
     });
 
+
+
+
 // ************ SignIn SignUp Pages ******************* //
 
 Route::prefix('Auth')->as('Auth.')->group(function () {  
@@ -37,26 +44,45 @@ Route::prefix('Auth')->as('Auth.')->group(function () {
     Route::get('Home',action: [MainPagesController::class,'Home'])->name('Home');
 
 
+});
+
+
+
+
 
 // ******************* Requests Routes ***********************//
 
 Route::prefix('Requests')->as('Requests.')->group(function () {
 
-    Route::prefix('Promotion_Request')->as('Promotion_Request.')->group(function () {
-        Route::get('promotion-create', action: [RequestsController::class, 'promotionCreate'])->name('create');
-        Route::post('promotion-store', action: [RequestsController::class, 'promotionStore'])->name('store');
+    Route::prefix('PromotionRequest')->as('PromotionRequest.')->group(function () {
+        Route::get('MakePromotionRequest', action: [RequestsController::class, 'MakePromotionRequest'])->name('index');
+        Route::post('promotionStore', action: [RequestsController::class, 'promotionStore'])->name('store');
     });
+
 
     Route::prefix('ReviewRequest')->as('ReviewRequest.')->group(function () {
-        Route::get('Review_Options',[RequestsController::class,'Review_Options'])->name('Review_Options');
-        Route::get('Ind_Reviewer_Options',[RequestsController::class,'Ind_Reviewer_Options'])->name('Ind_Reviewer_Options');
-        Route::get('AI_Review',[RequestsController::class,'AI_Review'])->name('AI_Review');
-        Route::get('Through_Offers_Review',[RequestsController::class,'Through_Offers_Review'])->name('Through_Offers_Review');
-        Route::get('Through_Ind_Reviewer',[RequestsController::class,'Through_Ind_Reviewer'])->name('Through_Ind_Reviewer');
+
+        Route::get('Review_Options',[RequestsController::class,'Review_Options'])->name('ReviewOptions');
+
+        Route::get('Ind_Reviewer_Options',[RequestsController::class,'Ind_Reviewer_Options'])->name('IndReviewerOptions');
+
+        Route::get('AI_Review',[RequestsController::class,'AI_Review'])->name('AIReview');
+
+        Route::get('Through_Offers_Review',[RequestsController::class,'Through_Offers_Review'])->name('ThroughOffersReview');
+
+        Route::get('Through_Ind_Reviewer',[RequestsController::class,'Through_Ind_Reviewer'])->name('ThroughIndReviewer');
+    });
 
 
+    Route::prefix('PublishRequest')->as('PublishRequest.')->group(function () {
+        Route::get('MakePublishRequest', action: [RequestsController::class, 'MakePublishRequest'])->name('index');
+        Route::post('publishStore', action: [RequestsController::class, 'publishStore'])->name('store');
     });
 });
+
+
+
+
 
 
 // ************************************ IT Admin Router ******************************************* //
@@ -83,48 +109,47 @@ Route::prefix('ITAdminAccount')->as('ITAdminAccount.')->group(function () {
 
 });
 
+
+
+
+
+
 // ************************************ Promotion Admin Router ******************************************* //
-// *********** Profile Routers ********** //
-Route::get('/PromotionProfile', function () {
-    return view('Universty.PromotionAdmin.MyProfile');
+
+
+Route::prefix('PromotionAccount')->as('PromotionAccount.')->group(function () {
+
+    // ** Profile Routers ** //
+    Route::get('Profile', [PromotionAdminController::class, 'Profile'])->name('Profile');
+    Route::post('ProfileEdit', [PromotionAdminController::class, 'ProfileEdit'])->name('ProfileEdit');
+
+    // ** Requests Routers ** //
+    Route::get('PromotionRequests', [PromotionAdminController::class, 'PromotionRequests'])->name('PromotionRequests');
+    Route::get('AcceptOrReject', [PromotionAdminController::class, 'AcceptOrReject'])->name('AcceptOrReject');
+    Route::get('AcceptedRequest', [PromotionAdminController::class, 'AcceptedRequest'])->name('AcceptedRequest');
+
+
+    // ** Reviewers List Routers ** //
+    Route::get('ReviewersLists', [PromotionAdminController::class, 'ReviewersLists'])->name('ReviewersLists');
+    Route::get('ReviewersListContent', [PromotionAdminController::class, 'ReviewersListContent'])->name('ReviewersListContent');
+
 });
 
-// *********** Promotion Requests Routers ********** //
-Route::get('/Promotion-Requests', function () {
-    return view('Universty.PromotionAdmin.Promotion_Requests');
-});
 
-// *********** Reviewer's Lists Routers ********** //
-Route::get('/Reviewers-Lists', function () {
-    return view('Universty.PromotionAdmin.Reviewers_Lists');
-});
 
-// *********** Accept or Reject Promotion Request Routers ********** //
-Route::get('/ِAccept-Reject-Request', function () {
-    return view('Universty.PromotionAdmin.ِAccept-Reject-Request');
-});
 
-// *********** Accepted Promotion Request Routers ********** //
-Route::get('/ِAccepted-Request', function () {
-    return view('Universty.PromotionAdmin.ِAccepted-Request');
-});
-
-// *********** List Of Reviewers Routers ********** //
-Route::get('/ِList-Of-Reviewers', function () {
-    return view('Universty.PromotionAdmin.List-Of-Reviewers');
-});
 
 
 // ************************************ FM_Researcher Router ******************************************* //
 Route::prefix('ResearcherAccount')->as('researcher-account.')->group(function () {
 
-    // *********** Profile Routers ********** //
+    // ** Profile Routers ** //
     Route::prefix('My_Profile')->as('my-profile.')->group(function () {
         Route::get('Profile', [MyProfileController::class, 'index'])->name('index');
         Route::post('Profile-edit', [MyProfileController::class, 'edit'])->name('Profile-edit');
     });
 
-    // *********** My Researches Routers ********** //
+    // ** My Researches Routers **//
     Route::prefix('my-researches')->as('my-researches.')->group(function () {
         Route::get('index', [MyResearchesController2::class, 'index'])->name('index');
         Route::get('show/{id}', [MyResearchesController2::class, 'show'])->name('show');
@@ -133,27 +158,56 @@ Route::prefix('ResearcherAccount')->as('researcher-account.')->group(function ()
         Route::delete('/{id}', [MyResearchesController2::class, 'delete'])->name('delete');
     });
 
-    // *********** My Requests Routers ********** //
+    // ** My Requests Routers ** //
     Route::prefix('My_Requests')->as('My_Requests.')->group(function () {
         Route::get('Requests', [MyRequestsController::class, 'index'])->name('Requests');
 
-        // ***********  Request Details Routers ********** //
+    // **  Request Details Routers **//
         Route::get('Request_Details', [MyRequestsController::class, 'show'])->name('Request_Details');
     });
 
-
     // *********** SignOut Routers ********** //
     Route::get('SignOut',[MyProfileController::class,'SignOut'])->name('SignOut');
+
 });
 
 
-    // *********** Change Password Routers ********** //
-    Route::get('Change_Pass', [MyProfileController::class, 'index'])->name('Change_Pass');
-    Route::post('Change_Pass-post', [MyProfileController::class, 'create'])->name('Change_Pass-post');
+
+// ************************************ FM_RevRes Router ******************************************* //
 
 
-    // *********** SignOut Routers ********** //
-    Route::get('SignOut', [MyProfileController::class, 'index'])->name('SignOut');
-    Route::post('SignOut-post', [MyProfileController::class, 'create'])->name('SignOut-post');
+Route::prefix('RevResAccount')->as('RevResAccount.')->group(function () {
+
+
+    // ** Profile Routers ** //
+    Route::get('Profile', [RevResController::class, 'Profile'])->name('Profile');
+    Route::post('ProfileEdit', [RevResController::class, 'ProfileEdit'])->name('ProfileEdit');
+
+
+    // ** MY Requests Routers ** //
+    Route::get('My_Requests', [RevResController::class, 'MyRequests'])->name('My_Requests');
+
+
+    // ** MY Researches Routers ** //
+    Route::get('My_Researches', [RevResController::class, 'MyResearches'])->name('My_Researches');
+    Route::get('AddResearch', [RevResController::class, 'AddResearch'])->name('AddResearch');
+    Route::post('AddResearchForm', [RevResController::class, 'AddResearchForm'])->name('AddResearchForm');
+
+
+    // ** Received Requests Routers ** //
+    Route::get('ReceivedRequests', [RevResController::class, 'ReceivedRequests'])->name('ReceivedRequests');
+    Route::get('RequestDetailsIfAccept', [RevResController::class, 'RequestDetailsIfAccept'])->name('RequestDetailsIfAccept');
+    Route::get('ReviewForm', [RevResController::class, 'ReviewForm'])->name('ReviewForm');
+    Route::get('SubmitFeedback', [RevResController::class, 'SubmitFeedback'])->name('SubmitFeedback');
+
+    Route::get('ReviewRequestDetails', [RevResController::class, 'ReviewRequestDetails'])->name('ReviewRequestDetails');
+    Route::get('PromotionRequestDetails', [RevResController::class, 'PromotionRequestDetails'])->name('PromotionRequestDetails');
+
+
+    // ** Reviewers profile Routers ** //
+    Route::get('ReviewerProfile', [RevResController::class, 'ReviewerProfile'])->name('ReviewerProfile');
+
 });
 
+
+Route::get('RequestDetailsAcceptOrReject', [RevResController::class, 'RequestDetailsAcceptOrReject'])->name('RequestDetailsAcceptOrReject');

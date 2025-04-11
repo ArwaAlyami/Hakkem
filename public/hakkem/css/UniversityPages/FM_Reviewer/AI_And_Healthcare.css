@@ -1,0 +1,178 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 40px;
+    background: #f4f4f4;
+  }
+
+  .close{
+    margin-top: 20px;
+  }
+  a{
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #2a8279;
+    font-size: 28px;
+  }
+  
+  .main {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+  }
+  
+  .column {
+    flex: 1;
+    padding: 15px;
+    min-height: 800px;
+  }
+  
+  .column h3 {
+    color: #2a8279;
+    margin-bottom: 8px;
+  }
+  
+  .column label {
+    display: block;
+    margin: 4px 0;
+  }
+  .column label,
+.section label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 4px 0;
+  font-size: 14px;
+  color: #000; /* ← لو تبي كل النص أسود */
+  cursor: pointer;
+}
+
+.column input[type="checkbox"],
+.section input[type="checkbox"] {
+  transform: scale(1.1);
+  accent-color: #2a8279; /* ← يعطي نفس اللون الأخضر عند التفعيل */
+}
+
+  .bottom {
+    margin-top: 30px;
+    padding: 15px;
+    background: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  }
+  .bottom h3 {
+    color: #2a8279;
+  }
+  
+  textarea {
+    width: 100%;
+    height: 140px;
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    max-width: 100%;      /* ← يمنع أن يتعدى الحاوية */
+    box-sizing: border-box;
+    font-weight: bold;
+    overflow: hidden;
+    resize: none;
+    min-height: 100px;
+    line-height: 1.5;
+  }
+  .notes-box {
+    width: 100%;
+    min-height: 120px;
+    padding: 10px;
+    font-size: 14px;
+    background: #fdfdfd;
+    border: 1px solid #ccc; /* ✅ هذا هو الإطار */
+    border-radius: 5px;
+    box-sizing: border-box;
+    line-height: 1.5;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    overflow-y: auto;
+  }
+  
+  .score-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+  }
+  
+  .score-section label {
+    font-weight: bold;
+  }
+  
+  
+  input[type="number"] {
+    width: 60px;
+    padding: 6px;
+    font-size: 16px;
+    margin-left: 10px;
+    background: #eee;
+    border: 1px solid #ccc;
+    text-align: center;
+    direction: ltr;
+    font-family: 'Segoe UI', sans-serif;
+    font-weight: bold;
+  }
+  .force-english {
+    direction: ltr;
+    font-weight: bold;
+    unicode-bidi: plaintext;
+    font-family: 'Segoe UI', Tahoma, Arial, sans-serif;
+  }
+  
+  .score-input {
+    width: 60px;
+    padding: 6px;
+    font-size: 16px;
+    margin-left: 10px;
+    background: #eee;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-align: center;
+  }
+  .black-text {
+    color: #000; /* ← يخلي /60 أسود */
+  }
+  
+  button {
+    background-color: #154734;
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    font-size: 16px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #1c5a46;
+  }
+  
+  #pdf-content {
+  width: 1300px; /* عرض A4 بالبكسل */
+  padding: 120px;
+  margin: 110px auto;
+  background: white;
+  box-sizing: border-box;
+}
+
+  @media (max-width: 1000px) {
+    .main {
+      flex-direction: column;
+    }
+  
+    .score-section {
+      flex-direction: column;
+      gap: 10px;
+    }
+  }
+  

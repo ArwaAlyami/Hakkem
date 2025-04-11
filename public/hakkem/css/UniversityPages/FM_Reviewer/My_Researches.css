@@ -1,0 +1,208 @@
+.fixed-textarea {
+  width: 730px;     /* العرض  */
+  height: 80px;    /* الارتفاع */
+  resize: none;     /* يمنع التصغير أو التكبير */
+  font-family: inherit;
+  border: 1px solid #ccc;
+  background: #f8f8f8;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15); /* ظل خفيف للحقول */
+}
+.DOI-textarea {
+  width: 730px;     /* العرض  */
+  height: 30px;    /* الارتفاع */
+  resize: none;     /* يمنع التصغير أو التكبير */
+  font-family: inherit;
+  border: 1px solid #ccc;
+  background: #f8f8f8;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.15); /* ظل خفيف للحقول */
+}
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f8f8f8;
+}
+a{
+  text-decoration: none;
+}
+
+.container {
+  display: flex;
+  margin-top: 10px;
+  margin-left: 20px;
+}
+
+
+.content {
+  flex-grow: 1;
+  width: 700px;
+  background: white;
+  padding: 20px;
+  margin-top: 95px;
+  margin-left: 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #f0f0f0; 
+    border: 1px solid #656464; 
+    border-radius: 10px;
+    overflow: hidden; 
+    border: 1px solid #ccc; /* إضافة إطار للجدول */
+}
+  
+th, td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd; /* خط فاصل بين الصفوف */
+    font-size: 12px; /* تصغير حجم الخط داخل الجدول */
+}
+
+th {
+   
+    font-size: 13px; /* تصغير حجم الخط في عناوين الأعمدة */
+    font-weight: bold; /* الحفاظ على العناوين بارزة */
+    white-space: nowrap;
+}
+th:last-child, td:last-child {
+    border-right: none; /* إزالة الخط من آخر عمود */
+}
+
+tr:last-child td {
+    border-bottom: none; /* إزالة الخط السفلي من آخر صف */
+}
+
+/* تحسين تصميم التفاصيل داخل الجدول */
+.research-details {
+    display: none;
+    background: #f9f9f9;
+    padding: 10px;
+    border-left: 3px solid #0d2b1f;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+/* ضبط موقع الأزرار على اليمين */
+.action-buttons {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    justify-content: flex-end; /* محاذاة الأزرار لليمين */
+}
+
+/* تنسيق كل زر ليكون بيضاويًا، صغيرًا، بلون أخضر فاتح، مع إطار دقيق */
+.action-buttons button {
+    background: #e6f4ea; /* لون أخضر فاتح */
+    border: 1px solid #b5d7b3; /* إطار دقيق جدًا */
+    border-radius: 20px; /* جعل الأزرار بيضاوية */
+    padding: 3px 10px; /* تصغير الأزرار */
+    height: 30px;
+    font-size: 12px; /* تصغير حجم النص داخل الأزرار */
+    color: #0d2b1f; /* لون النص متناسق مع الأخضر */
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+/* تأثير عند تمرير الماوس على الأزرار */
+.action-buttons button:hover {
+    background: #d4e9d6;
+    border-color: #9fc59f;
+}
+
+/* تنسيق أيقونات الأزرار */
+.action-buttons img {
+    width: 12px; /* تصغير حجم الأيقونات */
+    height: 12px;
+}
+
+/* تنسيق زر "See More" ليكون بخط أصغر */
+.action-buttons .see-more {
+    font-size: 8px; /* تصغير حجم الخط */
+    padding: 4px 10px; /* تصغير الأزرار لتكون متناسقة */
+}
+
+
+/* تصميم بوكس التفاصيل */
+.research-details {
+    display: none;
+}
+
+/* تنسيق الصندوق الرئيسي لتفاصيل البحث */
+.details-box {
+    background: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #dddddd; /* إطار خفيف حول التفاصيل */
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* المسافة بين الصناديق الداخلية */
+}
+
+/* تنسيق كل جزء داخل التفاصيل */
+.sub-box {
+    background: white;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc; /* إطار دقيق */
+    font-size: 12px; /* تصغير الخط */
+}
+
+/* تنسيق العناوين داخل التفاصيل */
+.sub-box strong {
+    font-size: 13px;
+    color: #0d2b1f;
+}
+
+
+/* عند إخفاء ملف PDF */
+.pdf-hidden {
+    color: gray;
+    font-style: italic;
+}
+
+/* تنسيق زر إضافة بحث جديد */
+.add-research {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #0d2b1f; /* لون الزر أخضر غامق مطابق للصورة */
+    color: white;
+    padding: 10px 20px; /* ضبط الحجم */
+    border-radius: 10px; /* جعله بيضاويًا */
+    font-size: 14px; /* ضبط حجم الخط */
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: background 0.3s, transform 0.2s;
+    gap: 10px; /* مسافة بين الأيقونة والنص */
+    margin-top: 20px; /* ⬅️ هذه الإضافة لزيادة المسافة بين الزر والجدول */
+}
+
+/* ضبط أيقونة "+" داخل الزر */
+.add-research img {
+    width: 14px; /* ضبط حجم الأيقونة */
+    height: 14px;
+}
+
+/* تأثير عند تمرير الماوس */
+.add-research:hover {
+    background: #083829;
+}
+
+/* تصميم المثلث في زر See More */
+.see-more .arrow {
+    transition: transform 0.3s;
+}
+
+.see-more.open .arrow {
+    transform: rotate(180deg);
+}

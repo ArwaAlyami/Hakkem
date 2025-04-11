@@ -5,7 +5,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Independent Review Request (AI)</title>
-    <link rel="stylesheet" href="{{ asset('/css/MainPages/Requests/Rev-Review-Request.css') }}" />
+    <link rel="stylesheet" href="{{ asset('hakkem/css/MainPages/Requests_Updated/Rev-Review-Request.css')}}" />
 </head>
 
 <body>
@@ -28,25 +28,9 @@
                 <input type="text" id="researchTitle" class="inp" />
 
                 <label>Research Field:</label>
+                <input type="text" id="researchTitle" class="inp" />
 
-                <!-- The list of Research Fields -->
-                <div class="dropdownlist">
-                    <select id="researchField">
-                        <option value="">Select Field</option>
-                        <option value="Artificial Intellegence">
-                            Artificial Intellegence
-                        </option>
-                        <option value="Bioinformatics">Bioinformatics</option>
-                        <option value="Cyber Security">Cyber Security</option>
-                        <option value="Digital Forensic">Digital Forensic</option>
-                        <option value="Embedded Systems">Embedded Systems</option>
-                    </select>
 
-                    <!-- A chevron arrow code -->
-                    <div style="margin-right: 10px; margin-top: 5px">
-                        <div style="margin-left: 20px" id="chevron-arrow-up" class="chevron"></div>
-                    </div>
-                </div>
 
                 <label>Research Abstract:</label>
                 <textarea id="researchAbstract"></textarea>
@@ -62,7 +46,11 @@
 
                 <!-- Buttons of step 1 -->
                 <div class="buttons">
+
+                    <a href="{{ route('Requests.ReviewRequest.IndReviewerOptions')}}">
                     <button class="cancel">Cancel</button>
+                    </a>
+
                     <button class="next">Create Review List</button>
                 </div>
             </div>
@@ -181,7 +169,7 @@
                                 <p>Arwa Abdullah M AlYami</p>
                                 <!-- حالة الطلب -->
                                 <div class="state">
-                                    <img src="{{ asset('images\Requests\timefill.svg') }}" />
+                                    <img src="{{ asset('hakkem/images/Requests/timefill.svg') }}" />
                                     <span>To Be Accepted</span>
                                 </div>
                                 <p>20-01-2025 at 8:51 AM</p>
@@ -202,7 +190,7 @@
                             <div class="col2">
                                 <p># 669948474</p>
                                 <div class="state">
-                                    <img src="{{ asset('images\Requests\timefill.svg') }}" />
+                                    <img src="{{ asset('hakkem/images/Requests/timefill.svg') }}" />
                                     <span>Not Yet Transferred</span>
                                 </div>
                                 <p>
@@ -216,13 +204,17 @@
                 <!-- Buttons of Step 4 -->
                 <div class="buttons">
                     <button class="back">Back</button>
-                    <button class="confirm">Confirm</button>
+
+                    <a href="{{ route('Auth.Home')}}">
+                        <button class="confirm">Confirm</button>
+                    </a>
+
                 </div>
             </div>
         </div>
     </div>
 
-    <script src="{{ asset('js\JavaScripts\MainPages\Review-Request.js') }}"></script>
+    <script src="{{ asset('hakkem/javascript/Review-Request.js') }}"></script>
 </body>
 
 </html>

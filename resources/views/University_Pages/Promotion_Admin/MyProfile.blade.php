@@ -13,6 +13,9 @@
 
 <body>
     @include('include.Header')
+
+    <div class="container">
+        
     @include('include.Promotion-Sidebar')
     <!-- الكونتير للحقول-->
     <div id="dynamic-" class="fields-container">
@@ -93,6 +96,7 @@
             <button id="cancelBtn" disabled>Cancel</button>
         </div>
     </div>
+</div>
     @include('include.Footer')
 </body>
 

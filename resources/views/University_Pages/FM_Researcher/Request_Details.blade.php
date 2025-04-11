@@ -5,9 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Request Details</title>
     <link rel="stylesheet" href="{{ asset('hakkem/css/UniversityPages/FM_Researcher/Request_Details.css') }}">
+    <link rel="stylesheet" href="{{ asset('hakkem/css/Header-Footer.css') }}">
+
     <script src="{{ asset('hakkem/javascript/University/FM_Researcher/Request_Details.js') }}" defer></script>
+
 </head>
 <body>
+
+    @include('include.header')
+<div class="container">
 <!-- ✅ الهيدر العلوي كـ بوكس -->
 <header class="page-header">
     <div class="header-box">
@@ -21,7 +27,7 @@
                 <span>Submission Date: <strong>AAA</strong></span>
             </div>
         </div>
-    </header>
+</header>
 
     <!-- ✅ المحتوى الرئيسي -->
     <main class="content">
@@ -69,5 +75,7 @@
             </tbody>
         </table>
     </main>
+</div>
+    @include('include.footer')
 </body>
 </html>

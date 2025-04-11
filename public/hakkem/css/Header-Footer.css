@@ -7,14 +7,22 @@ html {
   overflow-x: hidden;
 }
 
+a{
+  text-decoration: none;
+}
 /* Header */
 header {
   position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background: #0b3322;
   width: 100%;
+  z-index: 1000;
 }
 
 /* Logo */

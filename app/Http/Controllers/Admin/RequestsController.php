@@ -11,41 +11,51 @@ class RequestsController extends Controller
 {
 
     // ************* Promotion Request **************//
-    public function promotionCreate()
+    public function MakePromotionRequest()
     {
-        return view('Main_Pages.Requests.PromotionRequest.RequestSteps');
+        return view('Main_Pages.Requests_Updated.PromotionRequest.Promotion-Request');
     }
-    public function promotionStore(Request $request){
-        $research = Research::create($request->only('title','abstract','keywords','field','DOI'));
+    public function promotionStore()
+    {
 
-        if($request->hasFile('file')){
-            $research->addMultipleMediaFromRequest(['file'])->each(function($fileAdder){
-                $fileAdder->toMediaCollection('research');
-            });
-        }
-        return redirect()->route('Account.my-researches.index');
     }
 
     // ************* Review Request **************//
 
     public function Review_Options(){
-        return view("Main_Pages.Requests.Review_Request.ReviewRequestOptions");
+        return view("Main_Pages.Requests_Updated.ReviewRequest.ReviewRequestOptions");
     }
 
     public function Ind_Reviewer_Options(){
-        return view("Main_Pages.Requests.Review_Request.ThroughIndRevsOptions");
+        return view("Main_Pages.Requests_Updated.ReviewRequest.ThroughIndRevsOptions");
     } 
 
     public function AI_Review(){
-        return view("Main_Pages.Requests.Review_Request.AI-Review-Request");    
+        return view("Main_Pages.Requests_Updated.ReviewRequest.AI-Review-Request");    
     }
 
     public function Through_Offers_Review(){
-        return view("Main_Pages.Requests.Review_Request.Offers-Review-Request");    
+        return view("Main_Pages.Requests_Updated.ReviewRequest.Offers-Review-Request");    
     }
 
     public function Through_Ind_Reviewer(){
-        return view("Main_Pages.Requests.Review_Request.ThroughIndReviewer");    
+        return view("Main_Pages.Requests_Updated.ReviewRequest.Rev-Review-Request");    
     }
+
+
+
+
+    // ************* Publish Request **************//
+
+    public function MakePublishRequest()
+    {
+        return view('Main_Pages.Requests_Updated.PublishRequests.Publish-Request');
+    }
+
+    public function publishStore()
+    {
+
+    }
+
 }
 
