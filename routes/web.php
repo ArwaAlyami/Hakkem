@@ -94,13 +94,18 @@ Route::get('/Reviewers-Lists', function () {
 });
 
 // *********** Accept or Reject Promotion Request Routers ********** //
-Route::get('/ِAccept-Reject-Request', function () {
-    return view('Universty.PromotionAdmin.ِAccept-Reject-Request');
+Route::get('/Accepting-Request', function () {
+    return view('Universty.PromotionAdmin.Accept-Reject-Request');
 });
 
+Route::get('/Promotion-Requests/Accepting-Request', function () {
+    return view('Universty.PromotionAdmin.Accept-Reject-Request');
+});
+
+
 // *********** Accepted Promotion Request Routers ********** //
-Route::get('/ِAccepted-Request', function () {
-    return view('Universty.PromotionAdmin.ِAccepted-Request');
+Route::get('/Accepted-Request', function () {
+    return view('Universty.PromotionAdmin.Accepted-Request');
 });
 
 // *********** List Of Reviewers Routers ********** //

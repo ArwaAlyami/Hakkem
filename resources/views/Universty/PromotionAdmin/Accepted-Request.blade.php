@@ -20,13 +20,14 @@
             </div>
 
             <div class="cont">
-                <button class="reject">
+                <button class="reject" id="openDate">
                     <img src="{{ asset('hakkem/images/University/Calendar icon.png') }}">
                     <!-- A chevron arrow code -->
                     <div>
                         <div style="margin-left: 10px;" id="chevron-arrow-up" class="chevron"></div>
                     </div>
                 </button>
+                <input type="date" id="datePicker" style="visibility: hidden; position: absolute;">
                 <button class="accept">Generate Reviewer's List</button>
             </div>
         </div>
@@ -53,7 +54,7 @@
                             AI and Healthcare.pdf
                         </button>
                         <div class="row">
-                            <button class="see-more-button" id="openOverlayBtn">View Feedbacks</button>
+                            <button class="see-more-button" id="openOverlay">View Feedbacks</button>
                             <button class="see-more-button">
                                 See more
                                 <!-- A chevron arrow code -->
@@ -85,12 +86,14 @@
                 healthcare delivery, making medical services more efficient and inclusive.
             </div>
         </div>
+        <div class="footer-buttons">
+            <button class="reject" id="Open-overlay">Calculate Overall Average</button>
+        </div>
     </div>
-
     <!-- Overlay -->
     <div id="feedbackOverlay" class="overlay">
         <div class="overlay-content">
-            <span class="close-btn" id="closeOverlayBtn">&times;</span>
+            <span class="close-btn" id="closeOverlay">&times;</span>
 
             <div class="feedback-list">
                 <!-- Unviewed Feedback -->
@@ -107,6 +110,60 @@
             </div>
         </div>
     </div>
+
+    <div class="overlay" id="calcoverlay">
+        <div class="popup">
+            <span class="close-btn" id="close-Overlay">&times;</span>
+            <div class="table-container">
+                <table class="evaluation-table">
+                    <thead>
+                        <tr>
+                            <th>Research Title</th>
+                            <th>Ali Mohammed</th>
+                            <th>Ali Mohammed</th>
+                            <th>Ali Mohammed</th>
+                            <th>Ali Mohammed</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- تكرار السطر للمواضيع -->
+                        <tr>
+                            <td>Artificial Intelligence</td>
+                            <td>10</td>
+                            <td>15</td>
+                            <td>10</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>Artificial Intelligence</td>
+                            <td>20</td>
+                            <td>20</td>
+                            <td>10</td>
+                            <td>20</td>
+                        </tr>
+
+                    </tbody>
+
+                    <!-- تحتاج يكون فيه عملية حسابية بحيث يجمع الارقام الي بنفس العمود ثم يحط نتيجتها هنا -->
+                    <tfoot>
+                        <tr>
+                            <td><strong>Scores Total:</strong></td>
+                            <td><strong>30</strong></td>
+                            <td><strong>35</strong></td>
+                            <td><strong>20</strong></td>
+                            <td><strong>40</strong></td>
+                        </tr>
+                    </tfoot>
+                </table>
+                <div class="calculate-container">
+                    <button class="calculate-btn">Calculate Overall Average</button>
+                    <input type="text" class="average-input" readonly />
+                    <span>/60</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="{{ asset('hakkem\javascript\University\Promotion_Admin\overlay.js')}}"></script>
     @include('include.Footer')
 </body>
