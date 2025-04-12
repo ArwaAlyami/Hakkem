@@ -36,14 +36,15 @@ return [
     */
 
     'guards' => [
-        'web' => [
+        'api' => [
+            'driver' => 'jwt',
+            'provider' => 'users',
+        ],
+      'web' => [
             'driver' => 'session',
             'provider' => 'users',
         ],
-        'api' => [
-            'driver' => 'jwt',
-            'provider' => 'faculty_members',
-        ],
+
     ],
 
     /*
@@ -68,11 +69,10 @@ return [
             'driver' => 'eloquent',
             'model' => env('AUTH_MODEL', App\Models\User::class),
         ],
-        'faculty_members' => [
+         'faculty_members' => [
             'driver' => 'eloquent',
-            'model' =>App\Models\FacultyMember::class,
+            'model' =>  App\Models\FacultyMember::class,
         ],
-
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',

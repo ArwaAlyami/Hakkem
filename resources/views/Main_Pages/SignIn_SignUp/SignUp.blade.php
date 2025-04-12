@@ -10,42 +10,49 @@
   </head>
 
   <body>
-    <header>
-      <div class="container">
+    <div class="container">
+      <header>
         <div class="logo-section">
           <img src="{{ asset('hakkem/images/Dark-logo.png')}}" alt="Hakkem Logo" class="logo"/>
           <p class="brand-name">HAKKEM</p>
         </div>
-      </div>
-    </header>
+      </header>
+    </div>
 
     <div class="form-container">
       <div class="form-background">
         <h2>Create Account</h2>
-        <form>
-          <input type="text" placeholder="First Name" id="" required />
-          <input type="text" placeholder="Last Name" id="" required />
-          <input type="text" placeholder="University Name" id="" required />
-          <input type="email" id="email" placeholder="Main Email" id="" required oninput="validateEmail()"/>
+        <form action="{{ route('admin.register') }}" method="post" enctype="multipart/form-data">
+
+            {{ csrf_field() }}
+            {{ method_field('post') }}>
+          <input type="text" name="f_name" placeholder="Frist Name" required />
+          <input type="text" name="l_name" placeholder="Last Name" required />
+          <input type="text" name="phone" placeholder="Phone" required />
+
+
+          <input
+            type="email"
+            id="email"
+            placeholder="Email"
+            name="email"
+            required
+            oninput="validateEmail()"
+          />
           <p id="emailError" class="error-message"></p>
 
-          <div class="password-container">
-            <input type="password" id="password" placeholder="Password" id="" required/>
-            <span class="toggle-password" onclick="togglePassword()"></span>
-          </div>
-          <input type="password" placeholder="Confirm Password" id="" required />
+          <input type="text" name="pass" placeholder="Passowrd" required />
+          {{--  <input type="text"  name="pass" placeholder="confirme Passowrd" required />  --}}
 
-          <div class="file-upload-container">
-            <input type="file" id="universityLogo" accept=".pdf, .png, .jpg, .jpeg" id="" hidden/>
-            <input type="text" id="fileText" placeholder="Attach University Logo (PDF, PNG, JPG, JPEG)" readonly/>
-            <label for="universityLogo" class="file-upload-icon">📤</label>
-          </div>
 
-          <a href="{{-- route('Main_Pages.Home')--}}">
-            <button type="submit" class="signup-btn">
+
+          <button
+            type="submit"
+            class="signup-btn"
+            onclick="redirectToNextPage()"
+          >
             SIGN UP
           </button>
-        </a>
         </form>
       </div>
     </div>
