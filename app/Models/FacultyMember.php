@@ -7,13 +7,13 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Notifications\Notifiable;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 use Illuminate\Database\Eloquent\Model;
-
-class FacultyMember extends Model implements JWTSubject
+use Illuminate\Foundation\Auth\User as Authenticatable;
+class FacultyMember extends Authenticatable//extends Model implements JWTSubject
 {
     use HasFactory, Notifiable;
 
     protected $fillable = [
-        'pass',
+        'password',
         'f_name',
         'l_name',
         'phone',
@@ -34,7 +34,13 @@ class FacultyMember extends Model implements JWTSubject
         'agent_name',
 
     ];
-
+    protected function casts(): array
+    {
+        return [
+            'email_verified_at' => 'datetime',
+            'password' => 'hashed',
+        ];
+    }
     use Notifiable;
 
     // Rest omitted for brevity
@@ -43,17 +49,17 @@ class FacultyMember extends Model implements JWTSubject
      *
      * @return mixed
      */
-    public function getJWTIdentifier()
-    {
-        return $this->getKey();
-    }
-    /**
-     * Return a key value array, containing any custom claims to be added to the JWT.
-     *
-     * @return array
-     */
-    public function getJWTCustomClaims()
-    {
-        return [];
-    }
+    // public function getJWTIdentifier()
+    // {
+    //     return $this->getKey();
+    // }
+    // /**
+    //  * Return a key value array, containing any custom claims to be added to the JWT.
+    //  *
+    //  * @return array
+    //  */
+    // public function getJWTCustomClaims()
+    // {
+    //     return [];
+    // }
 }

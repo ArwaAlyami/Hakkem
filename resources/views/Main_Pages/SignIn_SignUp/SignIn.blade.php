@@ -20,12 +20,13 @@
     <div class="form-container">
       <div class="form-background">
         <h2 class="form-title">Sign In to your account</h2>
-        <form action="{{-- route('')--}}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.SignIn') }}" method="post" enctype="multipart/form-data">
 
-          <input class="inp" type="email" placeholder="Email" id="" required />
+            {{ csrf_field() }}
+            {{ method_field('post') }}
 
-          <input type="password" placeholder="Password" id="" required />
-
+          <input class="inp" type="email" name="email" placeholder="Email" required />
+          <input type="password" placeholder="Password" name="password" required />
           <h3 class="link" id="forgot-Pass">Forgot your Password?</h3>
 
           <a href="{{route('Main_Pages.Home')}}"><button type="submit">SIGN IN</button></a>

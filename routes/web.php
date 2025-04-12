@@ -11,6 +11,28 @@ use App\Http\Controllers\Admin\IT_Admin\ITAdminController;
 use App\Http\Controllers\Admin\FM_Researcher\MyRequestsController;
 use App\Http\Controllers\Admin\RoleController;
 
+use App\Http\Controllers\Admin\HomeController;
+use App\Http\Controllers\SystemadmenController;
+
+    Route::prefix('Auth')->as('admin.')->group(function () {
+    Route::get('SignIn',[AuthController::class,'MainSignInForm'])->name('SignIn-get');
+    Route::post('SignIn-post',[AuthController::class,'authenticate'])->name(name: 'SignIn');
+    Route::post('register',[AuthController::class,'register'])->name(name: 'register');
+    Route::get('SignUp',[AuthController::class,'SignUp'])->name('SignUp');
+    Route::get('me',[AuthController::class,'me'])->middleware(middleware: 'Auth');
+});
+
+
+
+Route::get('/admin/Systemadmen', [SystemadmenController::class, 'viewDashboard']);
+Route::get('/admin/FacultyMember', [SystemadmenController::class, 'viewUsers']);
+Route::put('/admin/FacultyMember/{user}/role', [SystemadmenController::class, 'updateUserRole'])->name('update.FacultyMember.role');
+Route::post('/research/add', [SystemadmenController::class, 'addResearch']);
+Route::get('/research/{research}', [SystemadmenController::class, 'viewResearch']);
+Route::delete('/research/{research}', [SystemadmenController::class, 'deleteResearch']);
+Route::post('/update-role', [SystemadmenController::class, 'updateRole'])->name('update.role');
+Route::post('/register', [SystemadmenController::class, 'register'])->name('register.submit');
+;
 
 // ******* Main Pages Routes *********** //
 
@@ -18,7 +40,6 @@ use App\Http\Controllers\Admin\RoleController;
     Route::get('/',[MainPagesController::class,'GetStarted'])->name('Get_Started');
     Route::get('About_Hakkem',[MainPagesController::class,'AboutUs'])->name('About_Hakkem');
     Route::get('User_Type',[MainPagesController::class,  'UserType'])->name('User_Type');
-    Route::get('SignUp',[MainPagesController::class,  'SignUp'])->name('SignUp');
 
 
     Route::prefix('/')->as('roles.')->group(function () {  
@@ -35,11 +56,12 @@ use App\Http\Controllers\Admin\RoleController;
 
 // ************ SignIn SignUp Pages ******************* //
 
-Route::prefix('Auth')->as('Auth.')->group(function () {  
-    
-    Route::get('SignIn',[AuthController::class,'SignIn'])->name('SignIn');
-    Route::get('Home',action: [MainPagesController::class,'Home'])->name('Home');
+Route::prefix('/')->middleware('auth')->as('Main_Pages.')->group(function () {
 
+    Route::get('/home',[HomeController::class,'index'])->name('Home');
+    Route::get('/',[MainPagesController::class,'GetStarted'])->name('Get_Started');
+    Route::get('About_Hakkem',[MainPagesController::class,'AboutUs'])->name('About_Hakkem');
+    Route::get('Home',[MainPagesController::class,'Home'])->name('Home');
 
 });
 
@@ -161,7 +183,16 @@ Route::prefix('ResearcherAccount')->as('researcher-account.')->group(function ()
 
     // ** My Requests Routers ** //
     Route::prefix('My_Requests')->as('My_Requests.')->group(function () {
-        Route::get('Requests', [MyRequestsController::class, 'index'])->name('Requests');
+
+        Route::get('Requests',[MyRequestsController::class,'index'])->name('Requests');
+
+    // ***********  Request Details Routers ********** //
+        Route::get('Request_Details',[MyRequestsController::class,'show'])->name('Request_Details');
+    });
+
+    // *********** Change Password Routers ********** //
+    Route::get('Change_Pass',[MyProfileController::class,'index'])->name('Change_Pass');
+    Route::post('Change_Pass-post',[MyProfileController::class,'create'])->name('Change_Pass-post');
 
     // **  Request Details Routers **//
         Route::get('Request_Details', [MyRequestsController::class, 'show'])->name('Request_Details');
@@ -170,7 +201,7 @@ Route::prefix('ResearcherAccount')->as('researcher-account.')->group(function ()
     // *********** SignOut Routers ********** //
     Route::get('SignOut',[MyProfileController::class,'SignOut'])->name('SignOut');
 
-});
+
 
 
 
