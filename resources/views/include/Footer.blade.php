@@ -10,9 +10,14 @@
   <div class="center">
     <footer>
       <div class="left">
+        
         <p class="Footer-link">Pivacy Policy</p>
         <p>|</p>
+
+        <a href="{{route('About_Hakkem')}}">
         <p class="Footer-link">About Hakkem</p>
+        </a>
+
       </div>
       <div class="Mid">
         <p>© 2025 Hakkem. All Rights Reserved.</p>

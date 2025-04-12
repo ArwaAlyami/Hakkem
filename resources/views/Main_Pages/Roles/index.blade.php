@@ -49,7 +49,7 @@
               </form>
     
               <button class="action-btn">
-              <a href="{{ route('roles.create',$role->id)}}">Show</a>
+              <a href="#">Show</a>
               </button>
               </td>
             </tr>
@@ -58,9 +58,15 @@
           </tbody>
         </table>
         {{ $roles->appends(request()->query())->links() }}
-      </div>
 
+      </div>
     </div>
+
+    <div class="add-member-container">
+      <a href="{{ route('roles.create',$role->id)}}">
+      <button class="add-member-btn" type="submit">Add New Role</button>
+    </a>
+  </div>
 
     <!-- FOOTER -->
     @include('include.footer')

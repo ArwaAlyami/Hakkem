@@ -12,9 +12,6 @@ use App\Http\Controllers\Admin\FM_Researcher\MyRequestsController;
 use App\Http\Controllers\Admin\RoleController;
 
 
-
-
-
 // ******* Main Pages Routes *********** //
 
 
@@ -100,8 +97,12 @@ Route::prefix('ITAdminAccount')->as('ITAdminAccount.')->group(function () {
         Route::get('index', [ITAdminController::class,'ManageUsers'])->name('index');
         Route::get('create', [ITAdminController::class,'create'])->name('create');
         Route::post('store', [ITAdminController::class,'store'])->name('store');
-        Route::get('edit', [ITAdminController::class,'edit'])->name('edit');
-        Route::delete('/{id}', [ITAdminController::class,'delete'])->name('delete');
+        Route::delete('delete/{id}', [ITAdminController::class,'delete'])->name('delete');
+
+
+        // هذي لتعديل ولتحديث بيانات اعضاء هيئة التدريس من عند الادمن
+        Route::get('edit/{id}', [ITAdminController::class,'edit'])->name('edit');
+        Route::put('/{id}', [ITAdminController::class,'update'])->name('update');
     });
 
     // *********** SignOut Routers ********** //

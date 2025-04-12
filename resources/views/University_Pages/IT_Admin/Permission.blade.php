@@ -21,84 +21,71 @@
 
 
 
-<div class="grant-container">
-    <h2 class="grant-title">Grant Permission</h2>
+        <div class="grant-container">
 
-    <div class="form-group-inline">
-      <label for="userId">User ID:</label>
-      <input type="text" id="userId" inputmode="numeric" pattern="[0-9]*" placeholder="Enter User ID" />
+            <form action="{{route('ITAdminAccount.manage-users.update' ,$faculty_member->id)}}" method="POST" enctype="multipart/form-data">
+
+                {{ csrf_field() }}
+                {{ method_field('put') }}
+
+            <h2 class="grant-title">Change Member Info</h2>
+
+            <div class="form-group">
+                <label>First Name:</label>
+                <input type="text" name="f_name" value="{{$faculty_member->f_name}}">
+
+                <label>Last Name:</label>
+                <input type="text" name="l_name" value="{{$faculty_member->l_name}}">
+            </div>
+
+
+            <div class="form-group">
+                <label>Email:</label>
+                <input type="email" name="email" value="{{$faculty_member->email}}">
+
+                <label>Password:</label>
+                <input type="password" name="pass" value="{{$faculty_member->pass}}">
+            </div>
+
+
+            <div class="form-group">
+                <label>Department:</label>
+                <input type="text" name="department" value="{{$faculty_member->department}}">
+
+                <label>Academic Rank:</label>
+                <input type="text" name="rank" value="{{$faculty_member->rank}}">
+            </div>
+
+
+        {{--     
+            <label class="permission-label">Give permission in:</label>
+
+            <div class="permissions">
+            <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin" /> Promotion Admin</label>
+            <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin" /> Promotion Admin</label>
+            <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin" /> Promotion Admin</label>
+            </div>
+
+            <div class="permissions">
+                <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin" /> Promotion Admin</label>
+                <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin" /> Promotion Admin</label>
+                <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin" /> Promotion Admin</label>
+            </div> --}}
+            <div class="permission-buttons">
+                <button class="modify-btn" type="submit">Modify</button>
+                <button class="cancel-btn" >Cancel</button>
+            </div>
+
+            </form>
+
+        </div>
     </div>
-
-    <label class="permission-label">Give permission in:</label>
-
-    <div class="permissions">
-      <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin" /> Promotion Admin</label>
-      <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin" /> Promotion Admin</label>
-      <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin" /> Promotion Admin</label>
-    </div>
-
-    <div class="permissions">
-        <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin" /> Promotion Admin</label>
-        <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin" /> Promotion Admin</label>
-        <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin" /> Promotion Admin</label>
-    </div>
-
-    <div class="permissions">
-        <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin" /> Promotion Admin</label>
-        <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin" /> Promotion Admin</label>
-        <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin" /> Promotion Admin</label>
-    </div>
-
-    <div class="permissions">
-        <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin" /> Promotion Admin</label>
-        <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin" /> Promotion Admin</label>
-        <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin" /> Promotion Admin</label>
-    </div>
-
-    <div class="permissions">
-        <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin" /> Promotion Admin</label>
-        <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin" /> Promotion Admin</label>
-        <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin" /> Promotion Admin</label>
-    </div>
-
-    <div class="permissions">
-        <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin" /> Promotion Admin</label>
-        <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin" /> Promotion Admin</label>
-        <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin" /> Promotion Admin</label>
-    </div>
-
-    <div class="permissions">
-        <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin" /> Promotion Admin</label>
-        <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin" /> Promotion Admin</label>
-        <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin" /> Promotion Admin</label>
-    </div>
-
-    <div class="permissions">
-        <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin" /> Promotion Admin</label>
-        <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin" /> Promotion Admin</label>
-        <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin" /> Promotion Admin</label>
-    </div>
-
-
-    <div class="permission-buttons">
-        <button class="modify-btn">Modify</button>
-        <button class="cancel-btn">Cancel</button>
-    </div>
-</div>
-</div>
 
 
     <!-- FOOTER -->
- @include('include.footer')
+    @include('include.footer')
 
         <script src="{{ asset('hakkem/javascript/MyProfile.js') }}"></script>
-        <script>
-            const userIdInput = document.getElementById("userId");
 
-            userIdInput.addEventListener("input", function () {
-              this.value = this.value.replace(/[^0-9]/g, ""); // يمنع الحروف
-            });
-          </script>
 </body>
-
 </html>

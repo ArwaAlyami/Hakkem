@@ -58,7 +58,6 @@
                     @endforeach
                 @endforeach
             </div>
-
         </div>
         
         <div class="add-member-container">

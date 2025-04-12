@@ -16,7 +16,7 @@
             
             <section style="padding: 20px;">
               <label for="file">Full Research: </label>
-                <iframe src="{{ asset('storage/4/Lecture-4_Complete.pdf') }}" width="1300px" height="1000px" style="display: block; margin: auto; border: none;"></iframe>
+                <iframe src="{{$research->media[0]->original_url}}" width="1300px" height="1000px" style="display: block; margin: auto; border: none;"></iframe>
               </section>
 
           </form>

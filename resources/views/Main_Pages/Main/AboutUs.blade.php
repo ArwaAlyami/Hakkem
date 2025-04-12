@@ -25,13 +25,16 @@
         </div>
         <div class="nav">
           <div class="nav-cont">
-            <a href="{{route('Auth.Home')}}"><p class="navigate">Home</p></a>
-            <a href="#{{--{{route('Main_Pages.')}}--}}"><p class="navigate">Chat</p></a>
-            <a href="#{{--{{route('Main_Pages.')}}--}}"><p class="navigate">Offers</p></a>
-            <a href="#{{--{{route('Main_Pages.')}}--}}"><p class="navigate">Journals</p></a>
-          </div>
-          <a href="#{{--{{route('Main_Pages.')}}--}}"><img src="{{ asset('hakkem/images/Header_Footer/profile_dark.png') }}" class="profile"/></a>
-        </div>
+            {{-- <a href="{{route('Auth.Home')}}"><p class="navigate">Home</p></a>
+            <a href="{{route('Main_Pages.')}}"><p class="navigate">Chat</p></a>
+            <a href="{{route('Main_Pages.')}}"><p class="navigate">Offers</p></a> --}}
+
+            <a href="{{--route('Main_Pages.')--}}"><p class="navigate">Journals</p></a>
+            
+          {{-- </div>
+          <a href="{{route('Main_Pages.')}}"><img src="{{ asset('hakkem/images/Header_Footer/profile_dark.png') }}" class="profile"/></a>
+        </div> --}}
+
       </header>
     </div>
 
