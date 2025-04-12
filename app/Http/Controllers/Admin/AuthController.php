@@ -3,25 +3,50 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Requests;
+use App\Http\Requests\SignInRequest;
+use App\Models\FacultyMember;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AuthController extends Controller
 {
 
     public function IndividualSignUp(){
-        return view("Main_Pages.SignIn_SignUp.IndividualSignUpForm");
+        return view("Main_Pages.SignIn_SignUp.SignIn");
     }
 
     public function JournalSignUpForm(){
-       return view('Main_Pages.SignIn_SignUp.JournalSignUpForm') ;
+       return view('Main_Pages.SignIn_SignUp.SignUp') ;
     }
     public function MainSignInForm(){
-        return view('Main_Pages.SignIn_SignUp.MainSignInForm') ;
+        if(Auth::check()){
+            return redirect()->route('Main_Pages.Home');
+        }
+        return view("Main_Pages.SignIn_SignUp.SignIn");
      }
      public function MainSignUpForm(){
-        return view('Main_Pages.SignIn_SignUp.MainSignUpForm') ;
+        return view('Main_Pages.SignIn_SignUp.SignUp') ;
      }
      public function UniversitySignUpForm(){
-        return view('Main_Pages.SignIn_SignUp.UniversitySignUpForm') ;
+        return view('Main_Pages.SignIn_SignUp.SignUp') ;
+     }
+     public function authenticate(Request $request)
+     {
+     $credentials = $request->validate(rules: [
+             'email' => ['required', 'email'],
+             'password' => ['required'],
+         ]);
+
+         if (Auth::attempt($credentials)) {
+            $request->session()->regenerate();
+            return redirect()->route('Main_Pages.Home');
+         }
+
+         return redirect()->back();
+     }
+
+     public function register(Request $request){
+        FacultyMember::create($request->all());
+        return  redirect()->route('admin.SignIn-get');
      }
 }

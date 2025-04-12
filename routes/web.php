@@ -4,17 +4,16 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\RequestsController;
 use App\Http\Controllers\Admin\MainPagesController;
-use App\Http\Controllers\Api\HomeController;
+use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\SystemadmenController;
 
-    Route::prefix('auth')->as('admin.')->group(function () {
-    Route::get('SignIn',[AuthController::class,'SignIn']);
+    Route::prefix('Auth')->as('admin.')->group(function () {
+    Route::get('SignIn',[AuthController::class,'MainSignInForm'])->name('SignIn-get');
     Route::post('SignIn-post',[AuthController::class,'authenticate'])->name(name: 'SignIn');
-    Route::post('register',[AuthController::class,'register']);
+    Route::post('register',[AuthController::class,'register'])->name(name: 'register');
     Route::get('SignUp',[AuthController::class,'SignUp'])->name('SignUp');
     Route::get('me',[AuthController::class,'me'])->middleware(middleware: 'Auth');
 });
-Route::get('/',[HomeController::class,'SignIn']);
 
 
 
@@ -30,8 +29,9 @@ Route::post('/register', [SystemadmenController::class, 'register'])->name('regi
 
 // ******* Main Pages Routes *********** //
 
-Route::prefix('/')->as('Main_Pages.')->group(function () {
+Route::prefix('/')->middleware('auth')->as('Main_Pages.')->group(function () {
 
+    Route::get('/home',[HomeController::class,'index'])->name('Home');
     Route::get('/',[MainPagesController::class,'GetStarted'])->name('Get_Started');
     Route::get('About_Hakkem',[MainPagesController::class,'AboutUs'])->name('About_Hakkem');
     Route::get('Home',[MainPagesController::class,'Home'])->name('Home');

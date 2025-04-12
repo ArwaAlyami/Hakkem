@@ -23,12 +23,12 @@ class SignInRequest extends FormRequest
     {
         return [
             'password' => [
-    'required',
-    'string',
-    'min:12',
-    'max:16',
-    'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*#).+$/'
-],
+            'required',
+            'string',
+            'min:12',
+            'max:16',
+            'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*#).+$/'
+          ],
 /**(?=.*[a-z]) يجب أن يحتوي على حرف صغير واحد على الأقل
 
 (?=.*[A-Z]) يجب أن يحتوي على حرف كبير واحد على الأقل

@@ -23,37 +23,29 @@
     <div class="form-container">
       <div class="form-background">
         <h2>Create Account</h2>
-        <form>
-          <input type="text" placeholder="Journal Name" required />
-          <input type="text" placeholder="Publisher Name" required />
-          <input type="text" placeholder="Scope" required />
+        <form action="{{ route('admin.register') }}" method="post" enctype="multipart/form-data">
 
-          <div class="file-upload-container">
-            <input
-              type="file"
-              id="journalLogo"
-              accept=".pdf, .png, .jpg, .jpeg"
-              hidden
-            />
-            <input
-              type="text"
-              id="fileText"
-              placeholder="Attach Journal Logo (PDF, PNG, JPG, JPEG)"
-              readonly
-            />
-            <label for="journalLogo" class="file-upload-icon">📤</label>
-          </div>
+            {{ csrf_field() }}
+            {{ method_field('post') }}>
+          <input type="text" name="f_name" placeholder="Frist Name" required />
+          <input type="text" name="l_name" placeholder="Last Name" required />
+          <input type="text" name="phone" placeholder="Phone" required />
+
 
           <input
             type="email"
             id="email"
-            placeholder="Main Email"
+            placeholder="Email"
+            name="email"
             required
             oninput="validateEmail()"
           />
           <p id="emailError" class="error-message"></p>
 
-          <input type="text" placeholder="ISSN" required />
+          <input type="text" name="pass" placeholder="Passowrd" required />
+          {{--  <input type="text"  name="pass" placeholder="confirme Passowrd" required />  --}}
+
+
 
           <button
             type="submit"

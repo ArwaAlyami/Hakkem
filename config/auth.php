@@ -36,12 +36,12 @@ return [
     */
 
     'guards' => [
-        'web' => [
-            'driver' => 'session',
+        'api' => [
+            'driver' => 'jwt',
             'provider' => 'users',
         ],
-      'api' => [
-            'driver' => 'jwt',
+      'web' => [
+            'driver' => 'session',
             'provider' => 'faculty_members',
         ],
 
@@ -71,7 +71,7 @@ return [
         ],
          'faculty_members' => [
             'driver' => 'eloquent',
-            'model' =>  App\Models\User::class,
+            'model' =>  App\Models\FacultyMember::class,
         ],
         // 'users' => [
         //     'driver' => 'database',
