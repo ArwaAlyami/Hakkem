@@ -4,6 +4,29 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\RequestsController;
 use App\Http\Controllers\Admin\MainPagesController;
+use App\Http\Controllers\Api\HomeController;
+use App\Http\Controllers\SystemadmenController;
+
+    Route::prefix('auth')->as('admin.')->group(function () {
+    Route::get('SignIn',[AuthController::class,'SignIn']);
+    Route::post('SignIn-post',[AuthController::class,'authenticate'])->name(name: 'SignIn');
+    Route::post('register',[AuthController::class,'register']);
+    Route::get('SignUp',[AuthController::class,'SignUp'])->name('SignUp');
+    Route::get('me',[AuthController::class,'me'])->middleware(middleware: 'Auth');
+});
+Route::get('/',[HomeController::class,'SignIn']);
+
+
+
+Route::get('/admin/Systemadmen', [SystemadmenController::class, 'viewDashboard']);
+Route::get('/admin/FacultyMember', [SystemadmenController::class, 'viewUsers']);
+Route::put('/admin/FacultyMember/{user}/role', [SystemadmenController::class, 'updateUserRole'])->name('update.FacultyMember.role');
+Route::post('/research/add', [SystemadmenController::class, 'addResearch']);
+Route::get('/research/{research}', [SystemadmenController::class, 'viewResearch']);
+Route::delete('/research/{research}', [SystemadmenController::class, 'deleteResearch']);
+Route::post('/update-role', [SystemadmenController::class, 'updateRole'])->name('update.role');
+Route::post('/register', [SystemadmenController::class, 'register'])->name('register.submit');
+;
 
 // ******* Main Pages Routes *********** //
 
@@ -12,13 +35,13 @@ Route::prefix('/')->as('Main_Pages.')->group(function () {
     Route::get('/',[MainPagesController::class,'GetStarted'])->name('Get_Started');
     Route::get('About_Hakkem',[MainPagesController::class,'AboutUs'])->name('About_Hakkem');
     Route::get('Home',[MainPagesController::class,'Home'])->name('Home');
-    
+
 });
 
 // ************ SignIn SignUp Pages ******************* //
 
-Route::prefix('Auth')->as('Auth.')->group(function () {  
-    
+Route::prefix('Auth')->as('Auth.')->group(function () {
+
     Route::get('MainSignInForm',[AuthController::class,  'MainSignInForm'])->name('MainSignInForm');
     Route::get('MainSignUpForm',[AuthController::class,  'MainSignUpForm'])->name('MainSignUpForm');
     Route::get('IndividualSignUp',[AuthController::class,  'IndividualSignUp'])->name('IndividualSignUp');
@@ -45,7 +68,7 @@ Route::prefix('Requests')->as('Requests.')->group(function () {
 
 });
 
-// Route::prefix('PromotionAdmin')->as('PromotionAdmin.')->group(function () {  
+// Route::prefix('PromotionAdmin')->as('PromotionAdmin.')->group(function () {
 //     Route::get('',[MainPagesController::class,  ''])->name('');
 // });
 
