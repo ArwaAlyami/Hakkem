@@ -13,6 +13,6 @@ class ReviewRequest  extends Model
         'res_id',
         'rev_id',
         'research_id',
-        'fm_res_id',
+        'fm_id',
     ];
 }

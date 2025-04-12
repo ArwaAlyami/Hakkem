@@ -4,13 +4,26 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Research;
+
 
 class RequestsController extends Controller
 {
 
     // ************* Promotion Request **************//
-    public function Promotion_Request(){
-        return view("Main_Pages.Requests.PromotionRequest.RequestSteps");
+    public function promotionCreate()
+    {
+        return view('Main_Pages.Requests.PromotionRequest.RequestSteps');
+    }
+    public function promotionStore(Request $request){
+        $research = Research::create($request->only('title','abstract','keywords','field','DOI'));
+
+        if($request->hasFile('file')){
+            $research->addMultipleMediaFromRequest(['file'])->each(function($fileAdder){
+                $fileAdder->toMediaCollection('research');
+            });
+        }
+        return redirect()->route('Account.my-researches.index');
     }
 
     // ************* Review Request **************//

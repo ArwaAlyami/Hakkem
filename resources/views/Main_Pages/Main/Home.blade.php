@@ -17,12 +17,12 @@
         </div>
         <div class="nav">
           <div class="nav-cont">
-            <a href="{{route('Main_Pages.Home')}}"><p class="navigate">Home</p></a>
-            <a href="#{{--{{route('Main_Pages.')}}--}}"><p class="navigate">Chat</p></a>
-            <a href="#{{--{{route('Main_Pages.')}}--}}"><p class="navigate">Offers</p></a>
-            <a href="#{{--{{route('Main_Pages.')}}--}}"><p class="navigate">Journals</p></a>
+            <a href="{{route('Auth.Home')}}"><p class="navigate">Home</p></a>
+            <a href="#{{--{{route('Auth.Chat')}}--}}"><p class="navigate">Chat</p></a>
+            <a href="#{{--{{route('Auth.Offers')}}--}}"><p class="navigate">Offers</p></a>
+            <a href="#{{--{{route('Auth.Journals')}}--}}"><p class="navigate">Journals</p></a>
           </div>
-          <a href="#{{--{{route('Main_Pages.')}}--}}"><img src="{{ asset('hakkem/images/Header_Footer/profile_dark.png')}}" class="profile"/></a>
+          <a href="#{{--{{route('Auth.My_Profile.Profile')}}--}}"><img src="{{ asset('hakkem/images/Header_Footer/profile_dark.png')}}" class="profile"/></a>
         </div>
       </header>
     </div>
@@ -82,7 +82,7 @@
           ensure your work is prepared according to the journal's <br />
           specific guidelines for a seamless submission process.
         </p>
-        <a href="#{{--{{route('Requests.Promotion_Request')}}--}}"><button id="review-req" class="req-btn">Send Request</button></a>
+        <a href="{{-- route('Requests.Promotion_Request.create') --}}"><button id="review-req" class="req-btn">Send Request</button></a>
       </div>
       <div class="decoration-r">
         <img src="{{ asset('hakkem/images/Home/Home_sec2_part3.svg')}}" class="under-r" />
@@ -108,7 +108,7 @@
           council <br />
           and achieve your next academic rank with confidence.
         </p>
-        <a href="{{route('Requests.Promotion_Request')}}"><button id="review-req" class="req-btn">Send Request</button></a>
+        <a href="{{route('Requests.Promotion_Request.create')}}"><button id="review-req" class="req-btn">Send Request</button></a>
       </div>
     </section>
 
@@ -117,13 +117,9 @@
       <footer>
 
         <div class="left">
-          <a href="#{{--{{route('Main_Pages.')}}--}}"><p class="Footer-link">Help</p></a>
-          <p>|</p>
-          <a href="#{{--{{route('Main_Pages.')}}--}}"><p class="Footer-link">FAQ</p></a>
-          <p>|</p>
           <a href="#{{--{{route('Main_Pages.')}}--}}"><p class="Footer-link">Pivacy Policy</p></a>
           <p>|</p>
-          <a href="{{route('Main_Pages.About_Hakkem')}}"><p class="Footer-link">About Hakkem</p></a>
+          <a href="{{route('About_Hakkem')}}"><p class="Footer-link">About Hakkem</p></a>
         </div>
 
         <div class="Mid">

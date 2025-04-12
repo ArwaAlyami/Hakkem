@@ -26,6 +26,7 @@ class AuthController extends Controller
      }
      public function MainSignUpForm(){
         return view('Main_Pages.SignIn_SignUp.SignUp') ;
+
      }
      public function UniversitySignUpForm(){
         return view('Main_Pages.SignIn_SignUp.SignUp') ;

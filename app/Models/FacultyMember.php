@@ -17,6 +17,7 @@ class FacultyMember extends Authenticatable//extends Model implements JWTSubject
         'f_name',
         'l_name',
         'phone',
+        'department',
         'IBAN',
         'bachelors',
         'masters',
@@ -24,6 +25,11 @@ class FacultyMember extends Authenticatable//extends Model implements JWTSubject
         'Academic_quali',
         'email',
         'rank',
+        'User_Type',
+        'Feedback_quality',
+        'accuracy',
+        'response_speed',
+        
         'uni_id',
         'agent_name',
 

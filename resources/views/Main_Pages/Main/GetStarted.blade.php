@@ -4,22 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Get Started Page</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:wght@700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:wght@700&family=Inria+Sans:wght@700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@1,700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:wght@700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Ibarra+Real+Nova:wght@700&family=Inria+Sans:wght@700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Gravitas+One&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Inria+Sans:ital,wght@1,700&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href= {{asset('hakkem/css/MainPages/Main/GetStarted.css')}} />
   </head>
   <body>
@@ -32,11 +20,10 @@
         </div>
         <div class="nav-container" id="nav-container">
           <nav class="nav">
-            {{-- <a href="#" class="nav-link">Home</a> --}}
-            <a href="#{{--{{route('Main_Pages.')}}--}}" class="nav-link">Journals</a>
+            <a href="#{{--{{route('')}}--}}" class="nav-link">Journals</a>
           </nav>
 
-          <a href="{{route('Auth.MainSignInForm')}}" class="signIn-btn">Sign In</a>
+          <a href="{{route('Auth.SignIn')}}" class="signIn-btn">Sign In</a>
           
         </div>
         <div class="menu-toggle" id="menu-toggle">☰</div>
@@ -60,7 +47,7 @@
         <p class="subtitle">TO REVIEW AND PUBLISH YOUR RESEARCHES...</p>
       </div>
 
-      <a href="{{route('Auth.MainSignUpForm')}}" class="get-started-btn">
+      <a href="{{route('User_Type')}}" class="get-started-btn">
         <img src="{{ asset('hakkem/images/Get-Started/GetStarted_Arrow.svg') }}" alt="Arrow Icon" class="arrow-icon"/>
         GET STARTED NOW!
       </a>
@@ -137,15 +124,9 @@
       <footer>
 
         <div class="left">
-          <a href="#{{--{{route('Main_Pages.')}}--}}"><p class="Footer-link">Help</p></a>
-          <p>|</p>
-          <a href="#{{--{{route('Main_Pages.')}}--}}"><p class="Footer-link">FAQ</p></a>
-          <p>|</p>
-          <a href="#{{--{{route('Main_Pages.')}}--}}"><p class="Footer-link">Terms</p></a>
-          <p>|</p>
           <a href="#{{--{{route('Main_Pages.')}}--}}"><p class="Footer-link">Pivacy Policy</p></a>
           <p>|</p>
-          <a href="{{route('Main_Pages.About_Hakkem')}}"><p class="Footer-link">About Hakkem</p></a>
+          <a href="{{route('About_Hakkem')}}"><p class="Footer-link">About Hakkem</p></a>
         </div>
 
         <div class="Mid">
@@ -158,11 +139,6 @@
           <a href="#"><img src="{{ asset('hakkem/images/Header_Footer/Contact-X_dark.png')}}" /></a>
         </div>
 
-        {{-- <div class="right">
-          <img src="{{ asset('hakkem/images/Header_Footer/Payment-visaCard.png') }}" />
-          <img src="{{ asset('hakkem/images/Header_Footer/Payment-applepay.svg') }}" />
-          <img src="{{ asset('hakkem/images/Header_Footer/Payment-paypal.svg') }}"/>
-        </div> --}}
 
       </footer>
     </div>

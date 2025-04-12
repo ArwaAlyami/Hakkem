@@ -9,20 +9,17 @@ use Spatie\MediaLibrary\InteractsWithMedia;
 class Research extends Model implements HasMedia 
 
 {
+    protected $table='researches';
     use InteractsWithMedia;
     protected $fillable = [
         'title',
         'abstract',
         'DOI',
-        'full_res',
+        'field',
         'keywords',
         'specialization',
         'pro_req_id',
-        'fm_res_id',
-        'prom_ad_id',
-        'fm_rev_id',
-        'editor_id',
-        'asso_ed_id',
+        'fm_id',
         'res_id',
         'rev_id',
     ];
