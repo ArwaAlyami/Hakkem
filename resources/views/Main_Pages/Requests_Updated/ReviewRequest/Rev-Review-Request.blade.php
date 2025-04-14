@@ -205,7 +205,7 @@
                 <div class="buttons">
                     <button class="back">Back</button>
 
-                    <a href="{{ route('Auth.Home')}}">
+                    <a href="{{ route('Main_Pages.Home')}}">
                         <button class="confirm">Confirm</button>
                     </a>
 

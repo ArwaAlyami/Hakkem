@@ -42,7 +42,7 @@
             <!-- Buttons of step 1 -->
             <div class="buttons">
 
-                <a href="{{ route('Auth.Home')}}">
+                <a href="{{ route('Main_Pages.Home')}}">
                 <button class="cancel">Cancel</button>
                 </a>
 
@@ -160,7 +160,7 @@
             <div class="buttons">
                 <button class="back">Back</button>
 
-                <a href="{{ route('Auth.Home')}}">
+                <a href="{{ route('Main_Pages.Home')}}">
                 <button class="confirm">Confirm</button>
                 </a>
 

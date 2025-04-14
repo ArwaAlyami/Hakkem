@@ -11,26 +11,20 @@ use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller
 {
 
-    public function IndividualSignUp(){
-        return view("Main_Pages.SignIn_SignUp.SignIn");
-    }
-
-    public function JournalSignUpForm(){
-       return view('Main_Pages.SignIn_SignUp.SignUp') ;
-    }
     public function MainSignInForm(){
         if(Auth::check()){
             return redirect()->route('Main_Pages.Home');
         }
         return view("Main_Pages.SignIn_SignUp.SignIn");
      }
+
+
      public function MainSignUpForm(){
         return view('Main_Pages.SignIn_SignUp.SignUp') ;
 
      }
-     public function UniversitySignUpForm(){
-        return view('Main_Pages.SignIn_SignUp.SignUp') ;
-     }
+     
+
      public function authenticate(Request $request)
      {
      $credentials = $request->validate(rules: [

@@ -10,19 +10,40 @@ use App\Http\Controllers\Admin\FM_Researcher\MyResearchesController2;
 use App\Http\Controllers\Admin\IT_Admin\ITAdminController;
 use App\Http\Controllers\Admin\FM_Researcher\MyRequestsController;
 use App\Http\Controllers\Admin\RoleController;
-
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\SystemadmenController;
 
-    Route::prefix('Auth')->as('admin.')->group(function () {
+
+
+
+// ******* Main Pages Routes *********** //
+
+Route::get('/',[MainPagesController::class,'GetStarted'])->name('Get_Started');
+
+Route::get('About_Hakkem',[MainPagesController::class,'AboutUs'])->name('About_Hakkem');
+Route::get('User_Type',[MainPagesController::class, 'UserType'])->name('User_Type');
+
+
+
+// ************ SignIn SignUp Pages ******************* //
+
+Route::prefix('Auth')->as('admin.')->group(function () {
     Route::get('SignIn',[AuthController::class,'MainSignInForm'])->name('SignIn-get');
     Route::post('SignIn-post',[AuthController::class,'authenticate'])->name(name: 'SignIn');
     Route::post('register',[AuthController::class,'register'])->name(name: 'register');
-    Route::get('SignUp',[AuthController::class,'SignUp'])->name('SignUp');
+    Route::get('SignUp',[AuthController::class,'MainSignUpForm'])->name('SignUp');
     Route::get('me',[AuthController::class,'me'])->middleware(middleware: 'Auth');
 });
 
+Route::prefix('/')->middleware('auth')->as('Main_Pages.')->group(function () {
+    Route::get('Home',[HomeController::class,'index'])->name('Home');
 
+});
+
+
+
+
+// ******* System Admin Routes *********** //
 
 Route::get('/admin/Systemadmen', [SystemadmenController::class, 'viewDashboard']);
 Route::get('/admin/FacultyMember', [SystemadmenController::class, 'viewUsers']);
@@ -32,40 +53,6 @@ Route::get('/research/{research}', [SystemadmenController::class, 'viewResearch'
 Route::delete('/research/{research}', [SystemadmenController::class, 'deleteResearch']);
 Route::post('/update-role', [SystemadmenController::class, 'updateRole'])->name('update.role');
 Route::post('/register', [SystemadmenController::class, 'register'])->name('register.submit');
-;
-
-// ******* Main Pages Routes *********** //
-
-
-    Route::get('/',[MainPagesController::class,'GetStarted'])->name('Get_Started');
-    Route::get('About_Hakkem',[MainPagesController::class,'AboutUs'])->name('About_Hakkem');
-    Route::get('User_Type',[MainPagesController::class,  'UserType'])->name('User_Type');
-
-
-    Route::prefix('/')->as('roles.')->group(function () {  
-    
-        Route::get('Roles',[RoleController::class,'index'])->name('index');
-        Route::get('Role-Permission',action: [RoleController::class,'create'])->name('create');
-        Route::post('Assign-Permission',action: [RoleController::class,'store'])->name('store');
-        Route::get('show/{id}',action: [RoleController::class,'show'])->name('show');
-
-    });
-
-
-
-
-// ************ SignIn SignUp Pages ******************* //
-
-Route::prefix('/')->middleware('auth')->as('Main_Pages.')->group(function () {
-
-    Route::get('/home',[HomeController::class,'index'])->name('Home');
-    Route::get('/',[MainPagesController::class,'GetStarted'])->name('Get_Started');
-    Route::get('About_Hakkem',[MainPagesController::class,'AboutUs'])->name('About_Hakkem');
-    Route::get('Home',[MainPagesController::class,'Home'])->name('Home');
-
-});
-
-
 
 
 
@@ -74,8 +61,8 @@ Route::prefix('/')->middleware('auth')->as('Main_Pages.')->group(function () {
 Route::prefix('Requests')->as('Requests.')->group(function () {
 
     Route::prefix('PromotionRequest')->as('PromotionRequest.')->group(function () {
-        Route::get('MakePromotionRequest', action: [RequestsController::class, 'MakePromotionRequest'])->name('index');
-        Route::post('promotionStore', action: [RequestsController::class, 'promotionStore'])->name('store');
+        Route::get('MakePromotionRequest', [RequestsController::class, 'MakePromotionRequest'])->name('index');
+        Route::post('promotionStore', [RequestsController::class, 'promotionStore'])->name('store');
     });
 
 
@@ -94,14 +81,18 @@ Route::prefix('Requests')->as('Requests.')->group(function () {
 
 
     Route::prefix('PublishRequest')->as('PublishRequest.')->group(function () {
-        Route::get('MakePublishRequest', action: [RequestsController::class, 'MakePublishRequest'])->name('index');
-        Route::post('publishStore', action: [RequestsController::class, 'publishStore'])->name('store');
+        Route::get('MakePublishRequest', [RequestsController::class, 'MakePublishRequest'])->name('index');
+        Route::post('publishStore', [RequestsController::class, 'publishStore'])->name('store');
     });
 });
 
 
 
 
+
+
+
+// ************************************ Arwa ******************************************* //
 
 
 // ************************************ IT Admin Router ******************************************* //
@@ -121,43 +112,32 @@ Route::prefix('ITAdminAccount')->as('ITAdminAccount.')->group(function () {
         Route::post('store', [ITAdminController::class,'store'])->name('store');
         Route::delete('delete/{id}', [ITAdminController::class,'delete'])->name('delete');
 
+        // *********** Users And Their Permissions **************//
+        Route::get('UsersAndPermissions', [ITAdminController::class,'UsersAndPermissions'])->name('UsersAndPermissions');
 
-        // هذي لتعديل ولتحديث بيانات اعضاء هيئة التدريس من عند الادمن
+
+
+        // ********** Edit members info Routers **************//
         Route::get('edit/{id}', [ITAdminController::class,'edit'])->name('edit');
         Route::put('/{id}', [ITAdminController::class,'update'])->name('update');
     });
 
-    // *********** SignOut Routers ********** //
+    // *********** Sign Out Routers ********** //
     Route::get('SignOut',[ITAdminController::class,'SignOut'])->name('SignOut');
 
 });
 
+    // *********** Roles Routers ********** //
 
+    Route::prefix('Roles')->as('roles.')->group(function () {  
+        
+        Route::get('index',[RoleController::class,'index'])->name('index');
+        Route::get('Role-Permission',[RoleController::class,'create'])->name('create');
+        Route::post('Assign-Permission',[RoleController::class,'store'])->name('store');
+        Route::get('show/{id}',[RoleController::class,'show'])->name('show');
+        Route::delete('delete/{id}',[RoleController::class,'delete'])->name('delete');
 
-
-
-
-// ************************************ Promotion Admin Router ******************************************* //
-
-
-Route::prefix('PromotionAccount')->as('PromotionAccount.')->group(function () {
-
-    // ** Profile Routers ** //
-    Route::get('Profile', [PromotionAdminController::class, 'Profile'])->name('Profile');
-    Route::post('ProfileEdit', [PromotionAdminController::class, 'ProfileEdit'])->name('ProfileEdit');
-
-    // ** Requests Routers ** //
-    Route::get('PromotionRequests', [PromotionAdminController::class, 'PromotionRequests'])->name('PromotionRequests');
-    Route::get('AcceptOrReject', [PromotionAdminController::class, 'AcceptOrReject'])->name('AcceptOrReject');
-    Route::get('AcceptedRequest', [PromotionAdminController::class, 'AcceptedRequest'])->name('AcceptedRequest');
-
-
-    // ** Reviewers List Routers ** //
-    Route::get('ReviewersLists', [PromotionAdminController::class, 'ReviewersLists'])->name('ReviewersLists');
-    Route::get('ReviewersListContent', [PromotionAdminController::class, 'ReviewersListContent'])->name('ReviewersListContent');
-
-});
-
+    });
 
 
 
@@ -190,18 +170,47 @@ Route::prefix('ResearcherAccount')->as('researcher-account.')->group(function ()
         Route::get('Request_Details',[MyRequestsController::class,'show'])->name('Request_Details');
     });
 
-    // *********** Change Password Routers ********** //
-    Route::get('Change_Pass',[MyProfileController::class,'index'])->name('Change_Pass');
-    Route::post('Change_Pass-post',[MyProfileController::class,'create'])->name('Change_Pass-post');
-
     // **  Request Details Routers **//
-        Route::get('Request_Details', [MyRequestsController::class, 'show'])->name('Request_Details');
-    });
+    Route::get('Request_Details', [MyRequestsController::class, 'show'])->name('Request_Details');
+
 
     // *********** SignOut Routers ********** //
-    Route::get('SignOut',[MyProfileController::class,'SignOut'])->name('SignOut');
+        Route::get('SignOut',[MyProfileController::class,'SignOut'])->name('SignOut');
+    });
 
 
+
+
+
+
+
+
+
+
+
+    //*********************************************** Waad ****************************************/
+
+
+// ************************************ Promotion Admin Router ******************************************* //
+
+
+Route::prefix('PromotionAccount')->as('PromotionAccount.')->group(function () {
+
+    // ** Profile Routers ** //
+    Route::get('Profile', [PromotionAdminController::class, 'Profile'])->name('Profile');
+    Route::post('ProfileEdit', [PromotionAdminController::class, 'ProfileEdit'])->name('ProfileEdit');
+
+    // ** Requests Routers ** //
+    Route::get('PromotionRequests', [PromotionAdminController::class, 'PromotionRequests'])->name('PromotionRequests');
+    Route::get('AcceptOrReject', [PromotionAdminController::class, 'AcceptOrReject'])->name('AcceptOrReject');
+    Route::get('AcceptedRequest', [PromotionAdminController::class, 'AcceptedRequest'])->name('AcceptedRequest');
+
+
+    // ** Reviewers List Routers ** //
+    Route::get('ReviewersLists', [PromotionAdminController::class, 'ReviewersLists'])->name('ReviewersLists');
+    Route::get('ReviewersListContent', [PromotionAdminController::class, 'ReviewersListContent'])->name('ReviewersListContent');
+
+});
 
 
 

@@ -80,7 +80,7 @@
                 </div>
 
                 <div class="closebtn">
-                    <a href="{{ route('Auth.Home')}}">
+                    <a href="{{ route('Main_Pages.Home')}}">
                     <button class="confirm">Close</button>
                     </a>
                 </div>

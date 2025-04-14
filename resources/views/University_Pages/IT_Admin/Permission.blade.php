@@ -19,11 +19,9 @@
 
     <!--السايد بار-->
 
-
-
         <div class="grant-container">
 
-            <form action="{{route('ITAdminAccount.manage-users.update' ,$faculty_member->id)}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('ITAdminAccount.manage-users.update', $faculty_member->id)}}" method="POST" enctype="multipart/form-data">
 
                 {{ csrf_field() }}
                 {{ method_field('put') }}
@@ -31,51 +29,65 @@
             <h2 class="grant-title">Change Member Info</h2>
 
             <div class="form-group">
+
+                <div class="form-item">
                 <label>First Name:</label>
                 <input type="text" name="f_name" value="{{$faculty_member->f_name}}">
+                </div>
 
+                <div class="form-item">
                 <label>Last Name:</label>
                 <input type="text" name="l_name" value="{{$faculty_member->l_name}}">
+                </div>
             </div>
 
 
             <div class="form-group">
+                <div class="form-item">
                 <label>Email:</label>
                 <input type="email" name="email" value="{{$faculty_member->email}}">
+                </div>
 
+                <div class="form-item">
                 <label>Password:</label>
-                <input type="password" name="pass" value="{{$faculty_member->pass}}">
+                <input type="password" name="password" value="{{$faculty_member->password}}">
+                </div>
             </div>
 
 
             <div class="form-group">
+                <div class="form-item">
                 <label>Department:</label>
                 <input type="text" name="department" value="{{$faculty_member->department}}">
+                </div>
 
+                <div class="form-item">
                 <label>Academic Rank:</label>
                 <input type="text" name="rank" value="{{$faculty_member->rank}}">
+                </div>
             </div>
 
+            <div class="form-group">
+                <div class="form-item">
+                <label>Member Role:</label>
+                <select name="role">
+                    <option value="">Select</option>
 
-        {{--     
-            <label class="permission-label">Give permission in:</label>
+                    @foreach($roles as $role)
 
-            <div class="permissions">
-            <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin" /> Promotion Admin</label>
-            <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin" /> Promotion Admin</label>
-            <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin" /> Promotion Admin</label>
+                        <option value="{{$role->name}}" @if ($role->name == $faculty_member->role->name)
+                            selected
+                            @endif>{{$role->name}}</option>
+
+                    @endforeach
+                </select>
+            </div>
             </div>
 
-            <div class="permissions">
-                <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin" /> Promotion Admin</label>
-                <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin" /> Promotion Admin</label>
-                <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin" /> Promotion Admin</label>
-            </div> --}}
+            
             <div class="permission-buttons">
                 <button class="modify-btn" type="submit">Modify</button>
-                <button class="cancel-btn" >Cancel</button>
             </div>
-
             </form>
 
         </div>
@@ -87,5 +99,5 @@
 
         <script src="{{ asset('hakkem/javascript/MyProfile.js') }}"></script>
 
-</body>
+    </body>
 </html>

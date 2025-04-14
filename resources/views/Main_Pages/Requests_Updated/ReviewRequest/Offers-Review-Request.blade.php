@@ -190,7 +190,7 @@
                                 <p>Arwa Abdullah M AlYami</p>
                                 <!-- حالة الطلب -->
                                 <div class="state">
-                                    <img src="{{ asset('images\Requests\timefill.svg') }}" />
+                                    <img src="{{ asset('hakkem/images/Requests/timefill.svg') }}" />
                                     <span>To Be Accepted</span>
                                 </div>
                                 <p>20-01-2025 at 8:51 AM</p>
@@ -211,7 +211,7 @@
                             <div class="col2">
                                 <p># 669948474</p>
                                 <div class="state">
-                                    <img src="{{ asset('images\Requests\timefill.svg') }}" />
+                                    <img src="{{ asset('hakkem/images/Requests/timefill.svg') }}" />
                                     <span>Not Yet Transferred</span>
                                 </div>
                                 <p>
@@ -226,7 +226,7 @@
                 <div class="buttons">
                     <button class="back">Back</button>
 
-                    <a href="{{ route('Auth.Home')}}">
+                    <a href="{{ route('Main_Pages.Home')}}">
                         <button class="confirm">Confirm</button>
                     </a>
 
