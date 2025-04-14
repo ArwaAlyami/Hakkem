@@ -21,36 +21,26 @@
 
     <div class="form-container">
       <div class="form-background">
-        <h2>Create Account</h2>
-        <form action="{{ route('admin.register') }}" method="post" enctype="multipart/form-data">
+
+        <h2>Create Your Account ..</h2>
+        <form action="{{ route('admin.register')}}" method="post" enctype="multipart/form-data">
 
             {{ csrf_field() }}
-            {{ method_field('post') }}>
+            {{ method_field('post') }}
+
           <input type="text" name="f_name" placeholder="Frist Name" required />
           <input type="text" name="l_name" placeholder="Last Name" required />
           <input type="text" name="phone" placeholder="Phone" required />
 
 
-          <input
-            type="email"
-            id="email"
-            placeholder="Email"
-            name="email"
-            required
-            oninput="validateEmail()"
-          />
+          <input type="email" placeholder="Email" name="email" required oninput="validateEmail()"/>
           <p id="emailError" class="error-message"></p>
 
-          <input type="text" name="pass" placeholder="Passowrd" required />
-          {{--  <input type="text"  name="pass" placeholder="confirme Passowrd" required />  --}}
+          <input type="password" name="password" placeholder="Passowrd" required />
 
 
 
-          <button
-            type="submit"
-            class="signup-btn"
-            onclick="redirectToNextPage()"
-          >
+          <button type="submit" class="signup-btn" onclick="redirectToNextPage()">
             SIGN UP
           </button>
         </form>

@@ -17,12 +17,12 @@
         </div>
         <div class="nav">
           <div class="nav-cont">
-            <a href="{{route('Auth.Home')}}"><p class="navigate">Home</p></a>
-            <a href="#{{--{{route('Auth.Chat')}}--}}"><p class="navigate">Chat</p></a>
-            <a href="#{{--{{route('Auth.Offers')}}--}}"><p class="navigate">Offers</p></a>
-            <a href="#{{--{{route('Auth.Journals')}}--}}"><p class="navigate">Journals</p></a>
+            <a href="{{--route('Main_Pages.Home')--}}"><p class="navigate">Home</p></a>
+            <a href="{{--{{route('Auth.Chat')}}--}}"><p class="navigate">Chat</p></a>
+            <a href="{{--{{route('Auth.Offers')}}--}}"><p class="navigate">Offers</p></a>
+            <a href="{{--{{route('Auth.Journals')}}--}}"><p class="navigate">Journals</p></a>
           </div>
-          <a href="#{{--{{route('')}}--}}"><img src="{{ asset('hakkem/images/Header_Footer/profile_dark.png')}}" class="profile"/></a>
+          <a href="{{--{{route('')}}--}}"><img src="{{ asset('hakkem/images/Header_Footer/profile_dark.png')}}" class="profile"/></a>
         </div>
       </header>
     </div>
@@ -117,7 +117,7 @@
       <footer>
 
         <div class="left">
-          <a href="#{{--{{route('Main_Pages.')}}--}}"><p class="Footer-link">Pivacy Policy</p></a>
+          <a href="{{--{{route('Main_Pages.')}}--}}"><p class="Footer-link">Pivacy Policy</p></a>
           <p>|</p>
           <a href="{{route('About_Hakkem')}}"><p class="Footer-link">About Hakkem</p></a>
         </div>

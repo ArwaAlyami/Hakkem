@@ -51,7 +51,7 @@
 
                     @foreach($permissionGroups as $permission)
                         <div class="permission-item">
-                            <label><input type="checkbox" id="permissions_name" name="permissions_name[]"
+                            <label><input type="checkbox" id="permissions_name" name="permission_name[]"
                                     value="{{$permission->name}}" />{{$permission->name}}</label>
                         </div>
 
@@ -63,9 +63,7 @@
         <div class="add-member-container">
             <button class="add-member-btn" type="submit">Assign Permission</button>
         </div>
-
     </form>
-
 </div>
 
 

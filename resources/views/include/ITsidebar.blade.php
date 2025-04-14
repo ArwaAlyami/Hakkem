@@ -18,7 +18,7 @@
 
         <li>
             <img src="{{ asset('hakkem/images/image-signout-icon.png') }}" alt="Sign Out">
-            <a href="{{ route('Get_Started')}}">Sign Out</a>
+            <a href="{{ route('ITAdminAccount.SignOut')}}">Sign Out</a>
         </li>
 
     </ul>

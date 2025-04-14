@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin\FM_Researcher;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class MyProfileController extends Controller
 {
@@ -58,9 +59,9 @@ class MyProfileController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function SignOut(string $id)
+    public function SignOut()
     {
-        // Auth::logout();
-        // return redirect()->route('Get_Started');
+        Auth::logout();
+        return redirect()->route('Get_Started');
     }
 }

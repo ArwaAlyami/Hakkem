@@ -30,6 +30,8 @@
           <thead>
             <tr>
                 <th>No.</th>
+                <th>First Name</th>
+                <th>Last Name</th>
                 <th>Role</th>
                 <th>Action</th>
             </tr>
@@ -39,6 +41,8 @@
             @foreach($roles as $key=>$role)
             <tr>
               <td style="color: grey;">{{++$key}}</td>
+              <td style="color: grey;"></td>             
+              <td style="color: grey;"></td>             
               <td style="color: grey;">{{$role->name}}</td>     
 
               <td>

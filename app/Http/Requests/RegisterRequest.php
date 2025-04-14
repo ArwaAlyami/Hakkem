@@ -28,12 +28,12 @@ class RegisterRequest extends FormRequest
             'Main Email'=> 'required|email',
             'University Logo'=> 'required',
             'password' => [
-    'required',
-    'string',
-    'min:12',
-    'max:16',
-    'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*#).+$/'
-],
+            'required',
+            'string',
+            'min:12',
+            'max:16',
+            'regex:/^(?=.*[a-z])(?=.*[A-Z])(?=.*#).+$/'
+            ],
             'Confirm Password'=> 'required'
         ];
     }

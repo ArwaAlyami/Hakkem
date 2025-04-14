@@ -29,7 +29,7 @@ Route::get('User_Type',[MainPagesController::class, 'UserType'])->name('User_Typ
 
 // ************ SignIn SignUp Pages ******************* //
 
-Route::prefix('auth')->as('admin.')->group(function () {
+Route::prefix('Auth')->as('admin.')->group(function () {
     Route::get('SignIn',[AuthController::class,'MainSignInForm'])->name('SignIn-get');
     Route::post('SignIn-post',[AuthController::class,'authenticate'])->name(name: 'SignIn');
     Route::post('register',[AuthController::class,'register'])->name(name: 'register');
@@ -38,8 +38,7 @@ Route::prefix('auth')->as('admin.')->group(function () {
 });
 
 Route::prefix('/')->middleware('auth')->as('Main_Pages.')->group(function () {
-
-    Route::get('/home',[HomeController::class,'index'])->name('Home');
+    Route::get('Home',[HomeController::class,'index'])->name('Home');
 
 });
 
@@ -63,8 +62,8 @@ Route::post('/register', [SystemadmenController::class, 'register'])->name('regi
 Route::prefix('Requests')->as('Requests.')->group(function () {
 
     Route::prefix('PromotionRequest')->as('PromotionRequest.')->group(function () {
-        Route::get('MakePromotionRequest', action: [RequestsController::class, 'MakePromotionRequest'])->name('index');
-        Route::post('promotionStore', action: [RequestsController::class, 'promotionStore'])->name('store');
+        Route::get('MakePromotionRequest', [RequestsController::class, 'MakePromotionRequest'])->name('index');
+        Route::post('promotionStore', [RequestsController::class, 'promotionStore'])->name('store');
     });
 
 
@@ -83,8 +82,8 @@ Route::prefix('Requests')->as('Requests.')->group(function () {
 
 
     Route::prefix('PublishRequest')->as('PublishRequest.')->group(function () {
-        Route::get('MakePublishRequest', action: [RequestsController::class, 'MakePublishRequest'])->name('index');
-        Route::post('publishStore', action: [RequestsController::class, 'publishStore'])->name('store');
+        Route::get('MakePublishRequest', [RequestsController::class, 'MakePublishRequest'])->name('index');
+        Route::post('publishStore', [RequestsController::class, 'publishStore'])->name('store');
     });
 
 
@@ -96,6 +95,10 @@ Route::prefix('Requests')->as('Requests.')->group(function () {
 
 // ************************************ Arwa ******************************************* //
 
+
+
+
+// ************************************ Arwa ******************************************* //
 
 
 // ************************************ IT Admin Router ******************************************* //
@@ -115,24 +118,30 @@ Route::prefix('ITAdminAccount')->as('ITAdminAccount.')->group(function () {
         Route::post('store', [ITAdminController::class,'store'])->name('store');
         Route::delete('delete/{id}', [ITAdminController::class,'delete'])->name('delete');
 
+        // *********** Users And Their Permissions **************//
+        Route::get('UsersAndPermissions', [ITAdminController::class,'UsersAndPermissions'])->name('UsersAndPermissions');
+
+
+
         // ********** Edit members info Routers **************//
         Route::get('edit/{id}', [ITAdminController::class,'edit'])->name('edit');
         Route::put('/{id}', [ITAdminController::class,'update'])->name('update');
     });
 
     // *********** Sign Out Routers ********** //
-    Route::get('SignOut',[ITAdminController::class,'SignOut'])->name('SignOut');{
+    Route::get('SignOut',[ITAdminController::class,'SignOut'])->name('SignOut');
 
-};
+});
 
     // *********** Roles Routers ********** //
 
-    Route::prefix('/')->as('roles.')->group(function () {
+    Route::prefix('Roles')->as('roles.')->group(function () {
 
-        Route::get('Roles',[RoleController::class,'index'])->name('index');
-        Route::get('Role-Permission',action: [RoleController::class,'create'])->name('create');
-        Route::post('Assign-Permission',action: [RoleController::class,'store'])->name('store');
-        Route::get('show/{id}',action: [RoleController::class,'show'])->name('show');
+        Route::get('index',[RoleController::class,'index'])->name('index');
+        Route::get('Role-Permission',[RoleController::class,'create'])->name('create');
+        Route::post('Assign-Permission',[RoleController::class,'store'])->name('store');
+        Route::get('show/{id}',[RoleController::class,'show'])->name('show');
+        Route::delete('delete/{id}',[RoleController::class,'delete'])->name('delete');
 
     });
 
@@ -167,16 +176,13 @@ Route::prefix('ResearcherAccount')->as('researcher-account.')->group(function ()
         Route::get('Request_Details',[MyRequestsController::class,'show'])->name('Request_Details');
     });
 
-    // *********** Change Password Routers ********** //
-    Route::get('Change_Pass',[MyProfileController::class,'index'])->name('Change_Pass');
-    Route::post('Change_Pass-post',[MyProfileController::class,'create'])->name('Change_Pass-post');
-
     // **  Request Details Routers **//
-        Route::get('Request_Details', [MyRequestsController::class, 'show'])->name('Request_Details');
-    });
+    Route::get('Request_Details', [MyRequestsController::class, 'show'])->name('Request_Details');
+
 
     // *********** SignOut Routers ********** //
-    Route::get('SignOut',[MyProfileController::class,'SignOut'])->name('SignOut');
+        Route::get('SignOut',[MyProfileController::class,'SignOut'])->name('SignOut');
+    });
 
 
 

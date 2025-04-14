@@ -20,10 +20,10 @@
         </div>
         <div class="nav-container" id="nav-container">
           <nav class="nav">
-            <a href="#{{--{{route('')}}--}}" class="nav-link">Journals</a>
+            <a href="{{--{{route('')}}--}}" class="nav-link">Journals</a>
           </nav>
 
-          <a href="{{route('Auth.SignIn')}}" class="signIn-btn">Sign In</a>
+          <a href="{{route('admin.SignIn-get')}}" class="signIn-btn">Sign In</a>
           
         </div>
         <div class="menu-toggle" id="menu-toggle">☰</div>

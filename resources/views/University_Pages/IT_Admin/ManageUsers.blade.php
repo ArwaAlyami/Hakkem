@@ -35,6 +35,8 @@
                 <th>Email</th>
                 <th>Department</th>
                 <th>Academic Rank</th>
+                <th>Role</th>
+
                 <th>Action</th>
               </tr>
             </thead>
@@ -48,6 +50,8 @@
                 <td style="color: grey;">{{$faculty_member->email}}</td>
                 <td style="color: grey;">{{$faculty_member->department}}</td>
                 <td style="color: grey;">{{$faculty_member->rank}}</td>
+                <td style="color: grey;">{{$faculty_member->roles[0]->name}}</td>
+
               
                 <td>
                 <form action="{{ route('ITAdminAccount.manage-users.delete', $faculty_member->id)}}" method="post" >
@@ -68,7 +72,7 @@
         </div>
     </div>
 
-          <div class="custom-pagination">
+          {{-- <div class="custom-pagination">
             @if ($faculty_members->onFirstPage())
                 <span class="arrow disabled">←</span>
             @else
@@ -82,7 +86,7 @@
             @else
                 <span class="arrow disabled">→</span>
             @endif
-          </div>
+          </div> --}}
 
       <!-- زر الإضافة -->
             <div class="add-member-container">

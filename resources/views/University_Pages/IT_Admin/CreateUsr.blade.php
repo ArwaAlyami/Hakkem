@@ -49,7 +49,7 @@
 
             <div class="form-group">
                 <label>Password:</label>
-                <input type="password" name="pass">
+                <input type="password" name="password">
             </div>
 
 

@@ -25,7 +25,7 @@ class AddMembersRequest extends FormRequest
         return [
             'f_name'=>'required',
             'l_name'=>'required',
-            'pass' => [
+            'password' => [
             'required',
             'string',
             Password::min(8)               // الحد الأدنى 8 حروف

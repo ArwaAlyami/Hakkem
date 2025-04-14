@@ -8,7 +8,7 @@
         <div class="nav">
           <div class="nav-cont">
 
-            <a href="{{ route('Auth.Home')}}">
+            <a href="{{-- route('Main_Pages.Home')--}}">
             <p class="navigate">Home</p>
             </a>
 

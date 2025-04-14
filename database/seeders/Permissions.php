@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\FacultyMember;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Spatie\Permission\Models\Permission;
@@ -34,11 +35,12 @@ class Permissions extends Seeder
 
         ];  
         foreach($permissions as $permission){
-            Permission::findOrCreate($permission);
+            Permission::create(['name'=>$permission,'guard_name'=>'web']);
         }
-        $role = Role::findOrCreate('system_admin');
+        
+        $role = Role::create(['name'=>'IT_Admin','guard_name'=>'web']);
         $role->syncPermissions($permissions);
-        $user = User::where('email','Arwa@yami.com')->first();
-        $user->assignRole('system_admin');
+        $faculty_member = FacultyMember::where('email','Arwa@Sarrar.com')->first();
+        $faculty_member->assignRole('IT_Admin');
     }
 }

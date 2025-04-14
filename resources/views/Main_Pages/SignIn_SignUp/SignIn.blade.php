@@ -29,12 +29,12 @@
           //<input type="password" placeholder="Password" name="password" required />
           //<h3 class="link" id="forgot-Pass">Forgot your Password?</h3>
 
-          //<a href="{{route('Main_Pages.Home')}}"><button type="submit">SIGN IN</button></a>
+          <button type="submit">SIGN IN</button>
 
-          //<p class="signup-text">Don't have an account?<a class="link" href="{{route('Auth.MainSignUpForm')}}">Sign Up</a></p>
-       // </form>
-     // </div>
-   // </div>
+          <p class="signup-text">Don't have an account?<a class="link" href="{{route('admin.SignUp')}}">Sign Up</a></p>
+        </form>
+      </div>
+    </div>
   </body>
   <script src="{{ asset('hakkem/javascript/SignIn.js')}}"></script>
 </html>
