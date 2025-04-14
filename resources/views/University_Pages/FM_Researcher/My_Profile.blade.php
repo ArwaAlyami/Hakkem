@@ -24,10 +24,10 @@
           </button>
 
           <form id="profile-form">
-            
+
             <div class="form-group">
               <label for="first-name">First Name:</label>
-              <input type="text" id="first-name" disabled value=""/>
+              <input type="text" name="f_name" id="first-name" disabled value="{{ $user->f_name }}"/> /// countine in this page
             </div>
 
             <div class="form-group">
@@ -60,7 +60,7 @@
               <input type="text" id="qualification" disabled value=""/>
             </div>
 
-        
+
 
             <div class="form-group">
               <label for="bachelor-specialization">Bachelor's Specialization:</label>

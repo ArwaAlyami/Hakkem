@@ -12,8 +12,8 @@ use App\Models\User;
     {
         public function show()
         {
-            $user = Auth::user();
-            return view('UniversityPages.FM_Reviewer.My_Profile', compact('user'));
+            $reviewer = Auth::user();
+            return view('University_Pages.FM_Reviewer_Researcher.My_Profile', compact('reviewer'));
         }
 
         public function update(Request $request)

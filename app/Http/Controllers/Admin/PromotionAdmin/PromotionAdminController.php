@@ -7,10 +7,11 @@ use Illuminate\Http\Request;
 
 class PromotionAdminController extends Controller
 {
- 
+
     public function Profile()
     {
-        return view('University_Pages.Promotion_Admin.MyProfile');
+        $promotionAdmin = auth()->user();
+        return view('University_Pages.Promotion_Admin.MyProfile',compact('promotionAdmin'));
     }
 
     public function ProfileEdit()
@@ -36,12 +37,12 @@ class PromotionAdminController extends Controller
 
 
 
-    
+
     public function ReviewersLists()
     {
         return view('University_Pages.Promotion_Admin.ReviewersLists');
     }
-    
+
     public function ReviewersListContent()
     {
         return view('University_Pages.Promotion_Admin.ReviewersListContent');

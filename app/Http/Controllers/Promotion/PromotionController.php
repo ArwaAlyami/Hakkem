@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\Reviewer;
+namespace App\Http\Controllers\Promotion;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Container\Attributes\Auth;
@@ -51,13 +51,13 @@ public function index()
 {
     $requests = PromotionRequest::with('facultyMember')->get();
 
-    return view('PromotionAdmin.PromotionRequests', compact('requests'));
+    return view('University_Pages.Promotion_Admin.PromotionRequests', compact('requests'));
 }
 
 public function filterByStatus($status)
 {
     $requests = PromotionRequest::where('status', $status)->with('facultyMember')->get();
-    return view('PromotionAdmin.PromotionRequests', compact('requests'));
+    return view('University_Pages.Promotion_Admin.PromotionRequests', compact('requests'));
 }
 
 public function showe($id)

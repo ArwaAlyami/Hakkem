@@ -1,6 +1,6 @@
 <aside class="sidebar">
     <ul>
- 
+
         <li class="active">
             <img src="{{ asset('hakkem/images/image-profile-icon.png') }}" alt="Profile">
             <a href="{{ route('RevResAccount.Profile')}}">My Profile</a>
@@ -8,17 +8,17 @@
 
         <li>
             <img src="{{ asset('hakkem/images/image-research-icon.png') }}" alt="Research">
-            <a href="{{ route('RevResAccount.My_Researches')}}">My Researches</a>
+            <a href="{{-- route('RevResAccount.My_Researches')--}}">My Researches</a>
         </li>
 
         <li>
             <img src="{{ asset('hakkem/images/image-requests-icon.png') }}" alt="Requests">
-            <a href="{{ route('RevResAccount.My_Requests')}}">My Requests</a>
+            <a href="{{-- route('RevResAccount.My_Requests')--}}">My Requests</a>
         </li>
 
         <li>
             <img src="{{ asset('hakkem/images/image-requests-icon.png') }}" alt="Requests">
-            <a href="{{ route('RevResAccount.ReceivedRequests')}}">Received Requests</a>
+            <a href="{{-- route('RevResAccount.ReceivedRequests')--}}">Received Requests</a>
         </li>
 
 

@@ -4,18 +4,21 @@ namespace App\Http\Controllers\Admin\FM_Reviewer_Researcher;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class RevResController extends Controller
 {
- 
+
     public function Profile()
     {
-        return view('University_Pages.FM_Reviewer_Researcher.My_Profile');
+        $reviewer = Auth::user();
+        return view('University_Pages.FM_Reviewer_Researcher.My_Profile', compact('reviewer'));
     }
 
     public function ProfileEdit()
     {
-        return view('University_Pages.FM_Reviewer_Researcher.My_Profile');
+        $reviewer = Auth::user();
+        return view('University_Pages.FM_Reviewer_Researcher.My_Profile', compact('reviewer'));
 
     }
 
@@ -42,7 +45,7 @@ class RevResController extends Controller
 
     }
 
-    
+
     public function ReceivedRequests()
     {
         return view('University_Pages.FM_Reviewer_Researcher.Received_Requests');
@@ -86,7 +89,7 @@ class RevResController extends Controller
 
     }
 
- 
+
     public function ReviewerProfile()
     {
         return view('University_Pages.FM_Reviewer_Researcher.ReviewerProfile');

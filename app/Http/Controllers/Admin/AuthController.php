@@ -11,11 +11,16 @@ use Illuminate\Support\Facades\Auth;
 class AuthController extends Controller
 {
 
-    public function MainSignInForm(){
+    public function MainSignInForm(Request $request){
         if(Auth::check()){
             return redirect()->route('Main_Pages.Home');
         }
-        return view("Main_Pages.SignIn_SignUp.SignIn");
+       $type = $request->type??'';
+        // it_admin
+        // promotion_admin
+        // researcher
+        // reviewer
+        return view("Main_Pages.SignIn_SignUp.SignIn",compact('type'));
      }
 
 
@@ -23,7 +28,7 @@ class AuthController extends Controller
         return view('Main_Pages.SignIn_SignUp.SignUp') ;
 
      }
-     
+
 
      public function authenticate(Request $request)
      {
@@ -34,7 +39,18 @@ class AuthController extends Controller
 
          if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
-            return redirect()->route('Main_Pages.Home');
+
+            if($request->type == 'it_admin'){
+                return redirect()->route('ITAdminAccount.My_Profile.Profile');
+            }elseif($request->type == 'promotion_admin'){
+                return redirect()->route('PromotionAccount.Profile');
+            }elseif($request->type == 'researcher'){
+                return redirect()->route('researcher-account.my-profile.index');
+            }elseif($request->type == 'reviewer'){
+                return redirect()->route('RevResAccount.Profile');
+            }else{
+                return redirect()->route('Main_Pages.Home');
+            }
          }
 
          return redirect()->back();

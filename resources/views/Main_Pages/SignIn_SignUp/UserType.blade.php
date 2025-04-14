@@ -22,10 +22,10 @@
   <!-- نوع المستخدم -->
 <div class="user-type-container">
 
-    <a href="{{ route('ITAdminAccount.My_Profile.Profile')}}" class="user-type-btn" target="_blank">IT Admin</a>
-    <a href="{{ route('PromotionAccount.Profile')}}" class="user-type-btn" target="_blank">Promotion Admin</a>
-    <a href="{{ route('researcher-account.my-profile.index')}}" class="user-type-btn" target="_blank">Researcher</a>
-    <a href="{{ route('RevResAccount.Profile')}}" class="user-type-btn" target="_blank">Reviewer</a>
+    <a href="{{ route('admin.SignIn-get',['type'=>'it_admin'])}}" class="user-type-btn" target="_blank">IT Admin</a>
+    <a href="{{ route('admin.SignIn-get',['type'=>'promotion_admin'])}}" class="user-type-btn" target="_blank">Promotion Admin</a>
+    <a href="{{ route('admin.SignIn-get',['type'=>'researcher'])}}" class="user-type-btn" target="_blank">Researcher</a>
+    <a href="{{ route('admin.SignIn-get',['type'=>'reviewer'])}}" class="user-type-btn" target="_blank">Reviewer</a>
 
 </div>
 </body>

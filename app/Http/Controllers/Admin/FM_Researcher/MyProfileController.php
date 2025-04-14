@@ -13,7 +13,8 @@ class MyProfileController extends Controller
      */
     public function index()
     {
-        return view('University_Pages.FM_Researcher.My_Profile');
+        $user = auth()->user();
+        return view('University_Pages.FM_Researcher.My_Profile',compact('user'));
     }
 
     /**

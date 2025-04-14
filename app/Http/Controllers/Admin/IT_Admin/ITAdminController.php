@@ -9,12 +9,13 @@ use Spatie\Permission\Models\Role;
 
         class ITAdminController extends Controller
         {
-        
+
             public function index(Request $request)
             {
-                return view('University_Pages.IT_Admin.MyProfile');
+                $user = auth()->user();
+                return view('University_Pages.IT_Admin.MyProfile',compact('user'));
             }
-        
+
             public function ManageUsers()
             {
                 $faculty_members = FacultyMember::with('roles')->paginate(12);
@@ -24,14 +25,14 @@ use Spatie\Permission\Models\Role;
             public function create()
             {
                 return view('University_Pages.IT_Admin.CreateUsr');
-            }  
-        
+            }
+
             public function store(AddMembersRequest $request)
             {
                 $faculty_member = FacultyMember::create($request->only('f_name','l_name','email','department','password','rank'));
                 return redirect()->route('ITAdminAccount.manage-users.index');
             }
-        
+
             public function edit($id)
             {
                 $faculty_members = FacultyMember::with('roles')->where('id',$id)->get()
@@ -45,8 +46,8 @@ use Spatie\Permission\Models\Role;
                 $roles=Role::get();
                 return view('University_Pages.IT_Admin.Permission',compact('faculty_member','roles'));
             }
-        
-        
+
+
             public function update(AddMembersRequest $request ,$id)
             {
                 $faculty_member = FacultyMember::where('id',$id)->first();
@@ -55,12 +56,12 @@ use Spatie\Permission\Models\Role;
 
                 return redirect()->route('ITAdminAccount.manage-users.index');
             }
-        
+
             public function delete($id)
             {
                 $faculty_members = FacultyMember::where('id',$id)->first();
                 $faculty_members->delete();
-                return redirect()->route('ITAdminAccount.manage-users.index');                 
+                return redirect()->route('ITAdminAccount.manage-users.index');
             }
 
             // public function UsersAndPermissions($id)
@@ -68,7 +69,7 @@ use Spatie\Permission\Models\Role;
             //     return FacultyMember::with('role')->where('id',$id)->first();
             //     return view('University_Pages.IT_Admin.UsersAndPermissions', compact('faculty_members','role'));
             // }
-            
+
 
             public function SignOut()
             {

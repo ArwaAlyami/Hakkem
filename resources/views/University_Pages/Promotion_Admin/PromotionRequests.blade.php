@@ -55,6 +55,7 @@
 
     <!-- الطلبات المرفوضة -->
     <div class="request red">
+        {{--  @foreach ($requests as $request)  --}}
         <div class="request-info row">
             <div class="col">
                 <div class="request-id">#86543</div>
@@ -64,15 +65,16 @@
 
             <div class="col">
                 <div class="buttons">
-                    <button class="view">View Request</button>
-                    <button class="track">View Feedbacks</button>
-                    <button class="pay" disabled>Pay</button>
+                  {{--  <a href="{{ route('PromotionAccount.AcceptOrReject',$request->id) }}">  <button class="view">View Request</button></a>  --}}
+                  <a href="#">  <button class="track">View Feedbacks</button></a>
+                    <a href="#">  <button class="pay" disabled>Pay</button></a>
                 </div>
                 <div class="request-date">
                     <p>Result submission date: 12-2-2025</p>
                 </div>
             </div>
         </div>
+        {{--  @endforeach  --}}
     </div>
   </div>
 </div>

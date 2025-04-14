@@ -14,9 +14,12 @@ use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\SystemadmenController;
 use App\Http\Controllers\Admin\FM_Researcher;
 use App\Http\Controllers\ReviewerProfileController;
-use App\Http\Controllers\Admin\ReviewerController;
+use App\Http\Controllers\Reviewer\ReviewerController;
 use App\Http\Controllers\Admin\ReviewerRequestController;
-use App\Http\Controllers\Admin\PromotionController;
+use App\Http\Controllers\Promotion\PromotionController;
+use App\Http\Controllers\Researcher\ResearchController;
+use App\Http\Controllers\Reviewer\RequestController;
+use App\Http\Controllers\Reviewer\ReviewFormController;
 
 // ******* Main Pages Routes *********** //
 
@@ -38,7 +41,7 @@ Route::prefix('Auth')->as('admin.')->group(function () {
 });
 
 Route::prefix('/')->middleware('auth')->as('Main_Pages.')->group(function () {
-    Route::get('Home',[HomeController::class,'index'])->name('Home');
+    Route::get('home',[HomeController::class,'index'])->name('Home');
 
 });
 
@@ -223,12 +226,12 @@ Route::prefix('PromotionAccount')->as('PromotionAccount.')->group(function () {
 
 
 
-Route::middleware(['auth', 'role:reviewer'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('my-requests/{type?}', [\App\Http\Controllers\Reviewer\RequestController::class, 'index'])->name('my-requests');
 });
 
 
-//Route::middleware(['auth', 'role:reviewer'])->group(function () {
+Route::middleware(['auth'])->group(function () {
     Route::get('/my-researches', [\App\Http\Controllers\Researcher\ResearchController::class, 'index'])->name('researcher-account.my-researches');
     Route::get('/my-researches/show/{id}', [\App\Http\Controllers\Researcher\ResearchController::class, 'show'])->name('researcher-account.my-researches.show');
     Route::delete('/my-researches/delete/{id}', [\App\Http\Controllers\Researcher\ResearchController::class, 'destroy'])->name('researcher-account.my-researches.delete');
@@ -238,14 +241,14 @@ Route::get('/add-research', [ResearchController::class,'create'])->name('RevResA
 Route::post('/add-research', [ResearchController::class,'store'])->name('RevResAccount.SaveResearch');
 
 //الطلبات
-Route::get('/reviewer/requests/{id}', [ReviewerRequestController::class, 'show'])->name('reviewer.requests.show');
+Route::get('/reviewer/requests/{id}', [RequestController::class, 'show'])->name('reviewer.requests.show');
 
 // افبل او ارفض
-Route::post('/reviewer/requests/{id}/accept', [ReviewerRequestController::class, 'accept'])->name('reviewer.requests.accept');
-Route::post('/reviewer/requests/{id}/reject', [ReviewerRequestController::class, 'reject'])->name('reviewer.requests.reject');
+Route::post('/reviewer/requests/{id}/accept', [RequestController::class, 'accept'])->name('reviewer.requests.accept');
+Route::post('/reviewer/requests/{id}/reject', [RequestController::class, 'reject'])->name('reviewer.requests.reject');
 
-Route::get('/reviewer/requests', [ReviewerRequestController::class, 'index'])->name('reviewer.requests.index');
-Route::get('/reviewer/request-details/{id}', [ReviewerRequestController::class, 'show'])->name('reviewer.requests.show');
+Route::get('/reviewer/requests', [RequestController::class, 'index'])->name('reviewer.requests.index');
+Route::get('/reviewer/request-details/{id}', [RequestController::class, 'show'])->name('reviewer.requests.show');
 Route::post('/review-form/store', [ReviewFormController::class, 'store'])->name('reviewForm.store');
 Route::get('/reviewer/request-details/{id}', [ReviewerController::class, 'showRequestDetails'])->name('RevResAccount.RequestDetailsIfAccept');
 Route::get('/review-form/{request_id}', [ReviewController::class, 'showForm'])->name('review.form');
@@ -254,8 +257,8 @@ Route::get('/reviewer/feedbacks', [ReviewerController::class, 'listReviewedResea
 Route::post('/reviewer/feedbacks/send', [ReviewerController::class, 'submitFeedback'])->name('reviewer.feedbacks.submit');
 
 
-Route::middleware(['auth', 'role:reviewer'])->group(function () {
-    Route::get('/reviewer/profile', [ReviewerProfileController::class, 'show'])->name('reviewer.profile');
+Route::middleware(['auth'])->group(function () {
+    Route::get('/reviewer/profile', [ReviewerProfileController::class, 'show'])->name('RevResAccount.Profile');
     Route::post('/reviewer/profile/update', [ReviewerProfileController::class, 'update'])->name('reviewer.profile.update');
 });
 

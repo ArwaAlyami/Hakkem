@@ -29,11 +29,11 @@
         <div class="input-row">
             <div>
                 <label>Full Name:</label>
-                <input type="text" name="name" disabled>
+                <input type="text" name="name" value="{{ $user->f_name .' '. $user->l_name}}" disabled>
             </div>
             <div>
                 <label>Email:</label>
-                <input type="text" name="email" disabled>
+                <input type="text" name="email" value="{{ $user->email }}" disabled>
             </div>
         </div>
 

@@ -36,62 +36,62 @@
 
             <div class="form-group">
               <label for="first-name">First Name:</label>
-              <input type="text" name="first_name" value="{{ old('first_name', $user->first_name) }}" id="first-name" disabled>
+              <input type="text" name="first_name" value="{{ old('first_name', $reviewer->first_name) }}" id="first-name" disabled>
             </div>
 
             <div class="form-group">
               <label for="last-name">Last Name:</label>
-              <input type="text" name="last_name" value="{{ old('last_name', $user->last_name) }}" id="last-name" disabled>
+              <input type="text" name="last_name" value="{{ old('last_name', $reviewer->last_name) }}" id="last-name" disabled>
             </div>
 
             <div class="form-group">
               <label for="email">Email:</label>
-              <input type="email" name="email" value="{{ old('email', $user->email) }}" id="email" disabled>
+              <input type="email" name="email" value="{{ old('email', $reviewer->email) }}" id="email" disabled>
             </div>
 
             <div class="form-group">
               <label for="phone">Phone:</label>
-              <input type="text" name="phone" value="{{ old('phone', $user->phone) }}" id="phone" disabled>
+              <input type="text" name="phone" value="{{ old('phone', $reviewer->phone) }}" id="phone" disabled>
             </div>
 
             <div class="form-group">
               <label for="university">University:</label>
-              <input type="text" name="university" value="{{ old('university', $user->university) }}" id="university" disabled>
+              <input type="text" name="university" value="{{ old('university', $reviewer->university) }}" id="university" disabled>
             </div>
 
             <div class="form-group">
               <label for="academic-rank">Academic Rank:</label>
-              <input type="text" name="academic_rank" value="{{ old('academic_rank', $user->academic_rank) }}" id="academic-rank" disabled>
+              <input type="text" name="academic_rank" value="{{ old('academic_rank', $reviewer->academic_rank) }}" id="academic-rank" disabled>
             </div>
 
             <div class="form-group">
               <label for="qualification">Academic Qualification:</label>
               <select name="qualification" id="qualification" disabled>
                 <option value="">Select...</option>
-                <option value="bachelor" {{ $user->qualification == 'bachelor' ? 'selected' : '' }}>Bachelor's</option>
-                <option value="master" {{ $user->qualification == 'master' ? 'selected' : '' }}>Master's</option>
-                <option value="phd" {{ $user->qualification == 'phd' ? 'selected' : '' }}>PhD</option>
+                <option value="bachelor" {{ $reviewer->qualification == 'bachelor' ? 'selected' : '' }}>Bachelor's</option>
+                <option value="master" {{ $reviewer->qualification == 'master' ? 'selected' : '' }}>Master's</option>
+                <option value="phd" {{ $reviewer->qualification == 'phd' ? 'selected' : '' }}>PhD</option>
               </select>
             </div>
 
             <div class="form-group">
               <label for="bachelor-specialization">Bachelors Specialization:</label>
-              <input type="text" name="bachelor_specialization" value="{{ old('bachelor_specialization', $user->bachelor_specialization) }}" id="bachelor-specialization" disabled>
+              <input type="text" name="bachelor_specialization" value="{{ old('bachelor_specialization', $reviewer->bachelor_specialization) }}" id="bachelor-specialization" disabled>
             </div>
 
             <div class="form-group">
               <label for="master-specialization">Master’s Specialization:</label>
-              <input type="text" name="master_specialization" value="{{ old('master_specialization', $user->master_specialization) }}" id="master-specialization" disabled>
+              <input type="text" name="master_specialization" value="{{ old('master_specialization', $reviewer->master_specialization) }}" id="master-specialization" disabled>
             </div>
 
             <div class="form-group">
               <label for="doctorate-specialization">Doctorate’s Specialization:</label>
-              <input type="text" name="doctorate_specialization" value="{{ old('doctorate_specialization', $user->doctorate_specialization) }}" id="doctorate-specialization" disabled>
+              <input type="text" name="doctorate_specialization" value="{{ old('doctorate_specialization', $reviewer->doctorate_specialization) }}" id="doctorate-specialization" disabled>
             </div>
 
             <div class="form-group">
               <label for="specialization">Specialization:</label>
-              <input type="text" name="specialization" value="{{ old('specialization', $user->specialization) }}" id="specialization" disabled>
+              <input type="text" name="specialization" value="{{ old('specialization', $reviewer->specialization) }}" id="specialization" disabled>
             </div>
 
             <div class="form-actions">
@@ -112,12 +112,10 @@
         <!-- بطاقة تقييم المراجع -->
         <div class="reviewer-rate">
             <h3>Reviewer Rate</h3>
-
             <div class="rate-item">
               <span>Speed:</span>
               <div class="stars" data-rating="{{ $reviewer->rate_speed }}"></div>
             </div>
-
             <div class="rate-item">
               <span>Quality:</span>
               <div class="stars" data-rating="{{ $reviewer->rate_quality }}"></div>
