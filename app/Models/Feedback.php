@@ -3,11 +3,9 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Spatie\MediaLibrary\HasMedia;
-use Spatie\MediaLibrary\InteractsWithMedia;
-class Feedback extends Model implements HasMedia 
-{
-    use InteractsWithMedia;
+use App\Models\Reviewer;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+class Feedback extends Model{
     protected $fillable = [
         'degree',
         'pro_req_id',
@@ -16,6 +14,12 @@ class Feedback extends Model implements HasMedia
         'fm_id',
         'res_id',
         'rev_id',
-        
+
     ];
+  
 }
+
+
+
+
+

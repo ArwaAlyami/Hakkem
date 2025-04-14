@@ -3,76 +3,32 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Reviewer's Lists</title>
+    <title>Reviewers' List</title>
     <link rel="stylesheet" href="{{ asset('hakkem/css/Universty/PromotionAdmin/Reviewers-list.css') }}">
-    <link rel="stylesheet" href="{{ asset('hakkem/css/Header-Footer.css') }}" />
-    <link rel="stylesheet" href="{{ asset('hakkem/css/Sidebar.css') }}" />
+    <link rel="stylesheet" href="{{ asset('hakkem/css/Header-Footer.css') }}">
+    <link rel="stylesheet" href="{{ asset('hakkem/css/Sidebar.css') }}">
 </head>
 
 <body>
     @include('include.Header')
 
     <div class="container2">
-    @include('include.Promotion-Sidebar')
+        @include('include.Promotion-Sidebar')
 
-    <div class="container">
-        <div class="specialization-card">
-            <div class="info">
-                <img src="{{ asset('hakkem\images\University\AI Reviewer List.png') }}" alt="icon">
-                <span><strong>Specialization:</strong> Information System</span>
-            </div>
-            <a href="{{ route('PromotionAccount.ReviewersListContent')}}"><button>Open</button></a>
-        </div>
-
-        <div class="specialization-card">
-            <div class="info">
-                <img src="{{ asset('hakkem\images\University\AI Reviewer List.png') }}" alt="icon">
-                <span><strong>Specialization:</strong> Cyber Security</span>
-            </div>
-            <button>Open</button>
-        </div>
-
-        <div class="specialization-card">
-            <div class="info">
-                <img src="{{ asset('hakkem\images\University\AI Reviewer List.png') }}" alt="icon">
-                <span><strong>Specialization:</strong> Artificial Intelligence</span>
-            </div>
-            <button>Open</button>
-        </div>
-
-        <div class="specialization-card">
-            <div class="info">
-                <img src="{{ asset('hakkem\images\University\AI Reviewer List.png') }}" alt="icon">
-                <span><strong>Specialization:</strong> Computer Science</span>
-            </div>
-            <button>Open</button>
-        </div>
-
-        <div class="specialization-card">
-            <div class="info">
-                <img src="{{ asset('hakkem\images\University\AI Reviewer List.png') }}" alt="icon">
-                <span><strong>Specialization:</strong> Data Science</span>
-            </div>
-            <button>Open</button>
-        </div>
-
-        <div class="specialization-card">
-            <div class="info">
-                <img src="{{ asset('hakkem\images\University\AI Reviewer List.png') }}" alt="icon">
-                <span><strong>Specialization:</strong> Database</span>
-            </div>
-            <button>Open</button>
-        </div>
-
-        <div class="specialization-card">
-            <div class="info">
-                <img src="{{ asset('hakkem\images\University\AI Reviewer List.png') }}" alt="icon">
-                <span><strong>Specialization:</strong> Information Security</span>
-            </div>
-            <button>Open</button>
+        <div class="container">
+            @foreach($specializations as $item)
+                <div class="specialization-card">
+                    <div class="info">
+                        <img src="{{ asset('hakkem/images/University/AI Reviewer List.png') }}" alt="icon">
+                        <span><strong>Specialization:</strong> {{ $item->specialization }}</span>
+                    </div>
+                    <a href="{{ route('reviewers.bySpecialization', ['specialization' => $item->specialization]) }}">
+                        <button>Open</button>
+                    </a>
+                </div>
+            @endforeach
         </div>
     </div>
-</div>
 
     @include('include.Footer')
 </body>

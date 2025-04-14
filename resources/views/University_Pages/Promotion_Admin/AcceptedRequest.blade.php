@@ -15,8 +15,8 @@
         <div class="header">
             <div class="cont">
                 <h2>Request Details</h2>
-                <p><span class="highlight">Number of researches:</span> 4 Researches</p>
-                <p><span class="highlight">Specialization:</span> Computer Information Systems</p>
+<p><span class="highlight">Number of researches:</span> {{ $request->researches->count() }} Researches</p>
+<p><span class="highlight">Specialization:</span> {{ $request->specialization }}</p>
             </div>
 
             <div class="cont">
@@ -27,7 +27,7 @@
                         <div style="margin-left: 10px;" id="chevron-arrow-up" class="chevron"></div>
                     </div>
                 </button>
-                <button class="accept">Generate Reviewer's List</button>
+                <button class="accept">Generate Reviewers List</button>
             </div>
         </div>
     </div>
@@ -44,23 +44,25 @@
             <tbody id="table-body">
                 <!-- A Single Row -->
                 <tr>
-                    <td>1</td>
-                    <td>AI and Healthcare</td>
-                    <td>Information Systems</td>
-                    <td class="td-btn">
-                        <button class="pdf-button">
-                            <img src="{{ asset('hakkem\images\University\pdf icon.png') }}" class="pdf">
-                            AI and Healthcare.pdf
-                        </button>
-                        <div class="row">
-                            <button class="see-more-button" id="openOverlayBtn">View Feedbacks</button>
-                            <button class="see-more-button">
-                                See more
-                                <!-- A chevron arrow code -->
-                                <div>
-                                    <div style="margin-left: 10px;" id="chevron-arrow-up" class="chevron-d"></div>
-                                </div>
-                            </button>
+                    @foreach($request->researches as $index => $research)
+<tr>
+    <td>{{ $index + 1 }}</td>
+    <td>{{ $research->title }}</td>
+    <td>{{ $research->field }}</td>
+    <td class="td-btn">
+        <a href="{{ asset('storage/' . $research->pdf_file_path) }}" class="pdf-button" target="_blank">
+            <img src="{{ asset('hakkem/images/University/pdf icon.png') }}">
+            {{ basename($research->pdf_file_path) }}
+        </a>
+        <div class="row">
+            <button class="see-more-button open-feedback" data-research-id="{{ $research->id }}">
+                View Feedbacks
+            </button>
+        </div>
+    </td>
+</tr>
+@endforeach
+
                         </div>
                     </td>
                 </tr>

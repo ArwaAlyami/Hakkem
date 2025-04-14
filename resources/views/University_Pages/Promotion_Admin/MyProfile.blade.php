@@ -15,7 +15,7 @@
     @include('include.Header')
 
     <div class="container">
-        
+
     @include('include.Promotion-Sidebar')
     <!-- الكونتير للحقول-->
     <div id="dynamic-" class="fields-container">
@@ -24,14 +24,12 @@
         <!-- حقلين الاسماء-->
         <div class="input-row">
             <div>
-                <label>First Name:</label>
-                <input type="text" id="firstName" placeholder="Enter your first name" disabled
-                    oninput="validateText(this)" />
+                <input type="text" id="firstName" value="{{ $promotionAdmin->first_name }}" disabled />
+
             </div>
             <div>
-                <label>Last Name:</label>
-                <input type="text" id="lastName" placeholder="Enter your last name" disabled
-                    oninput="validateText(this)" />
+                <input type="text" id="LastName" value="{{ $promotionAdmin->Last_name }}" disabled />
+
             </div>
         </div>
 

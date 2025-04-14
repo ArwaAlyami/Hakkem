@@ -17,20 +17,7 @@ class HomeController extends Controller
     /**
      * Handle an authentication attempt.
      */
-    public function authenticate(Request $request)
-    {
-        $credentials = $request->validate(rules: [
-            'email' => ['required', 'email'],
-            'password' => ['required'],
-        ]);
-
-        if (Auth::attempt(credentials: $credentials)) {
-            $request->session()->regenerate();
-            return 'yes';
-        }
-
-        return 'no';
-    }
+   
 
     public function me(Request $request)
     {

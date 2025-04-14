@@ -68,44 +68,26 @@
             </tbody>
 
             <!-- A Single Row -->
-            <tbody id="table-body">
-                <td class="Res-ID">3</td>
-                <td>AI and Healthcare</td>
-                <td>Information Systems</td>
-                <td class="td-btn">
-                    <button class="pdf-button">
-                        <img src="{{ asset('hakkem\images\University\pdf icon.png') }}" class="pdf">
-                        AI and Healthcare.pdf
-                    </button>
-                    <button class="see-more-button">
-                        See more
-                        <!-- A chevron arrow code -->
-                        <div>
-                            <div style="margin-left: 10px;" id="chevron-arrow-up" class="chevron-d"></div>
-                        </div>
-                    </button>
-                </td>
-            </tbody>
+            @foreach($researches as $index => $research)
+<tbody>
+    <td>{{ $index + 1 }}</td>
+    <td>{{ $research->title }}</td>
+    <td>{{ $research->field }}</td>
+    <td class="td-btn">
+        <button class="pdf-button">
+            <img src="{{ asset('hakkem/images/University/pdf icon.png') }}" class="pdf">
+            {{ $research->file_name }}
+        </button>
+        <button class="see-more-button">
+            See more
+            <div>
+                <div style="margin-left: 10px;" id="chevron-arrow-up" class="chevron-d"></div>
+            </div>
+        </button>
+    </td>
+</tbody>
+@endforeach
 
-            <!-- A Single Row -->
-            <tbody id="table-body">
-                <td class="Res-ID">4</td>
-                <td>AI and Healthcare</td>
-                <td>Information Systems</td>
-                <td class="td-btn">
-                    <button class="pdf-button">
-                        <img src="{{ asset('hakkem\images\University\pdf icon.png') }}" class="pdf">
-                        AI and Healthcare.pdf
-                    </button>
-                    <button class="see-more-button">
-                        See more
-                        <!-- A chevron arrow code -->
-                        <div>
-                            <div style="margin-left: 10px;" id="chevron-arrow-up" class="chevron-d"></div>
-                        </div>
-                    </button>
-                </td>
-            </tbody>
         </table>
 
         <div class="info-box">
@@ -127,10 +109,16 @@
             </div>
         </div>
 
-        <div class="footer-buttons">
-            <button class="reject">Reject Request</button>
-            <button class="accept">Accept Request</button>
-        </div>
+        <form action="{{ route('promotion.request.accept', $request->id) }}" method="POST">
+            @csrf
+            <button type="submit" class="accept">Accept Request</button>
+        </form>
+
+        <form action="{{ route('promotion.request.reject', $request->id) }}" method="POST">
+            @csrf
+            <button type="submit" class="reject">Reject Request</button>
+        </form>
+
     </div>
     @include('include.Footer')
 </body>

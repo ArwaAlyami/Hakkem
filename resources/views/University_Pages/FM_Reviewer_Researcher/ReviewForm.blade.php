@@ -23,6 +23,7 @@
     <div class="main">
       <!-- العمود 1 -->
       <div class="column">
+
         <h3>Format</h3>
         <label><input type="checkbox" class="score">AAA</label>
         <label><input type="checkbox" class="score">AAA</label>
@@ -124,29 +125,43 @@
     </div>
 
     <!-- ✅ الملاحظات والنتيجة -->
-    <div class="bottom">
-      <h3>Reviewer Notes</h3>
-      <textarea id="notes" class="notes-box no-print" placeholder="Type here .."></textarea>
-      <div id="notesPreview" class="notes-box" style="display: none; white-space: pre-wrap;"></div>
+    <form method="POST" action="{{ route('reviewForm.store') }}" id="reviewForm">
+        @csrf
 
-      <div class="score-section">
-        <label>Overall Research Score: 
-          <input type="text" id="scoreBox" class="force-english score-input" pattern="\d*">
-          <span class="black-text">/ 60</span>
-        </label>
-      </div>
+        <input type="hidden" name="research_id" value="{{ $research->id }}">
 
-      
+
+        <input type="hidden" name="criteria" id="criteriaInput">
+
+
+        <textarea name="notes" id="notes"></textarea>
+
+
+        <input type="text" name="total_score" id="scoreBox">
+
+        <button type="submit">Save</button>
+    </form>
+
+
       <button class="no-print" id="saveBtn">Save</button>
 
       <button class="no-print">
         <a href="{{ route('RevResAccount.RequestDetailsIfAccept')}}">
+
+            document.getElementById("saveBtn").addEventListener("click", function () {
+                const checkedItems = Array.from(document.querySelectorAll(".score:checked")).map(el => el.parentElement.innerText.trim());
+
+                document.getElementById("criteriaInput").value = JSON.stringify(checkedItems);
+
+                document.getElementById("reviewForm").submit();
+            });
+
           Close
         </a>
       </button>
 
-    
-     
+
+
 
     </div>
 
@@ -155,7 +170,7 @@
 
   @include('include.footer')
 
-  
+
   <!-- ✅ JS -->
   <script src="{{ asset('hakkem/javascript/University/FM_Researcher_Reviewer/AI_And_Healthcare.js') }}"></script>
 </body>

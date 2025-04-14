@@ -23,6 +23,7 @@
         <h2>Request Details:</h2>
         <div class="request-info">
             <!-- صورة شعار الجامعة -->
+            
             <img src="{{ asset('hakkem/images/University/Najran_University.png') }}" alt="University Logo" width="50" height="50">
                 <span>Request ID: <strong>1145826730</strong></span>
                 <span>Specialization: <strong>Computer Information Systems</strong></span>
@@ -44,7 +45,7 @@
                 </tr>
             </thead>
             <tbody>
-        
+
                 <tr>
                     <td>AI and Healthcare</td>
                     <td>Information Systems</td>
@@ -56,7 +57,7 @@
                         <button class="see-more">See more <span class="arrow">▼</span></button>
                         <button class="View-Feedback">View Feedback </button>
                         </div>
-                        
+
                     </td>
                 </tr>
                 <tr class="research-details">
@@ -78,6 +79,6 @@
     </main>
 
     @include('include.footer')
-    
+
 </body>
 </html>

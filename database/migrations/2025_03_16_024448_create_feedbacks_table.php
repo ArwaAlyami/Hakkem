@@ -9,36 +9,26 @@ return new class extends Migration
     /**
      * Run the migrations.
      */
-    public function up(): void
+    public function up()
     {
-        Schema::create('feedbacks', function (Blueprint $table) {
+        Schema::create('review_forms', function (Blueprint $table) {
             $table->id();
-            $table->integer('degree')->nullable(false);
-         
-            $table->unsignedBigInteger('pro_req_id')->nullable();
-            $table->unsignedBigInteger('rev_req_id')->nullable();
-            $table->unsignedBigInteger('research_id')->nullable();
-            
-            $table->unsignedBigInteger('fm_id')->nullable();
-            $table->unsignedBigInteger('res_id')->nullable();
-            $table->unsignedBigInteger('rev_id')->nullable();
-         
-                    $table->foreign('pro_req_id')->references('id')->on('promotion_requests');
-                    $table->foreign('rev_req_id')->references('id')->on('review_requests');         
-                    $table->foreign('research_id')->references('id')->on('researches');         
-                    $table->foreign('fm_id')->references('id')->on('faculty_members');         
-                    $table->foreign('res_id')->references('id')->on('ind_researchers');
-                    $table->foreign('rev_id')->references('id')->on('ind_reviewers');
+            $table->foreignId('research_id')->constrained()->onDelete('cascade');
+            $table->foreignId('reviewer_id')->constrained('users')->onDelete('cascade');
+
+            $table->json('criteria'); 
+            $table->text('notes')->nullable();
+            $table->integer('total_score')->nullable();
 
             $table->timestamps();
         });
     }
 
+
+
+
     /**
      * Reverse the migrations.
      */
-    public function down(): void
-    {
-        Schema::dropIfExists('feedbacks');
-    }
+
 };

@@ -10,19 +10,42 @@ use App\Http\Controllers\Admin\FM_Researcher\MyResearchesController2;
 use App\Http\Controllers\Admin\IT_Admin\ITAdminController;
 use App\Http\Controllers\Admin\FM_Researcher\MyRequestsController;
 use App\Http\Controllers\Admin\RoleController;
-
 use App\Http\Controllers\Admin\HomeController;
 use App\Http\Controllers\SystemadmenController;
+use App\Http\Controllers\Admin\FM_Researcher;
+use App\Http\Controllers\ReviewerProfileController;
+use App\Http\Controllers\Admin\ReviewerController;
+use App\Http\Controllers\Admin\ReviewerRequestController;
+use App\Http\Controllers\Admin\PromotionController;
 
-    Route::prefix('Auth')->as('admin.')->group(function () {
+// ******* Main Pages Routes *********** //
+
+Route::get('/',[MainPagesController::class,'GetStarted'])->name('Get_Started');
+
+Route::get('About_Hakkem',[MainPagesController::class,'AboutUs'])->name('About_Hakkem');
+Route::get('User_Type',[MainPagesController::class, 'UserType'])->name('User_Type');
+
+
+
+// ************ SignIn SignUp Pages ******************* //
+
+Route::prefix('auth')->as('admin.')->group(function () {
     Route::get('SignIn',[AuthController::class,'MainSignInForm'])->name('SignIn-get');
     Route::post('SignIn-post',[AuthController::class,'authenticate'])->name(name: 'SignIn');
     Route::post('register',[AuthController::class,'register'])->name(name: 'register');
-    Route::get('SignUp',[AuthController::class,'SignUp'])->name('SignUp');
+    Route::get('SignUp',[AuthController::class,'MainSignUpForm'])->name('SignUp');
     Route::get('me',[AuthController::class,'me'])->middleware(middleware: 'Auth');
 });
 
+Route::prefix('/')->middleware('auth')->as('Main_Pages.')->group(function () {
 
+    Route::get('/home',[HomeController::class,'index'])->name('Home');
+
+});
+
+
+
+// ******* System Admin Routes *********** //
 
 Route::get('/admin/Systemadmen', [SystemadmenController::class, 'viewDashboard']);
 Route::get('/admin/FacultyMember', [SystemadmenController::class, 'viewUsers']);
@@ -32,40 +55,6 @@ Route::get('/research/{research}', [SystemadmenController::class, 'viewResearch'
 Route::delete('/research/{research}', [SystemadmenController::class, 'deleteResearch']);
 Route::post('/update-role', [SystemadmenController::class, 'updateRole'])->name('update.role');
 Route::post('/register', [SystemadmenController::class, 'register'])->name('register.submit');
-;
-
-// ******* Main Pages Routes *********** //
-
-
-    Route::get('/',[MainPagesController::class,'GetStarted'])->name('Get_Started');
-    Route::get('About_Hakkem',[MainPagesController::class,'AboutUs'])->name('About_Hakkem');
-    Route::get('User_Type',[MainPagesController::class,  'UserType'])->name('User_Type');
-
-
-    Route::prefix('/')->as('roles.')->group(function () {  
-    
-        Route::get('Roles',[RoleController::class,'index'])->name('index');
-        Route::get('Role-Permission',action: [RoleController::class,'create'])->name('create');
-        Route::post('Assign-Permission',action: [RoleController::class,'store'])->name('store');
-        Route::get('show/{id}',action: [RoleController::class,'show'])->name('show');
-
-    });
-
-
-
-
-// ************ SignIn SignUp Pages ******************* //
-
-Route::prefix('/')->middleware('auth')->as('Main_Pages.')->group(function () {
-
-    Route::get('/home',[HomeController::class,'index'])->name('Home');
-    Route::get('/',[MainPagesController::class,'GetStarted'])->name('Get_Started');
-    Route::get('About_Hakkem',[MainPagesController::class,'AboutUs'])->name('About_Hakkem');
-    Route::get('Home',[MainPagesController::class,'Home'])->name('Home');
-
-});
-
-
 
 
 
@@ -97,10 +86,15 @@ Route::prefix('Requests')->as('Requests.')->group(function () {
         Route::get('MakePublishRequest', action: [RequestsController::class, 'MakePublishRequest'])->name('index');
         Route::post('publishStore', action: [RequestsController::class, 'publishStore'])->name('store');
     });
-});
+
+
+    });
 
 
 
+
+
+// ************************************ Arwa ******************************************* //
 
 
 
@@ -121,43 +115,26 @@ Route::prefix('ITAdminAccount')->as('ITAdminAccount.')->group(function () {
         Route::post('store', [ITAdminController::class,'store'])->name('store');
         Route::delete('delete/{id}', [ITAdminController::class,'delete'])->name('delete');
 
-
-        // هذي لتعديل ولتحديث بيانات اعضاء هيئة التدريس من عند الادمن
+        // ********** Edit members info Routers **************//
         Route::get('edit/{id}', [ITAdminController::class,'edit'])->name('edit');
         Route::put('/{id}', [ITAdminController::class,'update'])->name('update');
     });
 
-    // *********** SignOut Routers ********** //
-    Route::get('SignOut',[ITAdminController::class,'SignOut'])->name('SignOut');
+    // *********** Sign Out Routers ********** //
+    Route::get('SignOut',[ITAdminController::class,'SignOut'])->name('SignOut');{
 
-});
+};
 
+    // *********** Roles Routers ********** //
 
+    Route::prefix('/')->as('roles.')->group(function () {
 
+        Route::get('Roles',[RoleController::class,'index'])->name('index');
+        Route::get('Role-Permission',action: [RoleController::class,'create'])->name('create');
+        Route::post('Assign-Permission',action: [RoleController::class,'store'])->name('store');
+        Route::get('show/{id}',action: [RoleController::class,'show'])->name('show');
 
-
-
-// ************************************ Promotion Admin Router ******************************************* //
-
-
-Route::prefix('PromotionAccount')->as('PromotionAccount.')->group(function () {
-
-    // ** Profile Routers ** //
-    Route::get('Profile', [PromotionAdminController::class, 'Profile'])->name('Profile');
-    Route::post('ProfileEdit', [PromotionAdminController::class, 'ProfileEdit'])->name('ProfileEdit');
-
-    // ** Requests Routers ** //
-    Route::get('PromotionRequests', [PromotionAdminController::class, 'PromotionRequests'])->name('PromotionRequests');
-    Route::get('AcceptOrReject', [PromotionAdminController::class, 'AcceptOrReject'])->name('AcceptOrReject');
-    Route::get('AcceptedRequest', [PromotionAdminController::class, 'AcceptedRequest'])->name('AcceptedRequest');
-
-
-    // ** Reviewers List Routers ** //
-    Route::get('ReviewersLists', [PromotionAdminController::class, 'ReviewersLists'])->name('ReviewersLists');
-    Route::get('ReviewersListContent', [PromotionAdminController::class, 'ReviewersListContent'])->name('ReviewersListContent');
-
-});
-
+    });
 
 
 
@@ -205,41 +182,99 @@ Route::prefix('ResearcherAccount')->as('researcher-account.')->group(function ()
 
 
 
-// ************************************ FM_RevRes Router ******************************************* //
 
 
-Route::prefix('RevResAccount')->as('RevResAccount.')->group(function () {
 
+
+
+    //*********************************************** Waad ****************************************/
+
+
+// ************************************ Promotion Admin Router ******************************************* //
+
+
+Route::prefix('PromotionAccount')->as('PromotionAccount.')->group(function () {
 
     // ** Profile Routers ** //
-    Route::get('Profile', [RevResController::class, 'Profile'])->name('Profile');
-    Route::post('ProfileEdit', [RevResController::class, 'ProfileEdit'])->name('ProfileEdit');
+    Route::get('Profile', [PromotionAdminController::class, 'Profile'])->name('Profile');
+    Route::post('ProfileEdit', [PromotionAdminController::class, 'ProfileEdit'])->name('ProfileEdit');
+
+    // ** Requests Routers ** //
+    Route::get('PromotionRequests', [PromotionAdminController::class, 'PromotionRequests'])->name('PromotionRequests');
+    Route::get('AcceptOrReject', [PromotionAdminController::class, 'AcceptOrReject'])->name('AcceptOrReject');
+    Route::get('AcceptedRequest', [PromotionAdminController::class, 'AcceptedRequest'])->name('AcceptedRequest');
 
 
-    // ** MY Requests Routers ** //
-    Route::get('My_Requests', [RevResController::class, 'MyRequests'])->name('My_Requests');
-
-
-    // ** MY Researches Routers ** //
-    Route::get('My_Researches', [RevResController::class, 'MyResearches'])->name('My_Researches');
-    Route::get('AddResearch', [RevResController::class, 'AddResearch'])->name('AddResearch');
-    Route::post('AddResearchForm', [RevResController::class, 'AddResearchForm'])->name('AddResearchForm');
-
-
-    // ** Received Requests Routers ** //
-    Route::get('ReceivedRequests', [RevResController::class, 'ReceivedRequests'])->name('ReceivedRequests');
-    Route::get('RequestDetailsIfAccept', [RevResController::class, 'RequestDetailsIfAccept'])->name('RequestDetailsIfAccept');
-    Route::get('ReviewForm', [RevResController::class, 'ReviewForm'])->name('ReviewForm');
-    Route::get('SubmitFeedback', [RevResController::class, 'SubmitFeedback'])->name('SubmitFeedback');
-
-    Route::get('ReviewRequestDetails', [RevResController::class, 'ReviewRequestDetails'])->name('ReviewRequestDetails');
-    Route::get('PromotionRequestDetails', [RevResController::class, 'PromotionRequestDetails'])->name('PromotionRequestDetails');
-
-
-    // ** Reviewers profile Routers ** //
-    Route::get('ReviewerProfile', [RevResController::class, 'ReviewerProfile'])->name('ReviewerProfile');
+    // ** Reviewers List Routers ** //
+    Route::get('ReviewersLists', [PromotionAdminController::class, 'ReviewersLists'])->name('ReviewersLists');
+    Route::get('ReviewersListContent', [PromotionAdminController::class, 'ReviewersListContent'])->name('ReviewersListContent');
 
 });
 
 
-Route::get('RequestDetailsAcceptOrReject', [RevResController::class, 'RequestDetailsAcceptOrReject'])->name('RequestDetailsAcceptOrReject');
+
+// ************************************ FM_RevRes Router ******************************************* //
+
+
+
+Route::middleware(['auth', 'role:reviewer'])->group(function () {
+    Route::get('my-requests/{type?}', [\App\Http\Controllers\Reviewer\RequestController::class, 'index'])->name('my-requests');
+});
+
+
+//Route::middleware(['auth', 'role:reviewer'])->group(function () {
+    Route::get('/my-researches', [\App\Http\Controllers\Researcher\ResearchController::class, 'index'])->name('researcher-account.my-researches');
+    Route::get('/my-researches/show/{id}', [\App\Http\Controllers\Researcher\ResearchController::class, 'show'])->name('researcher-account.my-researches.show');
+    Route::delete('/my-researches/delete/{id}', [\App\Http\Controllers\Researcher\ResearchController::class, 'destroy'])->name('researcher-account.my-researches.delete');
+    Route::get('/add-research', [\App\Http\Controllers\Researcher\ResearchController::class, 'create'])->name('RevResAccount.AddResearch');
+});
+Route::get('/add-research', [ResearchController::class,'create'])->name('RevResAccount.AddResearch');
+Route::post('/add-research', [ResearchController::class,'store'])->name('RevResAccount.SaveResearch');
+
+//الطلبات
+Route::get('/reviewer/requests/{id}', [ReviewerRequestController::class, 'show'])->name('reviewer.requests.show');
+
+// افبل او ارفض
+Route::post('/reviewer/requests/{id}/accept', [ReviewerRequestController::class, 'accept'])->name('reviewer.requests.accept');
+Route::post('/reviewer/requests/{id}/reject', [ReviewerRequestController::class, 'reject'])->name('reviewer.requests.reject');
+
+Route::get('/reviewer/requests', [ReviewerRequestController::class, 'index'])->name('reviewer.requests.index');
+Route::get('/reviewer/request-details/{id}', [ReviewerRequestController::class, 'show'])->name('reviewer.requests.show');
+Route::post('/review-form/store', [ReviewFormController::class, 'store'])->name('reviewForm.store');
+Route::get('/reviewer/request-details/{id}', [ReviewerController::class, 'showRequestDetails'])->name('RevResAccount.RequestDetailsIfAccept');
+Route::get('/review-form/{request_id}', [ReviewController::class, 'showForm'])->name('review.form');
+Route::post('/review-form/save', [ReviewController::class, 'store'])->name('review.store');
+Route::get('/reviewer/feedbacks', [ReviewerController::class, 'listReviewedResearches'])->name('reviewer.feedbacks');
+Route::post('/reviewer/feedbacks/send', [ReviewerController::class, 'submitFeedback'])->name('reviewer.feedbacks.submit');
+
+
+Route::middleware(['auth', 'role:reviewer'])->group(function () {
+    Route::get('/reviewer/profile', [ReviewerProfileController::class, 'show'])->name('reviewer.profile');
+    Route::post('/reviewer/profile/update', [ReviewerProfileController::class, 'update'])->name('reviewer.profile.update');
+});
+
+
+
+
+Route::get('/promotion/request/{id}', [PromotionController::class, 'show']);
+Route::get('/research/{id}/feedbacks', [FeedbackController::class, 'getFeedbacks']);
+Route::get('/promotion/request/{id}', [PromotionController::class, 'showRequestDetails'])->name('promotion.request.details');
+Route::post('/promotion/request/{id}/accept', [PromotionController::class, 'accept'])->name('promotion.request.accept');
+Route::post('/promotion/request/{id}/reject', [PromotionController::class, 'reject'])->name('promotion.request.reject');
+Route::get('/promotion/requests', [PromotionController::class, 'index'])->name('PromotionAccount.PromotionRequests');
+Route::get('/promotion/requests/{status}', [PromotionController::class, 'filterByStatus']);
+Route::get('/promotion/request/{id}', [PromotionController::class, 'showe'])->name('PromotionAccount.AcceptOrReject');
+
+Route::get('/promotion/reviewers', [ReviewerController::class, 'index'])->name('PromotionAdmin.Reviewers');
+
+Route::get('/reviewers', [ReviewerController::class, 'index'])->name('reviewers.index');
+
+Route::get('/reviewers/specializations', [ReviewerController::class, 'listSpecializations'])->name('reviewers.specializations');
+
+Route::get('/reviewers/{specialization}', [ReviewerController::class, 'showBySpecialization'])->name('reviewers.bySpecialization');
+
+
+
+
+
+

@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="{{ asset('hakkem/css/UniversityPages/FM_Reviewer/My_Profile.css') }}" />
     <link rel="stylesheet" href="{{ asset('hakkem/css/UniversityPages/FM_Reviewer/My_Researches.css') }}">
     <link rel="stylesheet" href="{{ asset('hakkem/css/Sidebar.css') }}" />
-    
-     <script src="{{ asset('hakkem/javascript/University/FM_Researcher/My_Profile.js') }}" defer></script> 
+
+     <script src="{{ asset('hakkem/javascript/University/FM_Researcher/My_Profile.js') }}" defer></script>
 </head>
 <body>
   @include('include.header')
@@ -23,47 +23,34 @@
 
             {{ csrf_field() }}
             {{ method_field('post') }}
-            
-
-          <div class="form-group3">
-              <label for="title">Title: </label>
-              <input type="text" name="title"/>
-            </div>
-
-            <div class="form-group3">
-              <label for="keywords">Keywords: </label>
-              <input type="text" name="keywords" />
-            </div>
-
-            <div class="form-group3">
-              <label for="field">Field: </label>
-              <input type="text" name="field" />
-            </div>
-
-            <div class="">
-              <label for="abstract">Abstract: </label>
-              <textarea class="sub-box fixed-textarea" name="abstract" ></textarea>
-            </div>
-
-            <div class="">
-              <label for="DOI">DOI: </label>
-              <textarea class="sub-box DOI-textarea" name="DOI"></textarea>
-            </div>
 
 
-            <div class="form-group">
-              <label for="research_file">Upload Research:</label>
-              <input type="file" name="file"/>
-            </div>
+            <form action="{{ route('RevResAccount.SaveResearch') }}" method="POST" enctype="multipart/form-data">
+                @csrf
+
+                <label>Title:</label>
+                <input type="text" name="title" required>
+
+                <label>DOI:</label>
+                <input type="text" name="DOI">
+
+                <label>Field:</label>
+                <input type="text" name="field" required>
+
+                <label>Keywords:</label>
+                <input type="text" name="keywords">
+
+                <label>Abstract:</label>
+                <textarea name="abstract"></textarea>
+
+                <label>Upload PDF:</label>
+                <input type="file" name="pdf_file" accept="application/pdf">
+
+                <button type="submit">Add Research</button>
+            </form>
 
 
-            <a href="{{-- route('')--}}">
-              <button class="add-research">
-                  <img src="{{ asset('hakkem/images/University/Add icon.png') }}" alt="Add"> Add New Research
-              </button>
-              <a>
 
-          </form>
         </div>
       </main>
     </div>

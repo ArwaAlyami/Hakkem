@@ -36,64 +36,32 @@
         <!-- ✅ الجدول -->
         <table>
             <thead>
-                <tr>
-                    <th>Research Number</th>
-                    <th>Research Title</th>
-                    <th>Research Field</th>
-                    <th>Price</th>
-                    <th>Full Research</th>
-                </tr>
-            </thead>
-            <tbody>
-                <!-- ✅ 5 أبحاث كاملة -->
-                <tr>
-                    <td>1</td>
-                    <td>AI and Healthcare</td>
-                    <td>Information Systems</td>
-                    <td>200 SAR</td>
-                    <td class="actions">
-                        <button class="pdf-btn">
-                            <img src="{{ asset('hakkem/images/University/pdf icon.png') }}" alt="PDF"> AI and Healthcare.pdf
-                        </button>                        <button class="Review">Reviewed</button>
-                        <button class="see-more">See more <span class="arrow">▼</span></button>
+                @foreach ($reviews as $index => $review)
+<tr>
+    <td>{{ $index + 1 }}</td>
+    <td>{{ $review->request->title }}</td>
+    <td>{{ $review->request->field }}</td>
+    <td>{{ $review->request->price }} SAR</td>
+    <td class="actions">
+        <a href="{{ asset('storage/' . $review->request->pdf_path) }}" target="_blank" class="pdf-btn">
+            <img src="{{ asset('hakkem/images/University/pdf icon.png') }}" alt="PDF"> PDF
+        </a>
+        <button class="Review">Reviewed</button>
+        <button class="see-more">See more <span class="arrow">▼</span></button>
+    </td>
+</tr>
+<tr class="research-details">
+    <td colspan="4">
+        <div class="details-box">
+            <div class="sub-box"><strong>Research Field:</strong> {{ $review->request->field }}</div>
+            <div class="sub-box"><strong>Keywords:</strong> {{ $review->request->keywords }}</div>
+            <div class="sub-box"><strong>Abstract:</strong> {{ $review->request->abstract }}</div>
+        </div>
+    </td>
+</tr>
+@endforeach
 
-                        </div>
-                        
-                    </td>
-                </tr>
-                <tr class="research-details">
-                    <td colspan="4">
-                        <div class="details-box">
-                            <div class="sub-box"><strong>Research Field:</strong> Data Science</div>
-                            <div class="sub-box"><strong>Keywords:</strong> NLP, AI, Chatbots</div>
-                            <div class="sub-box">
-                                <strong>Abstract:</strong>
-                                <p>AI-powered chatbots in healthcare enhance patient interaction and efficiency...</p>
-                            </div>
-                        </div>
-                    </td>
-                </tr>
-
-                <tr>
-                    <td>2</td>
-                    <td>IoT in Smart Cities</td>
-                    <td>Information Systems</td>
-                    <td>300 SAR</td>
-                    <td class="actions">
-                        <button class="pdf-btn">
-                            <img src="{{ asset('hakkem/images/University/pdf icon.png') }}" alt="PDF"> AI and Healthcare.pdf
-                        </button>                        <button class="Review">Reviewed</button>
-                        <button class="see-more">See more <span class="arrow">▼</span></button>
-                    </td>
-                </tr>
-                <tr class="research-details">
-                    <td colspan="4">
-                        <div class="details-box">
-                            <div class="sub-box"><strong>Research Field:</strong> IoT Applications</div>
-                            <div class="sub-box"><strong>Keywords:</strong> Sensors, Big Data, Connectivity</div>
-                            <div class="sub-box">
-                                <strong>Abstract:</strong>
-                                <p>Exploring IoT in smart city management, its impact, and security challenges...</p>
+     <p>Exploring IoT in smart city management, its impact, and security challenges...</p>
                             </div>
                         </div>
                     </td>
@@ -134,7 +102,7 @@
                             <img src="{{ asset('images/University/pdf-icon.png') }}" alt="PDF"> AI and Healthcare.pdf
                         </button>                        <button class="Review">Reviewed</button>
                         <button class="see-more">See more <span class="arrow">▼</span></button>
-                        
+
                     </td>
                 </tr>
                 <tr class="research-details">
@@ -151,12 +119,14 @@
                 </tr>
             </tbody>
         </table>
-        <div class="table-footer">
-            <button class="send-feedback-btn">Send Feedback</button>
-        </div>
+        <form method="POST" action="{{ route('reviewer.feedbacks.submit') }}">
+            @csrf
+            <button class="send-feedback-btn" type="submit">Send Feedback</button>
+        </form>
+
     </main>
 
     @include('include.footer')
-    
+
 </body>
 </html>

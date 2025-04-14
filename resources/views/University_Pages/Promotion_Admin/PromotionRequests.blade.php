@@ -17,62 +17,37 @@
     @include('include.Promotion-Sidebar')
 
     <div class="page-content">
-    
+
         <div class="tabs">
-        <button class="active">All</button>
-        <button>Active Requests</button>
-        <button>Completed Requests</button>
-        <button>Rejected Requests</button>
-         </div>
+            @foreach ($requests as $request)
+            <div class="request
+                {{ $request->status == 'active' ? 'yellow' :
+                    ($request->status == 'completed' ? 'teal' :
+                    ($request->status == 'rejected' ? 'red' : '')) }}">
 
-    <!-- الطلبات الحالية -->
-    <div class="request yellow">
-        <div class="request-info row">
-            <div class="col">
-                <div class="request-id">#98761</div>
-                <div class="request-name">Dr. Abdullah Al-Ghamdi</div>
-                <div class="request-dept">College of Computer Science and Information Systems</div>
-            </div>
-            <!-- section -->
-            <div class="col">
-                <div class="buttons">
+                <div class="request-info row">
+                    <div class="col">
+                        <div class="request-id">#{{ $request->id }}</div>
+                        <div class="request-name">{{ $request->facultyMember->name }}</div>
+                        <div class="request-dept">{{ $request->facultyMember->department }}</div>
+                    </div>
 
-                    <a href="{{ route('PromotionAccount.AcceptOrReject')}}">
-                    <button class="view">View Request</button>
-                    </a>
-
-                    
-                    <button class="track">Track</button>
-                    <button class="pay">Pay</button>
-                </div>
-                <div class="request-date">
-                    <p>Result submission date: 12-2-2025</p>
+                    <div class="col">
+                        <div class="buttons">
+                            <a href="{{ route('PromotionAccount.AcceptOrReject', $request->id) }}">
+                                <button class="view">View Request</button>
+                            </a>
+                            <button class="track">Track</button>
+                            <button class="pay" {{ $request->status != 'completed' ? 'disabled' : '' }}>Pay</button>
+                        </div>
+                        <div class="request-date">
+                            <p>Result submission date: {{ \Carbon\Carbon::parse($request->result_submission_date)->format('d-m-Y') }}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
+        @endforeach
 
-    <!-- الطلبات المنتهية -->
-    <div class="request teal">
-        <div class="request-info row">
-            <div class="col">
-                <div class="request-id">#12345</div>
-                <div class="request-name">Dr. Noura Abdel Aziz</div>
-                <div class="request-dept">College of Computer Science and Information Systems</div>
-            </div>
-
-            <div class="col">
-                <div class="buttons">
-
-                    <a href="{{ route('PromotionAccount.AcceptedRequest')}}">
-                        <button class="view">View Request</button>
-                    </a>
-
-                    <button class="track">View Feedbacks</button>
-                    <button class="pay" disabled>Pay</button>
-                </div>
-                <div class="request-date">
-                    <p>Result submission date: 12-2-2025</p>
                 </div>
             </div>
         </div>

@@ -29,7 +29,7 @@ class FacultyMember extends Authenticatable//extends Model implements JWTSubject
         'Feedback_quality',
         'accuracy',
         'response_speed',
-        
+
         'uni_id',
         'agent_name',
 
@@ -42,6 +42,11 @@ class FacultyMember extends Authenticatable//extends Model implements JWTSubject
         ];
     }
     use Notifiable;
+
+    public function promotionRequests()
+    {
+        return $this->hasMany(PromotionRequests::class);
+    }
 
     // Rest omitted for brevity
     /**

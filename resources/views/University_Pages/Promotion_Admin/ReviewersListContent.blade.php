@@ -15,22 +15,21 @@
         <main class="content">
             <h2><span class="highlight">List ID: </span> #1234567890</h2>
             <table>
-                <thead>
-                    <tr>
-                        <th>Name of Reviewer</th>
-                        <th>Affeliation</th>
-                        <th class="lst">Email</th>
-                    </tr>
-                </thead>
-
                 <tbody>
-                    <tr>
-                        <td>Dr. Abdullah Al-Ghamdi</td>
-                        <td>Department of Computer Information Systems ,Najran University. Najran, Saudi Arabia.</td>
-                        <td class="last">
-                            <p>Abdullah@nu.edu.sa</p>
-                            <div class="action-buttons">
-                                <button class="send">Send</button>
+                    @foreach($reviewers as $reviewer)
+                        <tr>
+                            <td>{{ $reviewer->name }}</td>
+                            <td>{{ $reviewer->affiliation }}</td>
+                            <td class="last">
+                                <p>{{ $reviewer->email }}</p>
+                                <div class="action-buttons">
+                                    <button class="send">Send</button>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+
                             </div>
                         </td>
                     </tr>

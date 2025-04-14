@@ -16,35 +16,28 @@
     <div class="container">
 
         @include('include.rev-sidebar')
-        
+
         <main class="content">
-            <div class="filter-container">
-                <div class="filter">
-                    <button class="filter-btn active" data-filter="all">All</button>
-                    <button class="filter-btn" data-filter="under-review">Under Review</button>
-                    <button class="filter-btn" data-filter="completed">Completed</button>
-                    <button class="filter-btn" data-filter="rejected">Rejected</button>
+            @foreach ($requests as $req)
+<div class="request-item" data-status="{{ $req->status }}">
+    <img src="{{ asset('hakkem/images/University/Najran_University.png') }}" alt="University Logo">
+    <div class="request-info">
+        <span class="university">{{ $req->university_name }}</span>
+        <span class="request-id">Request Number\ {{ $req->request_number }}</span>
+    </div>
+
+    <a href="{{ route('reviewer.requests.show', $req->id) }}">
+        <button class="details">Details</button>
+    </a>
+</div>
+@endforeach
+
+
+
                 </div>
+
             </div>
-            
-            <div class="request-list">
 
-                <div class="request-item">
-                    <img src="{{ asset('hakkem/images/University/Najran_University.png') }}" alt="University Logo">
-                    <div class="request-info">
-                        <span class="university">AAA</span>
-                        <span class="request-id">Request Number\ AAA</span>
-                    </div>
-
-                    <a href="{{ route('RevResAccount.RequestDetailsIfAccept')}}">
-                    <button class="details">Details</button>
-                    </a>
-
-
-                </div>           
-              
-            </div>
-            
             </div>
         </main>
     </div>
