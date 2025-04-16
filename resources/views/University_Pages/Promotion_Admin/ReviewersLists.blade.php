@@ -16,17 +16,17 @@
         @include('include.Promotion-Sidebar')
 
         <div class="container">
-            @foreach($specializations as $item)
+            {{-- @foreach($specializations as $item) --}}
                 <div class="specialization-card">
                     <div class="info">
                         <img src="{{ asset('hakkem/images/University/AI Reviewer List.png') }}" alt="icon">
-                        <span><strong>Specialization:</strong> {{ $item->specialization }}</span>
+                        <span><strong>Specialization:</strong> {{-- $item->specialization --}}</span>
                     </div>
-                    <a href="{{ route('reviewers.bySpecialization', ['specialization' => $item->specialization]) }}">
+                    <a href="{{-- route('reviewers.bySpecialization', ['specialization' => $item->specialization]) --}}">
                         <button>Open</button>
                     </a>
                 </div>
-            @endforeach
+            {{-- @endforeach --}}
         </div>
     </div>
 

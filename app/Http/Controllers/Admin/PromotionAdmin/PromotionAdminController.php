@@ -14,10 +14,10 @@ class PromotionAdminController extends Controller
         return view('University_Pages.Promotion_Admin.MyProfile',compact('promotionAdmin'));
     }
 
-    public function ProfileEdit()
-    {
-        return view('University_Pages.Promotion_Admin.');
-    }
+    // public function ProfileEdit()
+    // {
+    //     return view('University_Pages.Promotion_Admin.');
+    // }
 
     public function PromotionRequests()
     {

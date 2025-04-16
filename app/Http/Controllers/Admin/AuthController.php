@@ -57,7 +57,9 @@ class AuthController extends Controller
      }
 
      public function register(Request $request){
-        FacultyMember::create($request->all());
+        $faculty_member= FacultyMember::create($request->all());
+        $faculty_member->assignRole('Researcher');
+
         return  redirect()->route('admin.SignIn-get');
      }
 }

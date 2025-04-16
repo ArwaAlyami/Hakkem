@@ -20,6 +20,7 @@ use App\Http\Controllers\Feedback\FeedbackController;
 use App\Http\Controllers\Promotion\PromotionController;
 use App\Http\Controllers\Researcher\ResearchController;
 use App\Http\Controllers\Reviewer\RequestController;
+use App\Http\Controllers\Reviewer\ReviewerListController;
 use App\Http\Controllers\Reviewer\ReviewFormController;
 
 // ******* Main Pages Routes *********** //
@@ -175,18 +176,16 @@ Route::prefix('ResearcherAccount')->middleware('auth')->as('researcher-account.'
 
 
 
-
-    //*********************************************** Waad ****************************************/
-
+//*********************************************** Waad ****************************************/
 
 // ************************************ Promotion Admin Router ******************************************* //
 
 
-Route::prefix('PromotionAccount')->as('PromotionAccount.')->group(function () {
+Route::prefix('PromotionAccount')->middleware('auth')->as('PromotionAccount.')->group(function () {
 
     // ** Profile Routers ** //
     Route::get('Profile', [PromotionAdminController::class, 'Profile'])->name('Profile');
-    Route::post('ProfileEdit', [PromotionAdminController::class, 'ProfileEdit'])->name('ProfileEdit');
+    // Route::post('ProfileEdit', [PromotionAdminController::class, 'ProfileEdit'])->name('ProfileEdit');
 
     // ** Requests Routers ** //
     Route::get('PromotionRequests', [PromotionAdminController::class, 'PromotionRequests'])->name('PromotionRequests');
@@ -201,66 +200,103 @@ Route::prefix('PromotionAccount')->as('PromotionAccount.')->group(function () {
 });
 
 
+// Route::get('/promotion/request/{id}', [PromotionController::class, 'show']);
 
-// ************************************ FM_RevRes Router ******************************************* //
+// Route::get('/research/{id}/feedbacks', [FeedbackController::class, 'getFeedbacks']);
+
+// Route::get('/promotion/request/{id}', [PromotionController::class, 'showRequestDetails'])->name('promotion.request.details');
+
+// Route::post('/promotion/request/{id}/accept', [PromotionController::class, 'accept'])->name('promotion.request.accept');
+
+// Route::post('/promotion/request/{id}/reject', [PromotionController::class, 'reject'])->name('promotion.request.reject');
+
+// Route::get('/promotion/requests', [PromotionController::class, 'index'])->name('PromotionAccount.PromotionRequests');
+
+// Route::get('/promotion/requests/{status}', [PromotionController::class, 'filterByStatus']);
+
+// Route::get('/promotion/request/{id}', [PromotionController::class, 'showe'])->name('PromotionAccount.AcceptOrReject');
+
+// Route::get('/promotion/reviewers', [ReviewerListController::class, 'index'])->name('PromotionAdmin.Reviewers');
+
+// Route::get('/reviewers', [ReviewerListController::class, 'index'])->name('reviewers.index');
+
+// Route::get('/reviewers/specializations', [ReviewerListController::class, 'listSpecializations'])->name('reviewers.specializations');
+
+// Route::get('/reviewers/{specialization}', [ReviewerListController::class, 'showBySpecialization'])->name('reviewers.bySpecialization');
 
 
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('my-requests/{type?}', [RequestController::class, 'index'])->name('my-requests');
+
+
+// ************************************ FM_Reviewer Router ******************************************* //
+
+
+Route::prefix('RevResAccount')->as('RevResAccount.')->group(function () {
+
+
+    // ** Profile Routers ** //
+    Route::get('Profile', [RevResController::class, 'Profile'])->name('Profile');
+    // Route::post('ProfileEdit', [RevResController::class, 'ProfileEdit'])->name('ProfileEdit');
+
+
+    // ** Received Requests Routers ** //
+    Route::get('ReceivedRequests', [RevResController::class, 'ReceivedRequests'])->name('ReceivedRequests');
+    Route::get('RequestDetailsIfAccept', [RevResController::class, 'RequestDetailsIfAccept'])->name('RequestDetailsIfAccept');
+    Route::get('ReviewForm', [RevResController::class, 'ReviewForm'])->name('ReviewForm');
+    Route::get('SubmitFeedback', [RevResController::class, 'SubmitFeedback'])->name('SubmitFeedback');
+
+    Route::get('ReviewRequestDetails', [RevResController::class, 'ReviewRequestDetails'])->name('ReviewRequestDetails');
+    Route::get('PromotionRequestDetails', [RevResController::class, 'PromotionRequestDetails'])->name('PromotionRequestDetails');
+
+
+    // ** Reviewers profile Routers ** //
+    Route::get('ReviewerProfile', [RevResController::class, 'ReviewerProfile'])->name('ReviewerProfile');
+
 });
+
+
+
+
+// Route::get('RequestDetailsAcceptOrReject', [RevResController::class, 'RequestDetailsAcceptOrReject'])->name('RequestDetailsAcceptOrReject');
+
+
+// //الطلبات
+// Route::get('/reviewer/requests/{id}', [RequestController::class, 'show'])->name('reviewer.requests.show');
+
+// // افبل او ارفض
+// Route::post('/reviewer/requests/{id}/accept', [RequestController::class, 'accept'])->name('reviewer.requests.accept');
+
+// Route::post('/reviewer/requests/{id}/reject', [RequestController::class, 'reject'])->name('reviewer.requests.reject');
+
+// Route::get('/reviewer/requests', [RequestController::class, 'index'])->name('reviewer.requests.index');
+
+// Route::get('/reviewer/request-details/{id}', [RequestController::class, 'show'])->name('reviewer.requests.show');
+
+// Route::post('/review-form/store', [ReviewFormController::class, 'store'])->name('reviewForm.store');
+
+// Route::get('/reviewer/request-details/{id}', [ReviewerListController::class, 'showRequestDetails'])->name('RevResAccount.RequestDetailsIfAccept');
+
+// Route::get('/review-form/{request_id}', [ReviewFormController::class, 'showForm'])->name('review.form');
+
+// Route::post('/review-form/save', [ReviewFormController::class, 'store'])->name('review.store');
+
+// Route::get('/reviewer/feedbacks', [ReviewerListController::class, 'listReviewedResearches'])->name('reviewer.feedbacks');
+
+// Route::post('/reviewer/feedbacks/send', [ReviewerListController::class, 'submitFeedback'])->name('reviewer.feedbacks.submit');
 
 
 // Route::middleware(['auth'])->group(function () {
-//     Route::get('/my-researches', [ResearchController::class, 'index'])->name('researcher-account.my-researches');
-//     Route::get('/my-researches/show/{id}', [ResearchController::class, 'show'])->name('researcher-account.my-researches.show');
-//     Route::delete('/my-researches/delete/{id}', [ResearchController::class, 'destroy'])->name('researcher-account.my-researches.delete');
-//     Route::get('/add-research', [ResearchController::class, 'create'])->name('RevResAccount.AddResearch');
+
+//     Route::get('/reviewer/profile', [ReviewerProfileController::class, 'show'])->name('RevResAccount.Profile');
+
+//     Route::post('/reviewer/profile/update', [ReviewerProfileController::class, 'update'])->name('reviewer.profile.update');
+
+
+    
 // });
-// Route::get('/add-research', [ResearchController::class,'create'])->name('RevResAccount.AddResearch');
-// Route::post('/add-research', [ResearchController::class,'store'])->name('RevResAccount.SaveResearch');
-
-//الطلبات
-Route::get('/reviewer/requests/{id}', [RequestController::class, 'show'])->name('reviewer.requests.show');
-
-// افبل او ارفض
-Route::post('/reviewer/requests/{id}/accept', [RequestController::class, 'accept'])->name('reviewer.requests.accept');
-Route::post('/reviewer/requests/{id}/reject', [RequestController::class, 'reject'])->name('reviewer.requests.reject');
-
-Route::get('/reviewer/requests', [RequestController::class, 'index'])->name('reviewer.requests.index');
-Route::get('/reviewer/request-details/{id}', [RequestController::class, 'show'])->name('reviewer.requests.show');
-Route::post('/review-form/store', [ReviewFormController::class, 'store'])->name('reviewForm.store');
-Route::get('/reviewer/request-details/{id}', [ReviewerController::class, 'showRequestDetails'])->name('RevResAccount.RequestDetailsIfAccept');
-Route::get('/review-form/{request_id}', [ReviewFormController::class, 'showForm'])->name('review.form');
-Route::post('/review-form/save', [ReviewFormController::class, 'store'])->name('review.store');
-Route::get('/reviewer/feedbacks', [ReviewerController::class, 'listReviewedResearches'])->name('reviewer.feedbacks');
-Route::post('/reviewer/feedbacks/send', [ReviewerController::class, 'submitFeedback'])->name('reviewer.feedbacks.submit');
-
-
-Route::middleware(['auth'])->group(function () {
-    Route::get('/reviewer/profile', [ReviewerProfileController::class, 'show'])->name('RevResAccount.Profile');
-    Route::post('/reviewer/profile/update', [ReviewerProfileController::class, 'update'])->name('reviewer.profile.update');
-});
 
 
 
-
-Route::get('/promotion/request/{id}', [PromotionController::class, 'show']);
-Route::get('/research/{id}/feedbacks', [FeedbackController::class, 'getFeedbacks']);
-Route::get('/promotion/request/{id}', [PromotionController::class, 'showRequestDetails'])->name('promotion.request.details');
-Route::post('/promotion/request/{id}/accept', [PromotionController::class, 'accept'])->name('promotion.request.accept');
-Route::post('/promotion/request/{id}/reject', [PromotionController::class, 'reject'])->name('promotion.request.reject');
-Route::get('/promotion/requests', [PromotionController::class, 'index'])->name('PromotionAccount.PromotionRequests');
-Route::get('/promotion/requests/{status}', [PromotionController::class, 'filterByStatus']);
-Route::get('/promotion/request/{id}', [PromotionController::class, 'showe'])->name('PromotionAccount.AcceptOrReject');
-
-Route::get('/promotion/reviewers', [ReviewerController::class, 'index'])->name('PromotionAdmin.Reviewers');
-
-Route::get('/reviewers', [ReviewerController::class, 'index'])->name('reviewers.index');
-
-Route::get('/reviewers/specializations', [ReviewerController::class, 'listSpecializations'])->name('reviewers.specializations');
-
-Route::get('/reviewers/{specialization}', [ReviewerController::class, 'showBySpecialization'])->name('reviewers.bySpecialization');
 
 
 

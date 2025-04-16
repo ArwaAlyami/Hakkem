@@ -7,7 +7,7 @@ namespace App\Http\Controllers\Reviewer;
 use App\Http\Controllers\Controller;
 use App\Models\Reviewer;
 
-class ReviewerController extends Controller
+class ReviewerListController extends Controller
 {
     public function index()
     {
