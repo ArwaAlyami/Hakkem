@@ -52,17 +52,23 @@
                 <td style="color: grey;">{{$faculty_member->rank}}</td>
                 <td style="color: grey;">{{$faculty_member->roles[0]->name}}</td>
 
-              
                 <td>
+
+                @can('member_delete')
                 <form action="{{ route('ITAdminAccount.manage-users.delete', $faculty_member->id)}}" method="post" >
                     {{ csrf_field() }}
                     {{ method_field('delete') }}
                     <button class="action-btn">Delete</button>
                 </form>
+                @endcan
 
+
+                @can('member_edit')
                 <button class="action-btn">
                 <a href="{{ route('ITAdminAccount.manage-users.edit',$faculty_member->id)}}">Edit</a>
                 </button>
+                @endcan 
+
                 </td>
               </tr>
               @endforeach
@@ -72,28 +78,15 @@
         </div>
     </div>
 
-          {{-- <div class="custom-pagination">
-            @if ($faculty_members->onFirstPage())
-                <span class="arrow disabled">←</span>
-            @else
-                <a href="{{ $faculty_members->previousPageUrl() }}" class="arrow">←</a>
-            @endif
-
-            <span class="page-number">{{ $faculty_members->currentPage() }} / {{ $faculty_members->lastPage() }}</span>
-
-            @if ($faculty_members->hasMorePages())
-                <a href="{{ $faculty_members->nextPageUrl() }}" class="arrow">→</a>
-            @else
-                <span class="arrow disabled">→</span>
-            @endif
-          </div> --}}
-
       <!-- زر الإضافة -->
+
+      @can('member_create')
             <div class="add-member-container">
               <a href="{{ route('ITAdminAccount.manage-users.create') }}">
                 <button class="add-member-btn">+ Add Member</button>
               </a>
             </div>
+      @endcan
             
         <!-- FOOTER -->
         @include('include.footer')

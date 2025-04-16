@@ -8,7 +8,7 @@
         <div class="nav">
           <div class="nav-cont">
 
-            <a href="{{-- route('Main_Pages.Home')--}}">
+            <a href="{{ route('Main_Pages.Home')}}">
             <p class="navigate">Home</p>
             </a>
 
@@ -27,7 +27,8 @@
           </div>
           <a href="#">
           <img src="{{ asset('/hakkem/images/Header_Footer/profile_light.png') }}" class="profile" />
-        </a>
+          </a>
+          
         </div>
       </header>
     </div>

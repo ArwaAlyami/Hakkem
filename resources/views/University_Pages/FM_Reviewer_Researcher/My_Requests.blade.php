@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -21,8 +21,10 @@
 
     <div class="container">
 
-      @include('include.rev-sidebar')
+      @include('include.rev-sidebar') --}}
 
+
+{{-- 
 
 
 
@@ -47,4 +49,4 @@
 
     @include('include.footer')
     </body>
-</html>
+</html> --}}

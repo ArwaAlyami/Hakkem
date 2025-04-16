@@ -17,21 +17,40 @@ class Permissions extends Seeder
     public function run(): void
     {
         $permissions = [
-            'member_view',
-            'member_create',
-            'member_edit',
-            'member_delete',
+            // it admin permissions (he takes all the permissions)
 
-            'research_view',
-            'research_add',
-            'research_file_show',
-            'research_delete',
+            'role_view',  //done
+            'role_create',  //done
+            'role_delete',  //done
+            'role_show',  //done
 
-            'feedback_view',
+            'member_view',  //done
+            'member_create',  //done
+            'member_edit',  //done
+            'member_delete',  //done
+
+
+            // researcher permissions
+            'research_view',  //done
+            'research_add',  //done
+            'research_file_show',  //done
+            'research_delete',  //done
+
+            'request_list_view',  //done
+            'feedback_view',  
+            'send_request',  //done
+
+
+            // reviewer permissions 
+            'receive_request',  //done 
             'feedback_create',
+            'feedback_send',
 
-            'receive_request',
-            'send_request',
+
+            // promotion admin permissions
+            'received_promotion_request',
+            'list_view',
+           
 
         ];  
         foreach($permissions as $permission){

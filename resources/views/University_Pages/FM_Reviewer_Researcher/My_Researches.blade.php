@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -46,9 +46,9 @@
         <td>{{ $research->DOI }}</td>
         <td>{{ $research->field }}</td>
         ...
-    </tr>
+    </tr> --}}
 
-    <tr class="research-details">
+    {{-- <tr class="research-details">
         <td colspan="4">
             <div class="details-box">
                 <div class="sub-box"><strong>Keywords: </strong>{{ $research->keywords }}</div>
@@ -96,12 +96,12 @@
 
 
                 </tbody>
-            </table>
+            </table> --}}
             {{-- {{ $researches->appends(request()->query())->links() }} --}}
 
 
             <!-- زر إضافة بحث جديد -->
-            <a href="{{ route('RevResAccount.AddResearch') }}">
+            {{-- <a href="{{ route('RevResAccount.AddResearch') }}">
                 <button class="add-research">Add New Research</button>
             </a>
 
@@ -135,4 +135,4 @@
 
 
 </body>
-</html>
+</html> --}}

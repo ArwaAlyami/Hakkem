@@ -17,10 +17,10 @@
         </div>
         <div class="nav">
           <div class="nav-cont">
-            <a href="{{--route('Main_Pages.Home')--}}"><p class="navigate">Home</p></a>
-            <a href="{{--{{route('Auth.Chat')}}--}}"><p class="navigate">Chat</p></a>
-            <a href="{{--{{route('Auth.Offers')}}--}}"><p class="navigate">Offers</p></a>
-            <a href="{{--{{route('Auth.Journals')}}--}}"><p class="navigate">Journals</p></a>
+            <a href="{{route('Main_Pages.Home')}}"><p class="navigate">Home</p></a>
+            <a href="{{--route('Auth.Chat')--}}"><p class="navigate">Chat</p></a>
+            <a href="{{--route('Auth.Offers')--}}"><p class="navigate">Offers</p></a>
+            <a href="{{--route('Auth.Journals')--}}"><p class="navigate">Journals</p></a>
           </div>
           <a href="{{--{{route('')}}--}}"><img src="{{ asset('hakkem/images/Header_Footer/profile_dark.png')}}" class="profile"/></a>
         </div>
@@ -67,7 +67,11 @@
           research, ensuring it's ready to be shared with the scientific
           community.
         </p>
+
+        @can('send_request')
         <a href="{{route('Requests.ReviewRequest.ReviewOptions')}}"><button id="review-req" class="req-btn">Send Request</button></a>
+        @endcan
+
       </div>
     </section>
 
@@ -82,7 +86,11 @@
           ensure your work is prepared according to the journal's <br />
           specific guidelines for a seamless submission process.
         </p>
+
+        @can('send_request')
         <a href="{{ route('Requests.PublishRequest.index') }}"><button id="review-req" class="req-btn">Send Request</button></a>
+        @endcan 
+
       </div>
       <div class="decoration-r">
         <img src="{{ asset('hakkem/images/Home/Home_sec2_part3.svg')}}" class="under-r" />
@@ -108,7 +116,11 @@
           council <br />
           and achieve your next academic rank with confidence.
         </p>
+
+        @can('send_request')
         <a href="{{route('Requests.PromotionRequest.index')}}"><button id="review-req" class="req-btn">Send Request</button></a>
+        @endcan 
+
       </div>
     </section>
 

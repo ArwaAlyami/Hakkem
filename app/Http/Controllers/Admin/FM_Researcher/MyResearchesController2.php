@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 class MyResearchesController2 extends Controller
 {
  
+    public function __construct(){
+        $this->middleware('permission:research_view')->only('index');
+        $this->middleware('permission:research_add')->only('create','store');
+        $this->middleware('permission:research_file_show')->only('show');
+        $this->middleware('permission:research_delete')->only('delete');        
+    }
+
     public function index(Request $request)
     {
         $researches = Research::paginate(perPage: 4);
@@ -37,11 +44,12 @@ class MyResearchesController2 extends Controller
         }
         return redirect()->route(route: 'researcher-account.my-researches.index');
     }
+
     public function delete($id)
     {
         $research = Research::where('id',$id)->first();
         $research->delete();
         return redirect()->route(route: 'researcher-account.my-researches.index');
 
-        }
+    }
 }

@@ -19,16 +19,18 @@
     @include('include.Promotion-Sidebar')
     <!-- الكونتير للحقول-->
     <div id="dynamic-" class="fields-container">
-        <button class="Edit-button" id="editBtn">Edit</button>
+        {{-- <button class="Edit-button" id="editBtn">Edit</button> --}}
 
         <!-- حقلين الاسماء-->
         <div class="input-row">
             <div>
-                <input type="text" id="firstName" value="{{ $promotionAdmin->first_name }}" disabled />
+                <label>First Name:</label>
+                <input type="text" name="f_ame"  value="{{$promotionAdmin->f_name}}" disabled />
 
             </div>
             <div>
-                <input type="text" id="LastName" value="{{ $promotionAdmin->Last_name }}" disabled />
+                <label>Last Name:</label>
+                <input type="text" name="l_ame" value="{{$promotionAdmin->l_name}}" disabled />
 
             </div>
         </div>
@@ -37,61 +39,57 @@
         <div class="input-row">
             <div>
                 <label>Email:</label>
-                <input type="email" id="email" placeholder="example@email.com" disabled oninput="validateEmail(this)" />
+                <input type="email" name="email" value="{{$promotionAdmin->email}}" disabled/>
             </div>
             <div>
                 <label>Phone:</label>
-                <input type="text" id="university" placeholder="Enter your phone number" disabled
-                    oninput="validateText(this)" />
+                <input type="text" name="phone" disabled value="{{$promotionAdmin->phone}}"/>
             </div>
         </div>
 
         <!-- حقلين الاسماء-->
         <div class="input-row">
-            <div>
-                <label>University:</label>
-                <input type="text" id="firstName" placeholder="Enter your university name" disabled
-                    oninput="validateText(this)" />
-            </div>
             <div>
                 <label>Academic Rank:</label>
-                <input type="text" id="lastName" placeholder="Enter your academic rank" disabled
-                    oninput="validateText(this)" />
+                <input type="text" name="rank" disabled value="{{$promotionAdmin->rank}}" />
             </div>
-        </div>
 
-        <!-- حقلين الاسماء-->
-        <div class="input-row">
             <div>
                 <label>Academic Qualification:</label>
-                <input type="text" id="firstName" placeholder="Enter your academic qualification" disabled
-                    oninput="validateText(this)" />
-            </div>
-            <div>
-                <label>Bachelor's Specialization:</label>
-                <input type="text" id="lastName" placeholder="Enter your bachelor's specialization" disabled
-                    oninput="validateText(this)" />
+                <input type="text" name="Academic_quali" disabled value="{{$promotionAdmin->Academic_quali}}"/>
             </div>
         </div>
 
         <!-- حقلين الاسماء-->
         <div class="input-row">
             <div>
-                <label>Master's Specialization:</label>
-                <input type="text" id="firstName" placeholder="Enter your master's specialization" disabled
-                    oninput="validateText(this)" />
+                <label>Bachelor's Specialization:</label>
+                <input type="text" name="bachelors" disabled value="{{$promotionAdmin->bachelors}}"/>
             </div>
+
+            <div>
+                <label>Master's Specialization:</label>
+                <input type="text" name="masters" disabled value="{{$promotionAdmin->masters}}"/>
+            </div>
+        </div>
+
+        <!-- حقلين الاسماء-->
+        <div class="input-row">
             <div>
                 <label>Doctorate's Specialization:</label>
-                <input type="text" id="lastName" placeholder="Enter your doctorate's specialization" disabled
-                    oninput="validateText(this)" />
+                <input type="text" name="phd" disabled value="{{$promotionAdmin->phd}}"/>
+            </div>
+
+            <div>
+                <label>University:</label>
+                <input type="text" id="firstName" name="email" disabled value="Najran University"/>
             </div>
         </div>
 
         <!-- الأزرار -->
         <div class="buttons">
-            <button id="saveBtn" disabled>Save changes</button>
-            <button id="cancelBtn" disabled>Cancel</button>
+            {{-- <button id="saveBtn" disabled>Save changes</button>
+            <button id="cancelBtn" disabled>Cancel</button> --}}
         </div>
     </div>
 </div>

@@ -29,21 +29,23 @@
             <div class="form-group">
                 <label>First Name:</label>
                 <input type="text" name="f_name">
-                <p id="name-error" class="error-message">Only letters are allowed</p>
             </div>
 
 
             <div class="form-group">
                 <label>Last Name:</label>
                 <input type="text" name="l_name">
-                <p id="name-error" class="error-message">Only letters are allowed</p>
             </div>
 
 
             <div class="form-group">
                 <label>Email:</label>
                 <input type="email" name="email">
-                <p id="email-error" class="error-message">Invalid email format</p>
+            </div>
+
+            <div class="form-group">
+                <label>Phone:</label>
+                <input type="text" name="phone">
             </div>
 
 
@@ -65,13 +67,35 @@
             </div>
 
 
-            <!-- التصاريح -->
-            {{-- <label style="font-weight:bold; margin-top:15px;">Give permission as:</label>
-            <div class="permissions">
-                <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin"> Promotion Admin</label>
-                <label><input type="checkbox" id="researcher" value="Researcher"> Researcher</label>
-                <label><input type="checkbox" id="reviewers" value="Reviewers"> Reviewers</label>
-            </div> --}}
+            
+            <div class="form-group">
+                <label>Acamdemic Qualification:</label>
+                <input type="text" name="Academic_quali">
+            </div>
+
+
+            <div class="form-group">
+                <label>Bachelor's Specialization:</label>
+                <input type="text" name="bachelors">
+            </div>
+
+
+            <div class="form-group">
+                <label>Master’s Specialization:</label>
+                <input type="text" name="masters">
+            </div>
+
+
+            <div class="form-group">
+                <label>Doctorate’s Specialization:</label>
+                <input type="text" name="phd">
+            </div>
+
+
+            <div class="form-group">
+                <label>IBAN:</label>
+                <input type="text" name="IBAN">
+            </div>
 
 
             <!-- زر الحفظ -->

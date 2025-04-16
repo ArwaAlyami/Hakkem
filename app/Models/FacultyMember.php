@@ -14,6 +14,7 @@ class FacultyMember extends Authenticatable//extends Model implements JWTSubject
     use HasFactory, Notifiable;
     use HasRoles;
 
+
     protected $fillable = [
         'password',
         'f_name',

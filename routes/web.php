@@ -16,6 +16,7 @@ use App\Http\Controllers\Admin\FM_Researcher;
 use App\Http\Controllers\ReviewerProfileController;
 use App\Http\Controllers\Reviewer\ReviewerController;
 use App\Http\Controllers\Admin\ReviewerRequestController;
+use App\Http\Controllers\Feedback\FeedbackController;
 use App\Http\Controllers\Promotion\PromotionController;
 use App\Http\Controllers\Researcher\ResearchController;
 use App\Http\Controllers\Reviewer\RequestController;
@@ -28,7 +29,7 @@ Route::get('/',[MainPagesController::class,'GetStarted'])->name('Get_Started');
 Route::get('About_Hakkem',[MainPagesController::class,'AboutUs'])->name('About_Hakkem');
 Route::get('User_Type',[MainPagesController::class, 'UserType'])->name('User_Type');
 
-
+Route::get('SignOut',[ITAdminController::class,'SignOut'])->name('SignOut');
 
 // ************ SignIn SignUp Pages ******************* //
 
@@ -42,7 +43,6 @@ Route::prefix('Auth')->as('admin.')->group(function () {
 
 Route::prefix('/')->middleware('auth')->as('Main_Pages.')->group(function () {
     Route::get('home',[HomeController::class,'index'])->name('Home');
-
 });
 
 
@@ -62,7 +62,7 @@ Route::post('/register', [SystemadmenController::class, 'register'])->name('regi
 
 // ******************* Requests Routes ***********************//
 
-Route::prefix('Requests')->as('Requests.')->group(function () {
+Route::prefix('Requests')->middleware('auth')->as('Requests.')->group(function () {
 
     Route::prefix('PromotionRequest')->as('PromotionRequest.')->group(function () {
         Route::get('MakePromotionRequest', [RequestsController::class, 'MakePromotionRequest'])->name('index');
@@ -71,15 +71,10 @@ Route::prefix('Requests')->as('Requests.')->group(function () {
 
 
     Route::prefix('ReviewRequest')->as('ReviewRequest.')->group(function () {
-
         Route::get('Review_Options',[RequestsController::class,'Review_Options'])->name('ReviewOptions');
-
         Route::get('Ind_Reviewer_Options',[RequestsController::class,'Ind_Reviewer_Options'])->name('IndReviewerOptions');
-
         Route::get('AI_Review',[RequestsController::class,'AI_Review'])->name('AIReview');
-
         Route::get('Through_Offers_Review',[RequestsController::class,'Through_Offers_Review'])->name('ThroughOffersReview');
-
         Route::get('Through_Ind_Reviewer',[RequestsController::class,'Through_Ind_Reviewer'])->name('ThroughIndReviewer');
     });
 
@@ -90,13 +85,7 @@ Route::prefix('Requests')->as('Requests.')->group(function () {
     });
 
 
-    });
-
-
-
-
-
-// ************************************ Arwa ******************************************* //
+});
 
 
 
@@ -105,7 +94,7 @@ Route::prefix('Requests')->as('Requests.')->group(function () {
 
 
 // ************************************ IT Admin Router ******************************************* //
-Route::prefix('ITAdminAccount')->as('ITAdminAccount.')->group(function () {
+Route::prefix('ITAdminAccount')->middleware('auth')->as('ITAdminAccount.')->group(function () {
 
     // *********** Profile Routers ********** //
 
@@ -125,20 +114,15 @@ Route::prefix('ITAdminAccount')->as('ITAdminAccount.')->group(function () {
         Route::get('UsersAndPermissions', [ITAdminController::class,'UsersAndPermissions'])->name('UsersAndPermissions');
 
 
-
         // ********** Edit members info Routers **************//
         Route::get('edit/{id}', [ITAdminController::class,'edit'])->name('edit');
         Route::put('/{id}', [ITAdminController::class,'update'])->name('update');
-    });
-
-    // *********** Sign Out Routers ********** //
-    Route::get('SignOut',[ITAdminController::class,'SignOut'])->name('SignOut');
-
+    });  
 });
 
     // *********** Roles Routers ********** //
 
-    Route::prefix('Roles')->as('roles.')->group(function () {
+    Route::prefix('Roles')->middleware('auth')->as('roles.')->group(function () {
 
         Route::get('index',[RoleController::class,'index'])->name('index');
         Route::get('Role-Permission',[RoleController::class,'create'])->name('create');
@@ -150,10 +134,8 @@ Route::prefix('ITAdminAccount')->as('ITAdminAccount.')->group(function () {
 
 
 
-
-
 // ************************************ FM_Researcher Router ******************************************* //
-Route::prefix('ResearcherAccount')->as('researcher-account.')->group(function () {
+Route::prefix('ResearcherAccount')->middleware('auth')->as('researcher-account.')->group(function () {
 
     // ** Profile Routers ** //
     Route::prefix('My_Profile')->as('my-profile.')->group(function () {
@@ -183,9 +165,7 @@ Route::prefix('ResearcherAccount')->as('researcher-account.')->group(function ()
     Route::get('Request_Details', [MyRequestsController::class, 'show'])->name('Request_Details');
 
 
-    // *********** SignOut Routers ********** //
-        Route::get('SignOut',[MyProfileController::class,'SignOut'])->name('SignOut');
-    });
+});
 
 
 
@@ -227,18 +207,18 @@ Route::prefix('PromotionAccount')->as('PromotionAccount.')->group(function () {
 
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('my-requests/{type?}', [\App\Http\Controllers\Reviewer\RequestController::class, 'index'])->name('my-requests');
+    Route::get('my-requests/{type?}', [RequestController::class, 'index'])->name('my-requests');
 });
 
 
-Route::middleware(['auth'])->group(function () {
-    Route::get('/my-researches', [\App\Http\Controllers\Researcher\ResearchController::class, 'index'])->name('researcher-account.my-researches');
-    Route::get('/my-researches/show/{id}', [\App\Http\Controllers\Researcher\ResearchController::class, 'show'])->name('researcher-account.my-researches.show');
-    Route::delete('/my-researches/delete/{id}', [\App\Http\Controllers\Researcher\ResearchController::class, 'destroy'])->name('researcher-account.my-researches.delete');
-    Route::get('/add-research', [\App\Http\Controllers\Researcher\ResearchController::class, 'create'])->name('RevResAccount.AddResearch');
-});
-Route::get('/add-research', [ResearchController::class,'create'])->name('RevResAccount.AddResearch');
-Route::post('/add-research', [ResearchController::class,'store'])->name('RevResAccount.SaveResearch');
+// Route::middleware(['auth'])->group(function () {
+//     Route::get('/my-researches', [ResearchController::class, 'index'])->name('researcher-account.my-researches');
+//     Route::get('/my-researches/show/{id}', [ResearchController::class, 'show'])->name('researcher-account.my-researches.show');
+//     Route::delete('/my-researches/delete/{id}', [ResearchController::class, 'destroy'])->name('researcher-account.my-researches.delete');
+//     Route::get('/add-research', [ResearchController::class, 'create'])->name('RevResAccount.AddResearch');
+// });
+// Route::get('/add-research', [ResearchController::class,'create'])->name('RevResAccount.AddResearch');
+// Route::post('/add-research', [ResearchController::class,'store'])->name('RevResAccount.SaveResearch');
 
 //الطلبات
 Route::get('/reviewer/requests/{id}', [RequestController::class, 'show'])->name('reviewer.requests.show');
@@ -251,8 +231,8 @@ Route::get('/reviewer/requests', [RequestController::class, 'index'])->name('rev
 Route::get('/reviewer/request-details/{id}', [RequestController::class, 'show'])->name('reviewer.requests.show');
 Route::post('/review-form/store', [ReviewFormController::class, 'store'])->name('reviewForm.store');
 Route::get('/reviewer/request-details/{id}', [ReviewerController::class, 'showRequestDetails'])->name('RevResAccount.RequestDetailsIfAccept');
-Route::get('/review-form/{request_id}', [ReviewController::class, 'showForm'])->name('review.form');
-Route::post('/review-form/save', [ReviewController::class, 'store'])->name('review.store');
+Route::get('/review-form/{request_id}', [ReviewFormController::class, 'showForm'])->name('review.form');
+Route::post('/review-form/save', [ReviewFormController::class, 'store'])->name('review.store');
 Route::get('/reviewer/feedbacks', [ReviewerController::class, 'listReviewedResearches'])->name('reviewer.feedbacks');
 Route::post('/reviewer/feedbacks/send', [ReviewerController::class, 'submitFeedback'])->name('reviewer.feedbacks.submit');
 

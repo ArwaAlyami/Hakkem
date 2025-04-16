@@ -152,6 +152,7 @@ body {
 
 /* تنسيق الحقول داخل صفين */
 .input-row {
+    margin-top: 20px;
     display: flex;
     justify-content: space-between;
     gap: 1px;

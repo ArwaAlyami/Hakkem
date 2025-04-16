@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+{{-- <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -19,13 +19,13 @@
       <main class="profile-content">
         <div class="profile-box">
 
-          <form id="profile-form" method="post" action="{{-- route('researcher-account.my-researches.store')--}}" enctype="multipart/form-data">
+          <form id="profile-form" method="post" action="{{ route('researcher-account.my-researches.store')}}" enctype="multipart/form-data">--}}
 
-            {{ csrf_field() }}
-            {{ method_field('post') }}
+            {{-- {{ csrf_field() }}
+            {{ method_field('post') }}  --}}
 
 
-            <form action="{{ route('RevResAccount.SaveResearch') }}" method="POST" enctype="multipart/form-data">
+            {{-- <form action="{{ route('RevResAccount.SaveResearch') }}" method="POST" enctype="multipart/form-data">
                 @csrf
 
                 <label>Title:</label>
@@ -56,4 +56,4 @@
     </div>
     @include('include.footer')
   </body>
-</html>
+</html> --}}

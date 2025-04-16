@@ -12,14 +12,14 @@ class ResearchController extends Controller
 
 public function index()
 {
-    $researches = Research::where('researcher_id', Auth::id())->get();
+    $researches = Research::where('research_id', Auth::id())->get();
 
     return view('University_Pages.FM_Reviewer.My_Researches', compact('researches'));
 }
 
 public function destroy($id)
 {
-    $research = Research::where('researcher_id', Auth::id())->findOrFail($id);
+    $research = Research::where('research_id', Auth::id())->findOrFail($id);
     $research->delete();
 
     return redirect()->route('researcher-account.my-researches')->with('success', 'Research deleted successfully.');

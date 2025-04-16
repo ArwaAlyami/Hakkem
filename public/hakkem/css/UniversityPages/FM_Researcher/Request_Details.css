@@ -21,6 +21,7 @@ body {
 /* ✅ إعادة تنسيق البوكس العلوي (Request Details) */
 .page-header {
     margin-top: 120px;
+    margin-left: 230px;
     background: white;
     padding: 15px 20px;
     border-radius: 10px;
@@ -30,7 +31,7 @@ body {
     text-align: left;
     font-size: 14px;
     font-weight: normal;
-    margin-bottom: 220px;
+    /* margin:auto; */
 }
 .request-info {
     display: flex;
@@ -81,7 +82,7 @@ body {
 
 /* ✅ ضبط الجدول بحيث يتناسق مع البوكس العلوي */
 .content {
-    margin-top: 280px;
+    margin-top: 250px;
     width: 100%;
     max-width: 1100px;
     background: white;

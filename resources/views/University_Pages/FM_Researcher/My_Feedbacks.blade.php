@@ -17,41 +17,29 @@
       @include('include.res-sidebar')
 
       <main class="content">
-        <div class="filter">
-          <button class="active">All</button>
-          <button>Promotion Requests</button>
-          <button>Publish Requests</button>
-          <button>Review Requests</button>
-        </div>
-
         <table>
           <thead>
             <tr>
               <th>Request Number</th>
-              <th>Price</th>
               <th>Request Type</th>
-              <th>Start Date</th>
-              <th>End Date</th>
-              <th>Actions</th>
+              <th>Show Feedback</th>
             </tr>
           </thead>
 
           <tbody>
             <tr>
               <td>---</td>
-              <td>--- SAR</td>
               <td>---</td>
-              <td>---</td>
-              <td>---</td>
+
               <td>
                 <div class="action-buttons">
-                  <a href="{{ route('researcher-account.My_Requests.Request_Details')}}">
-                  <button class="details">Details</button>
+                  <a href="{{-- route('researcher-account.My_Requests.Request_Details')--}}">
+                  <button class="details"><img src="{{ asset('hakkem/images/University/pdf icon.png') }}" alt="PDF"></button>
                   </a>
-                  <button class="status completed">Completed</button>
                 </div>
               </td>
             </tr>
+
           </tbody>
         </table>
       </main>

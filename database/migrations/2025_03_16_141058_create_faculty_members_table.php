@@ -13,19 +13,20 @@ return new class extends Migration
     {
         Schema::create('faculty_members', function (Blueprint $table) {
             $table->id();
-            $table->string('pass')->nullable(false);
+            $table->string('password')->nullable(false);
             $table->string('f_name')->nullable(false);
             $table->string('l_name')->nullable(false);
-            $table->integer('phone')->nullable(false);
+            $table->string('email')->unique();
+            
+            $table->varchar('phone')->nullable();
             $table->string('department')->nullable();
             $table->unsignedBigInteger('IBAN')->unique()->nullable();
-            $table->string('bachelors')->nullable(false);
+            $table->string('bachelors')->nullable();
             $table->string('masters')->nullable();
             $table->string('phd')->nullable();
-            $table->string('Academic_quali')->nullable(false);
-            $table->string('email')->unique();
-            $table->string('rank')->nullable(false);
-            $table->string('User_Type')->nullable(false);
+            $table->string('Academic_quali')->nullable();
+            $table->string('rank')->nullable();
+            $table->string('User_Type')->nullable();
 
             $table->float('Feedback_quality')->nullable();
             $table->float('accuracy')->nullable();

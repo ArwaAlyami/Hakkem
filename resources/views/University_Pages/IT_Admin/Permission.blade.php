@@ -49,21 +49,60 @@
                 </div>
 
                 <div class="form-item">
-                <label>Password:</label>
-                <input type="password" name="password" value="{{$faculty_member->password}}">
+                <label>Phone:</label>
+                <input type="text" name="phone" value="{{$faculty_member->phone}}">
                 </div>
             </div>
 
 
             <div class="form-group">
                 <div class="form-item">
+                    <label>Password:</label>
+                    <input type="password" name="password" value="{{$faculty_member->password}}">
+                </div>
+
+
+                <div class="form-item">
                 <label>Department:</label>
                 <input type="text" name="department" value="{{$faculty_member->department}}">
                 </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="form-item">
+                    <label>Academic Rank:</label>
+                    <input type="text" name="rank" value="{{$faculty_member->rank}}">
+                </div>
 
                 <div class="form-item">
-                <label>Academic Rank:</label>
-                <input type="text" name="rank" value="{{$faculty_member->rank}}">
+                    <label>Academic Qualification:</label>
+                    <input type="text" name="Academic_quali" value="{{$faculty_member->Academic_quali}}">
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <div class="form-item">
+                    <label>Bachelor's Specialization:</label>
+                    <input type="text" name="bachelors" value="{{$faculty_member->bachelors}}">
+                </div>
+
+                <div class="form-item">
+                <label>Master’s Specialization:</label>
+                <input type="text" name="masters" value="{{$faculty_member->masters}}">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="form-item">
+                    <label>Doctorate’s Specialization:</label>
+                    <input type="text" name="phd" value="{{$faculty_member->phd}}">
+                </div>
+
+                <div class="form-item">
+                    <label>IBAN:</label>
+                    <input type="text" name="IBAN" value="{{$faculty_member->IBAN}}">
                 </div>
             </div>
 
@@ -71,6 +110,7 @@
                 <div class="form-item">
                 <label>Member Role:</label>
                 <select name="role">
+
                     <option value="">Select</option>
 
                     @foreach($roles as $role)
@@ -88,6 +128,7 @@
             <div class="permission-buttons">
                 <button class="modify-btn" type="submit">Modify</button>
             </div>
+
             </form>
 
         </div>

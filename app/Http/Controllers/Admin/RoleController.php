@@ -10,12 +10,17 @@ use Spatie\Permission\Models\Role;
 class RoleController extends Controller
 {
 
+    public function __construct(){
+        $this->middleware('permission:role_view')->only('index');
+        $this->middleware('permission:role_create')->only('create','store');
+        $this->middleware('permission:role_show')->only('show');
+        $this->middleware('permission:role_delete')->only('delete');        
+    }
     public function index(Request $request)
     {
         $roles = Role::paginate(8);
         return view ('Main_Pages.Roles.index',compact('roles'));
     }
-
 
 
     public function create()

@@ -35,6 +35,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                    
                     <!-- البحث الأول -->
                     @foreach ($researches as $key=>$research)
                     <tr>
@@ -49,21 +50,26 @@
                                     See More <span class="arrow">&#9660;</span>
                                 </button>
 
+                                @can('research_file_show')
                                 <a href="{{route('researcher-account.my-researches.show',['id'=>$research->id]) }}" class="pdf-link">
                                     <button class="download">
                                         <img src="{{ asset('hakkem/images/University/pdf icon.png') }}" alt="PDF">
                                     </button>
                                 </a>
+                                @endcan
 
                                 <button class="pdf-toggle" onclick="togglePDF(this)" data-visible="true">
                                     <img src="{{ asset('hakkem/images/University/eye-open.png') }}" alt="Toggle PDF">
                                 </button>
 
+                                @can('research_delete')               
                                 <form action="{{route('researcher-account.my-researches.delete',$research->id)}}" method="post">
                                     {{ csrf_field() }}
                                     {{ method_field('delete') }}
                                 <button type="submit" class="see-more"></i>Delete</button>
                                 </form>
+                                @endcan 
+
                             </div>
                         </td>
                     </tr>
@@ -88,10 +94,12 @@
  
 
             <!-- زر إضافة بحث جديد -->
+            @can('research_add')
            <a href="{{ route('researcher-account.my-researches.create') }}">
             <button class="add-research">
                 <img src="{{ asset('hakkem/images/University/Add icon.png') }}" alt="Add">Add New Research</button>
             </a>
+            @endcan
 
             </main>
             <script>
