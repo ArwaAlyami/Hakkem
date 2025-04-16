@@ -30,11 +30,14 @@ class PromotionController extends Controller{
     }
 
 
-    public function accept($id){
+    public function accept(Request $request,$id){
 
-    $request = PromotionRequest::findOrFail($id);
-    $request->status = 'accepted';
-    $request->save();
+    $PromotionRequest = PromotionRequest::where('research_id',$request->id);
+    $PromotionRequest->update([
+        'fm_id' => $request->user_id,
+        'state' => 'accepted',
+    ]);
+    	
 
     return redirect()->back()->with('success', 'Request accepted successfully.');
     }

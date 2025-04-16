@@ -43,6 +43,9 @@
           <button type="submit" class="signup-btn" onclick="redirectToNextPage()">
             SIGN UP
           </button>
+
+          <p class="signup-text">Already have an account?<a class="link" href="{{route('admin.SignIn-get')}}"> <strong>Sign In</strong> </a></p>
+
         </form>
       </div>
     </div>

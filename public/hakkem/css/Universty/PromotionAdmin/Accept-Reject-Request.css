@@ -5,6 +5,24 @@ body {
     padding: 0;
 }
 
+.action-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin: 20px;
+  }
+
+  select {
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    background-color: #fff;
+    /* appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none; */
+  }
+
 .contain {
     width: 90%;
     height: 45px;

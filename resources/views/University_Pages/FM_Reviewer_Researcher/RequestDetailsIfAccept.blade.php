@@ -24,9 +24,11 @@
         <div class="request-info">
             <!-- صورة شعار الجامعة -->
             <img src="{{ asset('hakkem/images/University/Najran_University.png') }}" alt="University Logo" width="50" height="50">
-                <span>Number of researches: <strong>5 Researches</strong></span>
-                <span>Specialization: <strong>Computer Information Systems</strong></span>
-                <span>Submission Date: <strong>12-2-2025</strong></span>
+            @foreach ($requests as $request)
+                <span>Request ID: <strong>{{$request->id}}</strong></span>
+                <span>Specialization: <strong>{{$request->research->field}}</strong></span>
+                {{-- <span>Submission Date: <strong>12-2-2025</strong></span> --}}
+            @endforeach
             </div>
         </div>
     </header>
@@ -39,24 +41,24 @@
                 <tr>
                     <th>Research Number</th>
                     <th>Research Title</th>
-                    <th>Research Field</th>
-                    <th>Price</th>
+                    {{-- <th>Price</th> --}}
                     <th>Full Research</th>
                 </tr>
             </thead>
             <tbody>
+               @foreach ($requests as $request)
+               
                
                 <tr>
-                    <td>1</td>
-                    <td>AAA</td>
-                    <td>AAA</td>
-                    <td>AAA SAR</td>
+                    <td>{{$request->id}}</td>
+                    <td>{{$request->research->title}}</td>
+                    {{-- <td>--- SAR</td> --}}
                     <td class="actions">
                         <button class="pdf-btn">
-                            <img src="{{ asset('hakkem/images/University/pdf icon.png') }}" alt="PDF">AAA
+                            <img src="{{ asset('hakkem/images/University/pdf icon.png') }}" alt="PDF">
                         </button>                         
                         
-                        <a href="{{ route('RevResAccount.ReviewForm')}}">
+                        <a href="{{ route('RevResAccount.ReviewForm',$request->id)}}">
                         <button class="Review">Review</button>
                         </a>
 
@@ -68,16 +70,16 @@
                 <tr class="research-details">
                     <td colspan="4">
                         <div class="details-box">
-                            <div class="sub-box"><strong>Research Field:</strong>AAA</div>
-                            <div class="sub-box"><strong>Keywords:</strong>AAA</div>
+                            <div class="sub-box"><strong>Research Field:</strong>{{$request->research->field}}</div>
+                            <div class="sub-box"><strong>Keywords:</strong>{{$request->research->keywords}}</div>
                             <div class="sub-box">
                                 <strong>Abstract:</strong>
-                                <p>AAA</p>
+                                <p>{{$request->research->abstract}}</p>
                             </div>
                         </div>
                     </td>
                 </tr>
-  
+                @endforeach
             </tbody>
         </table>
         <div class="table-footer">

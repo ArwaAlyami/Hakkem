@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin\FM_Reviewer_Researcher;
 
 use App\Http\Controllers\Controller;
+use App\Models\PromotionRequest;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -48,7 +49,8 @@ class RevResController extends Controller
 
     public function ReceivedRequests()
     {
-        return view('University_Pages.FM_Reviewer_Researcher.Received_Requests');
+        $requests =PromotionRequest::get();
+        return view('University_Pages.FM_Reviewer_Researcher.Received_Requests',compact('requests'));
 
     }
 

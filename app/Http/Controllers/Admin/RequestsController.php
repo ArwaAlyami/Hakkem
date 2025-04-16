@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\PromotionRequest;
 use Illuminate\Http\Request;
 use App\Models\Research;
 
@@ -17,11 +18,18 @@ class RequestsController extends Controller
     // ************* Promotion Request **************//
     public function MakePromotionRequest()
     {
-        return view('Main_Pages.Requests_Updated.PromotionRequest.Promotion-Request');
+        $researchs =Research::get();
+        return view('Main_Pages.Requests_Updated.PromotionRequest.Promotion-Request',compact('researchs'));
     }
-    public function promotionStore()
+    public function promotionStore(Request $request)
     {
-
+        foreach($request->research_ids as $research_id){
+            PromotionRequest::create([
+                'research_id'=>$research_id,
+                'state'=>'pending'
+            ]);
+        }
+        return redirect()->back();
     }
 
     // ************* Review Request **************//
