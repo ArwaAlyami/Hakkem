@@ -25,25 +25,25 @@ use App\Http\Controllers\Reviewer\ReviewFormController;
 
 // ******* Main Pages Routes *********** //
 
-Route::get('/',[MainPagesController::class,'GetStarted'])->name('Get_Started');
+Route::get('/', [MainPagesController::class, 'GetStarted'])->name('Get_Started');
 
-Route::get('About_Hakkem',[MainPagesController::class,'AboutUs'])->name('About_Hakkem');
-Route::get('User_Type',[MainPagesController::class, 'UserType'])->name('User_Type');
+Route::get('About_Hakkem', [MainPagesController::class, 'AboutUs'])->name('About_Hakkem');
+Route::get('User_Type', [MainPagesController::class, 'UserType'])->name('User_Type');
 
-Route::get('SignOut',[ITAdminController::class,'SignOut'])->name('SignOut');
+Route::get('SignOut', [ITAdminController::class, 'SignOut'])->name('SignOut');
 
 // ************ SignIn SignUp Pages ******************* //
 
 Route::prefix('Auth')->as('admin.')->group(function () {
-    Route::get('SignIn',[AuthController::class,'MainSignInForm'])->name('SignIn-get');
-    Route::post('SignIn-post',[AuthController::class,'authenticate'])->name(name: 'SignIn');
-    Route::post('register',[AuthController::class,'register'])->name(name: 'register');
-    Route::get('SignUp',[AuthController::class,'MainSignUpForm'])->name('SignUp');
-    Route::get('me',[AuthController::class,'me'])->middleware(middleware: 'Auth');
+    Route::get('SignIn', [AuthController::class, 'MainSignInForm'])->name('SignIn-get');
+    Route::post('SignIn-post', [AuthController::class, 'authenticate'])->name(name: 'SignIn');
+    Route::post('register', [AuthController::class, 'register'])->name(name: 'register');
+    Route::get('SignUp', [AuthController::class, 'MainSignUpForm'])->name('SignUp');
+    Route::get('me', [AuthController::class, 'me'])->middleware(middleware: 'Auth');
 });
 
 Route::prefix('/')->middleware('auth')->as('Main_Pages.')->group(function () {
-    Route::get('home',[HomeController::class,'index'])->name('Home');
+    Route::get('home', [HomeController::class, 'index'])->name('Home');
 });
 
 
@@ -72,11 +72,11 @@ Route::prefix('Requests')->middleware('auth')->as('Requests.')->group(function (
 
 
     Route::prefix('ReviewRequest')->as('ReviewRequest.')->group(function () {
-        Route::get('Review_Options',[RequestsController::class,'Review_Options'])->name('ReviewOptions');
-        Route::get('Ind_Reviewer_Options',[RequestsController::class,'Ind_Reviewer_Options'])->name('IndReviewerOptions');
-        Route::get('AI_Review',[RequestsController::class,'AI_Review'])->name('AIReview');
-        Route::get('Through_Offers_Review',[RequestsController::class,'Through_Offers_Review'])->name('ThroughOffersReview');
-        Route::get('Through_Ind_Reviewer',[RequestsController::class,'Through_Ind_Reviewer'])->name('ThroughIndReviewer');
+        Route::get('Review_Options', [RequestsController::class, 'Review_Options'])->name('ReviewOptions');
+        Route::get('Ind_Reviewer_Options', [RequestsController::class, 'Ind_Reviewer_Options'])->name('IndReviewerOptions');
+        Route::get('AI_Review', [RequestsController::class, 'AI_Review'])->name('AIReview');
+        Route::get('Through_Offers_Review', [RequestsController::class, 'Through_Offers_Review'])->name('ThroughOffersReview');
+        Route::get('Through_Ind_Reviewer', [RequestsController::class, 'Through_Ind_Reviewer'])->name('ThroughIndReviewer');
     });
 
 
@@ -100,38 +100,38 @@ Route::prefix('ITAdminAccount')->middleware('auth')->as('ITAdminAccount.')->grou
     // *********** Profile Routers ********** //
 
     Route::prefix('My_Profile')->as('My_Profile.')->group(function () {
-        Route::get('Profile',[ITAdminController::class,'index'])->name('Profile');
-        Route::post('Profile-edit',[ITAdminController::class,'edit'])->name('Profile-edit');
+        Route::get('Profile', [ITAdminController::class, 'index'])->name('Profile');
+        Route::post('Profile-edit', [ITAdminController::class, 'edit'])->name('Profile-edit');
     });
 
     // *********** Manage Users Routers ********** //
-    Route::prefix('manage-users')->as('manage-users.')->group(function(){
-        Route::get('index', [ITAdminController::class,'ManageUsers'])->name('index');
-        Route::get('create', [ITAdminController::class,'create'])->name('create');
-        Route::post('store', [ITAdminController::class,'store'])->name('store');
-        Route::delete('delete/{id}', [ITAdminController::class,'delete'])->name('delete');
+    Route::prefix('manage-users')->as('manage-users.')->group(function () {
+        Route::get('index', [ITAdminController::class, 'ManageUsers'])->name('index');
+        Route::get('create', [ITAdminController::class, 'create'])->name('create');
+        Route::post('store', [ITAdminController::class, 'store'])->name('store');
+        Route::delete('delete/{id}', [ITAdminController::class, 'delete'])->name('delete');
 
         // *********** Users And Their Permissions **************//
-        Route::get('UsersAndPermissions', [ITAdminController::class,'UsersAndPermissions'])->name('UsersAndPermissions');
+        Route::get('UsersAndPermissions', [ITAdminController::class, 'UsersAndPermissions'])->name('UsersAndPermissions');
 
 
         // ********** Edit members info Routers **************//
-        Route::get('edit/{id}', [ITAdminController::class,'edit'])->name('edit');
-        Route::put('/{id}', [ITAdminController::class,'update'])->name('update');
-    });  
+        Route::get('edit/{id}', [ITAdminController::class, 'edit'])->name('edit');
+        Route::put('/{id}', [ITAdminController::class, 'update'])->name('update');
+    });
 });
 
-    // *********** Roles Routers ********** //
+// *********** Roles Routers ********** //
 
-    Route::prefix('Roles')->middleware('auth')->as('roles.')->group(function () {
+Route::prefix('Roles')->middleware('auth')->as('roles.')->group(function () {
 
-        Route::get('index',[RoleController::class,'index'])->name('index');
-        Route::get('Role-Permission',[RoleController::class,'create'])->name('create');
-        Route::post('Assign-Permission',[RoleController::class,'store'])->name('store');
-        Route::get('show/{id}',[RoleController::class,'show'])->name('show');
-        Route::delete('delete/{id}',[RoleController::class,'delete'])->name('delete');
+    Route::get('index', [RoleController::class, 'index'])->name('index');
+    Route::get('Role-Permission', [RoleController::class, 'create'])->name('create');
+    Route::post('Assign-Permission', [RoleController::class, 'store'])->name('store');
+    Route::get('show/{id}', [RoleController::class, 'show'])->name('show');
+    Route::delete('delete/{id}', [RoleController::class, 'delete'])->name('delete');
 
-    });
+});
 
 
 
@@ -156,10 +156,10 @@ Route::prefix('ResearcherAccount')->middleware('auth')->as('researcher-account.'
     // ** My Requests Routers ** //
     Route::prefix('My_Requests')->as('My_Requests.')->group(function () {
 
-        Route::get('Requests',[MyRequestsController::class,'index'])->name('Requests');
+        Route::get('Requests', [MyRequestsController::class, 'index'])->name('Requests');
 
-    // ***********  Request Details Routers ********** //
-        Route::get('Request_Details',[MyRequestsController::class,'show'])->name('Request_Details');
+        // ***********  Request Details Routers ********** //
+        Route::get('Request_Details', [MyRequestsController::class, 'show'])->name('Request_Details');
     });
 
     // **  Request Details Routers **//
@@ -292,7 +292,7 @@ Route::prefix('RevResAccount')->as('RevResAccount.')->group(function () {
 //     Route::post('/reviewer/profile/update', [ReviewerProfileController::class, 'update'])->name('reviewer.profile.update');
 
 
-    
+
 // });
 
 
@@ -302,4 +302,38 @@ Route::prefix('RevResAccount')->as('RevResAccount.')->group(function () {
 
 
 
+// ************************************ Journals Routers ******************************************* //
 
+// ************************************ Editor in Chief Routers ******************************************* //
+
+Route::get('/Editors-profile', function () {
+    return view('Journals\Editor in Chief\MyProfile');
+});
+
+Route::get('/publish-reqs', function () {
+    return view('Journals\Editor in Chief\Publish_Requests');
+});
+
+Route::get('/Accepted', function () {
+    return view('Journals\Editor in Chief\Accepted-Request');
+});
+
+Route::get('/view-reqs', function () {
+    return view('Journals\Editor in Chief\Accept-Reject-Request');
+});
+
+Route::get('/choose-ed', function () {
+    return view('Journals\Editor in Chief\Choose-Ed');
+});
+// ************************************ Associated Editor Routers ******************************************* //
+Route::get('/Associated-ed-profile', function () {
+    return view('University\Researcher_Reviewer\AI_and_Healthcare');
+});
+
+Route::get('/Feedback', function () {
+    return view('University\Researcher_Reviewer\AI_and_Healthcare');
+});
+
+Route::get('/Feedback', function () {
+    return view('University\Researcher_Reviewer\AI_and_Healthcare');
+});
