@@ -325,15 +325,19 @@ Route::get('/view-reqs', function () {
 Route::get('/choose-ed', function () {
     return view('Journals\Editor in Chief\Choose-Ed');
 });
+
+Route::get('/feedback', function () {
+    return view('Journals\Editor in Chief\View-Feedback');
+});
 // ************************************ Associated Editor Routers ******************************************* //
 Route::get('/Associated-ed-profile', function () {
     return view('University\Researcher_Reviewer\AI_and_Healthcare');
 });
 
-Route::get('/Feedback', function () {
+Route::get('/rev-list', function () {
     return view('University\Researcher_Reviewer\AI_and_Healthcare');
 });
 
-Route::get('/Feedback', function () {
+Route::get('/list-of-revs', function () {
     return view('University\Researcher_Reviewer\AI_and_Healthcare');
 });
