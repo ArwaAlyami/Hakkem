@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Request Details</title>
+    <title>Send Request Feedback</title>
     <link rel="stylesheet" href="{{ asset('hakkem/css/Journals/Associated-Ed/Accepted-Request.css') }}">
     <script src="{{ asset('hakkem\javascript\University\Promotion_Admin\overlay.js')}}" defer></script>
 
