@@ -331,13 +331,29 @@ Route::get('/feedback', function () {
 });
 // ************************************ Associated Editor Routers ******************************************* //
 Route::get('/Associated-ed-profile', function () {
-    return view('University\Researcher_Reviewer\AI_and_Healthcare');
+    return view('Journals\Associated Editor\MyProfile');
 });
 
 Route::get('/rev-list', function () {
-    return view('University\Researcher_Reviewer\AI_and_Healthcare');
+    return view('Journals\Associated Editor\Reviewers_Lists');
 });
 
 Route::get('/list-of-revs', function () {
-    return view('University\Researcher_Reviewer\AI_and_Healthcare');
+    return view('Journals\Associated Editor\List-Of-Reviewers');
+});
+
+Route::get('/publish-req', function () {
+    return view('Journals\Associated Editor\Publish_Requests');
+});
+
+Route::get('/req-detail', function () {
+    return view('Journals\Associated Editor\Accepted-Request');
+});
+
+Route::get('/send-feed', function () {
+    return view('Journals\Associated Editor\Send-Feedback');
+});
+
+Route::get('/Journals', function () {
+    return view('Journals\Journals');
 });
