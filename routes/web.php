@@ -357,3 +357,9 @@ Route::get('/send-feed', function () {
 Route::get('/Journals', function () {
     return view('Journals\Journals');
 });
+
+
+// ************************************ Independent Routers ******************************************* //
+Route::get('/Chats', function () {
+    return view('Independent\Chat');
+});
