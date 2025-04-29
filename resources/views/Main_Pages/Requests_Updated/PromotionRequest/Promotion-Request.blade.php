@@ -50,7 +50,9 @@
                     </a>
 
                 
-                    <button type="submit" class="next"><a href="{{ route('Main_Pages.Home')}}">Submit</a></button>
+                    <button type="submit" class="next">Submit</button>
+
+                    {{-- <a href="{{ route('Main_Pages.Home')}}"><button class="next">Back</button></a> --}}
                 
                 </div>
             </div>

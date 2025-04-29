@@ -28,7 +28,10 @@ use App\Http\Controllers\Reviewer\ReviewFormController;
 Route::get('/',[MainPagesController::class,'GetStarted'])->name('Get_Started');
 
 Route::get('About_Hakkem',[MainPagesController::class,'AboutUs'])->name('About_Hakkem');
+
+Route::get('Organization_Type',[MainPagesController::class,'OrgType'])->name('OrgType');
 Route::get('User_Type',[MainPagesController::class, 'UserType'])->name('User_Type');
+Route::get('Jounal_User_Type',[MainPagesController::class, 'JournalUserType'])->name('JournalUserType');
 
 Route::get('SignOut',[ITAdminController::class,'SignOut'])->name('SignOut');
 
