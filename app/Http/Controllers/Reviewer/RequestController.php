@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Reviewer;
 
 use App\Http\Controllers\Controller;
+use App\Models\PromotionRequest;
 use Illuminate\Container\Attributes\Auth;
 use Illuminate\Http\Request;
 
@@ -22,9 +23,10 @@ class RequestController extends Controller
 
         return view('University_Pages.FM_Reviewer_Researcher.My_Requests', compact('requests', 'type'));
     }
-    public function show($id) {
-        $request = Request::with('researches')->findOrFail($id);
-        return view('University_Pages.FM_Reviewer.Request_Details', compact('request'));
+    public function show() {
+        $requests = PromotionRequest::with('research')->where('state','accepted')->get();
+
+        return view('University_Pages.FM_Reviewer_Researcher.RequestDetailsIfAccept', compact('requests'));
     }
 
     public function accept($id) {

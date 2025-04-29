@@ -18,15 +18,11 @@
         </div>
   </header>
         <h1>Welcome To HAKKEM ...</h1>
-        <p>Select the User type ...</p>
+        <p>Choose your organizationn type ...</p>
   <!-- نوع المستخدم -->
 <div class="user-type-container">
-
-    <a href="{{ route('admin.SignIn-get',['type'=>'it_admin'])}}" class="user-type-btn" >IT Admin</a>
-    <a href="{{ route('admin.SignIn-get',['type'=>'promotion_admin'])}}" class="user-type-btn" >Promotion Admin</a>
-    <a href="{{ route('admin.SignIn-get',['type'=>'researcher'])}}" class="user-type-btn" >Researcher</a>
-    <a href="{{ route('admin.SignIn-get',['type'=>'reviewer'])}}" class="user-type-btn" >Reviewer</a>
-
+    <a href="{{ route('User_Type')}}" class="user-type-btn">University</a>
+    <a href="{{ route('JournalUserType')}}" class="user-type-btn">Journal</a>
 </div>
 </body>
 </html>

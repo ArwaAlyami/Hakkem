@@ -13,27 +13,34 @@
         <div class="container">
             <div class="progress-bar">
                 <div class="step preactive">Step 1</div>
-                <div class="step">Step 2</div>
+                {{-- <div class="step">Step 2</div> --}}
             </div>
 
             <!---------------------------- 
                       Step 1 
           ----------------------------->
+          <form action="{{route('Requests.PromotionRequest.store')}}" method="post" enctype="multipart/form-data">
+            {{ csrf_field() }}
+            {{ method_field('post') }}
+
+            
             <div class="form-step active">
                 <div class="content">
                     <h2>Please choose the researches:</h2>
                     <div class="research-list">
                         <!-- Research 1 -->
+                        @foreach($researchs as $research)
                         <label class="Res-name">
                             <div class="col">
-                                <input type="checkbox" class="Res-checkbox" />
+                                <input type="checkbox" name="research_ids[]" value="{{$research->id}}" class="Res-checkbox" />
                             </div>
                             <div class="col">
                                 <div class="Res-text" id="research-name">
-                                    Data Science
+                                    {{$research->title}}
                                 </div>
                             </div>
                         </label>
+                        @endforeach
                     </div>
                 </div>
                 <div class="buttons">
@@ -42,14 +49,18 @@
                     <button class="cancel">Cancel</button>
                     </a>
 
-                    <button class="next">Next</button>
+                
+                    <button type="submit" class="next">Submit</button>
+
+                    {{-- <a href="{{ route('Main_Pages.Home')}}"><button class="next">Back</button></a> --}}
+                
                 </div>
             </div>
-
+          </form>
             <!---------------------------- 
                       Step 2 
           ----------------------------->
-            <div class="form-step">
+            {{-- <div class="form-step">
                 <div class="content">
                     <h2>Request Details:</h2>
                     <!-- جزئية البيانات الشخصية -->
@@ -107,7 +118,7 @@
                     </a>
                     
                 </div>
-            </div>
+            </div> --}}
         </div>
     </div>
 

@@ -20,7 +20,7 @@
         @can('receive_request')
         <li>
             <img src="{{ asset('hakkem/images/image-requests-icon.png') }}" alt="Requests">
-            <a href="{{-- route('RevResAccount.ReceivedRequests')--}}">Received Requests</a>
+            <a href="{{ route('RevResAccount.ReceivedRequests')}}">Received Requests</a>
         </li>
         @endcan
 

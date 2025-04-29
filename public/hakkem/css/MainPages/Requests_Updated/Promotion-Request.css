@@ -3,6 +3,11 @@ body {
     font-family: "Inria Sans";
 }
 
+a{
+    color: #ffffff;
+    text-decoration: none;
+}
+
 * {
     box-sizing: border-box;
     line-height: normal;

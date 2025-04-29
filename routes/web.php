@@ -27,8 +27,11 @@ use App\Http\Controllers\Reviewer\ReviewFormController;
 
 Route::get('/', [MainPagesController::class, 'GetStarted'])->name('Get_Started');
 
-Route::get('About_Hakkem', [MainPagesController::class, 'AboutUs'])->name('About_Hakkem');
-Route::get('User_Type', [MainPagesController::class, 'UserType'])->name('User_Type');
+Route::get('About_Hakkem',[MainPagesController::class,'AboutUs'])->name('About_Hakkem');
+
+Route::get('Organization_Type',[MainPagesController::class,'OrgType'])->name('OrgType');
+Route::get('User_Type',[MainPagesController::class, 'UserType'])->name('User_Type');
+Route::get('Jounal_User_Type',[MainPagesController::class, 'JournalUserType'])->name('JournalUserType');
 
 Route::get('SignOut', [ITAdminController::class, 'SignOut'])->name('SignOut');
 
@@ -189,7 +192,7 @@ Route::prefix('PromotionAccount')->middleware('auth')->as('PromotionAccount.')->
 
     // ** Requests Routers ** //
     Route::get('PromotionRequests', [PromotionAdminController::class, 'PromotionRequests'])->name('PromotionRequests');
-    Route::get('AcceptOrReject', [PromotionAdminController::class, 'AcceptOrReject'])->name('AcceptOrReject');
+    Route::get('AcceptOrReject/{id}', [PromotionAdminController::class, 'AcceptOrReject'])->name('AcceptOrReject');
     Route::get('AcceptedRequest', [PromotionAdminController::class, 'AcceptedRequest'])->name('AcceptedRequest');
 
 
@@ -206,7 +209,7 @@ Route::prefix('PromotionAccount')->middleware('auth')->as('PromotionAccount.')->
 
 // Route::get('/promotion/request/{id}', [PromotionController::class, 'showRequestDetails'])->name('promotion.request.details');
 
-// Route::post('/promotion/request/{id}/accept', [PromotionController::class, 'accept'])->name('promotion.request.accept');
+Route::post('/promotion/request/{id}/accept', [PromotionController::class, 'accept'])->name('promotion.request.accept');
 
 // Route::post('/promotion/request/{id}/reject', [PromotionController::class, 'reject'])->name('promotion.request.reject');
 
@@ -242,7 +245,7 @@ Route::prefix('RevResAccount')->as('RevResAccount.')->group(function () {
     // ** Received Requests Routers ** //
     Route::get('ReceivedRequests', [RevResController::class, 'ReceivedRequests'])->name('ReceivedRequests');
     Route::get('RequestDetailsIfAccept', [RevResController::class, 'RequestDetailsIfAccept'])->name('RequestDetailsIfAccept');
-    Route::get('ReviewForm', [RevResController::class, 'ReviewForm'])->name('ReviewForm');
+    Route::get('ReviewForm/{id}', [RevResController::class, 'ReviewForm'])->name('ReviewForm');
     Route::get('SubmitFeedback', [RevResController::class, 'SubmitFeedback'])->name('SubmitFeedback');
 
     Route::get('ReviewRequestDetails', [RevResController::class, 'ReviewRequestDetails'])->name('ReviewRequestDetails');
@@ -261,7 +264,7 @@ Route::prefix('RevResAccount')->as('RevResAccount.')->group(function () {
 
 
 // //الطلبات
-// Route::get('/reviewer/requests/{id}', [RequestController::class, 'show'])->name('reviewer.requests.show');
+Route::get('/reviewer/requests', [RequestController::class, 'show'])->name('reviewer.requests.show');
 
 // // افبل او ارفض
 // Route::post('/reviewer/requests/{id}/accept', [RequestController::class, 'accept'])->name('reviewer.requests.accept');

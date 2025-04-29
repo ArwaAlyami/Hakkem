@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\Admin\PromotionAdmin;
 
 use App\Http\Controllers\Controller;
+use App\Models\FacultyMember;
+use App\Models\PromotionRequest;
+use App\Models\Research;
 use Illuminate\Http\Request;
 
 class PromotionAdminController extends Controller
@@ -21,12 +24,17 @@ class PromotionAdminController extends Controller
 
     public function PromotionRequests()
     {
-        return view('University_Pages.Promotion_Admin.PromotionRequests');
+        $promotionRequests = PromotionRequest::with('research')->get();
+        return view('University_Pages.Promotion_Admin.PromotionRequests',compact('promotionRequests'));
     }
 
-    public function AcceptOrReject()
+    public function AcceptOrReject($id)
     {
-        return view('University_Pages.Promotion_Admin.AcceptOrRejectRequest');
+        $research = Research::whereId($id)->first();
+        $users = FacultyMember::whereHas('roles',function($q){
+            $q->where('name','Reviewer');
+        })->get();
+        return view('University_Pages.Promotion_Admin.AcceptOrRejectRequest',compact('research','users'));
 
     }
 
