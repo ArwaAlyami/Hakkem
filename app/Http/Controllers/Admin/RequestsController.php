@@ -18,7 +18,7 @@ class RequestsController extends Controller
     // ************* Promotion Request **************//
     public function MakePromotionRequest()
     {
-        $researchs =Research::get();
+        $researchs =Research::with('media')->get();
         return view('Main_Pages.Requests_Updated.PromotionRequest.Promotion-Request',compact('researchs'));
     }
     public function promotionStore(Request $request)
@@ -29,7 +29,7 @@ class RequestsController extends Controller
                 'state'=>'pending'
             ]);
         }
-        return redirect()->back();
+        return redirect()->route('Main_Pages.Home');
     }
 
     // ************* Review Request **************//

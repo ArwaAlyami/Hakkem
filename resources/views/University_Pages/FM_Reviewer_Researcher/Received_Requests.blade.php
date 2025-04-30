@@ -29,7 +29,7 @@
                         {{ ++$key }}</span>
                 </div>
 
-                <a href="{{ route('reviewer.requests.show')}}">
+                <a href="{{ route('reviewer.requests.show',$req->id)}}">
                     <button class="details"> Details </button>
                 </a>
             </div>

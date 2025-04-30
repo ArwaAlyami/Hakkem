@@ -5,9 +5,12 @@
     <meta charset="UTF-8" />
     <title>Chat Interface</title>
     <link rel="stylesheet" href="{{ asset('hakkem/css/Independent/Chat.css') }}" />
+    <link rel="stylesheet" href="{{ asset('hakkem/css/Header-Footer.css') }}" />
+
     <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 
+@include('include.header')
 <body>
     <div class="chat-container">
         <!-- Sidebar -->
@@ -69,6 +72,8 @@
 
         </div>
     </div>
+
+    @include('include.footer')
 
     <script src="{{asset('/public/hakkem/javascript/Chat.js')}}"></script>
 </body>

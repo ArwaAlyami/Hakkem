@@ -12,8 +12,8 @@ class RevResController extends Controller
 
     public function Profile()
     {
-        $reviewer = Auth::user();
-        return view('University_Pages.FM_Reviewer_Researcher.My_Profile', compact('reviewer'));
+        $user = Auth::user();
+        return view('University_Pages.FM_Reviewer_Researcher.My_Profile', compact('user'));
     }
 
     public function ProfileEdit()

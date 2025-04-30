@@ -95,10 +95,12 @@
 
             <!-- زر إضافة بحث جديد -->
             @can('research_add')
-           <a href="{{ route('researcher-account.my-researches.create') }}">
             <button class="add-research">
-                <img src="{{ asset('hakkem/images/University/Add icon.png') }}" alt="Add">Add New Research</button>
-            </a>
+                <a href="{{ route('researcher-account.my-researches.create') }}">
+                <img src="{{ asset('hakkem/images/University/Add icon.png') }}" alt="Add">
+                Add New Research
+                </a>
+            </button>
             @endcan
 
             </main>

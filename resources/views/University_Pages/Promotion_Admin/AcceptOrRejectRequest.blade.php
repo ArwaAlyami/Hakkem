@@ -34,11 +34,11 @@
                         @csrf
                     
                         {{-- Select user --}}
-                        <label for="user_id"><strong>Select Reviewer to Accept:  </strong></label>
+                        <label for="user_id"><strong>Select Reviewer:  </strong></label>
                         <select name="user_id" id="user_id" required>
-                            <option value="" disabled selected>Choose a user</option>
+                            <option value="" disabled selected>Choose</option>
                             @foreach ($users as $user)
-                                <option value="{{ $user->id }}">{{ $user->f_name .' '. $user->l_name }}</option>
+                                <option value="{{ $user->id }}">{{ $user->f_name .' '. $user->l_name }} - {{$user->department}}</option>
                             @endforeach
                         </select>
                     

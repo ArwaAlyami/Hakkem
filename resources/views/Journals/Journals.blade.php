@@ -5,9 +5,12 @@
     <meta charset="UTF-8">
     <title>Journals</title>
     <link rel="stylesheet" href="{{ asset('hakkem/css/Journals/Journals.css') }}">
+    <link rel="stylesheet" href="{{ asset('hakkem/css/Header-Footer.css') }}" />
+
 </head>
 
 <body>
+    @include('include.header')
 
     <div class="journals-container">
         <div class="search-bar">
@@ -38,6 +41,10 @@
             No journals found.
         </p>
     </div>
+
+    @include('include.footer')
+
+    
     <script src="{{ asset('hakkem/javascript/Journals.js') }}"></script>
 </body>
 

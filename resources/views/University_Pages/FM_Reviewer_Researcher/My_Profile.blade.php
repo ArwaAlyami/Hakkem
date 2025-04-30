@@ -38,25 +38,25 @@
 
             <div class="form-group">
               <label for="first-name">First Name:</label>
-              <input type="text" name="f_name" value="{{$reviewer->f_name}}" disabled>
+              <input type="text" name="f_name" value="{{$user->f_name}}" disabled>
             </div>
 
 
             <div class="form-group">
               <label for="last-name">Last Name:</label>
-              <input type="text" name="l_name" value="{{$reviewer->l_name}}" disabled>
+              <input type="text" name="l_name" value="{{$user->l_name}}" disabled>
             </div>
 
 
             <div class="form-group">
               <label for="email">Email:</label>
-              <input type="email" name="email" value="{{$reviewer->email}}" disabled>
+              <input type="email" name="email" value="{{$user->email}}" disabled>
             </div>
 
 
             <div class="form-group">
               <label for="phone">Phone:</label>
-              <input type="text" name="phone" value="{{$reviewer->phone}}" disabled>
+              <input type="text" name="phone" value="{{$user->phone}}" disabled>
             </div>
 
 
@@ -67,42 +67,42 @@
 
             <div class="form-group">
               <label for="academic-rank">Academic Rank:</label>
-              <input type="text" name="rank" value="{{$reviewer->rank}}" disabled>
+              <input type="text" name="rank" value="{{$user->rank}}" disabled>
             </div>
 
 
             <div class="form-group">
               <label for="qualification">Academic Qualification:</label>
-              <input type="text" name="Academic_quali" value="{{$reviewer->Academic_quali}}" disabled>
+              <input type="text" name="Academic_quali" value="{{$user->Academic_quali}}" disabled>
             </div>
 
 
             <div class="form-group">
               <label for="bachelor-specialization">Bachelors Specialization:</label>
-              <input type="text" name="bachelors" value="{{$reviewer->bachelors}}" disabled>
+              <input type="text" name="bachelors" value="{{$user->bachelors}}" disabled>
             </div>
 
 
             <div class="form-group">
               <label for="master-specialization">Master’s Specialization:</label>
-              <input type="text" name="masters" value="{{$reviewer->masters}}" disabled>
+              <input type="text" name="masters" value="{{$user->masters}}" disabled>
             </div>
 
 
             <div class="form-group">
               <label for="doctorate-specialization">Doctorate’s Specialization:</label>
-              <input type="text" name="phd" value="{{$reviewer->phd}}" disabled>
+              <input type="text" name="phd" value="{{$user->phd}}" disabled>
             </div>
 
 
             <div class="form-group">
               <label for="specialization">Department:</label>
-              <input type="text" name="department" value="{{$reviewer->department}}" disabled>
+              <input type="text" name="department" value="{{$user->department}}" disabled>
             </div>
 
             <div class="form-group">
               <label for="IBAN">IBAN:</label>
-              <input type="text" name="IBAN" disabled value="{{ $reviewer->IBAN }}"/>
+              <input type="text" name="IBAN" disabled value="{{ $user->IBAN }}"/>
             </div>
 
             {{-- <div class="form-actions">
@@ -131,20 +131,20 @@
             
             <div class="rate-item">
               <span>Speed:</span>
-              <div class="stars" data-rating="{{ $reviewer->rate_speed }}"></div>
+              <div class="stars" data-rating="{{ $user->rate_speed }}"></div>
             </div>
 
             <div class="rate-item">
               <span>Quality:</span>
-              <div class="stars" data-rating="{{ $reviewer->rate_quality }}"></div>
+              <div class="stars" data-rating="{{ $user->rate_quality }}"></div>
             </div>
 
             <div class="rate-item">
               <span>Accuracy:</span>
-              <div class="stars" data-rating="{{ $reviewer->rate_accuracy }}"></div>
+              <div class="stars" data-rating="{{ $user->rate_accuracy }}"></div>
             </div>
 
-            <div class="stars" data-rating="{{ $reviewer->rate_speed }}"></div>
+            <div class="stars" data-rating="{{ $user->rate_speed }}"></div>
 
         </div>
 

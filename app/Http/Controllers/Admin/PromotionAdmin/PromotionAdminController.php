@@ -13,8 +13,8 @@ class PromotionAdminController extends Controller
 
     public function Profile()
     {
-        $promotionAdmin = auth()->user();
-        return view('University_Pages.Promotion_Admin.MyProfile',compact('promotionAdmin'));
+        $user = auth()->user();
+        return view('University_Pages.Promotion_Admin.MyProfile',compact('user'));
     }
 
     // public function ProfileEdit()

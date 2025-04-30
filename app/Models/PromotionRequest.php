@@ -4,9 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Research;
-
-class PromotionRequest extends Model
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+class PromotionRequest extends Model  implements HasMedia
 {
+    use InteractsWithMedia;
     protected $fillable = [
         'research_id',
         'state',
@@ -15,6 +17,7 @@ class PromotionRequest extends Model
         'end_date',
         'price',
         'fm_id',
+        'status_rev'
     ];
     public function research()
     {

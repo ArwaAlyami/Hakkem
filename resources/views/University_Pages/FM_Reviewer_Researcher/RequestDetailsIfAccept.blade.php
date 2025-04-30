@@ -24,11 +24,9 @@
         <div class="request-info">
             <!-- صورة شعار الجامعة -->
             <img src="{{ asset('hakkem/images/University/Najran_University.png') }}" alt="University Logo" width="50" height="50">
-            @foreach ($requests as $request)
                 <span>Request ID: <strong>{{$request->id}}</strong></span>
                 <span>Specialization: <strong>{{$request->research->field}}</strong></span>
                 {{-- <span>Submission Date: <strong>12-2-2025</strong></span> --}}
-            @endforeach
             </div>
         </div>
     </header>
@@ -45,20 +43,22 @@
                     <th>Full Research</th>
                 </tr>
             </thead>
-            <tbody>
-               @foreach ($requests as $request)
-               
-               
+            <tbody>               
                 <tr>
                     <td>{{$request->id}}</td>
                     <td>{{$request->research->title}}</td>
                     {{-- <td>--- SAR</td> --}}
                     <td class="actions">
-                        <button class="pdf-btn">
-                            <img src="{{ asset('hakkem/images/University/pdf icon.png') }}" alt="PDF">
-                        </button>                         
-                        
-                        <a href="{{ route('RevResAccount.ReviewForm',$request->id)}}">
+                        @if($request->status_rev == 'accepted')
+                                      
+                        <a href="{{ $request->research->media[0]->original_url }}" target="_blank">
+                            <button class="pdf-btn">
+                                <img src="{{ asset('hakkem/images/University/pdf icon.png') }}" alt="PDF">
+                            </button>
+                        </a>      
+                        @endif
+
+                        <a href="{{ route('RevResAccount.ReviewForm',$request->id)}}" target="_blank">
                         <button class="Review">Review</button>
                         </a>
 
@@ -79,11 +79,36 @@
                         </div>
                     </td>
                 </tr>
-                @endforeach
             </tbody>
         </table>
+        @if($request->status_rev != 'accepted' && $request->status_rev !='rejected')
+
         <div class="table-footer">
-            <button class="send-feedback-btn">Send Feedback</button>
+            <form action="{{ route('reviewer.requests.accept', $request->id) }}" method="POST" style="display:inline;">
+                @csrf
+                <button type="submit" class="accept-btn">Accept Request</button>
+            </form>
+
+            <form action="{{ route('reviewer.requests.reject', $request->id) }}" method="POST" style="display:inline;">
+                @csrf
+                <button type="submit" class="reject-btn">Reject Request</button>
+            </form>    
+        </div>       
+            @endif
+
+        <div class="table-footer">
+
+            <form action="{{ route('reviewer.requests.feedback', $request->id) }}" method="POST" enctype="multipart/form-data" style="display:inline;">
+                @csrf
+                <label class="label-upload">
+                    {{-- Upload Feedback --}}
+                    <input type="file" name="file_feedback">
+                </label>
+                    <button type="submit" class="send-feedback-btn">Send Feedback</button>
+               
+
+            </form>  
+
         </div>
     </main>
 </div>

@@ -20,7 +20,7 @@
         </div>
         <div class="nav-container" id="nav-container">
           <nav class="nav">
-            <a href="{{--{{route('')}}--}}" class="nav-link">Journals</a>
+            {{-- <a href="{{route('')}}" class="nav-link">Journals</a> --}}
           </nav>
 
           <a href="{{route('OrgType')}}" class="signIn-btn">Sign In</a>

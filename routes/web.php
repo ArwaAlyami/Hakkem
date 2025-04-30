@@ -47,6 +47,10 @@ Route::prefix('Auth')->as('admin.')->group(function () {
 
 Route::prefix('/')->middleware('auth')->as('Main_Pages.')->group(function () {
     Route::get('home', [HomeController::class, 'index'])->name('Home');
+    Route::get('Profile', [ITAdminController::class, 'index'])->name('Profile');
+    Route::get('chat', [HomeController::class, 'chat'])->name('chat');
+    Route::get('Journals', [HomeController::class, 'Journals'])->name('Journals');
+
 });
 
 
@@ -264,14 +268,16 @@ Route::prefix('RevResAccount')->as('RevResAccount.')->group(function () {
 
 
 // //الطلبات
-Route::get('/reviewer/requests', [RequestController::class, 'show'])->name('reviewer.requests.show');
+Route::get('/reviewer/requests/{id}', [RequestController::class, 'show'])->name('reviewer.requests.show'// Route::get('/reviewer/requests', [RequestController::class, 'index'])->name('reviewer.requests.index');
+);
 
 // // افبل او ارفض
-// Route::post('/reviewer/requests/{id}/accept', [RequestController::class, 'accept'])->name('reviewer.requests.accept');
+Route::post('/reviewer/requests/{id}/accept', [RequestController::class, 'accept'])->name('reviewer.requests.accept');
 
-// Route::post('/reviewer/requests/{id}/reject', [RequestController::class, 'reject'])->name('reviewer.requests.reject');
+Route::post('/reviewer/requests/{id}/reject', [RequestController::class, 'reject'])->name('reviewer.requests.reject');
 
-// Route::get('/reviewer/requests', [RequestController::class, 'index'])->name('reviewer.requests.index');
+Route::post('/reviewer/requests/{id}/feedback', [RequestController::class, 'feedback'])->name('reviewer.requests.feedback');
+
 
 // Route::get('/reviewer/request-details/{id}', [RequestController::class, 'show'])->name('reviewer.requests.show');
 
@@ -357,12 +363,6 @@ Route::get('/send-feed', function () {
     return view('Journals\Associated Editor\Send-Feedback');
 });
 
-Route::get('/Journals', function () {
-    return view('Journals\Journals');
-});
 
 
-// ************************************ Independent Routers ******************************************* //
-Route::get('/Chats', function () {
-    return view('Independent\Chat');
-});
+

@@ -1,3 +1,21 @@
+/* input[type="file"] {
+    display: none;
+  }
+   */
+  .label-upload {
+    padding: 8px 20px;
+    background-color: #6c757d; /* نفس لون Send Feedback */
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+  }
+
 /* ✅ تنسيق عام للصفحة */
 body {
     font-family: Arial, sans-serif;
@@ -215,7 +233,33 @@ th {
 }
 
 .send-feedback-btn {
-    background: #6c757d; /* لون الزر مطابق للصورة */
+    background: #046821; /* لون الخلفية */
+    color: white; /* لون الخط أبيض */
+    font-size: 12px;
+    font-weight: bold;
+    padding: 8px 24px;
+    border: none;
+    border-radius: 15px; /* لجعل الحواف دائرية */
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.accept-btn{
+    margin: 3px;
+    background: #046821; /* لون الخلفية */
+    color: white; /* لون الخط أبيض */
+    font-size: 12px;
+    font-weight: bold;
+    padding: 8px 24px;
+    border: none;
+    border-radius: 15px; /* لجعل الحواف دائرية */
+    cursor: pointer;
+    transition: 0.3s ease-in-out;
+}
+
+.reject-btn{
+    margin: 3px;
+    background: #b22626; /* لون الزر مطابق للصورة */
     color: white; /* لون الخط أبيض */
     font-size: 12px;
     font-weight: bold;

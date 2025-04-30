@@ -32,10 +32,11 @@
                                 <div class="col">
                                     <div class="buttons">
                                     <a href="{{ route('PromotionAccount.AcceptOrReject',$request->research->id)}}">  <button class="view">View Request</button></a> 
-                                    <a href="#">  <button class="track">View Feedbacks</button></a>
+                                    <a href="{{ $request?->media[0]?->original_url ?? '#' }}">  <button class="track">View Feedbacks</button></a>
                                     </div>
                                 </div>
-
+                                   
+                                </a>   
                             </div>
                         </div>
                     </div>
