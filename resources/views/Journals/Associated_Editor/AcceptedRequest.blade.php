@@ -29,11 +29,34 @@
                     </div>
                 </button>
                 <input type="date" id="datePicker" style="visibility: hidden; position: absolute;">
-                <button class="accept">Generate Reviewer's List</button>
+                <button class="accept">Generate Reviewers List</button>
             </div>
         </div>
     </div>
     <div class="container">
+
+        @foreach($researchRequests as $request)
+<tr>
+    <td>{{ $request->research_number }}</td>
+    <td>{{ $request->title }}</td>
+    <td>{{ $request->field }}</td>
+    <td class="td-btn">
+        <button class="pdf-button">
+            <img src="{{ asset('hakkem/images/University/pdf icon.png') }}" class="pdf">
+            {{ $request->title }}.pdf
+        </button>
+        <div class="row">
+            <button class="see-more-button">
+                See more
+                <div>
+                    <div style="margin-left: 10px;" class="chevron-d"></div>
+                </div>
+            </button>
+        </div>
+    </td>
+</tr>
+@endforeach
+
         <table>
             <tr>
                 <th>Research Number</th>

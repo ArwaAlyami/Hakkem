@@ -11,6 +11,47 @@
 </head>
 
 <body>
+
+    <div class="page-content">
+        <div class="tabs">
+            <button class="active">All</button>
+            <button>Active Requests</button>
+            <button>Completed Requests</button>
+            <button>Rejected Requests</button>
+        </div>
+
+        @foreach($publishRequests as $request)
+            <div class="request
+                @if($request->status == 'active') yellow
+                @elseif($request->status == 'completed') teal
+                @elseif($request->status == 'rejected') red
+                @endif
+            ">
+                <div class="request-info row">
+                    <div class="col">
+                        <div class="request-id">#{{ $request->request_id }}</div>
+                        <div class="request-name">{{ $request->name }}</div>
+                        <div class="request-dept">{{ $request->department }}</div>
+                    </div>
+                    <div class="col2">
+                        <div class="buttons">
+                            <a class="view" href="#">View Request</a>
+                            @if($request->status == 'active')
+                                <button class="pay" id="openOverlayBtn">Rate</button>
+                            @else
+                                <button class="pay" id="openOverlayBtn" disabled>Rate</button>
+                            @endif
+                        </div>
+                        <div class="request-date">
+                            <p>Result submission date: {{ $request->result_submission_date->format('d-m-Y') }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>//دينامك
+
+
     @include('include.Header')
 
     <div class="main-container">
@@ -113,7 +154,7 @@
     <div class="overlay" id="evaluationOverlay">
         <div class="popup">
             <span class="close-btn" id="closePopupBtn">&times;</span>
-            <h2>Reviewer's evaluation:</h2>
+            <h2>Reviewers evaluation:</h2>
 
             <div class="rating-row">
                 <label>Speed:</label>

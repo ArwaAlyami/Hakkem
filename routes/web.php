@@ -17,11 +17,15 @@ use App\Http\Controllers\ReviewerProfileController;
 use App\Http\Controllers\Reviewer\ReviewerController;
 use App\Http\Controllers\Admin\ReviewerRequestController;
 use App\Http\Controllers\Feedback\FeedbackController;
+use App\Http\Controllers\Journal\ResearchRequestController;
 use App\Http\Controllers\Promotion\PromotionController;
+use App\Http\Controllers\Promotion\PromotionRequestController;
+use App\Http\Controllers\PromotionRequestController as ControllersPromotionRequestController;
 use App\Http\Controllers\Researcher\ResearchController;
 use App\Http\Controllers\Reviewer\RequestController;
 use App\Http\Controllers\Reviewer\ReviewerListController;
 use App\Http\Controllers\Reviewer\ReviewFormController;
+use App\Http\Controllers\PublishRequestController;
 
 // ******* Main Pages Routes *********** //
 
@@ -200,29 +204,29 @@ Route::prefix('PromotionAccount')->middleware('auth')->as('PromotionAccount.')->
 });
 
 
-// Route::get('/promotion/request/{id}', [PromotionController::class, 'show']);
+ Route::get('/promotion/request/{id}', [PromotionController::class, 'show']);
 
-// Route::get('/research/{id}/feedbacks', [FeedbackController::class, 'getFeedbacks']);
+Route::get('/research/{id}/feedbacks', [FeedbackController::class, 'getFeedbacks']);
 
-// Route::get('/promotion/request/{id}', [PromotionController::class, 'showRequestDetails'])->name('promotion.request.details');
+Route::get('/promotion/request/{id}', [PromotionController::class, 'showRequestDetails'])->name('promotion.request.details');
 
-// Route::post('/promotion/request/{id}/accept', [PromotionController::class, 'accept'])->name('promotion.request.accept');
+ Route::post('/promotion/request/{id}/accept', [PromotionController::class, 'accept'])->name('promotion.request.accept');
 
-// Route::post('/promotion/request/{id}/reject', [PromotionController::class, 'reject'])->name('promotion.request.reject');
+ Route::post('/promotion/request/{id}/reject', [PromotionController::class, 'reject'])->name('promotion.request.reject');
 
-// Route::get('/promotion/requests', [PromotionController::class, 'index'])->name('PromotionAccount.PromotionRequests');
+Route::get('/promotion/requests', [PromotionController::class, 'index'])->name('PromotionAccount.PromotionRequests');
 
-// Route::get('/promotion/requests/{status}', [PromotionController::class, 'filterByStatus']);
+Route::get('/promotion/requests/{status}', [PromotionController::class, 'filterByStatus']);
 
-// Route::get('/promotion/request/{id}', [PromotionController::class, 'showe'])->name('PromotionAccount.AcceptOrReject');
+ Route::get('/promotion/request/{id}', [PromotionController::class, 'showe'])->name('PromotionAccount.AcceptOrReject');
 
-// Route::get('/promotion/reviewers', [ReviewerListController::class, 'index'])->name('PromotionAdmin.Reviewers');
+Route::get('/promotion/reviewers', [ReviewerListController::class, 'index'])->name('PromotionAdmin.Reviewers');
 
-// Route::get('/reviewers', [ReviewerListController::class, 'index'])->name('reviewers.index');
+Route::get('/reviewers', [ReviewerListController::class, 'index'])->name('reviewers.index');
 
-// Route::get('/reviewers/specializations', [ReviewerListController::class, 'listSpecializations'])->name('reviewers.specializations');
+ Route::get('/reviewers/specializations', [ReviewerListController::class, 'listSpecializations'])->name('reviewers.specializations');
 
-// Route::get('/reviewers/{specialization}', [ReviewerListController::class, 'showBySpecialization'])->name('reviewers.bySpecialization');
+Route::get('/reviewers/{specialization}', [ReviewerListController::class, 'showBySpecialization'])->name('reviewers.bySpecialization');
 
 
 
@@ -236,7 +240,7 @@ Route::prefix('RevResAccount')->as('RevResAccount.')->group(function () {
 
     // ** Profile Routers ** //
     Route::get('Profile', [RevResController::class, 'Profile'])->name('Profile');
-    // Route::post('ProfileEdit', [RevResController::class, 'ProfileEdit'])->name('ProfileEdit');
+     Route::post('ProfileEdit', [RevResController::class, 'ProfileEdit'])->name('ProfileEdit');
 
 
     // ** Received Requests Routers ** //
@@ -257,43 +261,43 @@ Route::prefix('RevResAccount')->as('RevResAccount.')->group(function () {
 
 
 
-// Route::get('RequestDetailsAcceptOrReject', [RevResController::class, 'RequestDetailsAcceptOrReject'])->name('RequestDetailsAcceptOrReject');
+Route::get('RequestDetailsAcceptOrReject', [RevResController::class, 'RequestDetailsAcceptOrReject'])->name('RequestDetailsAcceptOrReject');
 
 
 // //الطلبات
-// Route::get('/reviewer/requests/{id}', [RequestController::class, 'show'])->name('reviewer.requests.show');
+ Route::get('/reviewer/requests/{id}', [RequestController::class, 'show'])->name('reviewer.requests.show');
 
 // // افبل او ارفض
-// Route::post('/reviewer/requests/{id}/accept', [RequestController::class, 'accept'])->name('reviewer.requests.accept');
+ Route::post('/reviewer/requests/{id}/accept', [RequestController::class, 'accept'])->name('reviewer.requests.accept');
 
-// Route::post('/reviewer/requests/{id}/reject', [RequestController::class, 'reject'])->name('reviewer.requests.reject');
+ Route::post('/reviewer/requests/{id}/reject', [RequestController::class, 'reject'])->name('reviewer.requests.reject');
 
-// Route::get('/reviewer/requests', [RequestController::class, 'index'])->name('reviewer.requests.index');
+ Route::get('/reviewer/requests', [RequestController::class, 'index'])->name('reviewer.requests.index');
 
-// Route::get('/reviewer/request-details/{id}', [RequestController::class, 'show'])->name('reviewer.requests.show');
+Route::get('/reviewer/request-details/{id}', [RequestController::class, 'show'])->name('reviewer.requests.show');
 
-// Route::post('/review-form/store', [ReviewFormController::class, 'store'])->name('reviewForm.store');
+ Route::post('/review-form/store', [ReviewFormController::class, 'store'])->name('reviewForm.store');
 
-// Route::get('/reviewer/request-details/{id}', [ReviewerListController::class, 'showRequestDetails'])->name('RevResAccount.RequestDetailsIfAccept');
+Route::get('/reviewer/request-details/{id}', [ReviewerListController::class, 'showRequestDetails'])->name('RevResAccount.RequestDetailsIfAccept');
 
-// Route::get('/review-form/{request_id}', [ReviewFormController::class, 'showForm'])->name('review.form');
+Route::get('/review-form/{request_id}', [ReviewFormController::class, 'showForm'])->name('review.form');
 
-// Route::post('/review-form/save', [ReviewFormController::class, 'store'])->name('review.store');
+Route::post('/review-form/save', [ReviewFormController::class, 'store'])->name('review.store');
 
-// Route::get('/reviewer/feedbacks', [ReviewerListController::class, 'listReviewedResearches'])->name('reviewer.feedbacks');
+Route::get('/reviewer/feedbacks', [ReviewerListController::class, 'listReviewedResearches'])->name('reviewer.feedbacks');
 
-// Route::post('/reviewer/feedbacks/send', [ReviewerListController::class, 'submitFeedback'])->name('reviewer.feedbacks.submit');
-
-
-// Route::middleware(['auth'])->group(function () {
-
-//     Route::get('/reviewer/profile', [ReviewerProfileController::class, 'show'])->name('RevResAccount.Profile');
-
-//     Route::post('/reviewer/profile/update', [ReviewerProfileController::class, 'update'])->name('reviewer.profile.update');
+Route::post('/reviewer/feedbacks/send', [ReviewerListController::class, 'submitFeedback'])->name('reviewer.feedbacks.submit');
 
 
+Route::middleware(['auth'])->group(function () {
 
-// });
+   Route::get('/reviewer/profile', [ReviewerProfileController::class, 'show'])->name('RevResAccount.Profile');
+
+  Route::post('/reviewer/profile/update', [ReviewerProfileController::class, 'update'])->name('reviewer.profile.update');
+
+
+
+ });
 
 
 
@@ -306,60 +310,108 @@ Route::prefix('RevResAccount')->as('RevResAccount.')->group(function () {
 
 // ************************************ Editor in Chief Routers ******************************************* //
 
-Route::get('/Editors-profile', function () {
-    return view('Journals\Editor in Chief\MyProfile');
-});
+//Route::get('/Editors-profile', function () {
+    // return view('Journals\Editor in Chief\MyProfile');
+//});
 
-Route::get('/publish-reqs', function () {
-    return view('Journals\Editor in Chief\Publish_Requests');
-});
+//Route::get('/publish-reqs', function () {
+    // return view('Journals\Editor in Chief\Publish_Requests');
+//});
 
-Route::get('/Accepted', function () {
-    return view('Journals\Editor in Chief\Accepted-Request');
-});
+//Route::get('/Accepted', function () {
+    // return view('Journals\Editor in Chief\Accepted-Request');
+//});
 
-Route::get('/view-reqs', function () {
-    return view('Journals\Editor in Chief\Accept-Reject-Request');
-});
+//Route::get('/view-reqs', function () {
+    // return view('Journals\Editor in Chief\Accept-Reject-Request');
+//});
 
-Route::get('/choose-ed', function () {
-    return view('Journals\Editor in Chief\Choose-Ed');
-});
+//Route::get('/choose-ed', function () {
+    // return view('Journals\Editor in Chief\Choose-Ed');
+//});
 
-Route::get('/feedback', function () {
-    return view('Journals\Editor in Chief\View-Feedback');
-});
+//Route::get('/feedback', function () {
+    // return view('Journals\Editor in Chief\View-Feedback');
+//});
 // ************************************ Associated Editor Routers ******************************************* //
-Route::get('/Associated-ed-profile', function () {
-    return view('Journals\Associated Editor\MyProfile');
+//Route::get('/Associated-ed-profile', function () {
+    // return view('Journals\Associated Editor\MyProfile');
+//});
+
+//Route::get('/rev-list', function () {
+//     return view('Journals\Associated Editor\Reviewers_Lists');
+// //});
+
+// //Route::get('/list-of-revs', function () {
+//     return view('Journals\Associated Editor\List-Of-Reviewers');
+// //});
+
+// //Route::get('/publish-req', function () {
+//     return view('Journals\Associated Editor\Publish_Requests');
+// //});
+
+// //Route::get('/req-detail', function () {
+//     return view('Journals\Associated Editor\Accepted-Request');
+// //});
+
+// //Route::get('/send-feed', function () {
+//     return view('Journals\Associated Editor\Send-Feedback');
+//});
+
+//Route::get('/Journals', function () {
+//     return view('Journals\Journals');
+// //});
+
+
+// // ************************************ Independent Routers ******************************************* //
+// //Route::get('/Chats', function () {
+//     return view('Independent\Chat');
+// //});
+
+
+
+
+
+Route::get('/promotion/request-details', [PromotionRequestController::class, 'showDetails'])->name('promotion.request.details');
+
+Route::prefix('journal')->group(function () {
+    Route::get('/reviewers', [App\Http\Controllers\Journal\ReviewerListController::class, 'index'])->name('journal.reviewers.index');
+    Route::get('/publish-requests', [App\Http\Controllers\Journal\PublishRequestController::class, 'index'])->name('journal.publish.requests');
+    Route::get('/reviewers-list', [App\Http\Controllers\Reviewer\ReviewerListController::class, 'listJournalSpecializations'])->name('journal.reviewers.list');
+    Route::get('/reviewers/{specialization}', [App\Http\Controllers\Reviewer\ReviewerListController::class, 'showBySpecialization'])->name('journal.reviewers.by.specialization');
+    Route::get('/research-request/{id}', [ResearchRequestController::class, 'showRequestDetails'])->name('journal.research.request.details');
+
+
+
 });
 
-Route::get('/rev-list', function () {
-    return view('Journals\Associated Editor\Reviewers_Lists');
-});
 
-Route::get('/list-of-revs', function () {
-    return view('Journals\Associated Editor\List-Of-Reviewers');
-});
 
-Route::get('/publish-req', function () {
-    return view('Journals\Associated Editor\Publish_Requests');
-});
+Route::get('/request/{id}', [ResearchRequestController::class, 'show'])->name('request.show');
+Route::post('/request/{id}/accept', [ResearchRequestController::class, 'accept'])->name('request.accept');
+Route::post('/request/{id}/reject', [ResearchRequestController::class, 'reject'])->name('request.reject');
 
-Route::get('/req-detail', function () {
-    return view('Journals\Associated Editor\Accepted-Request');
-});
+Route::get('/promotion-admin/request/{id}', [PromotionAdminController::class, 'showAcceptedRequest'])->name('promotion.request.show');
+Route::get('/promotion-admin/request/{id}/assign-editor', [PromotionAdminController::class, 'assignEditorForm'])->name('promotion.request.assign.editor');
+Route::get('/promotion-admin/editors/{research}', [PromotionAdminController::class, 'showEditors'])->name('editors.list');
+Route::post('/promotion-admin/assign-editor', [PromotionAdminController::class, 'assignEditor'])->name('assign.editor');
 
-Route::get('/send-feed', function () {
-    return view('Journals\Associated Editor\Send-Feedback');
-});
 
-Route::get('/Journals', function () {
-    return view('Journals\Journals');
+Route::get('/proreqs', function () {
+    return view('University_Pages\Promotion_Admin\PromotionRequests');
 });
 
 
-// ************************************ Independent Routers ******************************************* //
-Route::get('/Chats', function () {
-    return view('Independent\Chat');
+
+Route::get('/publish-requests', [PublishRequestController::class, 'index']);
+Route::get('/publish-request/{id}', [PublishRequestController::class, 'show'])->name('request.show');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/editor/profile', [MyProfileController::class, 'showProfile'])->name('editor.profile');
+    Route::put('/editor/profile', [MyProfileController::class, 'updateProfile'])->name('editor.update.profile');
 });
+
+
+
+
+

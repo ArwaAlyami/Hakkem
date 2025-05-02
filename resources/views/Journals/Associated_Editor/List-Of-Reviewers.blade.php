@@ -15,6 +15,21 @@
         <main class="content">
             <h2><span class="highlight">List ID: </span> #1234567890</h2>
             <table>
+                <tbody>
+                    @foreach($reviewers as $reviewer)
+                        <tr>
+                            <td>{{ $reviewer->name }}</td>
+                            <td>{{ $reviewer->affiliation }}</td>
+                            <td class="last">
+                                <p>{{ $reviewer->email }}</p>
+                                <div class="action-buttons">
+                                    <button class="send">Send</button>
+                                </div>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+
                 <thead>
                     <tr>
                         <th>Name of Reviewer</th>

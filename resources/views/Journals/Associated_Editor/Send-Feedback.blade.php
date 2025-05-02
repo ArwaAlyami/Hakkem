@@ -11,6 +11,31 @@
 </head>
 
 <body>
+    <p><span class="highlight">Specialization:</span> {{ $research->specialization }}</p>
+
+<tbody id="table-body">
+    <tr>
+        <td>{{ $research->id }}</td>
+        <td>{{ $research->title }}</td>
+        <td>{{ $research->field }}</td>
+        <td class="td-btn">
+            <button class="pdf-button">
+                <img src="{{ asset('hakkem/images/University/pdf icon.png') }}" class="pdf">
+                {{ $research->pdf_file_name }}
+            </button>
+            <div class="row">
+                <button class="see-more-button" id="openOverlayBtn">View Feedbacks</button>
+                <button class="see-more-button">
+                    See more
+                    <div>
+                        <div style="margin-left: 10px;" id="chevron-arrow-up" class="chevron-d"></div>
+                    </div>
+                </button>
+            </div>
+        </td>
+    </tr>
+</tbody>//
+
     @include('include.Header')
     <div class="contain">
         <div class="header">
