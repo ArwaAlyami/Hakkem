@@ -19,8 +19,19 @@ class ITAdminController extends Controller
 
     public function index(Request $request)
     {
-        $user = auth()->user();
-        return view('University_Pages.IT_Admin.MyProfile',compact('user'));
+         $user =  auth()->user()->load('roles');
+        
+        $role = $user->roles()->first()->name;
+        if($role== 'IT_Admin'){
+            return view('University_Pages.IT_Admin.MyProfile',compact('user'));
+        }elseif($role == 'Researcher'){
+            return view('University_Pages.FM_Researcher.My_Profile',compact('user'));
+        }elseif($role == 'Reviewer'){
+            return view('University_Pages.FM_Reviewer_Researcher.My_Profile',compact('user'));
+        }elseif($role == 'Promotion Admin'){
+            return view('University_Pages.Promotion_Admin.MyProfile',compact('user'));
+        }
+        return view('Main_Pages.Main.Home',compact('user'));
     }
 
     public function ManageUsers()

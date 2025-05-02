@@ -18,27 +18,23 @@
         @include('include.rev-sidebar')
 
         <main class="content">
-            @foreach ($requests as $req)
-<div class="request-item" data-status="{{ $req->status }}">
-    <img src="{{ asset('hakkem/images/University/Najran_University.png') }}" alt="University Logo">
-    <div class="request-info">
-        <span class="university">{{ $req->university_name }}</span>
-        <span class="request-id">Request Number\ {{ $req->request_number }}</span>
-    </div>
+            
+            @foreach ($requests as $key=>$req) 
 
-    <a href="{{ route('reviewer.requests.show', $req->id) }}">
-        <button class="details">Details</button>
-    </a>
-</div>
-@endforeach
-
-
-
+            <div class="request-item" data-status="{{ $req->status}}">
+                <img src="{{ asset('hakkem/images/University/Najran_University.png') }}" alt="University Logo">
+                <div class="request-info">
+                    <span class="university">{{$req->university_name }}</span>
+                    <span class="request-id">Request Number \ 
+                        {{ ++$key }}</span>
                 </div>
 
+                <a href="{{ route('reviewer.requests.show',$req->id)}}">
+                    <button class="details"> Details </button>
+                </a>
             </div>
+            @endforeach
 
-            </div>
         </main>
     </div>
     @include('include.footer')

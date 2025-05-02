@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('promotion_requests', function (Blueprint $table) {
             $table->id();
-            $table->integer('researches_no')->nullable(false);
-            $table->string('state')->nullable(false);
-            $table->dateTime('deadline')->nullable(false);
-            $table->dateTime('start_date')->nullable(false);
+            $table->integer('researches_no');
+            $table->string('state')->nullable();
+            $table->dateTime('deadline')->nullable();
+            $table->dateTime('start_date')->nullable();
             $table->dateTime('end_date')->nullable();
-            $table->float('price')->nullable(false);
+            $table->float('price')->nullable();
 
-            $table->unsignedBigInteger('fm_id');
-            $table->foreign('fm_id')->references('id')->on('faculty_members');
+            $table->unsignedBigInteger('fm_id')->nullable();
+            // $table->foreign('fm_id')->references('id')->on('faculty_members');
 
             $table->timestamps();
         });

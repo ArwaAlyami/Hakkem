@@ -15,16 +15,20 @@ body {
 }
 
 /* Filter on the top */
+.tabs2 {
+    margin-top: 90px;
+}
+
 .tabs {
     display: flex;
     gap: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     padding: 10px;
     background: #f0f0f0;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(8, 6, 6, 0.1);
     margin-left: 30px;
-    margin-top: 90px;
+    margin-top: 20px;
     width: 80%;
 }
 
@@ -75,7 +79,7 @@ body {
     border-color: #00aa88;
 }
 .request.red {
-    border-color: #cc0000;
+    border-color: #083015;
 }
 
 .request-info {

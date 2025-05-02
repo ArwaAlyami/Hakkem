@@ -14,6 +14,7 @@ body {
 
 
 .content {
+width: 400px;
   flex-grow: 1;
   background: white;
   padding: 20px;
@@ -33,9 +34,9 @@ body {
 
 /* ✅ تصميم الطلبات داخل الجدول */
 .request-item {
+    width: 700px;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
+    gap:30px;
     padding: 15px;
     border-bottom: 1px solid #ddd;
     background: #f0f0f0;

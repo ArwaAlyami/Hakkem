@@ -25,12 +25,12 @@
         <div class="input-row">
             <div>
                 <label>First Name:</label>
-                <input type="text" name="f_ame"  value="{{$promotionAdmin->f_name}}" disabled />
+                <input type="text" name="f_ame"  value="{{$user->f_name}}" disabled />
 
             </div>
             <div>
                 <label>Last Name:</label>
-                <input type="text" name="l_ame" value="{{$promotionAdmin->l_name}}" disabled />
+                <input type="text" name="l_ame" value="{{$user->l_name}}" disabled />
 
             </div>
         </div>
@@ -39,11 +39,11 @@
         <div class="input-row">
             <div>
                 <label>Email:</label>
-                <input type="email" name="email" value="{{$promotionAdmin->email}}" disabled/>
+                <input type="email" name="email" value="{{$user->email}}" disabled/>
             </div>
             <div>
                 <label>Phone:</label>
-                <input type="text" name="phone" disabled value="{{$promotionAdmin->phone}}"/>
+                <input type="text" name="phone" disabled value="{{$user->phone}}"/>
             </div>
         </div>
 
@@ -51,12 +51,12 @@
         <div class="input-row">
             <div>
                 <label>Academic Rank:</label>
-                <input type="text" name="rank" disabled value="{{$promotionAdmin->rank}}" />
+                <input type="text" name="rank" disabled value="{{$user->rank}}" />
             </div>
 
             <div>
                 <label>Academic Qualification:</label>
-                <input type="text" name="Academic_quali" disabled value="{{$promotionAdmin->Academic_quali}}"/>
+                <input type="text" name="Academic_quali" disabled value="{{$user->Academic_quali}}"/>
             </div>
         </div>
 
@@ -64,12 +64,12 @@
         <div class="input-row">
             <div>
                 <label>Bachelor's Specialization:</label>
-                <input type="text" name="bachelors" disabled value="{{$promotionAdmin->bachelors}}"/>
+                <input type="text" name="bachelors" disabled value="{{$user->bachelors}}"/>
             </div>
 
             <div>
                 <label>Master's Specialization:</label>
-                <input type="text" name="masters" disabled value="{{$promotionAdmin->masters}}"/>
+                <input type="text" name="masters" disabled value="{{$user->masters}}"/>
             </div>
         </div>
 
@@ -77,7 +77,7 @@
         <div class="input-row">
             <div>
                 <label>Doctorate's Specialization:</label>
-                <input type="text" name="phd" disabled value="{{$promotionAdmin->phd}}"/>
+                <input type="text" name="phd" disabled value="{{$user->phd}}"/>
             </div>
 
             <div>

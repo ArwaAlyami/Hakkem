@@ -14,14 +14,17 @@ class HomeController extends Controller
     {
         return view('Main_Pages.Main.Home');
     }
-
-    /**
-     * Handle an authentication attempt.
-     */
-   
-
-    public function me(Request $request)
+    
+    public function chat(Request $request)
     {
-        return auth()->user();
+        return view('Independent.Chat');
     }
+
+    public function Journals(Request $request)
+    {
+        return view('Journals.Journals');
+    }
+
+
+   
 }

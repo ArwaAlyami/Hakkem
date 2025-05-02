@@ -31,8 +31,11 @@ use App\Http\Controllers\PublishRequestController;
 
 Route::get('/', [MainPagesController::class, 'GetStarted'])->name('Get_Started');
 
-Route::get('About_Hakkem', [MainPagesController::class, 'AboutUs'])->name('About_Hakkem');
-Route::get('User_Type', [MainPagesController::class, 'UserType'])->name('User_Type');
+Route::get('About_Hakkem',[MainPagesController::class,'AboutUs'])->name('About_Hakkem');
+
+Route::get('Organization_Type',[MainPagesController::class,'OrgType'])->name('OrgType');
+Route::get('User_Type',[MainPagesController::class, 'UserType'])->name('User_Type');
+Route::get('Jounal_User_Type',[MainPagesController::class, 'JournalUserType'])->name('JournalUserType');
 
 Route::get('SignOut', [ITAdminController::class, 'SignOut'])->name('SignOut');
 
@@ -48,6 +51,10 @@ Route::prefix('Auth')->as('admin.')->group(function () {
 
 Route::prefix('/')->middleware('auth')->as('Main_Pages.')->group(function () {
     Route::get('home', [HomeController::class, 'index'])->name('Home');
+    Route::get('Profile', [ITAdminController::class, 'index'])->name('Profile');
+    Route::get('chat', [HomeController::class, 'chat'])->name('chat');
+    Route::get('Journals', [HomeController::class, 'Journals'])->name('Journals');
+
 });
 
 
@@ -193,7 +200,7 @@ Route::prefix('PromotionAccount')->middleware('auth')->as('PromotionAccount.')->
 
     // ** Requests Routers ** //
     Route::get('PromotionRequests', [PromotionAdminController::class, 'PromotionRequests'])->name('PromotionRequests');
-    Route::get('AcceptOrReject', [PromotionAdminController::class, 'AcceptOrReject'])->name('AcceptOrReject');
+    Route::get('AcceptOrReject/{id}', [PromotionAdminController::class, 'AcceptOrReject'])->name('AcceptOrReject');
     Route::get('AcceptedRequest', [PromotionAdminController::class, 'AcceptedRequest'])->name('AcceptedRequest');
 
 
@@ -210,7 +217,7 @@ Route::get('/research/{id}/feedbacks', [FeedbackController::class, 'getFeedbacks
 
 Route::get('/promotion/request/{id}', [PromotionController::class, 'showRequestDetails'])->name('promotion.request.details');
 
- Route::post('/promotion/request/{id}/accept', [PromotionController::class, 'accept'])->name('promotion.request.accept');
+Route::post('/promotion/request/{id}/accept', [PromotionController::class, 'accept'])->name('promotion.request.accept');
 
  Route::post('/promotion/request/{id}/reject', [PromotionController::class, 'reject'])->name('promotion.request.reject');
 
@@ -246,7 +253,7 @@ Route::prefix('RevResAccount')->as('RevResAccount.')->group(function () {
     // ** Received Requests Routers ** //
     Route::get('ReceivedRequests', [RevResController::class, 'ReceivedRequests'])->name('ReceivedRequests');
     Route::get('RequestDetailsIfAccept', [RevResController::class, 'RequestDetailsIfAccept'])->name('RequestDetailsIfAccept');
-    Route::get('ReviewForm', [RevResController::class, 'ReviewForm'])->name('ReviewForm');
+    Route::get('ReviewForm/{id}', [RevResController::class, 'ReviewForm'])->name('ReviewForm');
     Route::get('SubmitFeedback', [RevResController::class, 'SubmitFeedback'])->name('SubmitFeedback');
 
     Route::get('ReviewRequestDetails', [RevResController::class, 'ReviewRequestDetails'])->name('ReviewRequestDetails');
@@ -265,14 +272,16 @@ Route::get('RequestDetailsAcceptOrReject', [RevResController::class, 'RequestDet
 
 
 // //الطلبات
- Route::get('/reviewer/requests/{id}', [RequestController::class, 'show'])->name('reviewer.requests.show');
+Route::get('/reviewer/requests/{id}', [RequestController::class, 'show'])->name('reviewer.requests.show'// Route::get('/reviewer/requests', [RequestController::class, 'index'])->name('reviewer.requests.index');
+);
 
 // // افبل او ارفض
- Route::post('/reviewer/requests/{id}/accept', [RequestController::class, 'accept'])->name('reviewer.requests.accept');
+Route::post('/reviewer/requests/{id}/accept', [RequestController::class, 'accept'])->name('reviewer.requests.accept');
 
- Route::post('/reviewer/requests/{id}/reject', [RequestController::class, 'reject'])->name('reviewer.requests.reject');
+Route::post('/reviewer/requests/{id}/reject', [RequestController::class, 'reject'])->name('reviewer.requests.reject');
 
- Route::get('/reviewer/requests', [RequestController::class, 'index'])->name('reviewer.requests.index');
+Route::post('/reviewer/requests/{id}/feedback', [RequestController::class, 'feedback'])->name('reviewer.requests.feedback');
+
 
 Route::get('/reviewer/request-details/{id}', [RequestController::class, 'show'])->name('reviewer.requests.show');
 

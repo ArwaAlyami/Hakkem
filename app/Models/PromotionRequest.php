@@ -4,11 +4,27 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Research;
-
-class PromotionRequest extends Model
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
+class PromotionRequest extends Model  implements HasMedia
 {
-    public function researches()
+    use InteractsWithMedia;
+    protected $fillable = [
+        'research_id',
+        'state',
+        'deadline',
+        'start_date',
+        'end_date',
+        'price',
+        'fm_id',
+        'status_rev'
+    ];
+    public function research()
     {
-        return $this->hasMany(Research::class, 'promotion_request_id');
+        return $this->belongsTo(Research::class);
+    }
+    public function facultyMember()
+    {
+        return $this->belongsTo(FacultyMember::class,'fm_id');
     }
 }
