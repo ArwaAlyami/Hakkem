@@ -4,8 +4,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ManageUsers</title>
+    <title>Manage Users</title>
     <link rel="stylesheet" href="{{ asset('hakkem/css/Universty/IT Admin/ManageUsers.css') }}" />
+    <link rel="stylesheet" href="{{ asset('hakkem/css/Sidebar.css') }}" />
+
 </head>
 
 <body>
@@ -19,8 +21,8 @@
             <div class="nav">
                 <div class="nav-cont">
                     <a href="{{ asset('') }}" class="navigate">Home</a>
-                    <a href="chat.html" class="navigate">Chat</a>
-                    <a href="offers.html" class="navigate">Offers</a>
+                    {{-- <a href="chat.html" class="navigate">Chat</a>
+                    <a href="offers.html" class="navigate">Offers</a> --}}
                     <a href="journals.html" class="navigate">Journals</a>
                 </div>
             </div>
@@ -31,31 +33,15 @@
     </header>
     </div>
     <!--السايد بار-->
-    <aside class="sidebar">
-        <ul>
-            <li class="sidebar-item active">
-                <a href="#">
-                    <img src="{{ asset('hakkem/images/University/My-profile icon.png')}}" alt="Profile">
-                    My Profile
-                </a>
-            </li>
-            <li class="sidebar-item">
-                <a href="#">
-                    <img src="{{ asset('hakkem/images/University/Manage-users icon.png') }}" alt="Manage">
-                    Manage Users
-                </a>
-            </li>
 
-            <li class="sidebar-item">
-                <a href="#">
-                    <img src="{{ asset('hakkem/images/University/Sign-out icon.png') }}" alt="Sign Out">
-                    Sign Out
-                </a>
-            </li>
-        </ul>
-    </aside>
+    <div class="container1">
+    @include('include.itsidebar2')
+    
+    
   <!-- Table الأعضاء -->
 <div class="container">
+      
+
     <table class="member-table">
       <thead>
         <tr>
@@ -88,16 +74,17 @@
       </tbody>
     </table>
   </div>
+</div>
 
   <!-- زر الإضافة -->
   <div class="add-member-container">
-    <a href="#">
+    <a href="{{route('JournalITAdmin.CreateUser')}}">
       <button class="add-member-btn">+ Add Member</button>
     </a>
   </div>
 
 <!-- FOOTER -->
-<div class="center">
+    <div class="center">
         <footer>
             <div class="left">
                 <p class="Footer-link">Pivacy Policy</p>
@@ -114,6 +101,7 @@
             </div>
         </footer>
     </div>
+
     <script src="{{ asset('hakkem/javascript/MyProfile.js') }}"></script>
     <script src="{{ asset('hakkem/javascript/sidebar.js') }}"></script>
 

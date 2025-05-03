@@ -4,6 +4,8 @@
     <title>CreateUsr</title>
 
     <link rel="stylesheet" href="{{ asset('hakkem/css/Universty/IT Admin/CreateUsr.css') }}">
+    <link rel="stylesheet" href="{{ asset('hakkem/css/Sidebar.css') }}" />
+
 </head>
 
 <body>
@@ -17,8 +19,8 @@
             <div class="nav">
                 <div class="nav-cont">
                     <a href="{{ asset('') }}" class="navigate">Home</a>
-                    <a href="chat.html" class="navigate">Chat</a>
-                    <a href="offers.html" class="navigate">Offers</a>
+                    {{-- <a href="chat.html" class="navigate">Chat</a>
+                    <a href="offers.html" class="navigate">Offers</a> --}}
                     <a href="journals.html" class="navigate">Journals</a>
                 </div>
             </div>
@@ -30,31 +32,13 @@
     </div>
 
    <!--السايد بار-->
-   <aside class="sidebar">
-        <ul>
-            <li class="sidebar-item active">
-                <a href="#">
-                    <img src="{{ asset('hakkem/images/University/My-profile icon.png')}}" alt="Profile">
-                    My Profile
-                </a>
-            </li>
-            <li class="sidebar-item">
-                <a href="#">
-                    <img src="{{ asset('hakkem/images/University/Manage-users icon.png') }}" alt="Manage">
-                    Manage Users
-                </a>
-            </li>
 
-            <li class="sidebar-item">
-                <a href="#">
-                    <img src="{{ asset('hakkem/images/University/Sign-out icon.png') }}" alt="Sign Out">
-                    Sign Out
-                </a>
-            </li>
-        </ul>
-    </aside>
+   
+   <div class="container1">
+    @include('include.itsidebar2')
+    
     <!-- المحتوى -->
-<div class="page-content">
+    <div class="page-content">
     <h2 style="text-align: center;">Create User Account</h2>
 
     <div class="form-container">
@@ -84,24 +68,24 @@
         </div>
 
         <!--القسم -->
-<div class="form-group">
-    <label>Department:</label>
-    <select id="department" required>
-        <option value="" disabled selected hidden>Select department</option>
-        <option value="IT">Information System</option>
-        <option value="CS">Computer Science</option>
-        <option value="SE">Software Engineering</option>
-    </select>
-</div>
+    <div class="form-group">
+        <label>Department:</label>
+        <select id="department" required>
+            <option value="" disabled selected hidden>Select department</option>
+            <option value="IT">Information System</option>
+            <option value="CS">Computer Science</option>
+            <option value="SE">Software Engineering</option>
+        </select>
+    </div>
 
 <!-- التصاريح -->
-<div class="form-group" style="grid-column: span 2;">
-    <label style="font-weight:bold;">Give permission as:</label>
-    <div class="permissions">
-        <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin">Editor In Chief</label>
-        <label><input type="checkbox" id="researcher" value="Researcher"> Associated Editor</label>
-    </div>
-</div>
+        <div class="form-group" style="grid-column: span 2;">
+            <label style="font-weight:bold;">Give permission as:</label>
+            <div class="permissions">
+                <label><input type="checkbox" id="promotionAdmin" value="Promotion Admin">Editor In Chief</label>
+                <label><input type="checkbox" id="researcher" value="Researcher"> Associated Editor</label>
+            </div>
+        </div>
 
         <!-- زر الحفظ -->
         <div style="display:flex; justify-content:center; margin-top: 20px;">
@@ -110,6 +94,7 @@
 
         <p id="success-message" class="success-message">User account created successfully!</p>
     </div>
+</div>
 </div>
 
         <!-- FOOTER -->

@@ -1,8 +1,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Permission</title>
+    <title>Manage Permission</title>
     <link rel="stylesheet" href="{{ asset('hakkem/css/Universty/IT Admin/Permission.css') }}" />
+    <link rel="stylesheet" href="{{ asset('hakkem/css/Sidebar.css') }}" />
 
 </head>
 
@@ -17,8 +18,8 @@
             <div class="nav">
                 <div class="nav-cont">
                     <a href="{{ asset('') }}" class="navigate">Home</a>
-                    <a href="chat.html" class="navigate">Chat</a>
-                    <a href="offers.html" class="navigate">Offers</a>
+                    {{-- <a href="chat.html" class="navigate">Chat</a>
+                    <a href="offers.html" class="navigate">Offers</a> --}}
                     <a href="journals.html" class="navigate">Journals</a>
                 </div>
             </div>
@@ -30,29 +31,10 @@
     </div>
 
     <!--السايد بار-->
-    <aside class="sidebar">
-        <ul>
-            <li class="sidebar-item active">
-                <a href="#">
-                    <img src="{{ asset('hakkem/images/University/My-profile icon.png')}}" alt="Profile">
-                    My Profile
-                </a>
-            </li>
-            <li class="sidebar-item">
-                <a href="#">
-                    <img src="{{ asset('hakkem/images/University/Manage-users icon.png') }}" alt="Manage">
-                    Manage Users
-                </a>
-            </li>
-
-            <li class="sidebar-item">
-                <a href="#">
-                    <img src="{{ asset('hakkem/images/University/Sign-out icon.png') }}" alt="Sign Out">
-                    Sign Out
-                </a>
-            </li>
-        </ul>
-    </aside>
+   
+       
+   <div class="container1">
+    @include('include.itsidebar2')
 
 <div class="grant-container">
     <h2 class="grant-title">Grant Permission</h2>
@@ -74,6 +56,8 @@
       <button class="modify-btn">Modify</button>
     </div>
   </div>
+</div>
+
    <!-- FOOTER -->
    <div class="center">
         <footer>

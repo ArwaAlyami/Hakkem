@@ -22,7 +22,7 @@
   <!-- نوع المستخدم -->
 <div class="user-type-container">
 
-    <a href="{{-- route('admin.SignIn-get')--}}" class="user-type-btn" >IT Admin</a>
+    <a href="{{ route('JournalITAdmin.Profile')}}" class="user-type-btn" >IT Admin</a>
     <a href="{{-- route('admin.SignIn-get')--}}" class="user-type-btn" >Editor in Chief</a>
     <a href="{{-- route('admin.SignIn-get')--}}" class="user-type-btn" >Associated Editor</a>
 

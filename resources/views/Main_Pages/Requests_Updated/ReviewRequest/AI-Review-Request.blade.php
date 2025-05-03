@@ -42,9 +42,19 @@
                     <button class="cancel">Cancel</button>
                     </a>
 
+
+
+                    {{-- Here Apply API Integration --}}
+
                     <button class="next">
                         Make a Preliminary Assessment
                     </button>
+                    
+                    {{-- ************************** --}}
+
+
+
+
                 </div>
             </div>
 
@@ -53,28 +63,9 @@
                 <div class="feedback-container">
                     <div class="feedback-view">
                         <p class="feedback-text size-text">
-                            Strengths:<br />
-                            (+) The problem is well-motivated.<br />
-                            (+) The literature review is good.<br />
-                            (+) The method is innovative.<br />
-                            (+) The figures are appropriate.<br />
-                            (+)<br />
-                            (+)<br /><br />Weaknesses:<br />
-                            (-) There are English issues.<br />
-                            (-) References are inadequate.<br />
-                            (-) Experimental evaluation must be improved.<br />
-                            (-)<br />
-                            (-)<br /><br />==== FORMAT ==== <br /><br />The
-                            title of the paper is too long. In general, it
-                            is not recommended to exceed 10 words.
-                            <br /><br />==== ENGLISH ==== <br /><br />There
-                            should always be a single space before
-                            characters such as ( and [. <br /><br />The
-                            pronoun &#39;we&#39; is used too many times in
-                            the paper. Generally, &#39;we&#39; is
-                            appropriate to discuss future work in the
-                            conclusion but besides that it should be used
-                            sparingly
+
+                            {{-- response --}}
+
                         </p>
                     </div>
                 </div>

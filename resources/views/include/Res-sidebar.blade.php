@@ -16,12 +16,22 @@
         @endcan
 
 
-        @can('request_list_view')
+        {{-- @can('request_list_view')
         <li>
             <img src="{{ asset('hakkem/images/image-requests-icon.png') }}" alt="Requests">
             <a href="{{ route('researcher-account.My_Requests.Requests')}}">My Requests</a>
         </li>
+        @endcan --}}
+
+        @can('request_list_view')
+        <li>
+            <img src="{{ asset('hakkem/images/image-requests-icon.png') }}" alt="Requests">
+            <a href="{{ route('history.index')}}">My Requests History</a>
+        </li>
         @endcan
+
+
+
 
         {{-- @can('feedback_view') --}}
         {{-- <li>

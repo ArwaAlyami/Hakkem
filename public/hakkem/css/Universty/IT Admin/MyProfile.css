@@ -1,6 +1,14 @@
 @import url("https://fonts.googleapis.com/css2?family=Gravitas+One&family=Halant:wght@300;400;500;600;700&display=swap");
 
 /* Body */
+
+.container {
+    display: flex;
+    margin-top: 10px;
+    margin-left: 20px;
+  
+}
+
 body,
 html {
     margin: 0;

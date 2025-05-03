@@ -33,7 +33,7 @@
                                             <div class="btn-cont">
                                                 <!-- text cont -->
                                                 <h2>Through</h2>
-                                                <a href="{{ route('Requests.ReviewRequest.AIReview')}}" class="btn"> HAKKEMGPT </a>
+                                                <a href="{{ route('chat.index')}}" class="btn"> HAKKEMGPT </a>
                                             </div>
                                         </div>
                                     </div>

@@ -12,9 +12,9 @@
             <p class="navigate">Home</p>
             </a>
 
-            <a href="{{route('Main_Pages.chat')}}">
+            {{-- <a href="{{route('Main_Pages.chat')}}">
             <p class="navigate">Chat</p>
-            </a>
+            </a> --}}
              
             {{-- <a href="#">
             <p class="navigate">Offers</p>

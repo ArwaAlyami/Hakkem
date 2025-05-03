@@ -16,7 +16,9 @@ use App\Http\Controllers\Admin\FM_Researcher;
 use App\Http\Controllers\ReviewerProfileController;
 use App\Http\Controllers\Reviewer\ReviewerController;
 use App\Http\Controllers\Admin\ReviewerRequestController;
+use App\Http\Controllers\ChatGPTController;
 use App\Http\Controllers\Feedback\FeedbackController;
+use App\Http\Controllers\Journal\ITController;
 use App\Http\Controllers\Promotion\PromotionController;
 use App\Http\Controllers\Researcher\ResearchController;
 use App\Http\Controllers\Reviewer\RequestController;
@@ -24,6 +26,9 @@ use App\Http\Controllers\Reviewer\ReviewerListController;
 use App\Http\Controllers\Reviewer\ReviewFormController;
 
 // ******* Main Pages Routes *********** //
+Route::get('/chat', [ChatGPTController::class, 'index'])->name('chat.index');
+Route::post('/chat/ask', [ChatGPTController::class, 'ask'])->name('chat.ask');
+Route::get('/chat/history', [ChatGPTController::class, 'history'])->name('history.index');
 
 Route::get('/', [MainPagesController::class, 'GetStarted'])->name('Get_Started');
 
@@ -48,7 +53,7 @@ Route::prefix('Auth')->as('admin.')->group(function () {
 Route::prefix('/')->middleware('auth')->as('Main_Pages.')->group(function () {
     Route::get('home', [HomeController::class, 'index'])->name('Home');
     Route::get('Profile', [ITAdminController::class, 'index'])->name('Profile');
-    Route::get('chat', [HomeController::class, 'chat'])->name('chat');
+ //   Route::get('chat', [HomeController::class, 'chat'])->name('chat');
     Route::get('Journals', [HomeController::class, 'Journals'])->name('Journals');
 
 });
@@ -81,7 +86,9 @@ Route::prefix('Requests')->middleware('auth')->as('Requests.')->group(function (
     Route::prefix('ReviewRequest')->as('ReviewRequest.')->group(function () {
         Route::get('Review_Options', [RequestsController::class, 'Review_Options'])->name('ReviewOptions');
         Route::get('Ind_Reviewer_Options', [RequestsController::class, 'Ind_Reviewer_Options'])->name('IndReviewerOptions');
+        
         Route::get('AI_Review', [RequestsController::class, 'AI_Review'])->name('AIReview');
+        
         Route::get('Through_Offers_Review', [RequestsController::class, 'Through_Offers_Review'])->name('ThroughOffersReview');
         Route::get('Through_Ind_Reviewer', [RequestsController::class, 'Through_Ind_Reviewer'])->name('ThroughIndReviewer');
     });
@@ -313,55 +320,18 @@ Route::post('/reviewer/requests/{id}/feedback', [RequestController::class, 'feed
 
 // ************************************ Journals Routers ******************************************* //
 
-// ************************************ Editor in Chief Routers ******************************************* //
+// ************************************ IT Admin Routes ******************************************** //
 
-Route::get('/Editors-profile', function () {
-    return view('Journals\Editor in Chief\MyProfile');
-});
+Route::prefix('JournalITAdmin')->as('JournalITAdmin.')->group(function () {
 
-Route::get('/publish-reqs', function () {
-    return view('Journals\Editor in Chief\Publish_Requests');
-});
+    Route::get('Profile', [ITController::class, 'Profile'])->name('Profile');
+    Route::get('ManageUsers', [ITController::class, 'ManageUsers'])->name('ManageUsers');
+    Route::get('CreateUser', [ITController::class, 'CreateUser'])->name('CreateUser');
+    Route::get('ManagePermissions', [ITController::class, 'ManagePermissions'])->name('ManagePermissions');
 
-Route::get('/Accepted', function () {
-    return view('Journals\Editor in Chief\Accepted-Request');
 });
 
-Route::get('/view-reqs', function () {
-    return view('Journals\Editor in Chief\Accept-Reject-Request');
-});
 
-Route::get('/choose-ed', function () {
-    return view('Journals\Editor in Chief\Choose-Ed');
-});
-
-Route::get('/feedback', function () {
-    return view('Journals\Editor in Chief\View-Feedback');
-});
-// ************************************ Associated Editor Routers ******************************************* //
-Route::get('/Associated-ed-profile', function () {
-    return view('Journals\Associated Editor\MyProfile');
-});
-
-Route::get('/rev-list', function () {
-    return view('Journals\Associated Editor\Reviewers_Lists');
-});
-
-Route::get('/list-of-revs', function () {
-    return view('Journals\Associated Editor\List-Of-Reviewers');
-});
-
-Route::get('/publish-req', function () {
-    return view('Journals\Associated Editor\Publish_Requests');
-});
-
-Route::get('/req-detail', function () {
-    return view('Journals\Associated Editor\Accepted-Request');
-});
-
-Route::get('/send-feed', function () {
-    return view('Journals\Associated Editor\Send-Feedback');
-});
 
 
 

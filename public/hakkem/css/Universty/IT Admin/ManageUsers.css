@@ -1,6 +1,11 @@
 @import url("https://fonts.googleapis.com/css2?family=Gravitas+One&family=Halant:wght@300;400;500;600;700&display=swap");
 
-
+.container1 {
+    display: flex;
+    margin-top: 10px;
+    margin-left: 20px;
+  
+  }
 
 .custom-pagination {
     display: flex;
@@ -196,10 +201,7 @@ body {
     background-color: #f8f8f8;
 }
 
-.container {
-    display: flex;
-    /* margin: 10px; */
-}
+
 
 
 /* تنسيق عام */

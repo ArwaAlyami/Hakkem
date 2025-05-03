@@ -4,8 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><MyProfileJournal></title>
+    <title>IT Admin Profile</title>
     <link rel="stylesheet" href="{{ asset('hakkem/css/Universty/IT Admin/MyProfile.css') }}" />
+    <link rel="stylesheet" href="{{ asset('hakkem/css/Sidebar.css') }}" />
 
 </head>
 
@@ -20,8 +21,8 @@
             <div class="nav">
                 <div class="nav-cont">
                     <a href="{{ asset('') }}" class="navigate">Home</a>
-                    <a href="chat.html" class="navigate">Chat</a>
-                    <a href="offers.html" class="navigate">Offers</a>
+                    {{-- <a href="chat.html" class="navigate">Chat</a>
+                    <a href="offers.html" class="navigate">Offers</a> --}}
                     <a href="journals.html" class="navigate">Journals</a>
                 </div>
             </div>
@@ -32,34 +33,16 @@
     </header>
     </div>
       <!--السايد بار-->
-      <aside class="sidebar">
-        <ul>
-            <li class="sidebar-item active">
-                <a href="#">
-                    <img src="{{ asset('hakkem/images/University/My-profile icon.png')}}" alt="Profile">
-                    My Profile
-                </a>
-            </li>
-            <li class="sidebar-item">
-                <a href="#">
-                    <img src="{{ asset('hakkem/images/University/Manage-users icon.png') }}" alt="Manage">
-                    Manage Users
-                </a>
-            </li>
 
-            <li class="sidebar-item">
-                <a href="#">
-                    <img src="{{ asset('hakkem/images/University/Sign-out icon.png') }}" alt="Sign Out">
-                    Sign Out
-                </a>
-            </li>
-        </ul>
-    </aside>
+      <div class="container">
+      
+      @include('include.itsidebar2')
+
     <!-- الكونتير للحقول-->
     <div id="dynamic-" class="fields-container">
-        <button class="Edit-button" id="editBtn">
+        {{-- <button class="Edit-button" id="editBtn">
             Edit
-        </button>
+        </button> --}}
 
         <!-- حقلين الاسماء-->
         <div class="input-row">
@@ -88,11 +71,12 @@
             </div>
         </div>
         <!-- الأزرار -->
-        <div class="buttons">
+        {{-- <div class="buttons">
             <button id="saveBtn" disabled>Save changes</button>
             <button id="cancelBtn" disabled>Cancel</button>
-        </div>
+        </div> --}}
     </div>
+</div>
 
    <!-- FOOTER -->
    <div class="center">
