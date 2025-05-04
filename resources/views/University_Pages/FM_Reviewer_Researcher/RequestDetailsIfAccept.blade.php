@@ -18,7 +18,7 @@
 <div class="container">
 
 <!-- ✅ الهيدر العلوي كـ بوكس -->
-<header class="page-header">
+    <header class="page-header">
     <div class="header-box">
         <h2>Request Details:</h2>
         <div class="request-info">
@@ -37,7 +37,7 @@
         <table>
             <thead>
                 <tr>
-                    <th>Research Number</th>
+                    <th>Research Number </th>
                     <th>Research Title</th>
                     {{-- <th>Price</th> --}}
                     <th>Full Research</th>

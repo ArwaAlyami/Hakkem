@@ -134,9 +134,8 @@
         </div>
 
         <div class="right">
-          <a href="#"><img src="{{ asset('hakkem/images/Header_Footer/ContactPhoneDark.png')}}" /></a>
-          <a href="#"><img src="{{ asset('hakkem/images/Header_Footer/Contact-Email_dark.png')}}" /></a>
-          <a href="#"><img src="{{ asset('hakkem/images/Header_Footer/Contact-X_dark.png')}}" /></a>
+          <a href="mailto:hakkemplatform@gmail.com" target="_blank"><img src="{{ asset('hakkem/images/Header_Footer/Contact-Email_dark.png')}}" /></a>
+          <a href="https://x.com/HakkemPlatform" target="_blank"><img src="{{ asset('hakkem/images/Header_Footer/Contact-X_dark.png')}}" /></a>
         </div>
 
 

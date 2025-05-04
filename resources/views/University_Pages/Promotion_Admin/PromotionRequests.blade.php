@@ -32,7 +32,16 @@
                                 <div class="col">
                                     <div class="buttons">
                                     <a href="{{ route('PromotionAccount.AcceptOrReject',$request->research->id)}}">  <button class="view">View Request</button></a> 
-                                    <a href="{{ $request?->media[0]?->original_url ?? '#' }}">  <button class="track">View Feedbacks</button></a>
+
+                                    {{--  request status appear here  --}}
+                                   {{-- {{$request->status_rev}} --}}
+                                    @if ($request->status_rev != 'rejected')
+                                        <a href="{{ $request?->media[0]?->original_url ?? '#' }}" target="_blank">  <button class="track">View Feedbacks</button></a>
+                                    @else
+                                       <button class="reject"> Rejected </button>
+                                    @endif
+
+
                                     </div>
                                 </div>
                                    

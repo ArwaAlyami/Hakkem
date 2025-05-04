@@ -29,7 +29,7 @@
             <a href="{{route('Main_Pages.')}}"><p class="navigate">Chat</p></a>
             <a href="{{route('Main_Pages.')}}"><p class="navigate">Offers</p></a> --}}
 
-            <a href="{{--route('Main_Pages.')--}}"><p class="navigate">Journals</p></a>
+            {{-- <a href="route('Main_Pages.')"><p class="navigate">Journals</p></a> --}}
             
           {{-- </div>
           <a href="{{route('Main_Pages.')}}"><img src="{{ asset('hakkem/images/Header_Footer/profile_dark.png') }}" class="profile"/></a>

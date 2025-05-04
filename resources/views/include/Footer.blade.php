@@ -23,9 +23,13 @@
         <p>© 2025 Hakkem. All Rights Reserved.</p>
       </div>
       <div class="right">
-        <img src="{{ asset('/hakkem/images/Header_Footer/Contact-Phone_light.png')}}" />
-        <img src="{{ asset('/hakkem/images/Header_Footer/Contact-Email_light.png')}}" />
-        <img src="{{ asset('/hakkem/images/Header_Footer/Contact-X_light.png')}}" />
+
+        {{-- <img src="{{ asset('/hakkem/images/Header_Footer/Contact-Phone_light.png')}}" /> --}}
+
+        <a href="mailto:hakkemplatform@gmail.com" target="_blank"><img src="{{ asset('/hakkem/images/Header_Footer/Contact-Email_light.png')}}" /></a>
+
+        <a href="https://x.com/HakkemPlatform" target="_blank"><img src="{{ asset('/hakkem/images/Header_Footer/Contact-X_light.png')}}" /></a>
+
       </div>
     </footer>
   </div>

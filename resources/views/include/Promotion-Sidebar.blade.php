@@ -18,7 +18,7 @@
         @can('list_view')
         <li>
             <img src="{{ asset('hakkem\images\University\Reviewers-Lists icons.png') }}" alt="Research">
-            <a href="{{ route('PromotionAccount.ReviewersLists')}}">Reviewer's Lists</a>
+            <a href="https://chatgpt.com/g/g-67f71a58308481919f4eafe14cb656b3-hakkem-reviewer" target="_blank">Reviewer's Lists</a>
         </li>
         @endcan 
 
