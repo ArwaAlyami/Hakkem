@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>AI and Healthcare</title>
+  <title>Review Form</title>
 
   <!-- ✅ مكتبات التحويل الخارجية -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
